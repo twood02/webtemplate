@@ -1,0 +1,217 @@
+---
+---
+
+$content-width:    900px;
+$background-color: #fff;
+
+@import "{{ site.theme }}";
+
+i, em {
+  font-weight: 400;
+}
+
+.site-header {
+  border-top: 8px solid #004065;
+ }
+
+.rounded-image {
+  border: 1px solid #0096d6;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: 5px;
+}
+
+.rounded-image-left {
+  @extend .rounded-image;
+  float: left;
+}
+.rounded-image-right {
+  @extend .rounded-image;
+  float: right;
+}
+
+body {
+  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight:200;
+  letter-spacing: 0px;
+  font-size: 16px;
+  // background-color: $background-color;
+}
+
+ /**
+  * Set `margin-bottom` to maintain vertical rhythm
+  */
+ h1, h2, h3, h4, h5, h6,
+ p, blockquote, pre,
+ ul, ol, dl, figure,
+ .highlight {
+   margin-bottom: 8px; }
+
+/**
+* Links
+*/
+a {
+ color: #0096d6;
+ text-decoration: none;
+ font-weight: 400;}
+a:visited {
+ color: #0096d6; }
+a:hover {
+ color: #004065;
+ text-decoration: underline; }
+.social-media-list a:hover {
+ text-decoration: none; }
+.social-media-list a:hover .username {
+ text-decoration: underline; }
+
+/** Code blocks and syntax highlighting. */
+.highlighter-rouge .highlight {
+ background: #f3fafd; }
+
+pre, code {
+  color: #222;
+  background-color: #f3fafd;
+
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 14px;
+  // border-color: #ecf8ff;
+}
+
+pre {
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  overflow: auto;
+  border-left: 4px solid #0096d6;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+code {
+  padding: 3px;
+  margin: 0 3px;
+  border: none;
+  // box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+pre code {
+  display: block;
+  box-shadow: none;
+}
+
+hr {
+	height: 6px;
+	background: url('../images/hr-11.png') repeat-x 0 0;
+    border: 0;
+  margin-top:16px;
+  margin-bottom: 16px;
+}
+
+/* Tables */
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: #004065;
+  padding-left: 15px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  font-style: normal;
+  background-color: #fdf7e2;
+  border-left: 4px solid #d60000;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+/* Lists */
+ul {
+  list-style-image:url("../images/bullet.svg")
+}
+
+/* Boostrap Helper Classes */
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+
+
+/* For captioned images (from https://superdevresources.com/image-caption-jekyll/) */
+.image-wrapper {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+      @extend .rounded-image;
+      margin:0;
+    }
+
+    .image-caption {
+        color: $grey-color;
+        font-size: 85%;
+    }
+}
+
+/* Even sized footer columns */
+.footer-col-1 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width:         calc(33% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width:         calc(33% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width:         calc(33% - (#{$spacing-unit} / 2));
+}
+
+/* Even sized double columns */
+.two-col-1 {
+  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+  width:         calc(50% - (#{$spacing-unit} / 2));
+}
+
+.two-col-2 {
+  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+  width:         calc(50% - (#{$spacing-unit} / 2));
+}
+
+
+ul.contact-list a {
+  color:$grey-color;
+  font-weight:200;
+}
