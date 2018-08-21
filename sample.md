@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Syllabus
-permalink: /syllabus/
+title: Sample Syllabus
+permalink: /sample/
 ---
-
-> Under construction....
 
 **Instructor:** [Prof. Tim Wood](:)
 **Email:** [timwood@gwu.edu](mailto:timwood@gwu.edu)
