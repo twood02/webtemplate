@@ -4,7 +4,7 @@ title: "Slides Example"
 permalink: /slides/
 ---
 <link type="text/css" rel="stylesheet" href="/assets/css/lightslider.min.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/assets/js/lightslider.min.js"></script>
 
 <script type="text/javascript">
