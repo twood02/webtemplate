@@ -13,8 +13,8 @@ layout: home
 </div>
 <div class="footer-col two-col-2">
     <ul class="contact-list">
-        <li>Prof. Lucas Chaufournier</li>
-        <li><a href="mailto:">TBD</a></li>
+        <li><a href="https://www.linkedin.com/in/lucas-ch"><b>Prof. Lucas Chaufournier</b></a></li>
+        <li><a href="mailto:lucaschaufournier@gmail.com">lucaschaufournier@gmail.com</a></li>
     </ul>
     </div>
 </div></div>
