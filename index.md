@@ -29,27 +29,21 @@ layout: home
 - This website is *very much* under construction.
 - Enrolled students should have received an email from Amazon about registering for the course. Search for the subject "Your AWS Educate Application" and complete the registration *before the first class!*
 
+## Class Resources ##
+ - [AWS Educate](https://www.awseducate.com) 
+ - [Slack Message Board](gwadvnet20.slack.com) - [Join here](https://join.slack.com/t/gwadvnet20/shared_invite/enQtODkxMjAwOTE3NTA4LWQ0ZWI0YzAyZjRmYTBmOThjYWEzNWQ2YjcxOGNlZWQzZmEyZDBkNzRlNTVlMTM4MjZlZTViZmM1MDIwNjU4MTc)
+ - [gwAdvNet20 GitHub Org](https://github.com/gwAdvNet20)
+
 ## Schedule  ##
 
 <div style="font-size:90%">
 
-| Week | Topic
+| Part 1: Networking | Materials
 |:---  |:--- |
-| Week 1 |  |
-| Week 2 |  |
-| Week 3 |  |
-| Week 4 |  |
-| Week 5 |  |
-| Week 6 |  |
-| Week 7 |  |
-| Week 8 |  |
-| Week 9 |  |
-| Week 10 |  |
-| Week 11 |  |
-| Week 12 |  |
-| Week 13 |  |
-| Week 14 |  |
-| Week 15 |  |
-| Week 16 |  |
+| Network Programming (1/14) | [Cloud 9 setup](/c9/) - [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) |
+| Server Scalability |  |
+| Performance Monitoring & Measurement | | 
+| Communication Frameworks | | 
+| High Performance Middleboxes | |
 
 </div>
