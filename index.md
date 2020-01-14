@@ -40,7 +40,7 @@ layout: home
 
 | Part 1: Networking | Materials |
 |:---  |:--- |
-| [Network Programming](/slides/1-network-programming.pdf) (1/14, 1/21) | [Cloud 9 setup](/c9/) - [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) - [tshark Exercise](/wiki/tshark) |
+| [Network Programming](/slides/1-network-programming.pdf) (1/14, 1/21) | [Day 1 Survey](https://forms.gle/jPAQtEpsTajsiC4y7) - [Cloud 9 setup](/c9/) - [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) - [tshark Exercise](/wiki/tshark) |
 | Server Scalability |  |
 | Performance Monitoring & Measurement | | 
 | Communication Frameworks | | 
