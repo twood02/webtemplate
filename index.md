@@ -38,12 +38,19 @@ layout: home
 
 <div style="font-size:90%">
 
-| Part 1: Networking | Materials
+| Part 1: Networking | Materials |
 |:---  |:--- |
-| Network Programming (1/14) | [Cloud 9 setup](/c9/) - [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) |
+| Network Programming (1/14, 1/21) | [Cloud 9 setup](/c9/) - [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) - [tshark Exercise](/wiki/tshark) |
 | Server Scalability |  |
 | Performance Monitoring & Measurement | | 
 | Communication Frameworks | | 
 | High Performance Middleboxes | |
+
+| Part 2: Distributed Systems | Materials
+|:---  |:--- |
+| Distributed Systems Basics | |
+| Scalable Application Development | |
+| Consensus and Consistency | | 
+| Cloud Service Management | | 
 
 </div>

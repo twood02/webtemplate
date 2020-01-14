@@ -7,33 +7,9 @@ permalink: /wiki/tshark
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/assets/js/lightslider.min.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-    $("#slider").lightSlider({
-        item: 1,
-        mode: "slide",
-        auto: false,
-        loop: false,
-        controls: true,
-        pager: true,
-    });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $("#slider2").lightSlider({
-        item: 1,
-        mode: "slide",
-        auto: false,
-        loop: false,
-        controls: true,
-        pager: true,
-    });
-});
-</script>
 
 
-While working with networked applications and distributed systems, it sometimes becomes to necessary to take a look at the network traffic for debugging. There are many tools that you can use to inspect network traffic but on this page we will discuss **tshark**. 
+While working with networked applications and distributed systems, it sometimes becomes to necessary to take a look at the network traffic for debugging. There are many tools that you can use to inspect network traffic but on this page we will discuss **[tshark](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)**. 
 
 **tshark** is a CLI included with the wireshark package that allows you to apply filters and view incoming and outgoing traffic on your machine. You can also install tshark as a standalone tool using your package manager on ubuntu.
 
