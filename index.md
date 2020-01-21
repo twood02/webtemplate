@@ -20,7 +20,9 @@ layout: home
 </div></div>
 
 >  The course will be a hands-on introduction to networking, distributed systems, and cloud computing.  The course will be fairly programming intensive (group projects) and you might need to pick up some new languages along the way (C, java, python, and go). <br>
-> Undergraduates are recommended to have taken Operating Systems and Graduate students should have taken Distributed Systems. Priority will be given to students with this background, but others will be allowed in if space permits. [Fill out this form if you are interested](https://forms.gle/6e6tvfNCzyDzoHjy6). (*Currently no space is available*) <br>
+
+<!-- > Undergraduates are recommended to have taken Operating Systems and Graduate students should have taken Distributed Systems. Priority will be given to students with this background, but others will be allowed in if space permits. [Fill out this form if you are interested](https://forms.gle/6e6tvfNCzyDzoHjy6). (*Currently no space is available*) <br> -->
+
 > The course will be co-taught by Prof. Tim Wood and Lucas Chaufournier (GW CS class of 2015) to give a mix of perspectives from academia and industry.
 
 

@@ -10,7 +10,7 @@ In this project, you will build a simple reliable transport protocol known as re
 There are a variety of ways to ensure a message is reliably delivered from a sender to a receiver. We will provide you with a reference implementation of a receiver (which you must use) that returns a cumulative ACK whenever it receives a data packet. This is further explained with an example later. Your job is to implement a sender that, when sending packets to this receiver, achieves reliable delivery. For extra credit, you may choose to implement one of several performance improvements which are described below.
 
 <blockquote>
-[Create your repository for this project here](https://classroom.github.com/g/HQKgnlL9). Each team will work in a single repository.
+[Create your repository for this project here](https://classroom.github.com/g/HQKgnlL9). One member should Create the team, the other should join. Be sure you join the correct team!
 
 **Requirements:** 
   - Build a reliable UDP client as described below. The client must work correctly with the provided server.
