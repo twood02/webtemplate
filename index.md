@@ -31,7 +31,7 @@ layout: home
 
 ## Class Resources ##
  - [AWS Educate](https://www.awseducate.com) 
- - [Slack Message Board](gwadvnet20.slack.com) - [Join here](https://join.slack.com/t/gwadvnet20/shared_invite/enQtODkxMjAwOTE3NTA4LWQ0ZWI0YzAyZjRmYTBmOThjYWEzNWQ2YjcxOGNlZWQzZmEyZDBkNzRlNTVlMTM4MjZlZTViZmM1MDIwNjU4MTc)
+ - [Slack Message Board](https://gwadvnet20.slack.com) - [Join here](https://join.slack.com/t/gwadvnet20/shared_invite/enQtODkxMjAwOTE3NTA4LWQ0ZWI0YzAyZjRmYTBmOThjYWEzNWQ2YjcxOGNlZWQzZmEyZDBkNzRlNTVlMTM4MjZlZTViZmM1MDIwNjU4MTc)
  - [gwAdvNet20 GitHub Org](https://github.com/gwAdvNet20)
 
 ## Schedule  ##
