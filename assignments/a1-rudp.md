@@ -4,12 +4,23 @@ title:  Assignment 1 Reliable UDP
 permalink: /assignments/reliable-udp
 ---
 
-# Assignment 1: Reliable UDP
-
 
 In this project, you will build a simple reliable transport protocol known as reliable udp (rudp). Your protocol must provide in-order, reliable delivery of UDP datagrams, and must do so in the presence of packet loss, delay, corruption, duplication, and re-ordering.
 
 There are a variety of ways to ensure a message is reliably delivered from a sender to a receiver. We will provide you with a reference implementation of a receiver (which you must use) that returns a cumulative ACK whenever it receives a data packet. This is further explained with an example later. Your job is to implement a sender that, when sending packets to this receiver, achieves reliable delivery. For extra credit, you may choose to implement one of several performance improvements which are described below.
+
+<blockquote>
+[Create your repository for this project here](https://classroom.github.com/g/HQKgnlL9). Each team will work in a single repository.
+
+**Requirements:** 
+  - Build a reliable UDP client as described below. The client must work correctly with the provided server.
+  - Work in a group of 2. Groups of 3 are allowed only with permission of the instructor and will be required to complete at least one of the extra features.
+  - If you are a graduate student, your program must be written in a language other than python (but you still must follow all protocol requirements).
+  - Undergraduates can build their solution on top of the provided python example code or use a different language.
+  - As always, your code must be your own. You may *not* search the internet for existing implementations of reliable UDP protocols.
+
+**Deadline:** February 2nd, 11:59pm
+</blockquote>
 
 # The Reliable UDP Protocol 
 Our simple protocol has four message types: `start`, `end`, `data`, and `ack`. `start`, `end`, and
@@ -75,8 +86,9 @@ We will evaluate your sender on correctness, time of completion for a transfer, 
 To begin with, just focus on the simple case where nothing bad ever happens to your packets. After you have that case working, you can consider how to handle packet loss. It may help to build your way up to a full-fledged reliable sender. The simplest reliable transport mechanism is “Stop-And-Go”, in which the sender transmits a single packet and waits for the receiver to acknowledge receiving it before transmitting more. You could start by building a “Stop-And-Go” sender, and extending that for the full sliding window based sender. 
 
 # Bells and Whistles (Extra Credit)
-Some of these may require modifying the provided receiver implementation; if you choose to do
-one, please make sure to provide your receiver implementation with your submission.
+Some of these may require modifying the provided receiver implementation; if you choose to do one, please make sure to provide your receiver implementation with your submission.
+
+> Groups with size of 3 must complete at least one of these extra features.
 
 
 _*Variable size sliding window*_: For networks where packet loss, corruption, delay, and reordering are minimal, a large window size will obtain higher performance. A large window on a lossy network, however, will lead to a large amount of overhead due to retransmissions. Modify your sender to dynamically adjust its window size based on network conditions.
@@ -96,9 +108,10 @@ augment `rudp` to address that problem and outperform TCP. Describe and implemen
 
 # README
 You must also supply a README.txt file along with your solution. This should contain
-(1) You (and your partner’s) names
-(2) What challenges did you face in implementing your sender?
-(3*) Name the extra credit options you implemented; describe what they do and how they work.
+  1. You and your partner’s names
+  2. What challenges did you face in implementing your sender? **If any part of your assignment does NOT work you should describe that here.**
+  3. Instructions for installing any extra packages required to run your solution on cloud9.
+  4. (optional) Name the extra credit options you implemented; describe what they do and how they work.
 
 
 # What To Turn In
@@ -106,3 +119,5 @@ Github classroom will capture your latest commit automatically on the due date. 
 
 # Setting up your github repo
 To get access to the starter code please click on the provided link. This will prompt you to provide a team name which will be used to create your repo. You can add collaborators to your repo to work in groups. Repository code is [here](https://classroom.github.com/g/HQKgnlL9). 
+
+> **Acknowledgements:** This project is based on an assignment from EE 121 at UC Berkeley by Soctt Shenker.
