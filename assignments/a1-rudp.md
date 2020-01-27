@@ -4,6 +4,10 @@ title:  Assignment 1 Reliable UDP
 permalink: /assignments/reliable-udp
 ---
 
+<blockquote>
+**UPDATES:**
+  - The description below asks you to use Python 3, but unfortunately our starter code uses python 2 conventions :(  If someone makes a script or submits a PR to update our repository to python 3 we will give you extra credit!
+</blockquote>
 
 In this project, you will build a simple reliable transport protocol known as reliable udp (rudp). Your protocol must provide in-order, reliable delivery of UDP datagrams, and must do so in the presence of packet loss, delay, corruption, duplication, and re-ordering.
 
