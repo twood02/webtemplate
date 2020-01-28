@@ -6,8 +6,6 @@ permalink: /forensics/index.html
 
 You have been hired to perform forensic analysis for Anarchy-R-Us Inc, a company that believes it has been hacked by a rogue employee, Ann Dercover. 
 
-> These problems are mirrored from the [LMG Network Forensics Puzzle Contest](http://forensicscontest.com). They have been copied here to ensure they remain accessible for students in this class.
-
 ## Stage 0: Snooping Browsers
 
 To warm up your investigative skills, we captured packet traffic on one of our webserver's to snoop on clients that are fetching files from our server. We captured a trace for a few minutes and recorded several clients downloading files. You are the forensic investigator. Your mission is to investigate the IP addresses below and figure out what they browsed. 
@@ -48,6 +46,9 @@ For a given IP address, you should figure out:
 [Here is your evidence file](evidence05.pcap).  You can download it to Cloud9 with: 
 
 `wget https://gwadvnet20.github.io/forensics/evidence05.pcap`
+
+> These problems are mirrored from the [LMG Network Forensics Puzzle Contest](http://forensicscontest.com). They have been copied here to ensure they remain accessible for students in this class.
+
 
 ## Stage 1: Illicit Messaging
 
