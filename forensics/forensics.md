@@ -47,7 +47,11 @@ For a given IP address, you should figure out:
 
 `wget https://gwadvnet20.github.io/forensics/evidence05.pcap`
 
-> These problems are mirrored from the [LMG Network Forensics Puzzle Contest](http://forensicscontest.com). They have been copied here to ensure they remain accessible for students in this class.
+---
+
+> The problems below are mirrored from the [LMG Network Forensics Puzzle Contest](http://forensicscontest.com). They have been copied here to ensure they remain accessible for students in this class.
+
+---
 
 
 ## Stage 1: Illicit Messaging
