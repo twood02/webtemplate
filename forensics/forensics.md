@@ -8,6 +8,47 @@ You have been hired to perform forensic analysis for Anarchy-R-Us Inc, a company
 
 > These problems are mirrored from the [LMG Network Forensics Puzzle Contest](http://forensicscontest.com). They have been copied here to ensure they remain accessible for students in this class.
 
+## Stage 0: Snooping Browsers
+
+To warm up your investigative skills, we captured packet traffic on one of our webserver's to snoop on clients that are fetching files from our server. We captured a trace for a few minutes and recorded several clients downloading files. You are the forensic investigator. Your mission is to investigate the IP addresses below and figure out what they browsed. 
+
+### IP Addresses
+
+```
+172.17.0.1
+172.17.0.2
+172.17.0.3
+172.17.0.4
+172.17.0.5
+172.17.0.6
+172.17.0.7
+172.17.0.8
+172.17.0.9
+172.17.0.10
+172.17.0.11
+172.17.0.12
+172.17.0.13
+172.17.0.14
+172.17.0.15
+172.17.0.16
+172.17.0.17
+172.17.0.18
+172.17.0.19
+172.17.0.20
+172.17.0.21
+```
+
+For a given IP address, you should figure out:
+
+1. What is the name of the text files they downloaded?
+2. What is in the content of each of the text files?
+3. What is the name of the images they downloaded?
+4. What is the content of each image?
+
+[Here is your evidence file](evidence05.pcap).  You can download it to Cloud9 with: 
+
+`wget https://gwadvnet20.github.io/forensics/evidence05.pcap`
+
 ## Stage 1: Illicit Messaging
 
 
