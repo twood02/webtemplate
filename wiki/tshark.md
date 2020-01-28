@@ -123,3 +123,11 @@ When working with api's and backend endpoints, you may want to filter packets ba
 ```
 tshark -Y 'http.request.method == "GET"' -x
 ```
+
+#### Using a trace file
+
+Instead of observing live traffic, you can also use `tshark` to analyze packets stored in a trace.  Packet traces are typically stored in `pcap` format. To analyze a trace file use:
+
+```
+tshark -Y 'http.request.method == "GET"' -x -r file.pcap
+```
