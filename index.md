@@ -39,7 +39,7 @@ layout: home
 
 | Part 1: Networking | Materials |
 |:---  |:--- |
-| [Network Programming](/slides/1-network-programming.pdf) | **1/14/20:** [Day 1 Survey](https://forms.gle/jPAQtEpsTajsiC4y7) - [Cloud 9 setup](/c9/) <br> **1/21/20:** [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) (submit PR by 1/27) <br> **1/28/20:** [tshark Wiki](/wiki/tshark)- [Forensics Exercise](/forensics/) <br> **Videos:** [LAN Routing](https://youtu.be/XP61HtbGPbA) - [How DNS Works](https://youtu.be/S8G63sJPPj0) - [HTTP Basics](https://youtu.be/LZJNj-HHfII) - [OSI and TCP Models](https://youtu.be/i9RL5jD9cTI) <br> **Assignments:** [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) due 1/27/20, [Reliable UDP](/assignments/reliable-udp) due 2/2/20 |
+| [Network Programming](/slides/1-network-programming.pdf) | **1/14/20:** [Day 1 Survey](https://forms.gle/jPAQtEpsTajsiC4y7) - [Cloud 9 setup](/c9/) <br> **1/21/20:** [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) (submit PR by 1/27) <br> **1/28/20:** [tshark Wiki](/wiki/tshark)- [Forensics Exercise](/forensics/) <br> **Videos:** [LAN Routing](https://youtu.be/XP61HtbGPbA) - [How DNS Works](https://youtu.be/S8G63sJPPj0) - [HTTP Basics](https://youtu.be/LZJNj-HHfII) - [OSI and TCP Models](https://youtu.be/i9RL5jD9cTI) <br>**Our Videos:** [TCP Reliability](https://expl.ai/YHVVJHG)<br> **Assignments:** [HelloInternet Exercise](https://github.com/gwAdvNet20/HelloInternet) due 1/27/20, [Reliable UDP](/assignments/reliable-udp) due 2/2/20 |
 | Server Scalability |  |
 | Performance Monitoring & Measurement | | 
 | Communication Frameworks | | 
