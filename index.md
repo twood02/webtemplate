@@ -20,13 +20,12 @@ layout: home
 </div></div>
 
 >  The course will be a hands-on introduction to networking, distributed systems, and cloud computing.  The course will be fairly programming intensive (group projects) and you might need to pick up some new languages along the way (C, java, python, and go). <br>
-> The course will be co-taught by Prof. Tim Wood and Lucas Chaufournier (GW CS class of 2015) to give a mix of perspectives from academia and industry.
+> The course will be co-taught by Prof. Tim Wood and Lucas Chaufournier (GW CS class of 2015, now at Capital One) to give a mix of perspectives from academia and industry.
 
 
 
 ## Announcements ##
-- This website is *very much* under construction.
-- Enrolled students should have received an email from Amazon about registering for the course. Search for the subject "Your AWS Educate Application" and complete the registration *before the first class!*
+- The [Reliable UDP](/assignments/reliable-udp)  Assignment is due Sunday 2/2 at 11:59PM
 
 ## Class Resources ##
  - [AWS Educate](https://www.awseducate.com) 
