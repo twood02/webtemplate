@@ -70,6 +70,8 @@ You will be graded on both the quality of your material and the quality of your 
 
 Your post is likely to be composed of multiple files (one Markdown file, plus images and possibly code files). You should include all of these files in your folder in a well organized manner.
 
+For an example, consider Julia Evans' [writeup on using Wireshark](https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for/).
+
 
 ## What To Turn In
  - A blog post for the class made via pull request into the class website.
