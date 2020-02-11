@@ -19,7 +19,9 @@ Client:
   - [ ] Accepts hostname and port as command line arguments
   - [ ] Prints useful error on invalid arguments
   - [ ] Includes *useful* comments, no extraneous commented out code, etc
-
+  - [ ] No dead code. Excess code that is never run should be removed.
+  - [ ] No excess console output.
+  
 General:
   - [ ] Readme explains socket API *clearly*
   - [ ] Readme includes student names

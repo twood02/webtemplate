@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Assignment 2: Technical Blogging"
-permalink: /assignments/technical-blog
+permalink: /assignments/technical-blog/
 ---
 
 
