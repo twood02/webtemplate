@@ -12,7 +12,7 @@ Install instructions:
 python -m pip install jupyter numpy scipy pandas matplotlib seaborn
 
 # run jupyter on port 8080 (open on cloud9)
-ipython3 notebook --ip=0.0.0.0 —port=8080 --no-browser
+ipython3 notebook --ip=0.0.0.0 --port=8080 --no-browser
 
 # Get IP from C9 Share menu and use browser to go to http://IP:8080/?token=XXXXX
 ```
