@@ -83,4 +83,30 @@ ssh -N -L 8080:inside-server:80 username@jumphost.domain.com
 There is one key difference from the previous example, that localhost is not requested on the remote server
 - Now, `inside-server:80` (http traffic) is requested whenever we request `localhost:8080` on our **local** computer browser
 
+## Final Example - *Reverse* Tunneling
+This example is a little more convoluted than the previous two, and perhaps more widely used.
 
+Imagine you work at a company that gives you access to a server inside a private network like the one previously described (with a jump box).
+- The server has complete access on ports 80, 443 and 22 to the outside world, for regular web and ssh traffic
+- The server cannot be accessed remotely with a public IP address
+- Your company doesn't give you access to the jump server as in the previous example. What do you do?
+
+Use reverse tunneling with ssh! Let's look at this example, where we're on `inside-server`
+```sh
+ssh -N -R 23400:localhost:22 aws
+```
+
+- Here, there is one big distinction, the `-R` flag, which stands for `remote`
+- A secure channel is set up from `inside-server` to the `aws` instance far away and outside the private network
+
+To connect, go to the `aws` server and connect to port `23400`
+```sh
+ssh <inside-server username>@localhost:23400
+```
+
+What is essentially happening is you are making an ssh connection to `inside-server` from `aws`
+
+This would not have been possible before because `inside-server` doesn't have a public IP!
+
+### Conclusion
+These are some of the really cool things that ssh allows you to do. SSH is secure, configurable, and available in some version on almost every machine. This allows you to develop all your software in the "cloud". Almost none of it will stay persistent on your machine! This is incredibly useful for server development, remote network configuration, and much more!
