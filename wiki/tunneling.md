@@ -15,6 +15,10 @@ How to set up SSH Tunnels to connect networks together.
 #### SSH Tunnels
 
 First thing's first, what is SSH? SSH stands for Secure Shell (protocol). "Secure" in this setting means protected opposed to "reliable". Secure tunnels via `ssh` encrypt traffic coming out of network for quick and secure application access. Many services such as VPNs, legacy applications, and intranet communication use ssh tunnels to encrpyt and send arbitrary data through a network.
+SSH consists of three major levels 
+1) Transport Layer Protocol - provides authentication and confidentiality 
+2) User Authentication Protocol - does exactly what it sounds like, and authenticates the user to the server
+3) Connection Protocol - distributes the encrypted tunnel to multiple channels 
 
 Why might ssh tunnels be used? Here are a few examples:
 - A firewall is blocking traffic in or out of the network on a specific port
@@ -28,11 +32,11 @@ How secure are these tunnels? SSH allows you to configure the encryption standar
 
 The massive configurability of ssh is very useful, and the top encryption algorithms have been deemed very secure in the community.
 
-##A Brief History of SSH
-Just as crucial to understanding what and how something works is the why is was created. What problem was SSH trying to solve? In 1995, Finland's Tatu Ylonen was conducting research for the Helsinki University of Technology when his network was attacked by a pssword sniffer. This lead Ylonen to build the first version of SSH (SSH-1) in an attempt to replace the vulnerable and exposed protocols of the time (TELNET, FTP, rlogin). Ylonen when on to found SSH Communications Security which continued to develop and market the protocol as it became more mainstream.
+## A Brief History of SSH
+Understanding the why behind something is just as important as understanding the what and how. Why was SSH created, what problem was SSH trying to solve? In 1995, Finland's Tatu Ylonen was conducting research for the Helsinki University of Technology when his network was attacked by a password sniffer. This lead Ylonen to build the first version of SSH (SSH-1) in an attempt to replace the vulnerable and exposed protocols of the time (TELNET, FTP, rlogin). Ylonen went on to found SSH Communications Security which continued to develop and market the protocol as it became more mainstream.
 
-##What's different about SSH?
-So what makes SSH secure? SSH was the first protocol to encrypt the data it tranfers. Older protocols would just send the raw data over the line allowing adversaries to read any or all of the data, just as the sniffer did at Helsi University. This isn't an encryption blog, so we won't go into much detail into how the encryption ensures protection of the data, but we will explain a little bit about how SSH implements it in order to be the "Secure Shell" it is. SSH is a client-server protocol, meaning it is on the client to initiat a connection. The server will always be listening on the designated port (usually port 22), once the client reaches out both ends agree upon how they will secure the connection (which encryption algorithm they'll be using). This initial communication is secured by using a public key to authenticate the server to the client. With the encryption standard agreed upon, future communication will be encrypted and therefor protected from any adversary listening in on the commuincation. After this initial connection, the client will only need to provide their credentials for the server to authenticate and re-establish the connection. The examples below will demostrate some of the power/uses SSH provides users by providing a secure way to communicate to a server. 
+## What's different about SSH?
+So what makes SSH secure? SSH was the first protocol to encrypt the data it tranfers. Older protocols would just send the raw data over the line allowing adversaries to read any or all of the data, just as the sniffer did at Helsi University. This isn't an encryption blog, so we won't go into much detail into how the encryption ensures protection of the data, but we will explain a little bit about how SSH implements it in order to be the "Secure Shell". SSH is a client-server protocol, meaning it is on the client to initiate a connection. The server will always be listening on the designated port (usually port 22), and once the client reaches out both ends agree upon how they will secure the connection (which encryption algorithm they'll be using). This initial communication is secured by using a public key to authenticate the server to the client. With the encryption standard agreed upon, future communication will be encrypted and therefor protected from any adversary listening in on the commuincation. After this initial connection, the client will only need to provide their credentials for the server to authenticate and re-establish the connection. The examples below will demostrate some of the power/uses SSH provides users by providing a secure way to communicate to a server. 
 
 ## Example of Port Forwarding
 <img src="/wiki/tunneling/forward.png">
@@ -118,3 +122,11 @@ This would not have been possible before because `inside-server` doesn't have a 
 
 ### Conclusion
 These are some of the really cool things that ssh allows you to do. SSH is secure, configurable, and available in some version on almost every machine. This allows you to develop all your software in the "cloud". Almost none of it will stay persistent on your machine! This is incredibly useful for server development, remote network configuration, and much more!
+
+## Resources/ Suggested Links
+https://www.ssh.com/ssh/protocol#strong-authentication-with-ssh-keys
+https://en.wikipedia.org/wiki/Secure_Shell
+https://tools.ietf.org/html/rfc4251#ref-SSH-CONNECT
+
+Resources on Encryption
+https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
