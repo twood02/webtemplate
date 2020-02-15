@@ -131,4 +131,5 @@ https://en.wikipedia.org/wiki/Secure_Shell
 https://tools.ietf.org/html/rfc4251#ref-SSH-CONNECT
 
 Resources on Encryption
+
 https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
