@@ -58,7 +58,17 @@ Since this a pretty common operation, let’s look at an example. Say we have th
 
 * *Promise.settled()*: The code defined by the function is executed when every promise is finished (whether they are resolved/rejected doesn’t matter) 
 * *Promise.race()*: This occurs as soon as one associated promise is resolved. 
-It’s difficult to see where this would really be useful, but one example would be for performance testing. If we had three processes and wanted to know which one was the fastest, we could use Promise.race() to find out. 
+It’s difficult to see where this would really be useful, but one example would be for performance testing. If we had three processes and wanted to know which one was the fastest, we could use Promise.race() to find out.
+
+Promises are just one method for enhancing asynchronous programming in JavaScript. We hope you now understand the benefits of using promises over callbacks and how promises are implemented. However, developers haven't stopped there. Because of the prominence of asynchronous programming in web development, new methods are always being created and tested('async-await'). In the meantime, we *promise* that promises will serve you well!
+
+**Sources** 
+* https://guide.freecodecamp.org/javascript/callback-functions/
+* https://medium.com/codingthesmartway-com-blog/async-programming-with-javascript-callbacks-promises-and-async-await-980e3f144185
+* https://medium.com/better-programming/callbacks-vs-promises-in-javascript-1f074e93a3b5
+* https://howtocreateapps.com/what-is-callback-hell-with-javascript-examples/
+* https://www.freecodecamp.org/news/promise-all-in-javascript-with-example-6c8c5aea3e32/
+
 
 
 
