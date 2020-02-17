@@ -29,7 +29,7 @@ So, what actually is a Promise? Just like it sounds, it’s used to ensure -- or
 
 It’s important to note that once rejected, a promise can never be resolved and vice-versa. Once resolved/rejected, a promise goes directly to being settled, and can never be re-activated. Maybe a state diagram would help:
 
-![/images/StateDiagram.jpg](/images/StateDiagram.jpg)
+![/images/StateDiagram.jpg](/wiki/Promises/images/StateDiagram.jpg)
 
 Since there are really only two results/actions associated with a Promise, when we create a Promise object, we pass in the resolve and reject methods. Later, we use the Promise.then() and .catch(), which define what to do when the Promise is resolved or rejected, respectively. 
 
