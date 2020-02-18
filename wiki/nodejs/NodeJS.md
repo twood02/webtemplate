@@ -10,55 +10,85 @@ permalink: /wiki/nodejs/
 A short description of your post goes here.
 
 ---
-
 # Setup Environment
 
 # Intro of Node.js
 
 ## How Node.js execute Javascript Program?
 
-# Is Node.js really a single-threaded architecture?
+# Single-threaded Architecture
+This tutorial assume you are familar with the term-callback before. If you don't know callback before. There is a quick demo show you how async programming works.
+> A callback is a function called at the completion of a given task.
 
-Now we have a clear mind about what Node.js is. Is Node.js really single-threaded:question: It seems confusing because JavaScript is laying on top of c++, which is multi threaded and how Node.js respons to concurrent requests efficiently. For example, if there is a request to download 10GB text file, the thread will be blocked until the work is done.
-> Concurrent Processing: A sequence of requests will be performed interleaved (ping-pong).
+Let's take a look at the sequence of the code is executed.
+```javascript
+console.log('Hi! This is a demo of async programming.');
+setTimeout(() -> {
+    console.log("Hello from callback of set time out!")
+}, 5000);
+console.log("Set time out is not blocked!");
+```
+*[chart - function call in the stack]*
+JavaScript is a single thread language which means it can only do one thing at a time. How does Node responde to concurrent requests? Let's go through a simple scenerio: server is responding to a sequential `connect()` requests, but no data transimission appear.
+The traditional server architecture performs like this:
+*[chart-multithreaded architecture]*
+```javascript
+const http = require('http');
+//bind()
+//listen()
+//accept()
+```
+Node single threaded architecture performs like this:
+*[chart-singlethreaded architecture]*
+When the task is completed, there is a **callback** pushed into queue waiting for processing.
 
-In Node.js there are two types of threads: **one Event loop (main thread)**, and **thread pool**.
+## But how...?
+You can see that Node works quite well when it comes to handling I/O operations asynchronously. You might have some questions in mind.
+> "I/O" primarily refers to interaction with system's disk and network.
 
-## What is Event Loop?
+- Who will handle blocking I/O tasks?
+Node will offload the jobs to **kernel**. Node take advantage of the fact that modern operating systems’ kernels are multi-threaded. It seems like what the Node does is to tell the kernel,"what I am interested in", and "please tell me when you are done".
+- How does Node know that which time to handle callbacks?
+Once the I/O task is finished, the callback will be pushed into a callback queue instead of executing the callback right away.
 
-Apparently event loop is a semi-infinite `while` loop, running in the main thread. Why Node has a event loop :question: Event loop is what allows Node.js, as an async platform, to perform non-blocking I/O operations.
-> "I/O" primarily refers to interaction with system's disk and network supported by `libuv`.
+But how? Specifically, Node asks a friend, [**`libuv`**](http://docs.libuv.org/en/v1.x/api.html), to help Node manage async I/O operations.
 
-[wrap into a graph]For example, server side socket establishes a reliable connection with a client socket using `accept()`. But there have not any data that transfer between them. What the event loop does is to ask OS to inform socket when the data is ready.
+## Say Hello to Event Loop
 
-Who will handle this job? Node.js will offload the jobs to kernel. Node.js has a collection of **file descriptors** that it asks the OS to monitor, using a mechanism, like `epoll` in Linux. It seems like what the Node.js does is to tell the kernel,"what I am interested in", "when the events happened please tell me.".
+Event loop takes care of polling for I/O and scheduling callbacks to be run based on different sources of events. Apparently event loop is a semi-infinite `while` loop, running inside function `int uv_run()` and in the main thread.
+
+Continue on previous question... How `libuv` tells kernel what I am interested in? Library `libuv` has a collection of **file descriptors** that it asks the OS to monitor, using a polling mechanism, like `epoll` in Linux. 
 
 > OS typically provides event notification interfaces for asynchronous I/O (epoll in linux, kqueue in macOS, IOCP in Windows etc.).
 
 Because of this mechanism, i.e., OS does job without back and forth threads, it happens in the main thread, the single thread. Once the job is done, OS will signal the event loop and then event loop invokes the **callbacks** associated with the event and appends them into the event queue. 
 
-> A callback is a function called at the completion of a given task.
+*need chart to illustrate - even of A socket has data ready to be read*
 
-*need code to illustrate*
+### A closer look
 
-### Event Loop Explained
+You are definitely interested in what will be iterated inside each loop. Each iteration will go through 7 phases
 
-For each iteration, Node will go through several phases.
+[chart-detailed stages of event loop]
+#### Timers
+This phase executes callbacks scheduled by `setTimeout()` and `setInterval()`. Timers callbacks will be executed as early as the specified amount of time has passed; however, Operating System scheduling or the running of other callbacks may delay them.
 
-[chart]
+#### Poll
+Poll phase retrieves new I/O events; executes I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and `setImmediate()`)
 
-- **timers**: this phase executes callbacks scheduled by `setTimeout()` and `setInterval()`.
-- **pending callbacks**: executes I/O callbacks deferred to the next loop iteration.
+- **pending callbacks**: If the *previous* iteration deferred any I/O callback it will be run at this point.
 - **idle, prepare**: only used internally.
 - **poll**: retrieve new I/O events; execute I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and `setImmediate()`); node will block here when appropriate.
 - **check**: `setImmediate()` callbacks are invoked here.
 - **close callbacks**: some close callbacks, e.g. `socket.on('close', ...)`.
 
-## When is Node multi-threaded?
-Node.js (`libuv`) offers a pre-allocated thread pool with a default size of 4. Will the number of threads expand❓The default size of the pool can be overridden by setting the environment variable UV_THREADPOOL_SIZE. The thread pool is responsible for blocking `I/O` operations and CPU intensive tasks. For example, `crypto` module make use of thread pool.
+## Is Node single-threaded?
+Actually NOT really! Node provides two types of threads: **event loop (main thread)**, and **thread pool**, both of them provided by `libuv`. Node.js (`libuv`) offers a pre-allocated thread pool with a default size of 4. The default size of the pool can be overridden by setting the environment variable `UV_THREADPOOL_SIZE`. The thread pool is responsible for blocking `I/O` operations and CPU intensive tasks. For example, `crypto` module make use of thread pool.
 
-*need code to illustrate `dns.lookup()`* 
+*need code to illustrate `dns.lookup()` or `getaddrinfo()`* 
 
 
 # Summary
+In summary, Node is not single threaded. Node provides two types of threads: **event loop (main thread)**, and **thread pool**, both of them provided by `libuv`.
+# Reference
 
