@@ -29,7 +29,7 @@ For example, if a user located in Singapore makes a request to a web server in C
 For the purpose of this blog I have created two sites. One hosted on CloudFront and the other on a regular S3. S3 is a service offered by AWS 'that provides object storage through a web service interface.' In other terms it is where our two sites are going to be hosted.
 
 [Cute Corgi site hosted on S3](http://bendogpicture.s3-website-ap-southeast-1.amazonaws.com/)
-[Cute Tea Cup cat site hosted on CloudFront](https://d215c86u32gb7k.cloudfront.net/)
+[Cute Tea Cup cat site hosted on CloudFront](http://d14mfeaqszawbm.cloudfront.net/)
 
 Note: I created the buckets in Singapore and I am running our network speed tests in Washington DC. Why did I choose Singapore? Well it is pretty far away so hopefully we should be able to see some considerable performance benefits with CloudFront.
 
