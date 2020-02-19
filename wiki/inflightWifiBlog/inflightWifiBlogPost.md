@@ -1,12 +1,10 @@
 ---
 layout: page
-title:  In-Flight Wifi Blog
+title:  In-Flight Wifi
 permalink: /wiki/inflightWifiBlog/
 ---
 
-*by:* Katie Bramlett and Sreya Nalla
-
-<br/>
+*by:* Katie Bramlett and Sreya Nalla<br/>
 
 **How exactly does wifi work on your airplane 35,000+ feet in the air? Here's a look at exactly how in-flight wifi keeps you connected to the world below.**
 
@@ -16,20 +14,19 @@ We'll discuss the basics of in-flight wifi, ground-based and satellite operating
 
 Have you ever stopped to consider exactly how an e-mail or streaming video gets into your smartphone or tablet when you're cruising thousands of feet in the air? That's WiFi in action. When any two devices or machines need to communicate with each other, they need certain standards and protocols to be defined such that they are now able able to communicate. WiFi is that set of standards that defines communication for wireless computer networks. WiFi functions by using radio frequencies to send signals between devices. This radio frequency is different from that of your average walky talkie, car radio or weather radio, as WiFi transmits and receives data in the Gigahertz range.
 
-### So, what do this mean?
+### So, what does this mean?
 To break it down a little further, Hertz is only a measure of frequency. Let's say you were sititng by the ocean watching the wave roll in. If you were to count the number of seconds that passes between each wave, you'd be measuring the frequency of each wave. So, if 1 second were to pass between two waves, the wave frequency would be 1 Hz, or one cycle per second. In order to receive any information that is being send between these waves, the receiver needs to be set on a frequency that can read this incoming information at the correct rate. 
 
 For WiFi, this frequency happens to be 2.5 Ghz or 5 Ghz (similar to that of a microwave!). The primary difference between these two frequencies lies in the range and bandwidth, which is the captacity of speed the network can provide. The 2.4Ghz frequency provides coverage over a larger range, but is only able to transmit data at lower speeds (smaller bandwidth), while the 5Ghz frequency provides coverage over a smaller range, but is able to transmit data at much faster speeds due to a larger bandwidth. 
 
 ### Does In-Flight WiFi work the same way?
-
 Most of the technology behind the miracle of airplane wifi largely resembles that of wireless internet on the ground. To bring connectivity services to each passenger, planes first need to establish a connection to an Internet source. This is done using either an air-to-ground or satellite network. Once a connection is established using one of those two sources, connectivity can be provided to passendgers via WiFi hotspots. Airplanes use many of the same towers and satellites that deliver data to our smartphones, connecting to towers on the ground, or to satellites, or to both.
 
 #### Air-to-Ground Networks
-Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. 
+Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network.
 
 #### Satellite Networks
-
+Airplanes can utilize satellite technology for connectivity to wifi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane.
 
 
 BLOG OVERVIEW
