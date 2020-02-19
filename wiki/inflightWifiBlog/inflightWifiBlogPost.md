@@ -23,7 +23,13 @@ For WiFi, this frequency happens to be 2.5 Ghz or 5 Ghz (similar to that of a mi
 
 ### Does In-Flight WiFi work the same way?
 
-Most of the technology behind the miracle of airplane wifi largely resembles that of wireless internet on the ground. Airplanes use many of the same towers and satellites that deliver data to our smartphones, connecting to towers on the ground, or to satellites, or to both.
+Most of the technology behind the miracle of airplane wifi largely resembles that of wireless internet on the ground. To bring connectivity services to each passenger, planes first need to establish a connection to an Internet source. This is done using either an air-to-ground or satellite network. Once a connection is established using one of those two sources, connectivity can be provided to passendgers via WiFi hotspots. Airplanes use many of the same towers and satellites that deliver data to our smartphones, connecting to towers on the ground, or to satellites, or to both.
+
+#### Air-to-Ground Networks
+Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. 
+
+#### Satellite Networks
+
 
 
 BLOG OVERVIEW
