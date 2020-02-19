@@ -24,9 +24,11 @@ Most of the technology behind the miracle of airplane wifi largely resembles tha
 
 #### Air-to-Ground Networks
 Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network.
+![ATG Network Diagram](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/inflightWifiBlog/ATGNetworkDiagram.png "ATG Network Diagram")
 
 #### Satellite Networks
 Airplanes can utilize satellite technology for connectivity to wifi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane.
+![Satellite Network Diagram](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/inflightWifiBlog/SatelliteNetworkDiagram.png "Satellite Network Diagram")
 
 
 BLOG OVERVIEW
