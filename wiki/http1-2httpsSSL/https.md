@@ -55,8 +55,8 @@ After that, several version of TLS developed to make improvement on security and
 
 SSL and TLS protocols
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
+<p align="center">![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)</p>
 
-<p align="center">HelloWorld</p>
+
 
 ### Secure Sockets Layer (SSL) 
