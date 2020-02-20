@@ -55,7 +55,7 @@ After that, several version of TLS developed to make improvement on security and
 
 SSL and TLS protocols
 
-<div align=center><img width="150" height="150" src="https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png"/></div>
+<div align=center><img width="150" height="150"  src="https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png"/></div>
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
 <p align="center">hello world</p>
 
