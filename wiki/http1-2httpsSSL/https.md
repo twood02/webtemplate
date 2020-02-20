@@ -59,7 +59,76 @@ SSL and TLS protocols
 
 Therefore, HTTPS can be seen a combination work between HTTP and SSL/TLS, as Form 2 illustated.
 
+The difference between HTTP and HTTPS on network layer architecture
+
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/The_difference_between_HTTP_and_HTTPS_on_network_layer_architecture.png)
+
+#### Basic cryptography
+There are two cryptography to be showed here: Symmetric-key algorithm and asymmetric cryptography. Both cryptography approaches will be used to secure communications while guarantee the performance.
+
+##### Cleartext
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Cleartext_transmission_is_easy_to_be_eavesdropped.png)
+
+Cleartext transmission is easy to be eavesdropped
+
+##### Symmetric-key encryption
+
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Symmetric-key_encrypted_transmission.png)
+
+Illustration of Symmetric-key encrypted transmission
+
+Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both encryption of plaintext and decryption of ciphertext. The keys may be identical or there may be a simple transformation to go between the two keys. The keys, in practice, represent a shared secret between two or more parties that can be used to maintain a private information link. This requirement that both parties have access to the secret key is one of the main drawbacks of symmetric key encryption(shows on Figure 4), in comparison to public-key encryption (also known as asymmetric key encryption)
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/How_to_transfer_key_itself_safely?.png)
+
+How to transfer key itself safely?
+
+##### Asymmetric key encryption
+Public-key cryptography, or asymmetric cryptography, is a cryptographic system that uses pairs of keys: public keys which may be disseminated widely, and private keys which are known only to the owner. The generation of such keys depends on cryptographic algorithms based on mathematical problems to produce one-way functions. A one-way function is a function that is easy to compute on every input, but hard to invert given the image of a random input in the sense of computational complexity theory. Effective security only requires keeping the private key private; the public key can be openly distributed without compromising security.
+
+As Figure 5 shows, an unpredictable (typically large and random) number is used to begin generation of an acceptable pair of keys suitable for use by an asymmetric key algorithm.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_on_key_pairs_generation_process.png)
+
+Figure 5. Illustration on key pairs generation process.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Asymmetric_key_encrypted_communication.png)
+
+Figure 6. Illustration of Asymmetric key encrypted communication
+
+Figure 6 shows the basic step of using key pairs to communicate safely. At first, the client will request server for its public keys, and the server send its public key back to the client. Although this step both request and public key itself is in cleartext, this step will guarantee the next step’s security. 
+
+#### Middleman Attack
+Although asymmetric key encryption seemed to be a way to communicate safely, problems still exist—the middleman attack.
+
+A man-in-the-middle attack (MITM) is an attack where the attacker secretly relays and possibly alters the communications between two parties who believe that they are directly communicating with each other. One example of a MITM attack is active eavesdropping, in which the attacker makes independent connections with the victims and relays messages between them to make them believe they are talking directly to each other over a private connection(as Figure 7 shows), when in fact the entire conversation is controlled by the attacker. The attacker must be able to intercept all relevant messages passing between the two victims and inject new ones. This is straightforward in many circumstances; for example, an attacker within reception range of an unencrypted wireless access point (Wi-Fi) could insert themselves as a man-in-the-middle.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Middleman_attack.png)
+
+Figure 7. Illustration of Middleman attack
+
+#### Solution: Certificate Authority & Digital Certificates
+Now it is time to introduce the almost-perfect solution: Certificate Authority and Digital Certificate. A certificate authority or certification authority (CA) is an entity that issues digital certificates. The issuing process is showed on Figure 8. A digital certificate certifies the ownership of a public key by the named subject of the certificate. This allows others (relying parties) to rely upon signatures or on assertions made about the private key that corresponds to the certified public key. A CA acts as a trusted third party—trusted both by the subject (owner) of the certificate and by the party relying upon the certificate.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Digital_Certificate_Issuing_Process.png)
+
+Figure 8. Digital Certificate Issuing Process
+
+As showed on Figure 9, the Digital Certificate will used to make the first step identification and exchange the random key, which will be used later in a format of symmetric-key encryption in order to improve the performance.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Communication_with_Digital_Certificate_between_client_and_server.png)
+
+Figure 9. Communication with Digital Certificate between client and server
+
+#### Experiences
+Because of the encryption process, HTTPS will incur higher latency than HTTP/1. Here is a small experience to show that.
+
+First, there are some python codes. I recommend you to run the code on jupyter notebooks.
+import requests:
+
+
 
 
 ### Secure Sockets Layer (SSL) 
