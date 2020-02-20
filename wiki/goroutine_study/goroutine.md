@@ -11,11 +11,11 @@ This is a short blog talking about Goroutines. If you are a newbie to Goroutines
 
 ---
 
-### What’s the Difference Between Concurrency and Parallelism? ###
+## What’s the Difference Between Concurrency and Parallelism? ###
 
 Let’s first make clear what’s the difference between concurrency and parallelism. To quote Andrew Gerrand(2013), “when people hear the word concurrency they often think of parallelism, a related but quite distinct concept. In programming, concurrency is the composition of independently executing processes, while parallelism is the simultaneous execution of (possibly related) computations. Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.” If Andrew Gerrand’s explanation still makes you confused, think that concurrency is taking a set of instructions that would be executed in sequence and finding a way to execute them out of order but still producing the same result; and parallelism is executing each of these instructions independently at the same time. 
 
-### What are Goroutines? ###
+## What are Goroutines? ###
 
 Go is a highly efficient language for concurrent programming, and Goroutines are functions or methods that run concurrently in the background cooperatively scheduled by the Goroutine scheduler. Goroutine scheduler is part of the Go runtime, which runs in user space, be responsible for scheduling and context-switching different Goroutines on and off OS threads. Goroutines run on a group of separate OS threads created by Go runtime; other main-Goroutines (functions or methods which run on the main thread) will not be blocked or affected. Other words, Goroutines and main-Goroutines can work concurrently.     
 
@@ -61,3 +61,28 @@ To conclude, Goroutines have the following advantages compared to threads:
 - Goroutines Save/Restore only 3 Registers when doing context-switching.
 
 ![avatar](2.png)
+
+## When does Goroutine scheduler make scheduling decision?
+There are 4 types of events that can give Goroutine scheduler an opportunity to make scheduling decision. These 4 types of events are the following:  
+
+ * The use of keyword “go”. 
+ * Garbage collection. 
+ * System call. 
+ * Synchronization and Orchestration. 
+
+ ### The use of keyword “go”
+ When use “go” to create a new Goroutine, that will give the Goroutine scheduler an opportunity to make scheduling decision.
+ 
+ ### Garbage collection
+ GC has its own set of Goroutines. When GC is running, some scheduling decisions will be made.
+ 
+ ### System calls
+ System calls which will cause Goroutines to block on threads will make schedular to make scheduling decisions. Scheduler will context-switch the blocked Goroutine off the thread and context-switch a new runnable Goroutine on the same thread. However, sometimes, a new thread needs to be created to run Goroutines in a queue, this situation will be explained in the following.
+ 
+ ### Synchronization and Orchestration
+ This involves in atomic, mutex, or channel operation call, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. 
+ 
+ 
+
+ 
+
