@@ -57,15 +57,10 @@ SSL and TLS protocols
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
 
-<center>这一行需要居中</center>
-Hello world
-<font face="黑体"> 黑体: Hello world </font>
-<font face="STCAIYUN"> STCAIYUN: hello world </font>
-<font face="Terminal"> Terminal: Hello world </font>
-<font face="Consolas"> Consolas: Hello world </font>
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
 
-<font face="Consolas" size=3 color=#DC143C> Consolas,2,#DC143C: Hello world </font>
-<font face="Consolas" size=4 color=(220, 20, 60)> Consolas,2,(220, 20, 60): Hello world </font>
-<font face="Consolas" size=5 color=Crimson> Consolas,2,Crimson: Hello world </font>
-<font face="Consolas" size=7 color=#0099ff> Consolas,2,Crimson: Hello world </font>
 ### Secure Sockets Layer (SSL) 
