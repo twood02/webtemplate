@@ -101,7 +101,31 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  
  ![](5.png)
 
-
-
+ ### Synchronous System Calls
+ What if a Goroutine makes some system calls that are not be done asynchronously? For example, reading a file to memory is a synchronous system call. In this situation, event poller cannot be used for handling synchronous system calls, so this Goroutine will block the current thread. However, such situations cannot be prevented, but do we have solutions for this case? When this happened, the scheduler will detach the current thread with the blocked Goroutine attached from the current CPU core, and bring a new thread to service the current CPU core. The new thread can be some previous existing swapped thread or a new thread created by the Go runtime. When the blocked Goroutine finishes its synchronous calling, it will be moved back to the queue waiting for the next running. In this scenario, a real thread context-switching will happened once, however, other Goroutines are not blocked by the synchronous calls and still can be processed. See the following image:
  
+ ![](6.png)
 
+ G3 running on Thread-1 invokes a synchronous system call, let’s say it reads a file to memory. This synchronous call will block the current thread – Thread-1, the scheduler identifies this and detaches Thread-1 from the current CPU core-1 with G3 still attached, and bring a new thread – Thread-2 to service on CPU core-1. Then, other Goroutines, like G4 can be handled by Thread-2. See the following image:
+ 
+ ![](7.png)
+ 
+ When G3 finished its synchronous calls, it can be moved back to the queue and waiting for the next scheduling. Thread-1 can be saved for later use. See the following image:
+ 
+ ![](8.png)
+ 
+ ### Work Stealing
+ Work stealing means when one Goroutine thread finishes all Goroutines in its queue, it will try to steal Goroutines from other threads’ queue or from the Global Run Queue. This scheduling scheme keeps threads always busy and not go to idle. When a thread tries to steal works, it first checks other threads’ queue, if there are Goroutines, it will steal half of what it finds; if there is no Goroutines, it will check and steal Goroutines from the Global Run Queue.
+ 
+ ### References:
+ 
+ ---
+ 
+ https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
+ https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
+ https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html
+ https://medium.com/@riteeksrivastava/a-complete-journey-with-goroutines-8472630c7f5c
+ https://www.youtube.com/watch?v=cN_DpYBzKso&t=422s
+ https://gwadvnet20.github.io/slides/2-scalability-performance.pdf
+
+ ---
