@@ -83,17 +83,18 @@ When you start executing a JavaScript server. Node will do several things.
 
 # Multi-threaded, Single-threaded, Sync, Async...
 This tutorial assume that you are familiar with multi-threaded and single-threaded architecture, async and sync programming model.
-**Question**: How to improve performance (increase responsive, reduce latency) for a heavily I/O spplication?
+
+**Question**: How to improve performance (increase responsive, reduce latency) for a heavily I/O application?
 ### THREADING
 
 This is a comparison of how single-threaded and multi-threaded architecture works:
 ![multithreaded architecture, sync](multi-threaded-sync.png)
 
-![chart-singlethreaded architecture, sync](single-threaded-sync.png))
+![chart-singlethreaded architecture, sync](single-threaded-sync.png)
 
 ### ASYNC programming
 
-Remember when you order food in Chopole, you don't block the order line and next customer could start to order food immediately. Similaly, in an event-based programming, there is generally a listener that listens for events, and then triggers a **callback** function when one of those events is detected.
+Remember when you order food in Chipotle, you don't block the order line and next customer could start to order food immediately. Similaly, in an event-based programming, there is generally a listener that listens for events, and then triggers a **callback** function when one of those events is detected.
 > A callback is a function called at the completion of a given task.
 
 There is a quick demo of asyn programming:
@@ -104,9 +105,10 @@ setTimeout(() => {
 }, 5000);
 console.log("Set time out is not blocked!");
 ```
+*[todo-toggle button to show result]*
 ![graph- console result](sample-async.png)
 
-There is a comparison of async programming works in single-threaded and multi-threaded architecture.
+There is a comparison of async programming model works in single-threaded and multi-threaded architecture.
 ![chart-multithreaded architecture, async](multi-threaded-async.png)
 ![chart-singlethreaded architecture, async](single-threaded-async.png)
 
@@ -136,7 +138,7 @@ Continue on previous question... How `libuv` tells kernel what I am interested i
 
 Because of this mechanism, i.e., OS does job without back and forth threads, it happens in the main thread, the single thread. Once the job is done, OS will signal the event loop and then event loop invokes the **callbacks** associated with the event and appends them into the **poll queue**.
 
-The general picture of event loop.
+This is how Node serve concurrent requests:
 ![general picture of event loop](event-loop.png)
 
 ### What will happen after `node server.js`?
@@ -144,19 +146,21 @@ The general picture of event loop.
 Let's go through an example to understand how event loop works.`server.js` is a simple Node application, printing out the data from incoming requests and reponsing with a message.
 
 ```javascript
-// A simple Node.js server: echoing client's data and responsing with a message.
-// This code snippet is used for a tutorial of Node.js single-threaded architecture. If you are interested, please checkout: [link]
+/* A simple Node.js server: echoing client's data and responsing with a message.
+* This code snippet is used for a tutorial of Node.js single-threaded architecture.
+* If you are interested, please checkout: [link]
+*/
 
 // import net module
 const net = require('net');
-// port is hard-coded
+// port is hard-coded, use assigned port when in production
 const port = process.env.PORT || 3000;
 
 // Create a TCP server, createServer() will automatically set a connection listener
 const server = net.createServer((socket)=>{
     console.log(`A new request from port: ${socket.remotePort} is connected`);
 
-    // Listen for "data ready" event
+    // Listen for event: "data ready" on the socket
     socket.on('data', (data) => {
         console.log(`Data from port: ${socket.remotePort} is ready: ${data}`);
 
@@ -165,29 +169,31 @@ const server = net.createServer((socket)=>{
             console.log(`Message has been reponded to request: ${socket.remotePort}`)
         });
     });
-    // Listen for "close" event
+    // Listen for event: "close" on the socket
     socket.on('close', () => {
         console.log(`Request from ${socket.remotePort} has closed`)
     })
 });
 
-// List on port
+// Listen for incoming request from port
 server.listen(port, ()=> {
     console.log(`Server is running on port: ${port}`)
 })
 ```
 
-Once we run `node server.js`, Node will start a process and our code will be executed inside event loop. The first event `server.listen()` completes, the callback funtion `console.log()` will be executed immediately. `net.createServer()` creates a TCP server and listens for connection. Once there is a socket connection, and callback function will be pushed into poll queue.
-Let's send two requests to this server, but the transmission of data will start after 5 seconds and 10 seconds, respectively.
+Once we run `node server.js`, Node will start a process and our code will be executed inside event loop. The first event `server.listen()` completes, the callback funtion `console.log()` will be pushed into poll queue. Event loop will execute `console.log()` immediatelly. Currently, the poll queue is empty, event loop will wait for callbacks.
 
+Let's move on...Sending two requests to this server, but the actual data transmission will begin 10 seconds and 5 seconds, respectively, after connection. Once there is a request "A" comming (socket connection), the `console.log()` will be pushed into poll queue and executed by event loop. Then, Node asks OS to monitor if the data is ready on `socket A`. Node will **NOT** wait for the data ready, it continues to serve request "B", similarly the `console.log()` will be pushed into poll queue and executed by event loop. Again, Node asks OS to monitor if the data is ready on `socket B`.
+
+*[todo-toggle button to show result]*
 ![chart-console](server-console.png)
 ### Deep Dive into Event Loop
 
-There is more about waiting for events and executing callbacks. Actually, there is a sequence of phases inside each iteration:
+There are so much details inside each iteration. Actually, different callbacks will be executed in different phases:
 ![chart-detailed stages of event loop](detail-event-loop.png)
 The phases below we care about most:
 #### Timers
-This phase executes callbacks scheduled by `setTimeout()` and `setInterval()`. Timers callbacks will be executed as early as the specified amount of time has passed; however, Operating System scheduling or the running of other callbacks may delay them.
+This phase executes callbacks scheduled by `setTimeout()` and `setInterval()`. Timers callbacks will be executed *as early as* the specified amount of time has passed. However, OS scheduling or the running of other callbacks may delay them.
 
 #### Poll
 Poll phase retrieves new I/O events; executes I/O related callbacks (almost all with the exception of close callbacks, the ones scheduled by timers, and `setImmediate()`).
