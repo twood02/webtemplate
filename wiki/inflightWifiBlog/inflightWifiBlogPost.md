@@ -26,7 +26,17 @@ Most of the technology behind the miracle of airplane wifi largely resembles tha
 
 | Air-to-Ground Networks | Satellite Networks |
 | - | - |
-| Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="400" height="200"/>| Airplanes can utilize satellite technology for connectivity to wifi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="400" height="200"/> |
+| Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="450" height="250"/> | Airplanes can utilize satellite technology for connectivity to wifi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/> |
+### How do we measure the performance?
+In order to measure the performance of In-Flight Wifi, or any wifi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about some of these metrics.
+#### Latency vs. Throughput
+| Latency | Throughput |
+| - | - |
+| Time to process a request i.e. time from issuing a request to getting a response. | Units of work completed per unit of time. |
+| Affected by: network distance, processor speed on server, queueing delays. | Affected by: bandwidth of network, processor speed on server, number of processors on server. |
+#### Bandwidth
+Bandwidth is 
+#### How can we calculate each of these?
 
 BLOG OVERVIEW
 
