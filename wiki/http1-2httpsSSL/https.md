@@ -81,7 +81,7 @@ Illustration of Symmetric-key encrypted transmission
 
 Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both encryption of plaintext and decryption of ciphertext. The keys may be identical or there may be a simple transformation to go between the two keys. The keys, in practice, represent a shared secret between two or more parties that can be used to maintain a private information link. This requirement that both parties have access to the secret key is one of the main drawbacks of symmetric key encryption(shows on Figure 4), in comparison to public-key encryption (also known as asymmetric key encryption)
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/How_to_transfer_key_itself_safely?.png)
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/How_to_transfer_key_itself_safely.png)
 
 How to transfer key itself safely?
 
