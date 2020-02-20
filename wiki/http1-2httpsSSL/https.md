@@ -128,9 +128,6 @@ Because of the encryption process, HTTPS will incur higher latency than HTTP/1. 
 First, there are some python codes. I recommend you to run the code on jupyter notebooks.
 import requests:
 
-```Java
-public static void main(String[]args){} //Java
-```
 ```Python
 import requests
 import time
@@ -146,5 +143,64 @@ while i < 100:
     i = i + 1
 print(l)
 ```
+Above, the code will request zli.name, which is my newly build personal blow website based on wordpress for 100 times and restore the time elapsed in each request in a list.
+
+Then, I will use bellowed code to draw a histogram to show the time needed for zli.name to response.
+```Python
+data = [1,2,3]
+%matplotlib inline
+import matplotlib.pyplot as plt
+ 
+plt.xlabel("L")
+plt.ylabel("#")
+plt.title("http://zli.name")
+plt.hist(l)
+```
+The result is showed here.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/http_picture.png)
+
+While, I will do the nearly samething for the https://zli.name, everything is same with above, just change the value of url from http://zli.name to https://zli.name.
+
+The result shows below.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/https_picture.png)
+
+You can see that, while indicated by the red circle, the HTTPS is relatively causing more delay than HTTP.
+
+Below shows the protocol is HTTP/1. By the developer function provided by Chrome.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/http1.1.png)
+
+In fact, I have an idle domain name and last night I build a website based on wordpress with it. I think this process can give you a direct show of how to install SSL certificate and thus made the website you created more safely.
+
+At first, my website shows something like this:
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/unsecure_connection.png)
+
+Then, I use Let’s encrypt to install certificate on my browser. When you choose your OS and your server end, Certbot will show customized instructions.
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/let's_encrypt.png)
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/certbot.png)
+
+This is what I choose based on my server configuration:
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/choose_the_os_and_server_arch.png)
+
+Instrcutions are below:
+
+First, ssh into ther server of your website.
+
+Second, you'll need to add the Certbot PPA to your list of repositories. To do so, run the following commands on the command line on the machine:
+
+```Shell
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+```
+
 
 ### Secure Sockets Layer (SSL) 
