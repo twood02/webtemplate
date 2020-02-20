@@ -33,7 +33,8 @@ In order to measure the performance of In-Flight WiFi, or any WiFi network conne
 ### Bandwidth
 A common misconception is that bandwidth is a measure of speed. Rather, bandwith is synonymous with capacity. It is the maximum amount of data that can travel through a link or network, measured in bits per second (bps). Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
 
-Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed. 
+Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed.
+ 
 **Differences Between Bandwidth and Throughput**
 Bandwidth and throughput are very similar -- they both measure the rate of data transfer. However, bandwidth is the theoretical maximum rate of the network, whereas throughput is the real-world rate of the network that the user is experiencing.
 
