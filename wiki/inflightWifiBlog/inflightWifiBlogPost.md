@@ -27,7 +27,7 @@ Most of the technology behind the miracle of airplane wifi largely resembles tha
 
 | Air-to-Ground Networks | Satellite Networks |
 | ---------------------- | ------------------ |
-| Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="450" height="250"/>| Airplanes can utilize satellite technology for connectivity to WiFi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/> |
+| Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="450" height="250"/>|Airplanes can utilize satellite technology for connectivity to WiFi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/> |
 ### How do we measure the performance?
 In order to measure the performance of In-Flight WiFi, or any WiFi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about some of these metrics.
 #### Latency vs. Throughput
@@ -42,7 +42,18 @@ Latency and throughput have a unique relationship. As the workload, or throughpu
 <img src="./latency_vs_throughput.png" width="450" height="300"/>
 
 #### Bandwidth
-Bandwidth is very similar to throughput. It is the maximum amount, or capacity, of data that can travel through a link or network, measured in bits per second. Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
+A common misconception is that bandwidth is a measure of speed. Rather, bandwith is synonymous with capacity. It is the maximum amount of data that can travel through a link or network, measured in bits per second (bps). Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
+
+Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed. 
+
+**Why do we care about Bandwidth? Why bother measuring it?**
+- getting money's worth? 
+- is there something that can be fixed?
+- are airplanes able to foster maximum capacity? is what we pay what we actually get?
+    -- how can we tell? calculate bandwith
+    -- ways to calculate bandwith
+- how can planes begin to maximuze bandwith 
+
 
 #### How can we calculate each of these?
 **Latency:**
