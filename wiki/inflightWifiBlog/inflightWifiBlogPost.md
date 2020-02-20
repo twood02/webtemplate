@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  So, how does In-Flight Wifi really work?
+title:  How does In-Flight WiFi really work?
 permalink: /wiki/inflightWifiBlog/
 ---
 
@@ -9,7 +9,7 @@ permalink: /wiki/inflightWifiBlog/
 <br/>
 
 **How exactly does wifi work on your airplane 35,000+ feet in the air?
-Here's a look at exactly how in-flight wifi keeps you connected to the world below.**
+Here's a look at exactly how In-Flight WiFi keeps you connected to the world below.**
 
 We'll discuss the basics of in-flight wifi, ground-based and satellite operating systems, and how moving from one atmosphere to another can affect the network performance.
 
@@ -27,21 +27,21 @@ Most of the technology behind the miracle of airplane wifi largely resembles tha
 
 | Air-to-Ground Networks | Satellite Networks |
 | ---------------------- | ------------------ |
-| Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="450" height="250"/>| Airplanes can utilize satellite technology for connectivity to wifi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/> |
+| Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="450" height="250"/>| Airplanes can utilize satellite technology for connectivity to WiFi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/> |
 ### How do we measure the performance?
-In order to measure the performance of In-Flight Wifi, or any wifi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about some of these metrics.
+In order to measure the performance of In-Flight WiFi, or any WiFi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about some of these metrics.
 #### Latency vs. Throughput
 | Latency | Throughput |
 | ------- | ---------- |
 | Time to process a request i.e. time from issuing a request to getting a response. | Units of work completed per unit of time. |
 | Affected by: network distance, processor speed on server, queueing delays. | Affected by: bandwidth of network, processor speed on server, number of processors on server. |
 
-Latency and throughput have a unique relationship. As the workload, or throughput, increases towards maximum capacity, the latency exponentially increases. If the workload is low, the latency will be low as well. But, when the workload becomes heavier, the latency will rise greatly, until it theoretically reaches infinity meaning that no data can be transmitted.
+Latency and throughput have a unique relationship. As the workload, or throughput, increases towards maximum capacity, the latency exponentially increases. If the workload is low, the latency will be low, as well. But, when the workload becomes heavier, the latency will rise greatly, until it theoretically reaches infinity - meaning that no data can be transmitted.
 **The Affects of Workload on Latency:**
-<img src="./latency_vs_throughput.png" width="450" height="250"/>
+<img src="./latency_vs_throughput.png" width="450" height="300"/>
 
 #### Bandwidth
-Bandwidth is very similar to throughput. It is the maximum amount of data that can travel through a link or network, measured in bits per second. It is the theoretical performance that should occur, whereas the throughput is the real world performance of the network.
+Bandwidth is very similar to throughput. It is the maximum amount of data that can travel through a link or network, measured in bits per second. Bandwidth describes the *theoretical* performance that should occur, whereas the throughput describes the *real world* performance of the network.
 
 #### How can we calculate each of these?
 **Latency:**
@@ -50,7 +50,7 @@ latency = RTT + queueing time + service time
 *queueing delay = 1 / (capacity - load)*
 
 **Throughput:**
-Max Capacity of a Web Server
+Max Capacity of a Web Server:
 max capacity = 1 / service time
 (for a single processor system)
 
