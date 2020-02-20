@@ -128,9 +128,23 @@ Because of the encryption process, HTTPS will incur higher latency than HTTP/1. 
 First, there are some python codes. I recommend you to run the code on jupyter notebooks.
 import requests:
 
-’’’java
+```Java
 public static void main(String[]args){} //Java
-’’’
+```
+```Python
+import requests
+import time
 
+i = 0
+url="http://zli.name"
+l =list()
+while i < 100:
+    r = requests.get(url)
+    time.sleep(1)
+    print (r.elapsed.total_seconds())
+    l.append(r.elapsed.total_seconds())
+    i = i + 1
+print(l)
+```
 
 ### Secure Sockets Layer (SSL) 
