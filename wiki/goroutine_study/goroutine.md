@@ -63,7 +63,7 @@ To conclude, Goroutines have the following advantages compared to threads:
 ![avatar](2.png)
 
 ## When does Goroutine scheduler make scheduling decision?
-There are 4 types of events that can give Goroutine scheduler an opportunity to make scheduling decision. These 4 types of events are the following:  
+There are 4 types of events that can give Goroutine scheduler an opportunity to make scheduling decisions. These 4 types of events are the following:
 
  * The use of keyword “go”. 
  * Garbage collection. 
@@ -77,10 +77,11 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  GC has its own set of Goroutines. When GC is running, some scheduling decisions will be made.
  
  ### System calls
- System calls which will cause Goroutines to block on threads will make schedular to make scheduling decisions. Scheduler will context-switch the blocked Goroutine off the thread and context-switch a new runnable Goroutine on the same thread. However, sometimes, a new thread needs to be created to run Goroutines in a queue, this situation will be explained in the following.
+ System calls that will cause Goroutines to block on threads can make scheduler to make scheduling decisions. Scheduler will context-switch the blocked Goroutine off the thread and context-switch a new runnable Goroutine on the same thread. However, sometimes, a new thread needs to be created to run Goroutines of the queue, this situation will be explained in the following part.
+
  
  ### Synchronization and Orchestration
- This involves in atomic, mutex, or channel operation call, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. 
+ This involves atomic, mutex, or channel operation calls, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. When the blocked Goroutine can be runnable again, it will be re-queued and waiting to be executed.
  
  
 
