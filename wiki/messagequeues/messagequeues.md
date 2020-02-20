@@ -42,6 +42,32 @@ To decide how a queue will receive messages from the exchange, AMQP uses a proce
 
 ## STOMP
 
+Not long after AMQP was introduced, the first version of the Simple (or Streaming) Text Oriented Message Protocol (STOMP) was released. STOMP was created due to the need to connect to enterprise message brokers from scripting languages like Ruby, Perl, and Python. Scripts in these languages generally do simple tasks, like "send a single message and then disconnect" or "consume all messages in this queue, and then disconnect". It is thus helpful to have a simple, easy to understand protocol where a script could send a command to do a simple task, and then disconnect.
+
+Like AMQP, STOMP is also an application-layer protocol. However, it differs from AMQP in that it is implemented as a text wire-level protocol rather than a binary wire-level protocol. This means that messages to the broker can be written as text and sent as is over a transport protocol. Communication with brokers is done using "frames", which are similar to messages in AMQP. Each frame contains a command, a set of headers, and an optional frame body depending on the command. There are only ten commands that a consumer/producer can send to the broker, and the broker can only respond with four types of frames. Most frame types will have a set of required, recommended, and optional headers. For example, a SEND frame must have a "destination" header. The frame types are listed below:
+
+* Client Frames:
+
+    * CONNECT/STOMP (as of version 1.2, both do the same thing)
+    * SEND
+    * SUBSCRIBE
+    * UNSUBSCRIBE
+    * BEGIN
+    * COMMIT
+    * ABORT
+    * ACK
+    * NACK
+    * DISCONNECT
+* Server Frames
+
+    * CONNECTED
+    * MESSAGE
+    * RECEIPT
+    * ERROR
+
+Also of note is the fact that STOMP has no concept of queues or exchanges, but rather simply "destinations". A destination is an opaque string, and STOMP allows for different broker implementations to specify a naming convention for destinations that can determine the delivery behavior. STOMP provides that producers can send messages to a destination, and consumers can subscribe to a destination to receive messages at that destination as MESSAGE frames. 
+
+As the name implies, the goal of STOMP is simplicity. While STOMP may be less feature-rich than AMQP, and may be verbose in terms of bytes on the wire, creating clients to interact with the broker is incredibly easy. It is possible to interact with a STOMP broker using only telnet, and the STOMP website brags that developers have been able to make STOMP clients in a matter of hours. This makes STOMP useful for scripting, as the only requirement for a client is the ability to send and receive text using a transport protocol like TCP. 
 ## MQTT
 
 <img src="/wiki/messagequeues/mqtt_arch.png">
