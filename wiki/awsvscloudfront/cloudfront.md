@@ -122,7 +122,7 @@ The output of this script, run for the Amazon S3 and Amazon CloudFront urls, is 
 
 Based on the results, we can see that using Amazon CloudFront as a CDN for web requests is much faster than using Amazon S3. Keep in mind that while the histograms may appear similar, the scales are vastly different; the request time for Amazon CloudFront ranges from 0.005 to 0.03 seconds, while the request time for Amazon S3 ranges from 0.43 to 0.51 seconds. This shows a very significant difference in web request time between the two CDN providers. 
 
-### Conclusion
+## Conclusion
 
 I hope that after reading this blog you have become just as excited about CloudFront or CDNs as I am. If not maybe learnt something about how infrastructure and CDNs support the ever growing volume of data on the internet and increase the quality of the User Experience. At the very least you got to see some cute animals.
 
