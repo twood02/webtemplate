@@ -11,11 +11,11 @@ This is a short blog talking about Goroutines. If you are a newbie to Goroutines
 
 ---
 
-## What’s the Difference Between Concurrency and Parallelism? ###
+## What’s the Difference Between Concurrency and Parallelism? ##
 
 Let’s first make clear what’s the difference between concurrency and parallelism. To quote Andrew Gerrand(2013), “when people hear the word concurrency they often think of parallelism, a related but quite distinct concept. In programming, concurrency is the composition of independently executing processes, while parallelism is the simultaneous execution of (possibly related) computations. Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.” If Andrew Gerrand’s explanation still makes you confused, think that concurrency is taking a set of instructions that would be executed in sequence and finding a way to execute them out of order but still producing the same result; and parallelism is executing each of these instructions independently at the same time. 
 
-## What are Goroutines? ###
+## What are Goroutines? ##
 
 Go is a highly efficient language for concurrent programming, and Goroutines are functions or methods that run concurrently in the background cooperatively scheduled by the Goroutine scheduler. Goroutine scheduler is part of the Go runtime, which runs in user space, be responsible for scheduling and context-switching different Goroutines on and off OS threads. Goroutines run on a group of separate OS threads created by Go runtime; other main-Goroutines (functions or methods which run on the main thread) will not be blocked or affected. Other words, Goroutines and main-Goroutines can work concurrently.     
 
@@ -47,7 +47,7 @@ To conclude, Goroutines:
 - Can be running concurrently with main Goroutines. main Goroutines do not wait for this Goroutine to finish but run concurrently with it. From programming’s perspective, Goroutines return immediately from its call.
 - If the main Goroutine is terminated, all other Goroutines will stop and the program will be terminated.
 
-### What’s the difference between Goroutines and Threads? ###
+## What’s the difference between Goroutines and Threads? ##
 
 Thread is the minimum unit of execution scheduled by the OS scheduler. A thread will execute a set of instructions assigned to it sequentially until there are no more instructions for the thread to execute. Each process has at least one thread, called main thread. One thread can create multiple threads that will share fd (file descriptors), PIDS and memory space, but these threads will run independently of each other and scheduling decisions are made by the OS scheduler. These threads can run concurrently if they share one CPU core, or parallelly if they run on different CPU cores. To ensure fairness and efficiency, OS scheduler will decide what thread will be chosen to run in how much time. For example, if one thread is stopped and waiting for something in order to continue, like waiting for reading data from network, then OS scheduler will pull this thread off the CPU core and replace it with another thread that is not stopped and waiting for something. This is called context-switch. Context-switch is considered to be very expensive because it takes time to swap threads on and off a core, which involved in saving/restoring status of all registers. Also, for those threads running on multiple cores, synchronizing data in shared memory and L1 cache will take more time than tasks running on isolated memory. Threads have large stack size (>1Mb) and have to save and restore a lot of registers. These properties render threads slow.
 
@@ -83,7 +83,7 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  ### Synchronization and Orchestration ###
  This involves atomic, mutex, or channel operation calls, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. When the blocked Goroutine can be runnable again, it will be re-queued and waiting to be executed.
  
- ## Three typical Goroutine scheduling schemes ###
+ ## Three typical Goroutine scheduling schemes ##
  This part will introduce three typical Goroutine scheduling schemes which will cover the situations of asynchronous system calls, synchronous system calls, and work stealing.
  
  ### Asynchronous system calls ###
@@ -117,7 +117,7 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  ### Work Stealing ###
  Work stealing means when one Goroutine thread finishes all Goroutines in its queue, it will try to steal Goroutines from other threads’ queue or from the Global Run Queue. This scheduling scheme keeps threads always busy and not go to idle. When a thread tries to steal works, it first checks other threads’ queue, if there are Goroutines, it will steal half of what it finds; if there is no Goroutines, it will check and steal Goroutines from the Global Run Queue.
  
- ### References: ###
+ ## References: ##
  
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
