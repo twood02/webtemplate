@@ -11,22 +11,73 @@ This post compares the most popular open-source message queue protocols in use.
 
 ---
 
-## What is a Message Queue?
+## Message Queues: The Mailboxes of Software Engineering
 
-(Describe the use cases of a message queue and the client-broker-server 
-architecture, with visuals)
+Consider the postal system- it would be really frustrating if I could only receive mail that was directly handed to me!
+I would either have to give the postal worker my exact position every day during mail delivery time, or I would have to stay at home to receive letters.
+To fix this, we have mailboxes, so that postal workers have a known location to deliver mail, and we can check this box whenever we please.
+
+In the world of software engineering, message queues are the digital equivalent to mailboxes; they allow for asynchronous message passing between different applications.
+Furthermore, they allow for easy distribution of messages, because a client sending messages does not need to know a web address for the other clients, or even how many other clients there are.
+One common model to achieve this is called the publish/subscribe model, where clients can subscribe to a queue, and other clients can publish data to it.
+Anything subscribed will be alerted to published data.
+For a system like this to work, it is important that all clients and servers speak the same “language”, which we call a message queue protocol.
+This post will analyze three of the major message queue protocols, STOMP, AMQP, and MQTT.
 
 ## What is a Message Queue Protocol?
 
-(Explain the brief history of message queues, how they have shifted from 
-proprietary systems towards open standards, similar to how relational databases
-conform to the SQL standard)
+Before digging into the specific protocols, we want to discuss the common architecture between all of these protocols, quickly summarized as the “client-broker-consumer” model.
+A client is any application that would like to send a message to a queue.
+A consumer is any application that would like to read messages out of a queue.
+A broker is an application that manages all of the queues.
+You could think of a broker like a mailroom, as it directs messages into their destination mailbox, and then tells the mailbox owner that there is mail.   (dig into the concept)
 
 ## AMQP
+
+One of the more popular message queue protocols in the finance world is the Advanced Message Queuing Protocol (AMQP).
+It was created in 2003 by John O’Hara, and represented a change from previous messaging protocols- it was designed to be completely interoperable between applications, so that nothing was vendor-specific.
+Previously, the only way different systems could connect to each other was via a “message bridge”, which would serve as an interface between the two vendors.
+AMQP, however, was designed as an open standard that would prevent lock-in and remove the need for these message bridges.
+
+AMQP is an application-layer protocol, and requires interoperability by design, similar to how HTTP, FTP, and SMTP function.
+This is achieved by being implemented as a binary wire-level protocol.
+A wire-level protocol describes how communication should occur between two applications, but not how it works under the hood.
+Wire-level protocols can function either as binary-based or text-based.
+One of the other significant design decisions of AMQP is the reliability features.
+Messages that are sent can be guaranteed to be received at most once, at least once, or exactly once, depending on the situational requirements.
+For example, if a sensor generates often, it might not need the guarantee that a client will receive every single one.
+On the other hand, if a message is sent every time a new device joins the network, it might be more important that a consumer always receives exactly one message about the event.
+
+When sending messages, there are three fields to fill out.
+The “Headers” section, which is a set of key-pair values defined by the AMQP standard and is a set of standard settings for the message.
+The second section is the “Properties” field, which allows for custom key-pair values to enable arbitrary application settings.
+Finally, there is the “Data” field, where the actual contents of the message can be stored.
+All sent messages include a header called the “routing key”, which determines how the message will be sent out to the connected consumer queues.
+
+<img src="/wiki/messagequeues/amqp_arch.png">
+
+The AMQP architecture relies on creating two systems, the exchange, where messages are sent, and a queue, to hold messages from the exchange.
+The most basic implementation is a publisher of data (this might be a server, or an IoT device, etc.) will send a message to the exchange, and the exchange will send the message to the queue that a consumer created.
+The power of AMQP, however, lies in how messages are sent from the exchange to the queue.
+In a wide-scale system, there will be many consumer queues and many exchanges, and AMQP has a system for deciding what messages are sent from exchanges to queues.
+
+To decide how a queue will receive messages from the exchange, AMQP uses a process called binding, where the queue connects to an exchange with a certain binding key.
+This key allows for the use of wildcards, so that a queue can receive messages with a variety of message routing keys and no need to specify each individual accepted routing key.
 
 ## STOMP
 
 ## MQTT
+
+<img src="/wiki/messagequeues/mqtt_arch.png">
+
+While AMQP is designed to be a highly reliable protocol, it was not optimized for resource or network constrained conditions.
+The Message Queue Telemetry Transport (MQTT) protocol, on the other hand, was originally created in 1999 as a communication protocol for monitoring an oil pipeline.
+It is designed to be bandwidth-efficient and lightweight, making it a good choice for low-power IoT devices. 
+
+The MQTT architecture is less complicated than the AMQP architecture, and contrary to its name, does not actually require a queue.
+Clients send messages to the middleman broker using a particular topic, which is similar to an email subject field.
+Any clients connected to the broker that are subscribed to the same topic will receive any messages published to the topic.
+This allows a large number of IoT devices to publish to a centralized location, and cloud servers only need to connect to a single device, rather than each individual sensor.
 
 ## Demo of the Protocols in Action
 
