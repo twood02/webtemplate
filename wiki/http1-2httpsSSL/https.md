@@ -194,13 +194,25 @@ First, ssh into ther server of your website.
 
 Second, you'll need to add the Certbot PPA to your list of repositories. To do so, run the following commands on the command line on the machine:
 
-```bash user
+```shell
 $ sudo apt-get update
 $ sudo apt-get install software-properties-common
 $ sudo add-apt-repository universe
 $ sudo add-apt-repository ppa:certbot/certbot
 $ sudo apt-get update
 ```
+Third, Install Certbot. Run this command on the command line on the machine to install Certbot.
+```shell
+$ sudo apt-get install certbot python-certbot-nginx
+```
+Last, Run this command to get a certificate and have Certbot edit your Nginx configuration automatically to serve it, turning on HTTPS access in a single step.
+```shell
+$ sudo certbot --nginx
+```
+After that, you can see that the website can be recognized as safe through Chrome browser.
 
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/secure_connection.png)
+
+I hope this section will help you understanding how HTTPS made data more safe to transfer, and how Digital Certificate made the website more safe to browse. :)
 
 ### Secure Sockets Layer (SSL) 
