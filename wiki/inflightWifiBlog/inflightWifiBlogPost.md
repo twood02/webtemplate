@@ -29,30 +29,21 @@ Most of the technology behind the miracle of airplane wifi largely resembles tha
 | ---------------------- | ------------------ |
 | Airplanes use Air-to-Ground (ATG) networks to establish connectivity when traveling directly over land. The airplane should automatically connect to signals sent to its antennas, located on the bottom of the fuselage, from the nearest tower on the ground. This should allow for no interruptions if the airplane is flying only over populated regions of land. However, when travelling over remote terrain or large bodies of water, connectivity can often be a problem with this type of network. <img src="./ATGNetworkDiagram.png" width="450" height="250"/>|Airplanes can utilize satellite technology for connectivity to WiFi when flying anywhere around the globe, whether they are flying over land or water. Using satellite antennas on the top of fuselage, the airplane is able to communicate with the nearest satellite in orbit. Since the satellite is continuously in connection with a tower on the ground, there is a constant supply of network connectivity to the airplane. <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/> |
 ### How do we measure the performance?
-In order to measure the performance of In-Flight WiFi, or any WiFi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about some of these metrics.
-#### Latency vs. Throughput
-| Latency | Throughput |
-| ------- | ---------- |
-| Time to process a request i.e. time from issuing a request to getting a response. | Units of work completed per unit of time. |
-| Affected by: network distance, processor speed on server, queueing delays. | Affected by: bandwidth of network, processor speed on server, number of processors on server. |
-
-Latency and throughput have a unique relationship. As the workload, or throughput, increases towards maximum capacity, the latency exponentially increases. If the workload is low, the latency will be low, as well. But, when the workload becomes heavier, the latency will rise greatly, until it theoretically reaches infinity -- meaning that no data can be transmitted.
-
-**The Affects of Workload on Latency:**
-<img src="./latency_vs_throughput.png" width="450" height="300"/>
-
+In order to measure the performance of In-Flight WiFi, or any WiFi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about a performance metric called bandwidth.
 ### Bandwidth
 A common misconception is that bandwidth is a measure of speed. Rather, bandwith is synonymous with capacity. It is the maximum amount of data that can travel through a link or network, measured in bits per second (bps). Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
 
 Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed. 
+### Differences Between Bandwidth and Throughput
+Bandwidth and throughput are very similar -- they both measure the rate of data transfer. However, bandwidth is the theoretical maximum rate of the network, whereas throughput is the real-world rate of the network that the user is experiencing.
 
 **Why do we care about Bandwidth? Why bother measuring it?**
-- getting money's worth? 
-- is there something that can be fixed?
-- are airplanes able to foster maximum capacity? is what we pay what we actually get?
-    -- how can we tell? calculate bandwith
-    -- ways to calculate bandwith
-- how can planes begin to maximuze bandwidth 
+- Are we getting our money's worth? 
+- Is there something that can be fixed?
+- Are airplanes able to foster maximum capacity? Is what we pay for what we actually get?
+    -- How can we tell? Calculate bandwith
+    -- Ways to calculate bandwith
+- How can planes begin to maximuze bandwidth?
 
 #### How can we measure bandwidth? 
 Measuring bandwidth is typically done using software or firmware, and a network interface. Common bandwidth measuring utilities include the Test TCP utility (TTCP) and PRTG Network Monitor, for example.
@@ -63,26 +54,15 @@ Another method of measuring bandwidth is to transfer a file, or several files, o
 
 In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
 
-#### How can we calculate each of these?
-**Latency:**
-latency = RTT + queueing time + service time
-*RTT = round-trip time*
-*queueing delay = 1 / (capacity - load)*
-
-**Throughput:**
-Max Capacity of a Web Server:
-max capacity = 1 / service time
-(for a single processor system)
-
-
 #### How can we analyze this information and use it to our benefit?
+
 
 ### Are there ways to improve performance?
 Now, let's take a further look into how to improve performance. It is often found that In-Flight WiFi is slow or problematic. There are many ways that companies can try to improve these issues.
 #### What is currently available?
 In today's world, technology is developing rapidly and the number of devices using Wi-Fi is higher than ever before. The first In-Flight WiFi service was launched in 2008, and at the time, a 3 Mbps connection was enough for a small number of laptops. But now, most likely every passenger will have at least one device. They may be trying to stream video, listen to music, use mobile applications, and connect to websites. Therefore, there is a much greater strain with the resources available.
 
-Today, a satellite connection offers roughly 12 Mbps. However, satellites are expensive to maintain and upgrade, which contributes to delays in technology upgrades -- meaning it causes In-Flight WiFi to lag behind.
+Today (2017???), a satellite connection offers roughly 12 Mbps. However, satellites are expensive to maintain and upgrade, which contributes to delays in technology upgrades -- meaning it causes In-Flight WiFi to lag behind.
 
 As a whole, In-Flight WiFi is a very expensive technology. Between satellite, antenna, engineering, and maintenance costs, there are a lot of expenses to account for. Some airline companies offer free WiFi onboard, while others charge for the service.
 
