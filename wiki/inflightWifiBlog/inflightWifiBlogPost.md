@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  So, how does In-Flight Wifi ***really*** work?
+title:  So, how does In-Flight Wifi really work?
 permalink: /wiki/inflightWifiBlog/
 ---
 
@@ -8,7 +8,8 @@ permalink: /wiki/inflightWifiBlog/
 
 <br/>
 
-**How exactly does wifi work on your airplane 35,000+ feet in the air? Here's a look at exactly how in-flight wifi keeps you connected to the world below.**
+**How exactly does wifi work on your airplane 35,000+ feet in the air?
+Here's a look at exactly how in-flight wifi keeps you connected to the world below.**
 
 We'll discuss the basics of in-flight wifi, ground-based and satellite operating systems, and how moving from one atmosphere to another can affect the network performance.
 
@@ -34,9 +35,27 @@ In order to measure the performance of In-Flight Wifi, or any wifi network conne
 | ------- | ---------- |
 | Time to process a request i.e. time from issuing a request to getting a response. | Units of work completed per unit of time. |
 | Affected by: network distance, processor speed on server, queueing delays. | Affected by: bandwidth of network, processor speed on server, number of processors on server. |
+
+Latency and throughput have a unique relationship. As the workload, or throughput, increases towards maximum capacity, the latency exponentially increases. If the workload is low, the latency will be low as well. But, when the workload becomes heavier, the latency will rise greatly, until it theoretically reaches infinity meaning that no data can be transmitted.
+**The Affects of Workload on Latency:**
+<img src="./latency_vs_throughput.png" width="450" height="250"/>
+
 #### Bandwidth
-Bandwidth is 
+Bandwidth is very similar to throughput. It is the maximum amount of data that can travel through a link or network, measured in bits per second. It is the theoretical performance that should occur, whereas the throughput is the real world performance of the network.
+
 #### How can we calculate each of these?
+**Latency:**
+latency = RTT + queueing time + service time
+*RTT = round-trip time*
+*queueing delay = 1 / (capacity - load)*
+
+**Throughput:**
+Max Capacity of a Web Server
+max capacity = 1 / service time
+(for a single processor system)
+
+**Bandwidth:**
+
 
 BLOG OVERVIEW
 
