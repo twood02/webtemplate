@@ -57,6 +57,6 @@ SSL and TLS protocols
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
 
-
+<center>这一行需要居中</center>
 
 ### Secure Sockets Layer (SSL) 
