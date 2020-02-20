@@ -83,7 +83,25 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  ### Synchronization and Orchestration
  This involves atomic, mutex, or channel operation calls, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. When the blocked Goroutine can be runnable again, it will be re-queued and waiting to be executed.
  
+ ## Three typical Goroutine scheduling schemes
+ This part will introduce three typical Goroutine scheduling schemes which will cover the situations of asynchronous system calls, synchronous system calls, and work stealing.
  
+ ### Asynchronous system calls
+ The very common asynchronous system calls are network reading and writing. Most operating systems provide an event poller which can be used to handle asynchronous system calls more efficiently. This event poller refers to epoll(Linux), select(Linux/Windows), or kqueue(MacOS).
+ 
+ Since the event poller also can block the current Goroutine since it is waiting for some events to happen, so Go runtime creates a separate OS thread to process the event poller. When a Goroutine running on a thread wants to make an asynchronous system call, like reading data from network, it will be moved to the event poller thread to wait for the data coming, while other Goroutines queued on the same thread can be context-switched to running. The benefit of this is that the asynchronous system call Goroutine won’t block other Goroutines. See the following image:
+ 
+ ![](3.png)
+ 
+ G represents Goroutine. G3 is running on Thread-1, but it invokes an asynchronous system call. The scheduler detects G3 is doing an asynchronous system call, so it moves G3 from Thread-1 to the event poller thread – Thread-2. Other Goroutines in the same local run queue – G4 can be context-switched to Thread-1 to run. Like the following image:
+ 
+ ![](4.png)
+ 
+ After G3 finished its asynchronous system call, the scheduler will move it back to the queue waiting for running, and Thread-2 becomes idle, like the following image:
+ 
+ ![](5.png)
+
+
 
  
 
