@@ -44,8 +44,7 @@ To solve these questions and get a more safe communication, SSL (or TLS) are int
 
 #### Brief history of SSL
 Secure Sockets Layer (SSL), and its now standardized successor, Transport Layer Security (TLS), was first developed by Netscape Company. Taher Elgamal(Figure 1), chief scientist at Netscape Communications from 1995 to 1998, has been described as the "father of SSL". SSL Version 1.0 was never publicly released because of serious security flaws in the protocol. Version 2.0, released in February 1995, contained a number of security flaws which necessitated the design of Version 3.0.
-<center>![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Taher%20Elgamal.png)<>
-  <p style="text-align: center;">Centered text</p>
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Taher%20Elgamal.png)
 
 
 ### Secure Sockets Layer (SSL) 
