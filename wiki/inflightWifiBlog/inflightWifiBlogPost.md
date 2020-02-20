@@ -31,31 +31,38 @@ Airplanes use Air-to-Ground (ATG) networks to establish connectivity when travel
 <img src="./ATGNetworkDiagram.png" width="450" height="250"/> | <img src="./SatelliteNetworkDiagram.png" width="450" height="250"/>
 
 ### How do we measure the performance?
-In order to measure the performance of In-Flight WiFi, or any WiFi network connection, we have a variety of performance metrics that we can use. Below, we will go into more detail about a performance metric called bandwidth.
+So how do we know if our in-flight WiFi network connection is performing at it's maximum capacity? Is the performance as expected or should it be better?
+
+We can measure the performance of In-Flight WiFi, or any WiFi network connection using a variety of performance metrics. Focusing specifically on bandwidth and throughput, however will provide us with the answers we are looking for. 
+
 ### Bandwidth
 A common misconception is that bandwidth is a measure of speed. Rather, bandwith is synonymous with capacity. It is the maximum amount of data that can travel through a link or network, measured in bits per second (bps). Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
 
-Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed.
+Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data that can be sent and received at the time. That being said, bandwidth can be understood as the capacity for speed.
  
 **Differences Between Bandwidth and Throughput**
-Bandwidth and throughput are very similar -- they both measure the rate of data transfer. However, bandwidth is the theoretical maximum rate of the network, whereas throughput is the real-world rate of the network that the user is experiencing.
+Bandwidth and throughput are very similar, as they both measure the rate of data transfer. However, we note an important distinction:
 
-**Why do we care about bandwidth? Why bother measuring it?**
+- Bandwidth is the theoretical maximum rate of the network speed, or the rate of network speed that is possible
+- Throughput is the real-world, or current, rate of the network speed that the user is experiencing
+
+#### How can we measure bandwidth? 
+Bandwidth is generally measured using software or firmware, and a network interface. Common bandwidth measuring utilities include the Test TCP utility (TTCP) and PRTG Network Monitor, for example.
+
+Typically, to measure bandwidth, the total amount of traffic sent and received across a specific period of time is counted. The resulting measurements are then expressed as a per-second number.
+
+Another method of measuring bandwidth is to transfer a file, or several files, of known size and count how long the transfer takes. The result is converted into bits-per-second (bps) by dividing the size of the files (bits) by the amount of time (seconds) the transfer required. Most internet speed tests use this method to calculate the connection speed of a user’s computer to the internet.
+
+In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
+
+**Why do we care about bandwidth? How would we use this information?**
+
 - Are we getting our money's worth? 
 - Is there something that can be fixed?
 - Are airplanes able to foster maximum capacity? Is what we pay for what we actually get?
     -- How can we tell? Calculate bandwith
     -- Ways to calculate bandwith
 - How can planes begin to maximuze bandwidth?
-
-#### How can we measure bandwidth? 
-Measuring bandwidth is typically done using software or firmware, and a network interface. Common bandwidth measuring utilities include the Test TCP utility (TTCP) and PRTG Network Monitor, for example.
-
-Typically, to measure bandwidth, the total amount of traffic sent and received across a specific period of time is counted. The resulting measurements are then expressed as a per-second number.
-
-Another method of measuring bandwidth is to transfer a file, or several files, of known size and count how long the transfer takes. The result is converted into bps by dividing the size of the files by the amount of time the transfer required. Most internet speed tests use this method to calculate the connection speed of a user’s computer to the internet.
-
-In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
 
 #### How can we analyze this information and use it to our benefit?
 ???
