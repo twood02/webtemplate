@@ -41,7 +41,7 @@ Latency and throughput have a unique relationship. As the workload, or throughpu
 **The Affects of Workload on Latency:**
 <img src="./latency_vs_throughput.png" width="450" height="300"/>
 
-#### Bandwidth
+### Bandwidth
 A common misconception is that bandwidth is a measure of speed. Rather, bandwith is synonymous with capacity. It is the maximum amount of data that can travel through a link or network, measured in bits per second (bps). Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
 
 Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed. 
@@ -52,8 +52,16 @@ Often, we use the water pipe analogy to explain how bandwith works. The wider th
 - are airplanes able to foster maximum capacity? is what we pay what we actually get?
     -- how can we tell? calculate bandwith
     -- ways to calculate bandwith
-- how can planes begin to maximuze bandwith 
+- how can planes begin to maximuze bandwidth 
 
+#### How can we measure bandwidth? 
+Measuring bandwidth is typically done using software or firmware, and a network interface. Common bandwidth measuring utilities include the Test TCP utility (TTCP) and PRTG Network Monitor, for example.
+
+Typically, to measure bandwidth, the total amount of traffic sent and received across a specific period of time is counted. The resulting measurements are then expressed as a per-second number.
+
+Another method of measuring bandwidth is to transfer a file, or several files, of known size and count how long the transfer takes. The result is converted into bps by dividing the size of the files by the amount of time the transfer required. Most internet speed tests use this method to calculate the connection speed of a user’s computer to the internet.
+
+In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
 
 #### How can we calculate each of these?
 **Latency:**
@@ -66,10 +74,8 @@ Max Capacity of a Web Server:
 max capacity = 1 / service time
 (for a single processor system)
 
-**Bandwidth:**
-???
+
 #### How can we analyze this information and use it to our benefit?
-After we have analyzed all of the information on In-Flight Wifi and its performance, it is important to use this information to better the technology.
 
 ### Are there ways to improve performance?
 Now, let's take a further look into how to improve performance. It is often found that In-Flight WiFi is slow or problematic. There are many ways that companies can try to improve these issues.
