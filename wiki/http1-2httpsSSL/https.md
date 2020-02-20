@@ -49,5 +49,14 @@ Secure Sockets Layer (SSL), and its now standardized successor, Transport Layer 
 
 Taher Elgamal
 
+TLS 1.0 was first defined in RFC 2246 in January 1999 as an upgrade of SSL Version 3.0, and written by Christopher Allen and Tim Dierks of Consensus Development. As stated in the RFC, "the differences between this protocol and SSL 3.0 are not dramatic, but they are significant enough to preclude interoperability between TLS 1.0 and SSL 3.0". TLS 1.0 does include a means by which a TLS implementation can downgrade the connection to SSL 3.0, thus weakening security.
+
+After that, several version of TLS developed to make improvement on security and architecture. Here is a list of different vesion of SSL and TLS.
+
+SSL and TLS protocols
+
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL and TLS protocols)
+
+
 
 ### Secure Sockets Layer (SSL) 
