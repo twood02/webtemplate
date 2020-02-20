@@ -239,6 +239,7 @@ This is an example that would require Node to use thread pool for each request, 
 In summary, Node is not single threaded. Node provides two types of threads: **event loop (main thread)**, and **thread pool**, both of them provided by `libuv`. Node.js is highly scalable. Check out `express`, `socket.io`.
 
 # Reference
+1. [`V8` Engine](https://v8.dev/)
 1. [Node.js `net` module](https://nodejs.org/docs/latest-v11.x/api/net.html)
 1. [`libuv` docs](http://docs.libuv.org/en/v1.x/index.html)
 1. [Node.js event loop](https://nodejs.org/uk/docs/guides/event-loop-timers-and-nexttick/)
