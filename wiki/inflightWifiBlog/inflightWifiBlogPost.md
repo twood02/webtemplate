@@ -34,10 +34,10 @@ In order to measure the performance of In-Flight WiFi, or any WiFi network conne
 A common misconception is that bandwidth is a measure of speed. Rather, bandwith is synonymous with capacity. It is the maximum amount of data that can travel through a link or network, measured in bits per second (bps). Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
 
 Often, we use the water pipe analogy to explain how bandwith works. The wider the pipe (larger diameter), the more water that can flow through. Simililarly, the more bandwidth a data connection has, the more data it can send and receive at the time. That being said, bandwidth is the capacity for speed. 
-### Differences Between Bandwidth and Throughput
+**Differences Between Bandwidth and Throughput**
 Bandwidth and throughput are very similar -- they both measure the rate of data transfer. However, bandwidth is the theoretical maximum rate of the network, whereas throughput is the real-world rate of the network that the user is experiencing.
 
-**Why do we care about Bandwidth? Why bother measuring it?**
+**Why do we care about bandwidth? Why bother measuring it?**
 - Are we getting our money's worth? 
 - Is there something that can be fixed?
 - Are airplanes able to foster maximum capacity? Is what we pay for what we actually get?
@@ -55,7 +55,7 @@ Another method of measuring bandwidth is to transfer a file, or several files, o
 In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
 
 #### How can we analyze this information and use it to our benefit?
-
+???
 
 ### Are there ways to improve performance?
 Now, let's take a further look into how to improve performance. It is often found that In-Flight WiFi is slow or problematic. There are many ways that companies can try to improve these issues.
@@ -68,11 +68,6 @@ As a whole, In-Flight WiFi is a very expensive technology. Between satellite, an
 
 All of these reasons have contributed to slow and problematic In-Flight WiFi services.
 
-#### What research is being done?
-Many people question if In-Flight WiFi will get better and faster in the future. On the bright side, there are many companies that are at the forefront of research into improving the performance of In-Flight WiFi. Here is an overview of the work that is being done.
-
-???
-
 #### 2018 CNN Top 5 Rankings of Most Tech-Friendly Airlines:
 **Best In-Flight WiFi Services**
 1. Qatar Airways
@@ -80,6 +75,14 @@ Many people question if In-Flight WiFi will get better and faster in the future.
 3. Delta Air Lines
 4. British Airways
 5. JetBlue Airways
+
+#### What research is being done as we look towards the future?
+Many people question if In-Flight WiFi will get better and faster in the future. On the bright side, there are many companies that are at the forefront of research into improving the performance of In-Flight WiFi. Here is an overview of the work that is being done.
+
+???
+
+
+
 
 BLOG OVERVIEW
 
