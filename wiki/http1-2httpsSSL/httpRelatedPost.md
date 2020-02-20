@@ -24,5 +24,14 @@ TIP:
 ```
 
 3. 这就会把images里面这周图片给显示出来
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Graduation_capital.jpg)
 
 /**********************************/
+
+### HTTP 1 vs HTTP 1.1 vs HTTP 2.0
+
+
+### HTTPS
+
+
+### Secure Sockets Layer (SSL) 
