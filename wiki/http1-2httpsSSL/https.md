@@ -38,6 +38,12 @@ Now,let’s take a brieft journey on how HTTPS evolved and take a closer look at
 #### The defect of HTTP
 There are three main defects that HTTP hold:
 -	Communication uses clear text (not encrypted), which may be eavesdropped.
+- The identity of the correspondent is not verified, so there may be spoofing.
+- The integrity of the message cannot be proven, so it may have been tampered with.
+To solve these questions and get a more safe communication, SSL (or TLS) are introduced.
+
+#### Brief history of SSL
+Secure Sockets Layer (SSL), and its now standardized successor, Transport Layer Security (TLS), was first developed by Netscape Company. Taher Elgamal(Figure 1), chief scientist at Netscape Communications from 1995 to 1998, has been described as the "father of SSL". SSL Version 1.0 was never publicly released because of serious security flaws in the protocol. Version 2.0, released in February 1995, contained a number of security flaws which necessitated the design of Version 3.0.
 
 
 ### Secure Sockets Layer (SSL) 
