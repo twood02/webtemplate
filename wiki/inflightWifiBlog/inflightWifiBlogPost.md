@@ -42,7 +42,7 @@ Latency and throughput have a unique relationship. As the workload, or throughpu
 <img src="./latency_vs_throughput.png" width="450" height="300"/>
 
 #### Bandwidth
-Bandwidth is very similar to throughput. It is the maximum amount of data that can travel through a link or network, measured in bits per second. Bandwidth describes the *theoretical* performance that should occur, whereas the throughput describes the *real world* performance of the network.
+Bandwidth is very similar to throughput. It is the maximum amount, or capacity, of data that can travel through a link or network, measured in bits per second. Bandwidth describes the *theoretical* data transfer rate that should occur, whereas the throughput describes the *real world* data transfer rate of the network.
 
 #### How can we calculate each of these?
 **Latency:**
@@ -56,7 +56,33 @@ max capacity = 1 / service time
 (for a single processor system)
 
 **Bandwidth:**
+???
+#### How can we analyze this information and use it to our benefit?
+After we have analyzed all of the information on In-Flight Wifi and its performance, it is important to use this information to better the technology.
 
+### Are there ways to improve performance?
+Now, let's take a further look into how to improve performance. It is often found that In-Flight WiFi is slow or problematic. There are many ways that companies can try to improve these issues.
+#### What is currently available?
+In today's world, technology is developing rapidly and the number of devices using Wi-Fi is higher than ever before. The first In-Flight WiFi service was launched in 2008, and at the time, a 3 Mbps connection was enough for a small number of laptops. But now, most likely every passenger will have at least one device. They may be trying to stream video, listen to music, use mobile applications, and connect to websites. Therefore, there is a much greater strain with the resources available.
+
+Today, a satellite connection offers roughly 12 Mbps. However, satellites are expensive to maintain and upgrade, which contributes to delays in technology upgrades -- meaning it causes In-Flight WiFi to lag behind.
+
+As a whole, In-Flight WiFi is a very expensive technology. Between satellite, antenna, engineering, and maintenance costs, there are a lot of expenses to account for. Some airline companies offer free WiFi onboard, while others charge for the service.
+
+All of these reasons have contributed to slow and problematic In-Flight WiFi services.
+
+#### What research is being done?
+Many people question if In-Flight WiFi will get better and faster in the future. On the bright side, there are many companies that are at the forefront of research into improving the performance of In-Flight WiFi. Here is an overview of the work that is being done.
+
+???
+
+#### 2018 CNN Top 5 Rankings of Most Tech-Friendly Airlines:
+**Best In-Flight WiFi Services**
+1. Qatar Airways
+2. Emirates
+3. Delta Air Lines
+4. British Airways
+5. JetBlue Airways
 
 BLOG OVERVIEW
 
