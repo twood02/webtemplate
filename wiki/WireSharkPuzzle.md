@@ -64,6 +64,7 @@ To determine which type of First port scan, we can backtrack the timestamp to fi
 We now know that the first scan ports are related to TCP flags, but which one is correct? Let's check the flags in the tcp stream. 
 
 ![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/7.jpg)
+
 ![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/8.jpg)
 
 IP 10.42.42.253 sent SYN packets, and it is the signal of TCP SYN or TCP connect port scan, and this address has received packets with RST/ACK flags from the first victim 10.42.42.50. The 3-way handshake of TCP connect principle illustrates:
@@ -97,7 +98,9 @@ Internet protocol suites tell us the link layer is the lower level than network 
 We can search the three victim IP address to find their ethernet (MAC address):
 
 ![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/9.jpg)
+
 ![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/10.jpg)
+
 ![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/11.jpg)
 
 As the results shown, the three victim addresses have their corresponding Mac addresses. Wireshark also gave the device vendor information of Mac address:
