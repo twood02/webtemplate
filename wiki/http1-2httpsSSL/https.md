@@ -35,7 +35,7 @@ TIP:
 Hypertext Transfer Protocol Secure (HTTPS) is an extension of HTTP. It can also be called with HTTP over SSL (or TLS), which indicates its high relation with SSL protocol. 
 Now,let’s take a brieft journey on how HTTPS evolved and take a closer look at the basic concepts of the it.
 
-#### The defect of HTTP
+<center>#### The defect of HTTP</center>
 
 
 ### Secure Sockets Layer (SSL) 
