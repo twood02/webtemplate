@@ -70,59 +70,59 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  * System call. 
  * Synchronization and Orchestration. 
 
- ### The use of keyword “go” ###
- When use “go” to create a new Goroutine, that will give the Goroutine scheduler an opportunity to make scheduling decision.
+### The use of keyword “go” ###
+When use “go” to create a new Goroutine, that will give the Goroutine scheduler an opportunity to make scheduling decision.
  
- ### Garbage collection ###
- GC has its own set of Goroutines. When GC is running, some scheduling decisions will be made.
+### Garbage collection ###
+GC has its own set of Goroutines. When GC is running, some scheduling decisions will be made.
  
- ### System calls ###
- System calls that will cause Goroutines to block on threads can make scheduler to make scheduling decisions. Scheduler will context-switch the blocked Goroutine off the thread and context-switch a new runnable Goroutine on the same thread. However, sometimes, a new thread needs to be created to run Goroutines of the queue, this situation will be explained in the following part.
+### System calls ###
+System calls that will cause Goroutines to block on threads can make scheduler to make scheduling decisions. Scheduler will context-switch the blocked Goroutine off the thread and context-switch a new runnable Goroutine on the same thread. However, sometimes, a new thread needs to be created to run Goroutines of the queue, this situation will be explained in the following part.
 
  
- ### Synchronization and Orchestration ###
- This involves atomic, mutex, or channel operation calls, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. When the blocked Goroutine can be runnable again, it will be re-queued and waiting to be executed.
+### Synchronization and Orchestration ###
+This involves atomic, mutex, or channel operation calls, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. When the blocked Goroutine can be runnable again, it will be re-queued and waiting to be executed.
  
- ## Three typical Goroutine scheduling schemes ##
- This part will introduce three typical Goroutine scheduling schemes which will cover the situations of asynchronous system calls, synchronous system calls, and work stealing.
+## Three typical Goroutine scheduling schemes ##
+This part will introduce three typical Goroutine scheduling schemes which will cover the situations of asynchronous system calls, synchronous system calls, and work stealing.
  
- ### Asynchronous system calls ###
- The very common asynchronous system calls are network reading and writing. Most operating systems provide an event poller which can be used to handle asynchronous system calls more efficiently. This event poller refers to epoll(Linux), select(Linux/Windows), or kqueue(MacOS).
+### Asynchronous system calls ###
+The very common asynchronous system calls are network reading and writing. Most operating systems provide an event poller which can be used to handle asynchronous system calls more efficiently. This event poller refers to epoll(Linux), select(Linux/Windows), or kqueue(MacOS).
  
- Since the event poller also can block the current Goroutine since it is waiting for some events to happen, so Go runtime creates a separate OS thread to process the event poller. When a Goroutine running on a thread wants to make an asynchronous system call, like reading data from network, it will be moved to the event poller thread to wait for the data coming, while other Goroutines queued on the same thread can be context-switched to running. The benefit of this is that the asynchronous system call Goroutine won’t block other Goroutines. See the following image:
+Since the event poller also can block the current Goroutine since it is waiting for some events to happen, so Go runtime creates a separate OS thread to process the event poller. When a Goroutine running on a thread wants to make an asynchronous system call, like reading data from network, it will be moved to the event poller thread to wait for the data coming, while other Goroutines queued on the same thread can be context-switched to running. The benefit of this is that the asynchronous system call Goroutine won’t block other Goroutines. See the following image:
  
- ![](3.png)
+![](3.png)
  
- G represents Goroutine. G3 is running on Thread-1, but it invokes an asynchronous system call. The scheduler detects G3 is doing an asynchronous system call, so it moves G3 from Thread-1 to the event poller thread – Thread-2. Other Goroutines in the same local run queue – G4 can be context-switched to Thread-1 to run. Like the following image:
+G represents Goroutine. G3 is running on Thread-1, but it invokes an asynchronous system call. The scheduler detects G3 is doing an asynchronous system call, so it moves G3 from Thread-1 to the event poller thread – Thread-2. Other Goroutines in the same local run queue – G4 can be context-switched to Thread-1 to run. Like the following image:
  
- ![](4.png)
+![](4.png)
  
- After G3 finished its asynchronous system call, the scheduler will move it back to the queue waiting for running, and Thread-2 becomes idle, like the following image:
+After G3 finished its asynchronous system call, the scheduler will move it back to the queue waiting for running, and Thread-2 becomes idle, like the following image:
  
- ![](5.png)
+![](5.png)
 
- ### Synchronous System Calls ###
- What if a Goroutine makes some system calls that are not be done asynchronously? For example, reading a file to memory is a synchronous system call. In this situation, event poller cannot be used for handling synchronous system calls, so this Goroutine will block the current thread. However, such situations cannot be prevented, but do we have solutions for this case? When this happened, the scheduler will detach the current thread with the blocked Goroutine attached from the current CPU core, and bring a new thread to service the current CPU core. The new thread can be some previous existing swapped thread or a new thread created by the Go runtime. When the blocked Goroutine finishes its synchronous calling, it will be moved back to the queue waiting for the next running. In this scenario, a real thread context-switching will happened once, however, other Goroutines are not blocked by the synchronous calls and still can be processed. See the following image:
+### Synchronous System Calls ###
+What if a Goroutine makes some system calls that are not be done asynchronously? For example, reading a file to memory is a synchronous system call. In this situation, event poller cannot be used for handling synchronous system calls, so this Goroutine will block the current thread. However, such situations cannot be prevented, but do we have solutions for this case? When this happened, the scheduler will detach the current thread with the blocked Goroutine attached from the current CPU core, and bring a new thread to service the current CPU core. The new thread can be some previous existing swapped thread or a new thread created by the Go runtime. When the blocked Goroutine finishes its synchronous calling, it will be moved back to the queue waiting for the next running. In this scenario, a real thread context-switching will happened once, however, other Goroutines are not blocked by the synchronous calls and still can be processed. See the following image:
  
- ![](6.png)
+![](6.png)
 
- G3 running on Thread-1 invokes a synchronous system call, let’s say it reads a file to memory. This synchronous call will block the current thread – Thread-1, the scheduler identifies this and detaches Thread-1 from the current CPU core-1 with G3 still attached, and bring a new thread – Thread-2 to service on CPU core-1. Then, other Goroutines, like G4 can be handled by Thread-2. See the following image:
+G3 running on Thread-1 invokes a synchronous system call, let’s say it reads a file to memory. This synchronous call will block the current thread – Thread-1, the scheduler identifies this and detaches Thread-1 from the current CPU core-1 with G3 still attached, and bring a new thread – Thread-2 to service on CPU core-1. Then, other Goroutines, like G4 can be handled by Thread-2. See the following image:
  
 ![](7.png)
  
- When G3 finished its synchronous calls, it can be moved back to the queue and waiting for the next scheduling. Thread-1 can be saved for later use. See the following image:
+When G3 finished its synchronous calls, it can be moved back to the queue and waiting for the next scheduling. Thread-1 can be saved for later use. See the following image:
  
- ![](8.png)
+![](8.png)
  
- ### Work Stealing ###
- Work stealing means when one Goroutine thread finishes all Goroutines in its queue, it will try to steal Goroutines from other threads’ queue or from the Global Run Queue. This scheduling scheme keeps threads always busy and not go to idle. When a thread tries to steal works, it first checks other threads’ queue, if there are Goroutines, it will steal half of what it finds; if there is no Goroutines, it will check and steal Goroutines from the Global Run Queue.
+### Work Stealing ###
+Work stealing means when one Goroutine thread finishes all Goroutines in its queue, it will try to steal Goroutines from other threads’ queue or from the Global Run Queue. This scheduling scheme keeps threads always busy and not go to idle. When a thread tries to steal works, it first checks other threads’ queue, if there are Goroutines, it will steal half of what it finds; if there is no Goroutines, it will check and steal Goroutines from the Global Run Queue.
  
- ## References: ##
+## References: ##
  
- https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
- https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
- https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html      
- https://medium.com/@riteeksrivastava/a-complete-journey-with-goroutines-8472630c7f5c     
- https://www.youtube.com/watch?v=cN_DpYBzKso&t=422s     
- https://gwadvnet20.github.io/slides/2-scalability-performance.pdf    
+https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
+https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
+https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html      
+https://medium.com/@riteeksrivastava/a-complete-journey-with-goroutines-8472630c7f5c     
+https://www.youtube.com/watch?v=cN_DpYBzKso&t=422s     
+https://gwadvnet20.github.io/slides/2-scalability-performance.pdf    
 
