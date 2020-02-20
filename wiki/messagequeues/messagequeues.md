@@ -19,7 +19,12 @@ In the world of software engineering, message queues are the digital equivalent 
 
 ## What is a Message Queue Protocol?
 
-Before digging into the specific protocols, we want to discuss the common architecture between all of these protocols, quickly summarized as the “client-broker-consumer” model. A client is any application that would like to send a message to a queue. A consumer is any application that would like to read messages out of a queue. A broker is an application that manages all of the queues. You could think of a broker like a mailroom, as it directs messages into their destination mailbox, and then tells the mailbox owner that there is mail.   (dig into the concept)
+Let's first discuss the concept of a message queue protocol. Going back to the postal system analogy, the postal system has a set process for how to send and receive mail. A message is sent by placing the message in an envelope, writing the destination's name and address, and putting it in a mailbox. The postal service will read the destination, categorize the message as it sees fit, and then eventually deliver the message to its intended recipient. To confirm the delivery of the message, the mail carrier may wait to hand for the recipient to sign for their mail, or they may simply not require delivery confirmation and just put the message in some predetermined place, like a mailbox. You don't have to be concerned with which mail carrier (like USPS or FedEx) delivers your message or how they organize their messages internally as long as the message gets sent. Your only job is to follow the process of properly addressing your mail and checking your mailbox for incoming mail. This process of how to send and receive mail is the "protocol" of the postal system. Message queue protocols follow the same principles. They do not define how the mail gets organized and delivered, they merely specify how to send and receive messages, and outline the delivery guarantees. It is up to individual implementations of the protocol how messages will be organized and delivered.
+
+<img src="/wiki/messagequeues/producer-broker-consumer.jpg">
+Before digging into the specific protocols, we want to discuss the common architecture between all of these protocols, quickly summarized as the “client-broker-consumer” model. A client, or producer, is any application that would like to send a message to a queue. A consumer is any application that would like to read messages out of a queue. A broker is an application that manages all of the queues. In our postal system analogy, people and businesses are often both producers and consumers, while the broker would be a mail carrier like USPS, FedEX, or UPS. 
+
+
 
 ## AMQP
 
