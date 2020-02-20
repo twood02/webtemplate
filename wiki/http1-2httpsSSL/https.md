@@ -176,9 +176,9 @@ In fact, I have an idle domain name and last night I build a website based on wo
 
 At first, my website shows something like this:
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/unsecure_connection.png)
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/unsecure_connection_revised.png)
 
-Then, I use Let’s encrypt to install certificate on my browser. When you choose your OS and your server end, Certbot will show customized instructions.
+You can see the red box showing that there is no valid certificate. Then, I use Let’s encrypt to install certificate on my browser. When you choose your OS and your server end, Certbot will show customized instructions.
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/let's_encrypt.png)
 
@@ -209,9 +209,9 @@ Last, Run this command to get a certificate and have Certbot edit your Nginx con
 ```shell
 $ sudo certbot --nginx
 ```
-After that, you can see that the website can be recognized as safe through Chrome browser.
+After that, you can see that the website can be recognized as safe through Chrome browser, and within the green box, the certificate become valid.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/secure_connection.png)
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/secure_connection_revised.png)
 
 I hope this section will help you understanding how HTTPS made data more safe to transfer, and how Digital Certificate made the website more safe to browse. :)
 
