@@ -24,7 +24,7 @@ TIP:
 ```
 
 3. 这就会把images里面这周图片给显示出来
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Taher Elgamal.png)
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Graduation_capital.jpg)
 
 /**********************************/
 
