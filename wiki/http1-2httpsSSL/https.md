@@ -59,7 +59,7 @@ SSL and TLS protocols
 
 Therefore, HTTPS can be seen a combination work between HTTP and SSL/TLS, as Form 2 illustated.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
+![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/The_difference_between_HTTP_and_HTTPS_on_network_layer_architecture.png)
 
 
 ### Secure Sockets Layer (SSL) 
