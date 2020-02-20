@@ -18,7 +18,10 @@ TIP:
 1. github 上，把图片上传到/wiki/http1-2httpsSSL/images/ 目录下
 2. 根据如下格式：
 
+```bash
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Graduation_capital.jpg)
+
+```
 
 3. 这就会把images里面这周图片给显示出来
 
