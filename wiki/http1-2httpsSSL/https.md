@@ -58,10 +58,17 @@ SSL and TLS protocols
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
 
 
-<html>
-    <body>
-        <center>诶嘿</center>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta charset="gb2312" /> 
+    <title>W3Cschool居中实例</title> 
+    <style> 
+      body{text-align:center} 
+    </style> 
+  </head> 
+  <body> 
+    W3Cschool会被居中 
+  </body> 
 </html>
 
 ### Secure Sockets Layer (SSL) 
