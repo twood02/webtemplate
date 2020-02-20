@@ -108,7 +108,7 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
 
  G3 running on Thread-1 invokes a synchronous system call, let’s say it reads a file to memory. This synchronous call will block the current thread – Thread-1, the scheduler identifies this and detaches Thread-1 from the current CPU core-1 with G3 still attached, and bring a new thread – Thread-2 to service on CPU core-1. Then, other Goroutines, like G4 can be handled by Thread-2. See the following image:
  
- ![](7.png)
+
  
  When G3 finished its synchronous calls, it can be moved back to the queue and waiting for the next scheduling. Thread-1 can be saved for later use. See the following image:
  
