@@ -119,8 +119,6 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  
  ### References:
  
- ---
- 
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
  https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html
@@ -128,4 +126,3 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  https://www.youtube.com/watch?v=cN_DpYBzKso&t=422s
  https://gwadvnet20.github.io/slides/2-scalability-performance.pdf
 
- ---
