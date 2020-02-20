@@ -62,7 +62,7 @@ To conclude, Goroutines have the following advantages compared to threads:
 
 ![avatar](2.png)
 
-## When does Goroutine scheduler make scheduling decision?
+## When does Goroutine scheduler make scheduling decision? ##
 There are 4 types of events that can give Goroutine scheduler an opportunity to make scheduling decisions. These 4 types of events are the following:
 
  * The use of keyword “go”. 
@@ -70,23 +70,23 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  * System call. 
  * Synchronization and Orchestration. 
 
- ### The use of keyword “go”
+ ### The use of keyword “go” ###
  When use “go” to create a new Goroutine, that will give the Goroutine scheduler an opportunity to make scheduling decision.
  
- ### Garbage collection
+ ### Garbage collection ###
  GC has its own set of Goroutines. When GC is running, some scheduling decisions will be made.
  
- ### System calls
+ ### System calls ###
  System calls that will cause Goroutines to block on threads can make scheduler to make scheduling decisions. Scheduler will context-switch the blocked Goroutine off the thread and context-switch a new runnable Goroutine on the same thread. However, sometimes, a new thread needs to be created to run Goroutines of the queue, this situation will be explained in the following part.
 
  
- ### Synchronization and Orchestration
+ ### Synchronization and Orchestration ###
  This involves atomic, mutex, or channel operation calls, which will cause the Goroutine to block. When this happens, the scheduler will context-switch a new Goroutine to run. When the blocked Goroutine can be runnable again, it will be re-queued and waiting to be executed.
  
- ## Three typical Goroutine scheduling schemes
+ ## Three typical Goroutine scheduling schemes ###
  This part will introduce three typical Goroutine scheduling schemes which will cover the situations of asynchronous system calls, synchronous system calls, and work stealing.
  
- ### Asynchronous system calls
+ ### Asynchronous system calls ###
  The very common asynchronous system calls are network reading and writing. Most operating systems provide an event poller which can be used to handle asynchronous system calls more efficiently. This event poller refers to epoll(Linux), select(Linux/Windows), or kqueue(MacOS).
  
  Since the event poller also can block the current Goroutine since it is waiting for some events to happen, so Go runtime creates a separate OS thread to process the event poller. When a Goroutine running on a thread wants to make an asynchronous system call, like reading data from network, it will be moved to the event poller thread to wait for the data coming, while other Goroutines queued on the same thread can be context-switched to running. The benefit of this is that the asynchronous system call Goroutine won’t block other Goroutines. See the following image:
@@ -101,7 +101,7 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  
  ![](5.png)
 
- ### Synchronous System Calls
+ ### Synchronous System Calls ###
  What if a Goroutine makes some system calls that are not be done asynchronously? For example, reading a file to memory is a synchronous system call. In this situation, event poller cannot be used for handling synchronous system calls, so this Goroutine will block the current thread. However, such situations cannot be prevented, but do we have solutions for this case? When this happened, the scheduler will detach the current thread with the blocked Goroutine attached from the current CPU core, and bring a new thread to service the current CPU core. The new thread can be some previous existing swapped thread or a new thread created by the Go runtime. When the blocked Goroutine finishes its synchronous calling, it will be moved back to the queue waiting for the next running. In this scenario, a real thread context-switching will happened once, however, other Goroutines are not blocked by the synchronous calls and still can be processed. See the following image:
  
  ![](6.png)
@@ -114,10 +114,10 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  
  ![](8.png)
  
- ### Work Stealing
+ ### Work Stealing ###
  Work stealing means when one Goroutine thread finishes all Goroutines in its queue, it will try to steal Goroutines from other threads’ queue or from the Global Run Queue. This scheduling scheme keeps threads always busy and not go to idle. When a thread tries to steal works, it first checks other threads’ queue, if there are Goroutines, it will steal half of what it finds; if there is no Goroutines, it will check and steal Goroutines from the Global Run Queue.
  
- ### References:
+ ### References: ###
  
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
