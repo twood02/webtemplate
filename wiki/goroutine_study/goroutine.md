@@ -121,8 +121,8 @@ There are 4 types of events that can give Goroutine scheduler an opportunity to 
  
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
  https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
- https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html
- https://medium.com/@riteeksrivastava/a-complete-journey-with-goroutines-8472630c7f5c
- https://www.youtube.com/watch?v=cN_DpYBzKso&t=422s
- https://gwadvnet20.github.io/slides/2-scalability-performance.pdf
+ https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html      
+ https://medium.com/@riteeksrivastava/a-complete-journey-with-goroutines-8472630c7f5c     
+ https://www.youtube.com/watch?v=cN_DpYBzKso&t=422s     
+ https://gwadvnet20.github.io/slides/2-scalability-performance.pdf    
 
