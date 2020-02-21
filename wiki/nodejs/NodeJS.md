@@ -6,6 +6,31 @@ permalink: /wiki/nodejs/
 
 *by:* Mingyu Ma, Siqi Wang
 
+<script src="https://kit.fontawesome.com/4998fcb39c.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="/assets/js/lightslider.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/assets/css/lightslider.min.css" />
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#slider").lightSlider({
+        item: 1,
+        mode: "slide",
+        auto: false,
+        loop: false,
+        controls: true,
+        pager: true,
+    });
+    $("#slider2").lightSlider({
+        item: 1,
+        mode: "slide",
+        auto: false,
+        loop: false,
+        controls: true,
+        pager: true,
+    });
+});
+</script>
 
 In this blog we will introduce the basic about Node.js and how Node.js's event loop works.
 
@@ -81,16 +106,16 @@ When you start executing a JavaScript server. Node will do several things.
  -  Then Node will enter its Event Loop, using the registered callback functions to respond to incoming client requests.
  -  Depending on the type of request things will be handled differently, and we will talk about that in the next section.
 
-# Multi-threaded, Single-threaded, Sync, Async...
-This tutorial assume that you are familiar with multi-threaded and single-threaded architecture, async and sync programming model.
 
-**Question**: How to improve performance (increase responsive, reduce latency) for a heavily I/O application?
+# Multi-threaded, Single-threaded, Sync, Async...
+<i class="fas fa-question" style="color:red;font-size:40px;"></i> How to improve performance (increase responsive, reduce latency) for a heavily I/O application?
 ### THREADING
 
 This is a comparison of how single-threaded and multi-threaded architecture works:
-![multithreaded architecture, sync](multi-threaded-sync.png)
-
-![chart-singlethreaded architecture, sync](single-threaded-sync.png)
+<ul id="slider">
+<li> <img src="single-threaded-sync.png"> </li>
+<li> <img src="multi-threaded-sync.png" style="width: 65%; height=80%"> </li>
+</ul>
 
 ### ASYNC programming
 
@@ -105,14 +130,15 @@ setTimeout(() => {
 }, 5000);
 console.log("Set time out is not blocked!");
 ```
-*[todo-toggle button to show result]*
-![graph- console result](sample-async.png)
+![console result](sample-async.png)
 
 There is a comparison of async programming model works in single-threaded and multi-threaded architecture.
-![chart-multithreaded architecture, async](multi-threaded-async.png)
-![chart-singlethreaded architecture, async](single-threaded-async.png)
+<ul id="slider2">
+<li> <img src="multi-threaded-async.png"> </li>
+<li> <img src="single-threaded-async.png"> </li>
+</ul>
 
-Cheers! Now you have good understanding of Node.js single-threaded architecture, as an async platform.
+<i class="far fa-laugh-beam" style="color:#ffbf00;font-size:40px;"></i> Cheers! Now you have good understanding of Node.js **single-threaded** architecture, as an **async** platform.
 
 ## But how...?
 Node is faster and less resource intensive when it comes to handling I/O operations asynchronously. You might have some questions in mind.
@@ -185,7 +211,6 @@ Once we run `node server.js`, Node will start a process and our code will be exe
 
 Let's move on...Sending two requests to this server, but the actual data transmission will begin 10 seconds and 5 seconds, respectively, after connection. Once there is a request "A" comming (socket connection), the `console.log()` will be pushed into poll queue and executed by event loop. Then, Node asks OS to monitor if the data is ready on `socket A`. Node will **NOT** wait for the data ready, it continues to serve request "B", similarly the `console.log()` will be pushed into poll queue and executed by event loop. Again, Node asks OS to monitor if the data is ready on `socket B`.
 
-*[todo-toggle button to show result]*
 ![chart-console](server-console.png)
 ### Deep Dive into Event Loop
 
