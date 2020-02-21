@@ -6,8 +6,8 @@ permalink: /wiki/inflightWifiBlog/
 
 *by:* Katie Bramlett and Sreya Nalla
 
-<br/>
 <img src="./flight_image.png" width="900" height="200"/> 
+<br/>
 **How exactly does wifi work on your airplane 35,000+ feet in the air?
 Here's a look at exactly how In-Flight WiFi keeps you connected to the world below.**
 
