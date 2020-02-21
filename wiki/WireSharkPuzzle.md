@@ -10,7 +10,7 @@ In this project, we will solve a puzzle, "The Curious Mr.X", by using wireshark.
 
 ---
 
-Mr. X, a notorious Mexico hacker, illegally gained access to Arctic Nuclear Fusion Research Facility(ANFRF)’s lab subnet over the 
+Mr. X, a notorious Mexico hacker, illegally gained access to Arctic Nuclear Fusion Research Facility (ANFRF)’s lab subnet over the 
 interwebs. Unfortunately, his network reconnaissance was captured traces and all activities were stored in a packet. We will 
 analyze the packet within WireShark.
 
