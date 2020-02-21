@@ -7,7 +7,7 @@ permalink: /wiki/inflightWifiBlog/
 *by:* Katie Bramlett and Sreya Nalla
 
 <br/>
-<img src="./inflight_wifi.png" width="450" height="350"/> 
+<img src="./inflight_wifi_image.png" width="800" height="200"/> 
 **How exactly does wifi work on your airplane 35,000+ feet in the air?
 Here's a look at exactly how In-Flight WiFi keeps you connected to the world below.**
 
@@ -100,7 +100,7 @@ print('throughput: %.2f ', fsize/runtime)
 conn.close()
 print('server connection closed')
 ```
-*See the full code repository [here](https://github.com/katiebramlett/gwAdvNet20.github.io/tree/master/wiki/inflightWifiBlog/sampleCodePython)*
+*See the full code repository [here](https://github.com/katiebramlett/gwAdvNet20.github.io/tree/master/wiki/inflightWifiBlog/sampleCodePython)*<br/>
 
  **But, what ratio of throughput to bandwith values indicated good network performance?**
  There is no set value or percentage that indicates that a specific throughput to bandwidth ratio is good. However, we can conclude that a 1-to-1 ration would indicate that the throughput indicates we are working with a real-time rate of data transfer that is at max capacity. Likewise, we would be able to say that a ratio of 20% is probably something should be checked out, as the user might not be getting the most out of the network's bandwidth.
