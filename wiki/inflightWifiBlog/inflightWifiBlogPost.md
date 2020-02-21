@@ -53,7 +53,35 @@ Typically, to measure bandwidth, the total amount of traffic sent and received a
 
 Another method of measuring bandwidth is to transfer a file, or several files, of known size and count how long the transfer takes. The result is converted into bits-per-second (bps) by dividing the size of the files (bits) by the amount of time (seconds) the transfer required. Most internet speed tests use this method to calculate the connection speed of a user’s computer to the internet.
 
+**Our Quick, Basic Approach**
+
+We took it upon ourselves to see how we could possibly test for bandwidth performance. We decided the most basic approach would include a connection between a client and a server in which one end sends files to the other. This interaction would be timed from the time the connection is established up until when the receiver recieves the package/files that are sent to it. By timing the interaction, we are able to apply the following forumla to calculate the real-time rate of data transfer on a given network connection (i.e. throughput):
+
+`throughput = packet size (bits) / send time (seconds)`
+
+*Note that we would want to run this test more than just a handful of times so that we can get a variety of values that will present us with a meaningul throughput average*
+
+ By measuring the throughput in this way, we are able to compare it to the bandwidth that is actually specified by the network that we are using. Comparing the throughput to the bandwidth would allow us to gage whether our user-specific network performance is of high-quality or not given we know the bandwidth.
+
+ But what ratio of throughput to bandwith values indicated good network performance?
+ There is no set value or percentage that indicates that a specific throughput to bandwidth ratio is good. However, we can conclude that a 1-to-1 ration would indicate that the throughput indicates we are working with a real-time rate of data transfer that is at max capacity. Likewise, we would be able to say that a ratio of 20% is probably something should be checked out, as the user might not be getting the most out of the network's bandwidth.
+
+ Of course if we were to run this data on an airplane or over a large scale, we would need to consider a few amends:
+
+- make sure the client connects to the airplane's server/network connection
+- run the sample code more than just a handful of times (this will give is a more widespread understanding of the throughput we're are experiencing)
+- try sending files of different sizes or multiple files at once
+
+**Outside Factors that Affect Throughput**
 In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
+
+Likewise, what the user experiences in terms of network data transfer rate is affected by several factors including, but not limited to:
+
+- processing power of physical hardware 
+- packet loss
+- network congestion
+- latency
+- enforced limitation
 
 **Why do we care about bandwidth? How would we use this information?**
 
@@ -90,41 +118,3 @@ All of these reasons have contributed to slow and problematic In-Flight WiFi ser
 Many people question if In-Flight WiFi will get better and faster in the future. On the bright side, there are many companies that are at the forefront of research into improving the performance of In-Flight WiFi. Here is an overview of the work that is being done.
 
 ???
-
-
-
-
-BLOG OVERVIEW
-
-In-Flight Wifi Basics
-0. What even is WiFi?
-    - we all talk about it, but how exactly does it work?
-    - how are we able todo what what we do?
-
-1. What is In-Flight Wifi?
-    - Two operating system involved
-        - ground-based 
-        - satellite-based
-    - how easy is it to access each of these "types" of in-flight wifi
-        - comparing performance of each type
-        - latency and throughput
-2. What are performance metrics? 
-    - latency (include graphs??)
-    - throughput
-    - bandwidth
-    - how do we calculate these things
-        - ways to test bandwidth on planes?
-        - how can we analyze this information and use it to our benefit?
-    - why are they important in terms of in-flight wifi
-        - does this explain why wifi is generally slow on planes?
-        - does it affect speed?
-        - how does bandwidth affect type of information transmitted and vice versa?
-3. Are there ways to improve performance?
-    - what is currently available
-    - what research is being done
-    - what steps can we take to assist?
-    - what companies are at the forefront?
-
-
-
-
