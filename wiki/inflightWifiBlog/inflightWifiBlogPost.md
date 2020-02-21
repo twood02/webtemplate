@@ -7,7 +7,7 @@ permalink: /wiki/inflightWifiBlog/
 *by:* Katie Bramlett and Sreya Nalla
 
 <br/>
-
+<img src="./inflight_wifi.png" width="450" height="350"/> 
 **How exactly does wifi work on your airplane 35,000+ feet in the air?
 Here's a look at exactly how In-Flight WiFi keeps you connected to the world below.**
 
@@ -61,7 +61,46 @@ We took it upon ourselves to see how we could possibly test for bandwidth perfor
 
 *Note that we would want to run this test more than just a handful of times so that we can get a variety of values that will present us with a meaningul throughput average*
 
- By measuring the throughput in this way, we are able to compare it to the bandwidth that is actually specified by the network that we are using. Comparing the throughput to the bandwidth would allow us to gage whether our user-specific network performance is of high-quality or not, given we know the bandwidth.
+By measuring the throughput in this way, we are able to compare it to the bandwidth that is actually specified by the network that we are using. Comparing the throughput to the bandwidth would allow us to gage whether our user-specific network performance is of high-quality or not, given we know the bandwidth.
+
+*An excerpt of the code for the server can be seen below:*
+```python
+while True:
+   # Establish a connect with the client
+    conn, addr = s.accept()
+    print ('Got connection from', addr)
+
+    #start time from when connection begins
+    start = time.time()
+
+    # get file
+    filename='test.txt'
+    # get file size (in bytes) and convert to bits
+    fsize = (os.path.getsize(filename))*8 #1 byte = 8 bits
+
+    #open file, read, send
+    f = open(filename,'rb')
+    l = f.read(1024)
+    while (l):
+       conn.send(l)
+       print('Sent ',repr(l))
+       l = f.read(1024)
+    # close file
+    f.close()
+    if f.closed:
+       break
+# calculate time taken to send given file
+runtime = time.time() - start;
+print('Done sending')
+print('total send time: %.2f ', runtime)
+# calculate and output throuhgput measured in bits/second
+print('throughput: %.2f ', fsize/runtime)
+
+# close the connection between client and server
+conn.close()
+print('server connection closed')
+```
+*See the full code repository [here](https://github.com/katiebramlett/gwAdvNet20.github.io/tree/master/wiki/inflightWifiBlog/sampleCodePython)*
 
  **But, what ratio of throughput to bandwith values indicated good network performance?**
  There is no set value or percentage that indicates that a specific throughput to bandwidth ratio is good. However, we can conclude that a 1-to-1 ration would indicate that the throughput indicates we are working with a real-time rate of data transfer that is at max capacity. Likewise, we would be able to say that a ratio of 20% is probably something should be checked out, as the user might not be getting the most out of the network's bandwidth.
@@ -126,10 +165,10 @@ In-Flight WiFi is a field that has lots and lots of room for growth, and it look
 
 <br/>
 **Sources Used:**
-"How Does It Work?" *Altitude*, www.connected-altitude.com/services-technology/how-inflight-wifi-works/. Accessed 20 Feb. 2020.
+"How Does It Work?" *Altitude*, [www.connected-altitude.com/services-technology/how-inflight-wifi-works/.](www.connected-altitude.com/services-technology/how-inflight-wifi-works/) Accessed 20 Feb. 2020.
 
-O'Hare, Maureen. "Airlines with the Best Wi-Fi and Inflight Tech." *CNN*, 19 Oct. 2018, www.cnn.com/travel/article/best-wifi-airlines/index.html. Accessed 20 Feb. 2020.
+O'Hare, Maureen. "Airlines with the Best Wi-Fi and Inflight Tech." *CNN*, 19 Oct. 2018, [www.cnn.com/travel/article/best-wifi-airlines/index.html.](www.cnn.com/travel/article/best-wifi-airlines/index.html) Accessed 20 Feb. 2020.
 
-Plush, Hazel. "How does Wi-Fi work at 35,000 feet and why don't all airlines offer it?" *Telegraph*, 30 Jan. 2017, www.telegraph.co.uk/travel/travel-truths/how-does-inflight-wi-fi-work/. Access 20 Feb. 2020.
+Plush, Hazel. "How does Wi-Fi work at 35,000 feet and why don't all airlines offer it?" *Telegraph*, 30 Jan. 2017, [www.telegraph.co.uk/travel/travel-truths/how-does-inflight-wi-fi-work/.](www.telegraph.co.uk/travel/travel-truths/how-does-inflight-wi-fi-work/) Accessed 20 Feb. 2020.
 
-Sampson, Hannah. "Airplane WiFi is getting better. But why is it still so bad?" *Washington Post*, 21 June 2019, www.washingtonpost.com/travel/2019/06/20/why-is-airplane-wifi-still-so-bad/. Accessed 20 Feb. 2020.
+Sampson, Hannah. "Airplane WiFi is getting better. But why is it still so bad?" *Washington Post*, 21 June 2019, [www.washingtonpost.com/travel/2019/06/20/why-is-airplane-wifi-still-so-bad/.](www.washingtonpost.com/travel/2019/06/20/why-is-airplane-wifi-still-so-bad/) Accessed 20 Feb. 2020.
