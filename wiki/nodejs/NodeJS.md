@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  A Detailed Tutorial of NodeJS Single-threaded Architecture
+title:  A Detailed Tutorial of NodeJS "Single-threaded" Architecture
 permalink: /wiki/nodejs/
 ---
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
 });
 </script>
 
-In this blog we will introduce the basic about Node.js and how Node.js's event loop works.
+This blog is a detailed tutorial about the architecture of Node.js.
 
 ---
 # Setup Environment
