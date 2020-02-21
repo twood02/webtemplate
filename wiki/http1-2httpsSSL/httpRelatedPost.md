@@ -12,7 +12,7 @@ This is a post of HTTP vs HTTP 2 vs HTTPs with SSL. The section HTTP 1 vs HTTP 1
 
 ---
 
-## HTTP 1 vs HTTP 1.1 vs HTTP 2.0
+## I. HTTP 1 vs HTTP 1.1 vs HTTP 2.0
 
 In this article, I will let you know much more about the difference between HTTP1, HTTP 1.1 and HTTP 2. I will start with HTTP1 vs HTTP 1.1, and then HTTP 1.1 vs HTTP 2.
 
@@ -117,7 +117,8 @@ https://juejin.im/entry/5981c5df518825359a2b9476
 
 https://www.zhihu.com/question/34074946
 
-## HTTPS
+
+## II. HTTPS
 Hypertext Transfer Protocol Secure (HTTPS) is an extension of HTTP. It can also be called with HTTP over SSL (or TLS), which indicates its high relation with SSL protocol. 
 Now,let’s take a brieft journey on how HTTPS evolved and take a closer look at the basic concepts of the it.
 
@@ -303,7 +304,7 @@ I hope this section will help you understanding how HTTPS made data more safe to
 
 
 
-## Secure Sockets Layer (SSL) 
+## III. Secure Sockets Layer (SSL) 
    
 ### Background  
    
