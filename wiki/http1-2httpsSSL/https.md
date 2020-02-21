@@ -24,7 +24,7 @@ SSL and TLS protocols
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
 
-Therefore, HTTPS can be seen a combination work between HTTP and SSL/TLS, as Form 2 illustated.
+Therefore, HTTPS can be seen a combination work between HTTP and SSL/TLS, as Form below illustated.
 
 The difference between HTTP and HTTPS on network layer architecture
 
@@ -46,7 +46,7 @@ Cleartext transmission is easy to be eavesdropped
 
 Illustration of Symmetric-key encrypted transmission
 
-Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both encryption of plaintext and decryption of ciphertext. The keys may be identical or there may be a simple transformation to go between the two keys. The keys, in practice, represent a shared secret between two or more parties that can be used to maintain a private information link. This requirement that both parties have access to the secret key is one of the main drawbacks of symmetric key encryption(shows on Figure 4), in comparison to public-key encryption (also known as asymmetric key encryption)
+Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both encryption of plaintext and decryption of ciphertext. The keys may be identical or there may be a simple transformation to go between the two keys. The keys, in practice, represent a shared secret between two or more parties that can be used to maintain a private information link. This requirement that both parties have access to the secret key is one of the main drawbacks of symmetric key encryption(shows on Figure below), in comparison to public-key encryption (also known as asymmetric key encryption)
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/How_to_transfer_key_itself_safely.png)
 
@@ -55,7 +55,7 @@ How to transfer key itself safely?
 ##### Asymmetric key encryption
 Public-key cryptography, or asymmetric cryptography, is a cryptographic system that uses pairs of keys: public keys which may be disseminated widely, and private keys which are known only to the owner. The generation of such keys depends on cryptographic algorithms based on mathematical problems to produce one-way functions. A one-way function is a function that is easy to compute on every input, but hard to invert given the image of a random input in the sense of computational complexity theory. Effective security only requires keeping the private key private; the public key can be openly distributed without compromising security.
 
-As Figure 5 shows, an unpredictable (typically large and random) number is used to begin generation of an acceptable pair of keys suitable for use by an asymmetric key algorithm.
+As figure below shows, an unpredictable (typically large and random) number is used to begin generation of an acceptable pair of keys suitable for use by an asymmetric key algorithm.
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_on_key_pairs_generation_process.png)
 
@@ -87,7 +87,7 @@ As showed on below, the Digital Certificate will used to make the first step ide
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Communication_with_Digital_Certificate_between_client_and_server.png)
 
-Figure 9. Communication with Digital Certificate between client and server
+Communication with Digital Certificate between client and server
 
 #### Experiences
 Because of the encryption process, HTTPS will incur higher latency than HTTP/1. Here is a small experience to show that.
