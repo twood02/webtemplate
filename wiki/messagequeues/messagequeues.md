@@ -33,6 +33,7 @@ AMQP is an application-layer protocol, and requires interoperability by design, 
 When sending messages, there are three fields to fill out. The “Headers” section, which is a set of key-pair values defined by the AMQP standard and is a set of standard settings for the message. The second section is the “Properties” field, which allows for custom key-pair values to enable arbitrary application settings. Finally, there is the “Data” field, where the actual contents of the message can be stored. All sent messages include a header called the “routing key”, which determines how the message will be sent out to the connected consumer queues.
 
 <img src="/wiki/messagequeues/amqp_arch.png">
+[Source](https://spring.io/blog/2010/06/14/understanding-amqp-the-protocol-used-by-rabbitmq/)
 
 The AMQP architecture relies on creating two systems, the exchange, where messages are sent, and a queue, to hold messages from the exchange. The most basic implementation is a publisher of data (this might be a server, or an IoT device, etc.) will send a message to the exchange, and the exchange will send the message to the queue that a consumer created. The power of AMQP, however, lies in how messages are sent from the exchange to the queue. In a wide-scale system, there will be many consumer queues and many exchanges, and AMQP has a system for deciding what messages are sent from exchanges to queues.
 
@@ -71,6 +72,7 @@ As the name implies, the goal of STOMP is simplicity. While STOMP may be less fe
 ## MQTT
 
 <img src="/wiki/messagequeues/mqtt_arch.png">
+[Source](https://www.oreilly.com/library/view/internet-of-things/9781788627405/90d4a33c-cd59-4643-a83b-29662d256b57.xhtml)
 
 While AMQP is designed to be a highly reliable protocol, it was not optimized for resource or network constrained conditions. The Message Queue Telemetry Transport (MQTT) protocol, on the other hand, was originally created in 1999 as a communication protocol for monitoring an oil pipeline. It is designed to be bandwidth-efficient and lightweight, making it a good choice for low-power IoT devices. 
 
@@ -191,3 +193,16 @@ You can now shut down and remove the RabbitMQ Docker container using the followi
 docker stop rabbitmq
 docker rm rabbitmq
 ```
+
+## Sources
+- <https://spring.io/blog/2010/06/14/understanding-amqp-the-protocol-used-by-rabbitmq/>
+- <https://www.concurrency.com/blog/june-2019/introduction-to-mqtt-protocol-for-iot-applications>
+- <https://www.cloudamqp.com/blog/2014-12-03-what-is-message-queuing.html>
+- <https://blogs.vmware.com/vfabric/2013/02/choosing-your-messaging-protocol-amqp-mqtt-or-stomp.html>
+- <https://en.wikipedia.org/wiki/Wire_protocol>
+- <https://en.wikipedia.org/wiki/Message_queue#Standards_and_protocols>
+- <https://en.wikipedia.org/wiki/MQTT>
+- <https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol>
+- <https://en.wikipedia.org/wiki/Streaming_Text_Oriented_Messaging_Protocol>
+- <https://stomp.github.io/>
+- <https://www.rabbitmq.com/stomp.html>
