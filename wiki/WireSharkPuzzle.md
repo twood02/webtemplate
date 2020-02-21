@@ -46,14 +46,14 @@ We can find the most active conversations are between 10.42.42.253 and 10.42.42.
 
 We can view this to conclude that IP Address 10.42.42.253 initiated scanning IP addresses 10.42.42.56, 10.42.42.50, 10.42.42.25 by the following reasons:
 
-'''
+```
 1. The packets from address 10.42.42.253 to other three addresses is always larger than from the opposite directions.
 
 2. The three flows between 10.42.42.253 to other three respectively have the earliest timestamps.
 
 3. The bytes size in packets from 10.42.42.253 to other three addresses is much bigger than from opposite directions.
 
-'''
+```
 
 ## For the FIRST port scan that Mr. X conducted, what type of port scan was it?
 
@@ -68,13 +68,13 @@ We now know that the first scan ports are related to TCP flags, but which one is
 
 IP 10.42.42.253 sent SYN packets, and it is the signal of TCP SYN or TCP connect port scan, and this address has received packets with RST/ACK flags from the first victim 10.42.42.50. The 3-way handshake of TCP connect principle illustrates:
 
-'''
+```
 TCP Connect:
 	SYN >
 	< SYN/ACK
 	ACK >
 	< RST+ACK
-'''
+```
 
 The flags from frame 1 shows that the first port scan from attacker is TCP connect.
 
@@ -82,11 +82,11 @@ The flags from frame 1 shows that the first port scan from attacker is TCP conne
 
 Exploring the conversations in the provided evidence file, Mr.X's IP address scanned the following IP addresses:
 
-'''
+```
 - 10.42.42.25
 - 10.42.42.50
 - 10.42.42.56
-'''
+```
 
 ## What did he find on the Apple System?
 
@@ -131,7 +131,7 @@ For 10.42.42.50:
 
 On this picture, host 10.42.42.50 opens both of 135 and 139 tcp ports, and the two ports are common ports in the Window system. According to [GRC's Website](http://www.grc.com/port_135.htm):
 
-'''
+```
 135/tcp:
 "Microsoft's DCOM (Distributed, i.e. networked, COM) Service Control Manager
 (also known as the RPC Endpoint Mapper) uses this port in a manner similar to
@@ -143,7 +143,7 @@ ports where DCOM services can be found on that machine."
 "TCP NetBIOS connections are made over this port, usually with Windows machines
 but also with any other system running Samba (SMB). These TCP connections form
 'NetBIOS sessions' to support connection oriented file sharing activities."
-'''
+```
 
 Hence, the Windows system Mr.X found is 10.42.42.50 for IP and 70:5a:b6:51:d7:b2 for Mac address. It opens tcp ports on that machine:
 
