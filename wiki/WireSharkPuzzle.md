@@ -102,11 +102,14 @@ We can search the three victim IP address to find their ethernet (MAC address):
 
 As the results shown, the three victim addresses have their corresponding Mac addresses. Wireshark also gave the device vendor information of Mac address:
 
-## IP address         Mac address         Device Vendor 
+```
+  **IP address         Mac address         Device Vendor 
+  
 -  10.42.42.25     00:16:cb:92:6e:dc      Apple Computer
 -  10.42.42.50     70:5a:b6:51:d7:b2      COMPAL INFORMATION (KUNSHAN) CO., LTD.
 -  10.42.42.56     00:26:22:cb:1e:79      COMPAL INFORMATION (KUNSHAN) CO., LTD. 
 -  10.42.42.253    00:23:8b:82:1f:4a      Quanta Computer Inc.
+```
 
 Hence we will conclude that the Apple system Mr.X found has 10.42.42.25 for IP address and that his mac
 address is: 00:16:cb:92:6e:dc.
