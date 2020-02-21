@@ -103,7 +103,7 @@ We can search the three victim IP address to find their ethernet (MAC address):
 As the results shown, the three victim addresses have their corresponding Mac addresses. Wireshark also gave the device vendor information of Mac address:
 
 ```
-  **IP address         Mac address         Device Vendor 
+   IP address         Mac address         Device Vendor 
   
 -  10.42.42.25     00:16:cb:92:6e:dc      Apple Computer
 -  10.42.42.50     70:5a:b6:51:d7:b2      COMPAL INFORMATION (KUNSHAN) CO., LTD.
