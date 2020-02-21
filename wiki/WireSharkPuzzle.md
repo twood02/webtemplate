@@ -46,14 +46,12 @@ We can find the most active conversations are between 10.42.42.253 and 10.42.42.
 
 We can view this to conclude that IP Address 10.42.42.253 initiated scanning IP addresses 10.42.42.56, 10.42.42.50, 10.42.42.25 by the following reasons:
 
-```
-1. The packets from address 10.42.42.253 to other three addresses is always larger than from the opposite directions.
+- The packets from address 10.42.42.253 to other three addresses is always larger than from the opposite directions.
 
-2. The three flows between 10.42.42.253 to other three respectively have the earliest timestamps.
+- The three flows between 10.42.42.253 to other three respectively have the earliest timestamps.
 
-3. The bytes size in packets from 10.42.42.253 to other three addresses is much bigger than from opposite directions.
+- The bytes size in packets from 10.42.42.253 to other three addresses is much bigger than from opposite directions.
 
-```
 
 ## For the FIRST port scan that Mr. X conducted, what type of port scan was it?
 
