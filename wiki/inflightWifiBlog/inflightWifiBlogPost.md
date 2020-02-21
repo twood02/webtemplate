@@ -126,15 +126,6 @@ Likewise, what the user experiences in terms of network data transfer rate is af
 - latency
 - enforced limitation
 
-**Why do we care about bandwidth? How would we use this information?**
-
-- Are we getting our money's worth? 
-- Is there something that can be fixed?
-- Are airplanes able to foster maximum capacity? Is what we pay for what we actually get?
-    - How can we tell? Calculate bandwith
-    - Ways to calculate bandwith
-- How can planes begin to maximuze bandwidth?
-
 ### Are there ways to improve performance?
 Now, let's take a further look into how to improve performance. It is often found that In-Flight WiFi is slow or problematic. There are many ways that companies can try to improve these issues.
 #### What is currently available?
