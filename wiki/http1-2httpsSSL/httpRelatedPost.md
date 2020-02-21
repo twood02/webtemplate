@@ -7,7 +7,8 @@ permalink: /wiki/http1-2httpsSSL/
 *by:* Weizhao Li & Ziyue Li & Zhuolun Gao
 
 
-A short description of your post goes here.
+T short description of the Post:
+This is a post of HTTP vs HTTP 2 vs HTTPs with SSL. The section HTTP 1 vs HTTP 1.1 vs HTTP 2.0 is written by Weizhao Li, the section of HTTPs is written by Ziyue Li, the section of Secure Sockets Layer (SSL) is written by Zhuolun Gao. 
 
 ---
 
@@ -121,14 +122,14 @@ https://www.zhihu.com/question/34074946
 Hypertext Transfer Protocol Secure (HTTPS) is an extension of HTTP. It can also be called with HTTP over SSL (or TLS), which indicates its high relation with SSL protocol. 
 Now,let’s take a brieft journey on how HTTPS evolved and take a closer look at the basic concepts of the it.
 
-#### The defect of HTTP
+### The defect of HTTP
 There are three main defects that HTTP hold:
 -	Communication uses clear text (not encrypted), which may be eavesdropped.
 - The identity of the correspondent is not verified, so there may be spoofing.
 - The integrity of the message cannot be proven, so it may have been tampered with.
 To solve these questions and get a more safe communication, SSL (or TLS) are introduced.
 
-#### Brief history of SSL
+### Brief history of SSL
 Secure Sockets Layer (SSL), and its now standardized successor, Transport Layer Security (TLS), was first developed by Netscape Company. Taher Elgamal(Figure 1), chief scientist at Netscape Communications from 1995 to 1998, has been described as the "father of SSL". SSL Version 1.0 was never publicly released because of serious security flaws in the protocol. Version 2.0, released in February 1995, contained a number of security flaws which necessitated the design of Version 3.0.
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Taher%20Elgamal.png)
@@ -149,16 +150,16 @@ The difference between HTTP and HTTPS on network layer architecture
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/The_difference_between_HTTP_and_HTTPS_on_network_layer_architecture.png)
 
-#### Basic cryptography
+### Basic cryptography
 There are two cryptography to be showed here: Symmetric-key algorithm and asymmetric cryptography. Both cryptography approaches will be used to secure communications while guarantee the performance.
 
-##### Cleartext
+### Cleartext
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Cleartext_transmission_is_easy_to_be_eavesdropped.png)
 
 Cleartext transmission is easy to be eavesdropped
 
-##### Symmetric-key encryption
+### Symmetric-key encryption
 
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Symmetric-key_encrypted_transmission.png)
@@ -171,7 +172,7 @@ Symmetric-key algorithms are algorithms for cryptography that use the same crypt
 
 How to transfer key itself safely?
 
-##### Asymmetric key encryption
+### Asymmetric key encryption
 Public-key cryptography, or asymmetric cryptography, is a cryptographic system that uses pairs of keys: public keys which may be disseminated widely, and private keys which are known only to the owner. The generation of such keys depends on cryptographic algorithms based on mathematical problems to produce one-way functions. A one-way function is a function that is easy to compute on every input, but hard to invert given the image of a random input in the sense of computational complexity theory. Effective security only requires keeping the private key private; the public key can be openly distributed without compromising security.
 
 As figure below shows, an unpredictable (typically large and random) number is used to begin generation of an acceptable pair of keys suitable for use by an asymmetric key algorithm.
@@ -186,7 +187,7 @@ Illustration of Asymmetric key encrypted communication
 
 Figure above shows the basic step of using key pairs to communicate safely. At first, the client will request server for its public keys, and the server send its public key back to the client. Although this step both request and public key itself is in cleartext, this step will guarantee the next step’s security. 
 
-#### Middleman Attack
+### Middleman Attack
 Although asymmetric key encryption seemed to be a way to communicate safely, problems still exist—the middleman attack.
 
 A man-in-the-middle attack (MITM) is an attack where the attacker secretly relays and possibly alters the communications between two parties who believe that they are directly communicating with each other. One example of a MITM attack is active eavesdropping, in which the attacker makes independent connections with the victims and relays messages between them to make them believe they are talking directly to each other over a private connection(as below shows), when in fact the entire conversation is controlled by the attacker. The attacker must be able to intercept all relevant messages passing between the two victims and inject new ones. This is straightforward in many circumstances; for example, an attacker within reception range of an unencrypted wireless access point (Wi-Fi) could insert themselves as a man-in-the-middle.
@@ -195,7 +196,7 @@ A man-in-the-middle attack (MITM) is an attack where the attacker secretly relay
 
 Illustration of Middleman attack
 
-#### Solution: Certificate Authority & Digital Certificates
+### Solution: Certificate Authority & Digital Certificates
 Now it is time to introduce the almost-perfect solution: Certificate Authority and Digital Certificate. A certificate authority or certification authority (CA) is an entity that issues digital certificates. The issuing process is showed on below. A digital certificate certifies the ownership of a public key by the named subject of the certificate. This allows others (relying parties) to rely upon signatures or on assertions made about the private key that corresponds to the certified public key. A CA acts as a trusted third party—trusted both by the subject (owner) of the certificate and by the party relying upon the certificate.
 
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Digital_Certificate_Issuing_Process.png)
@@ -208,7 +209,7 @@ As showed on below, the Digital Certificate will used to make the first step ide
 
 Communication with Digital Certificate between client and server
 
-#### Experiences
+### Experiences
 Because of the encryption process, HTTPS will incur higher latency than HTTP/1. Here is a small experience to show that.
 
 First, there are some python codes. I recommend you to run the code on jupyter notebooks.
