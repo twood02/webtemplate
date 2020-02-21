@@ -55,15 +55,15 @@ Another method of measuring bandwidth is to transfer a file, or several files, o
 
 **Our Quick, Basic Approach**
 
-We took it upon ourselves to see how we could possibly test for bandwidth performance. We decided the most basic approach would include a connection between a client and a server in which one end sends files to the other. This interaction would be timed from the time the connection is established up until when the receiver recieves the package/files that are sent to it. By timing the interaction, we are able to apply the following forumla to calculate the real-time rate of data transfer on a given network connection (i.e. throughput):
+We took it upon ourselves to see how we could possibly test for bandwidth performance. We decided the most basic approach would include a connection between a client and a server in which one end sends files to the other. This interaction would be timed from the time the server sends the file/package until when the receiver recieves the file/package. By timing the interaction, we are able to apply the following forumla to calculate the real-time rate of data transfer on a given network connection (i.e. throughput):
 
 `throughput = packet size (bits) / send time (seconds)`
 
 *Note that we would want to run this test more than just a handful of times so that we can get a variety of values that will present us with a meaningul throughput average*
 
- By measuring the throughput in this way, we are able to compare it to the bandwidth that is actually specified by the network that we are using. Comparing the throughput to the bandwidth would allow us to gage whether our user-specific network performance is of high-quality or not given we know the bandwidth.
+ By measuring the throughput in this way, we are able to compare it to the bandwidth that is actually specified by the network that we are using. Comparing the throughput to the bandwidth would allow us to gage whether our user-specific network performance is of high-quality or not, given we know the bandwidth.
 
- But what ratio of throughput to bandwith values indicated good network performance?
+ **But, what ratio of throughput to bandwith values indicated good network performance?**
  There is no set value or percentage that indicates that a specific throughput to bandwidth ratio is good. However, we can conclude that a 1-to-1 ration would indicate that the throughput indicates we are working with a real-time rate of data transfer that is at max capacity. Likewise, we would be able to say that a ratio of 20% is probably something should be checked out, as the user might not be getting the most out of the network's bandwidth.
 
  Of course if we were to run this data on an airplane or over a large scale, we would need to consider a few amends:
@@ -71,6 +71,10 @@ We took it upon ourselves to see how we could possibly test for bandwidth perfor
 - make sure the client connects to the airplane's server/network connection
 - run the sample code more than just a handful of times (this will give is a more widespread understanding of the throughput we're are experiencing)
 - try sending files of different sizes or multiple files at once
+- test in different conditions e.g. over land vs. over water, in turbulence, over remote regions
+
+**How can we take this test further?**
+This basic test can be applied in several different situations to see the affects on throughput. First, we can run the test in different conditions, as stated above. For example, we can run the test over land and over water, in turbulent conditions, over remote regions, and in different altitudes. Also, we can run the test onboard different airline companies. The difference in output across all of these situations will give us key insight into the problematic affects on throughput.
 
 **Outside Factors that Affect Throughput**
 In real world networks, bandwidth varies over time depending on use and network connections. As a result, a single bandwidth measurement says very little about actual bandwidth usage. A series of measurements can be more useful when determining averages or trends.
@@ -88,19 +92,16 @@ Likewise, what the user experiences in terms of network data transfer rate is af
 - Are we getting our money's worth? 
 - Is there something that can be fixed?
 - Are airplanes able to foster maximum capacity? Is what we pay for what we actually get?
-    -- How can we tell? Calculate bandwith
-    -- Ways to calculate bandwith
+    - How can we tell? Calculate bandwith
+    - Ways to calculate bandwith
 - How can planes begin to maximuze bandwidth?
-
-#### How can we analyze this information and use it to our benefit?
-???
 
 ### Are there ways to improve performance?
 Now, let's take a further look into how to improve performance. It is often found that In-Flight WiFi is slow or problematic. There are many ways that companies can try to improve these issues.
 #### What is currently available?
-In today's world, technology is developing rapidly and the number of devices using Wi-Fi is higher than ever before. The first In-Flight WiFi service was launched in 2008, and at the time, a 3 Mbps connection was enough for a small number of laptops. But now, most likely every passenger will have at least one device. They may be trying to stream video, listen to music, use mobile applications, and connect to websites. Therefore, there is a much greater strain with the resources available.
+In today's world, technology is developing rapidly and the number of devices using Wi-Fi is higher than ever before. The first In-Flight WiFi service was launched in 2008, and at the time, a 3 Mbps connection was enough for a small number of laptops. But now, most likely every passenger will have at least one device. They may be trying to stream video, listen to music, use mobile applications, and connect to websites. Therefore, there is a much greater strain with the resources available. To simplify, it is a large case of not enough supply and too much demand.
 
-Today (2017???), a satellite connection offers roughly 12 Mbps. However, satellites are expensive to maintain and upgrade, which contributes to delays in technology upgrades -- meaning it causes In-Flight WiFi to lag behind.
+In 2017, a satellite connection offered roughly 12 Mbps. However, satellites are expensive to maintain and upgrade, which contributes to delays in technology upgrades -- meaning it causes In-Flight WiFi to lag behind. Also, there are still a lot of planes that still only use ground towers rather than satellite connections, and many companies are in the process of updating.
 
 As a whole, In-Flight WiFi is a very expensive technology. Between satellite, antenna, engineering, and maintenance costs, there are a lot of expenses to account for. Some airline companies offer free WiFi onboard, while others charge for the service.
 
@@ -114,7 +115,21 @@ All of these reasons have contributed to slow and problematic In-Flight WiFi ser
 4. British Airways
 5. JetBlue Airways
 
-#### What research is being done as we look towards the future?
-Many people question if In-Flight WiFi will get better and faster in the future. On the bright side, there are many companies that are at the forefront of research into improving the performance of In-Flight WiFi. Here is an overview of the work that is being done.
+#### What research/work is being done as we look towards the future?
+Many people question if In-Flight WiFi will get better and faster in the future. On the bright side, there are many companies that are at the forefront of research and advancements into improving the performance of In-Flight WiFi. Here is an overview of some of the work that is being done.
 
-???
+American Airlines announced in June 2019 that more than 700 of their planes had been upgraded with satellite-based WiFi, a project nearly two years in the making.
+
+The best-known company in airline WiFi, Gogo, is constantly working on improving the performance of in-flight connectivity. Gogo announced in May 2019 that it would be introducing a faster 5G network for smaller planes that use air-to-ground networks in 2021.
+
+In-Flight WiFi is a field that has lots and lots of room for growth, and it looks like in the near future there could be much better connectivity to the millions of people that fly everyday.
+
+<br/>
+**Sources Used:**
+"How Does It Work?" *Altitude*, www.connected-altitude.com/services-technology/how-inflight-wifi-works/. Accessed 20 Feb. 2020.
+
+O'Hare, Maureen. "Airlines with the Best Wi-Fi and Inflight Tech." *CNN*, 19 Oct. 2018, www.cnn.com/travel/article/best-wifi-airlines/index.html. Accessed 20 Feb. 2020.
+
+Plush, Hazel. "How does Wi-Fi work at 35,000 feet and why don't all airlines offer it?" *Telegraph*, 30 Jan. 2017, www.telegraph.co.uk/travel/travel-truths/how-does-inflight-wi-fi-work/. Access 20 Feb. 2020.
+
+Sampson, Hannah. "Airplane WiFi is getting better. But why is it still so bad?" *Washington Post*, 21 June 2019, www.washingtonpost.com/travel/2019/06/20/why-is-airplane-wifi-still-so-bad/. Accessed 20 Feb. 2020.
