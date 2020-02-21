@@ -15,7 +15,7 @@ This post compares the most popular open-source message queue protocols in use.
 
 Consider the postal system- it would be really frustrating if I could only receive mail that was directly handed to me! I would either have to give the postal worker my exact position every day during mail delivery time, or I would have to stay at home to receive letters. To fix this, we have mailboxes, so that postal workers have a known location to deliver mail, and we can check this box whenever we please.
 
-In the world of software engineering, message queues are the digital equivalent to mailboxes; they allow for asynchronous message passing between different applications. Furthermore, they allow for easy distribution of messages, because a client sending messages does not need to know a web address for the other clients, or even how many other clients there are. One common model to achieve this is called the publish/subscribe model, where clients can subscribe to a queue, and other clients can publish data to it. Anything subscribed will be alerted to published data. For a system like this to work, it is important that all clients and servers speak the same “language”, which we call a message queue protocol. This post will analyze three of the major message queue protocols, STOMP, AMQP, and MQTT.
+In the world of software engineering, message queues are the digital equivalent to mailboxes; they allow for asynchronous message passing between different applications. Furthermore, they allow for easy distribution of messages, because a client sending messages does not need to know a web address for the other clients, or even how many other clients there are. One common model to achieve this is called the publish/subscribe model, where clients can subscribe to a queue, and other clients can publish data to it. Anything subscribed will be alerted to published data. For a system like this to work, it is important that all clients and servers speak the same “language”, which we call a message queue protocol. This post will analyze three of the major message queue protocols, STOMP, AMQP, and MQTT. We also provide instructions on how to set up your own STOMP system, so that you too can utilize the power of message queues!
 
 ## What is a Message Queue Protocol?
 
@@ -23,8 +23,6 @@ Let's first discuss the concept of a message queue protocol. Going back to the p
 
 <img src="/wiki/messagequeues/producer-broker-consumer.jpg">
 Before digging into the specific protocols, we want to discuss the common architecture between all of these protocols, quickly summarized as the “client-broker-consumer” model. A client, or producer, is any application that would like to send a message to a queue. A consumer is any application that would like to read messages out of a queue. A broker is an application that manages all of the queues. In our postal system analogy, people and businesses are often both producers and consumers, while the broker would be a mail carrier like USPS, FedEX, or UPS. 
-
-
 
 ## AMQP
 
@@ -38,7 +36,9 @@ When sending messages, there are three fields to fill out. The “Headers” sec
 
 The AMQP architecture relies on creating two systems, the exchange, where messages are sent, and a queue, to hold messages from the exchange. The most basic implementation is a publisher of data (this might be a server, or an IoT device, etc.) will send a message to the exchange, and the exchange will send the message to the queue that a consumer created. The power of AMQP, however, lies in how messages are sent from the exchange to the queue. In a wide-scale system, there will be many consumer queues and many exchanges, and AMQP has a system for deciding what messages are sent from exchanges to queues.
 
-To decide how a queue will receive messages from the exchange, AMQP uses a process called binding, where the queue connects to an exchange with a certain binding key. This key allows for the use of wildcards, so that a queue can receive messages with a variety of message routing keys and no need to specify each individual accepted routing key.
+To decide how a queue will receive messages from the exchange, AMQP uses a system called "Message Exchange Types", which determines the routing behavior for sent messages. Each queue has a "binding key", which can be thought of as the ID for the messages it will listen for. Meanwhile, each sent message has a routing key, which is similar to the binding key for queues, and the message "exchange type" will determine how much of the binding key has to match the routing key. Binding keys are allowed to have wild cards, so queues can receive messages for multiple topics. A "#" will match 0 or more dot-delimited words, while a "\*" will match exactly one. If a message is sent with a "Direct" exchange type, it will only go to queues that have an exact match between the routing and binding keys, and will ignore wildcards. If the message is sent with the "Topic" exchange type, the wildcard rules will be obeyed. If a message is sent with the "Fanout" exchange type, messages will be sent to any and all connected queues from the exchange.
+
+To illustrate this idea, let's imagine that GW publishes news alerts by sending out AMQP messages. If we create a queue with the binding key of "GW.SEAS.#", what messages would we receive? A message with a routing key of "GW.ELLIOT.IA" would not work, as the wildcard only comes after the "SEAS" part of the key. However, both "GW.SEAS.CS" and "GW.SEAS.MAE" would go to our queue, becaue of the wildcard. What if our binding key was actually "GW.SEAS.\*"? A message with a routing key of "GW.SEAS.CS" would work, but "GW.SEAS.CS.WOOD" would not. 
 
 ## STOMP
 
@@ -74,7 +74,9 @@ As the name implies, the goal of STOMP is simplicity. While STOMP may be less fe
 
 While AMQP is designed to be a highly reliable protocol, it was not optimized for resource or network constrained conditions. The Message Queue Telemetry Transport (MQTT) protocol, on the other hand, was originally created in 1999 as a communication protocol for monitoring an oil pipeline. It is designed to be bandwidth-efficient and lightweight, making it a good choice for low-power IoT devices. 
 
-The MQTT architecture is less complicated than the AMQP architecture, and contrary to its name, does not actually require a queue. Clients send messages to the middleman broker using a particular topic, which is similar to an email subject field. Any clients connected to the broker that are subscribed to the same topic will receive any messages published to the topic. This allows a large number of IoT devices to publish to a centralized location, and cloud servers only need to connect to a single device, rather than each individual sensor.
+The MQTT architecture is less complicated than the AMQP architecture, and contrary to its name, does not actually require a queue. Clients send messages to the middleman broker using a particular topic, which is similar to an email subject field, or the routing and binding key system from AMQP. Any clients connected to the broker that are subscribed to the same topic will receive any messages published to the topic. This allows a large number of IoT devices to publish to a centralized location, and cloud servers only need to connect to a single device, rather than each individual sensor.
+
+The above picture represents the MQTT architecture. All of the clients connect to a centralized broker, and each can publish to a topic or subscribe to a topic. All devices in the MQTT system connect to the broker, from the IoT sensors to the cloud computing servers.
 
 ## Demo of the Protocols in Action
 
