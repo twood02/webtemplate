@@ -7,7 +7,7 @@ permalink: /wiki/http1-2httpsSSL/
 *by:* Weizhao Li & Ziyue Li & Zhuolun Gao
 
 
-T short description of the Post:
+The short description of the Post:
 This is a post of HTTP vs HTTP 2 vs HTTPs with SSL. The section HTTP 1 vs HTTP 1.1 vs HTTP 2.0 is written by Weizhao Li, the section of HTTPs is written by Ziyue Li, the section of Secure Sockets Layer (SSL) is written by Zhuolun Gao. 
 
 ---
@@ -70,12 +70,11 @@ There are mainly four differences between HTTP 1.1 and HTTP 2.0. Firstly, HTTP 2
 
 HTTP 2.0 adds a binary format layer between the application layer and the transport layer. HTTP 1.0 transfers the plain-text message, but HTTP 2.0 transfers the binary frame. Thus, the message format is different. As is shown in the image below, you can see the binary frame layer breaks the message into frames. The header of HTTP 1.1 would be encapsulated into the HEADERS frame, the response body would be encapsulated into the DATA frame.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/httpFormat.png)
-
+![image](/wiki/http1-2httpsSSL/images/httpFormat.png)
 
 HTTP 2.0 sets up a TCP connection, within this connection, there are amounts of the bilateral streams of data. Each stream consists of multiple messages in the request/response format, each message can be split into small units called the frame. The image below showcases the format of the stream.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/streamFormat.png)
+![image](/wiki/http1-2httpsSSL/images/streamFormat.png)
 
 The advantage of the binary format layer is that it increases the flexibility of data transfer. The reason is plain-text is diversified, thus, it is much more difficult for HTTP 1.1 to deal with the robustness. However, HTTP 2.0 transfer binary format, this would be much more helpful for maintaining the robustness.
 
@@ -85,7 +84,7 @@ HTTP 1.0 requests and responses in a stop-and-wait way, which has pretty low eff
 
 To improve this, HTTP 2.0 introduces multiplexing and tags each frame. Multiplexing allows the client to construct the multiple streams in parallel, these streams share a single TCP connection. In the following graph, you can see the process of multiplexing.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/multiplexing.png)
+![image](/wiki/http1-2httpsSSL/images/multiplexing.png)
 
 
 In HTTP 2.0, each frame would be tagged to a specific stream, the tag allows the connection to interleave these frames during transfer and reassemble them at the other side. Thus, the request and response frames can be transferred in parallel without blocking the behind messages.
@@ -94,11 +93,11 @@ In HTTP 2.0, each frame would be tagged to a specific stream, the tag allows the
 
 Let’s see an example before explaining the header compression. Suppose we have the following two requests, the headers of these two requests are as follow.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/http1.1request.png)
+![image](/wiki/http1-2httpsSSL/images/http1.1request.png)
 
 Everything is the same except path field. In HTTP 1.1, we have to send these two request messages twice, which means the same fields will be sent twice. Thus, the size of the messages will be pretty large. However, in HTTP 2.0. these two headers will be encapsulated into the header frames. HTTP 2.0 can compress the header frames. The result header frames are as follow:
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/http2.0request.png)
+![image](/wiki/http1-2httpsSSL/images/http2.0request.png)
 
 
 When sending the request 2, we only encode the path field and we can reconstruct the header with other common fields. This is the process of header compression.
@@ -132,7 +131,7 @@ To solve these questions and get a more safe communication, SSL (or TLS) are int
 ### Brief history of SSL
 Secure Sockets Layer (SSL), and its now standardized successor, Transport Layer Security (TLS), was first developed by Netscape Company. Taher Elgamal(Figure 1), chief scientist at Netscape Communications from 1995 to 1998, has been described as the "father of SSL". SSL Version 1.0 was never publicly released because of serious security flaws in the protocol. Version 2.0, released in February 1995, contained a number of security flaws which necessitated the design of Version 3.0.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Taher%20Elgamal.png)
+![image](/wiki/http1-2httpsSSL/images/Taher%20Elgamal.png)
 
 Taher Elgamal
 
@@ -142,33 +141,33 @@ After that, several version of TLS developed to make improvement on security and
 
 SSL and TLS protocols
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
+![image](/wiki/http1-2httpsSSL/images/SSL%20and%20TLS%20protocols.png)
 
 Therefore, HTTPS can be seen a combination work between HTTP and SSL/TLS, as Form below illustated.
 
 The difference between HTTP and HTTPS on network layer architecture
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/The_difference_between_HTTP_and_HTTPS_on_network_layer_architecture.png)
+![image](/wiki/http1-2httpsSSL/images/The_difference_between_HTTP_and_HTTPS_on_network_layer_architecture.png)
 
 ### Basic cryptography
 There are two cryptography to be showed here: Symmetric-key algorithm and asymmetric cryptography. Both cryptography approaches will be used to secure communications while guarantee the performance.
 
 ### Cleartext
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Cleartext_transmission_is_easy_to_be_eavesdropped.png)
+![image](/wiki/http1-2httpsSSL/images/Cleartext_transmission_is_easy_to_be_eavesdropped.png)
 
 Cleartext transmission is easy to be eavesdropped
 
 ### Symmetric-key encryption
 
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Symmetric-key_encrypted_transmission.png)
+![image](/wiki/http1-2httpsSSL/images/Illustration_of_Symmetric-key_encrypted_transmission.png)
 
 Illustration of Symmetric-key encrypted transmission
 
 Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both encryption of plaintext and decryption of ciphertext. The keys may be identical or there may be a simple transformation to go between the two keys. The keys, in practice, represent a shared secret between two or more parties that can be used to maintain a private information link. This requirement that both parties have access to the secret key is one of the main drawbacks of symmetric key encryption(shows on Figure below), in comparison to public-key encryption (also known as asymmetric key encryption)
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/How_to_transfer_key_itself_safely.png)
+![image](/wiki/http1-2httpsSSL/images/How_to_transfer_key_itself_safely.png)
 
 How to transfer key itself safely?
 
@@ -177,11 +176,11 @@ Public-key cryptography, or asymmetric cryptography, is a cryptographic system t
 
 As figure below shows, an unpredictable (typically large and random) number is used to begin generation of an acceptable pair of keys suitable for use by an asymmetric key algorithm.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_on_key_pairs_generation_process.png)
+![image](/wiki/http1-2httpsSSL/images/Illustration_on_key_pairs_generation_process.png)
 
 Illustration on key pairs generation process.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Asymmetric_key_encrypted_communication.png)
+![image](/wiki/http1-2httpsSSL/images/Illustration_of_Asymmetric_key_encrypted_communication.png)
 
 Illustration of Asymmetric key encrypted communication
 
@@ -192,20 +191,20 @@ Although asymmetric key encryption seemed to be a way to communicate safely, pro
 
 A man-in-the-middle attack (MITM) is an attack where the attacker secretly relays and possibly alters the communications between two parties who believe that they are directly communicating with each other. One example of a MITM attack is active eavesdropping, in which the attacker makes independent connections with the victims and relays messages between them to make them believe they are talking directly to each other over a private connection(as below shows), when in fact the entire conversation is controlled by the attacker. The attacker must be able to intercept all relevant messages passing between the two victims and inject new ones. This is straightforward in many circumstances; for example, an attacker within reception range of an unencrypted wireless access point (Wi-Fi) could insert themselves as a man-in-the-middle.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Illustration_of_Middleman_attack.png)
+![image](/wiki/http1-2httpsSSL/images/Illustration_of_Middleman_attack.png)
 
 Illustration of Middleman attack
 
 ### Solution: Certificate Authority & Digital Certificates
 Now it is time to introduce the almost-perfect solution: Certificate Authority and Digital Certificate. A certificate authority or certification authority (CA) is an entity that issues digital certificates. The issuing process is showed on below. A digital certificate certifies the ownership of a public key by the named subject of the certificate. This allows others (relying parties) to rely upon signatures or on assertions made about the private key that corresponds to the certified public key. A CA acts as a trusted third party—trusted both by the subject (owner) of the certificate and by the party relying upon the certificate.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Digital_Certificate_Issuing_Process.png)
+![image](/wiki/http1-2httpsSSL/images/Digital_Certificate_Issuing_Process.png)
 
 Digital Certificate Issuing Process
 
 As showed on below, the Digital Certificate will used to make the first step identification and exchange the random key, which will be used later in a format of symmetric-key encryption in order to improve the performance.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/Communication_with_Digital_Certificate_between_client_and_server.png)
+![image](/wiki/http1-2httpsSSL/images/Communication_with_Digital_Certificate_between_client_and_server.png)
 
 Communication with Digital Certificate between client and server
 
@@ -245,35 +244,35 @@ plt.hist(l)
 ```
 The result is showed here.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/http_picture.png)
+![image](/wiki/http1-2httpsSSL/images/http_picture.png)
 
 While, I will do the nearly samething for the https://zli.name, everything is same with above, just change the value of url from http://zli.name to https://zli.name.
 
 The result shows below.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/https_picture.png)
+![image](/wiki/http1-2httpsSSL/images/https_picture.png)
 
 You can see that, while indicated by the red circle, the HTTPS is relatively causing more delay than HTTP.
 
 Below shows the protocol is HTTP/1. By the developer function provided by Chrome.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/http1.1.png)
+![image](/wiki/http1-2httpsSSL/images/http1.1.png)
 
 In fact, I have an idle domain name and last night I build a website based on wordpress with it. I think this process can give you a direct show of how to install SSL certificate and thus made the website you created more safely.
 
 At first, my website shows something like this:
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/unsecure_connection_revised.png)
+![image](/wiki/http1-2httpsSSL/images/unsecure_connection_revised.png)
 
 You can see the red box showing that there is no valid certificate. Then, I use Let’s encrypt to install certificate on my browser. When you choose your OS and your server end, Certbot will show customized instructions.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/let's_encrypt.png)
+![image](/wiki/http1-2httpsSSL/images/let's_encrypt.png)
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/certbot.png)
+![image](/wiki/http1-2httpsSSL/images/certbot.png)
 
 This is what I choose based on my server configuration:
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/choose_the_os_and_server_arch.png)
+![image](/wiki/http1-2httpsSSL/images/choose_the_os_and_server_arch.png)
 
 Instrcutions are below:
 
@@ -298,7 +297,7 @@ $ sudo certbot --nginx
 ```
 After that, you can see that the website can be recognized as safe through Chrome browser, and within the green box, the certificate become valid.
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/secure_connection_revised.png)
+![image](/wiki/http1-2httpsSSL/images/secure_connection_revised.png)
 
 I hope this section will help you understanding how HTTPS made data more safe to transfer, and how Digital Certificate made the website more safe to browse. :)
 
@@ -310,7 +309,7 @@ I hope this section will help you understanding how HTTPS made data more safe to
    
 Secure Sockets Layer (SSL) is an enhanced version of TCP which can provide confidentiality, data integrity, and etc.   
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/bigpicture.png)    
+![image](/wiki/http1-2httpsSSL/images/bigpicture.png)    
     	
 New applications such as e-commerce and online banking based on the World Wide Web greatly facilitate people's daily life and are favored by people. Because these applications need online transactions on the network, they put forward higher requirements for the security of network communication. The traditional World Wide Web Protocol HTTP does not have the security mechanism, such as transmitting data in the form of clear text, unable to verify the identity of both sides of the communication, unable to prevent the transmission of data from being tampered, etc., which leads to HTTP unable to meet the security requirements of e-commerce and online banking applications.    
 
@@ -331,27 +330,27 @@ Confidentiality of data transmission: using symmetric key algorithm to encrypt t
  
 ### Working process of the agreement 
    
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/agreement.png)  
+![image](/wiki/http1-2httpsSSL/images/agreement.png)  
 	
 #### SSL handshake process 
  
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/handshake.png)      
+![image](/wiki/http1-2httpsSSL/images/handshake.png)      
 SSL negotiates the session parameters between the client and the server through the handshake process and establishes the session. The main parameters of a session include session ID, the certificate of the other party, encryption suite (key exchange algorithm, data encryption algorithm, MAC algorithm, etc.) and master secret. The data transmitted through SSL session will be encrypted and Mac will be calculated by the master key and encryption suite of the session.   
 
 #### Verify only the handshake process of the server
    
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/server.png)          
+![image](/wiki/http1-2httpsSSL/images/server.png)          
 	
 #### Verify SSL handshake process between server and client  
   
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/server_client.png)       
+![image](/wiki/http1-2httpsSSL/images/server_client.png)       
 	
 #### SSL handshake process to restore the original session   
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/original_session.png)    
+![image](/wiki/http1-2httpsSSL/images/original_session.png)    
 ### Record protocol  
 
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/record_protocal.png)    
+![image](/wiki/http1-2httpsSSL/images/record_protocal.png)    
 	
 The recording protocol is use after the client and server shake hands successfully, that is, after the client and server identify each other and determine the algorithm for security information exchange, they enter the SSL recording protocol, which provides two services for SSL connection:     
 
