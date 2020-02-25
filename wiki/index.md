@@ -10,7 +10,7 @@ permalink: /wiki/
 
 
 # Table of Contents
-- [A Comparison of Popular Message Queue Protocols]()
+- [A Comparison of Popular Message Queue Protocols](/wiki/messagequeues/)
 - [DNS Zine]()
 - [Content Distribution Networks]()
 - [How does In-Flight WiFi really work?]()
