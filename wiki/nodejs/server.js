@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Create a TCP server, createServer() will automatically set a connection listener
 const server = net.createServer((socket)=>{
-    console.log(`A new request from port: ${socket.remotePort} is connected`);
+    console.log(`A new connection between port: ${socket.localPort} and port: ${socket.remotePort} is established`);
 
     // Listen for event: "data ready" on the socket
     socket.on('data', (data) => {
