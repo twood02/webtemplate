@@ -46,8 +46,8 @@ layout: home
 
 | Part 2: Distributed Systems | Materials
 |:---  |:--- |
-| [Distributed Systems Basics](/slides/4-dist-sys-intro.pdf) | |
-| Scalable Application Development | |
+| [Distributed Systems Basics](/slides/4-dist-sys-intro.pdf) <br>Week 7 | |
+| Scalable Applications and Communication Frameworks | |
 | Consensus and Consistency | | 
 | Cloud Service Management | | 
 
