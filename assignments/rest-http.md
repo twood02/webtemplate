@@ -97,4 +97,4 @@ I made N requests and it took XXX time units.
 If you finish early you should implement one of the following advanced api features:
 
 - Extend RestGate to read the Accept header on a request and return the content in that format. i.e. If I send a header of `-H Accept: text/html` I should get back HTML. If I send a header of `-H Accept: application/json` I should get back json with the total time value for all `n` requests and the data values returned for each request.
-- Extend RestGate to use some sort of authentication scheme. Using the `-H Authorization: 31245` header, have your server only respond to authorized requests and return an appropriate status code otherwise.
+- Extend RestGate to use some sort of authentication scheme. Using the `-H Authorization: 12345` header, have your server only respond to authorized requests that provide a secret code and return an appropriate error status code otherwise.
