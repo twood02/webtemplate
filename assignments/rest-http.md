@@ -88,7 +88,7 @@ It should then return a simple HTML document that prints the total time recorded
 
 ```
 <html><body>
-I made N requests and it took XXX time units.
+I made N requests and it took XXX milliseconds.
 </body></html>
 ```
 
