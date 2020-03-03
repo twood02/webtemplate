@@ -4,7 +4,7 @@ title:  "Working with HTTP and REST"
 permalink: /assignments/httprest/
 ---
 
-> **Objectives:** To learn about HTTP requets, REST services, and JSON data in python, javascript, or go.
+> **Objectives:** To learn about HTTP requests, REST services, and JSON data in python, javascript, or go.
 
 ## 1. RestServ
 You have been provided with a simple REST based server. All it does is... *rest*... for each request (i.e., sleep for a random amount of time).
@@ -74,12 +74,27 @@ where XXX is the value in the `data` field of the RestServ response. Remember, t
 
 ## Stage 2:
 
-In practice, most requests require some sort of data. It is also common for one request to cause multiple subrequests. To evaluate this, you should extend your RestGate so that for each incoming request it will issue `n` more HTTP requests to the provided RestServ service.  The value of `n` should be a parameter passed to your service in an HTTP POST request.
+In practice, most requests require some sort of data. It is also common for one request to cause multiple subrequests. To evaluate this, you should extend your RestGate so that for each incoming request it will issue `n` more HTTP requests to the provided RestServ service. The value of `n` should be a parameter passed to your service in an HTTP POST request. For each request, you must measure the time it takes to process in milliseconds.
 
 To test your service, you should issue a command like:
 
 ```
-curl -X POST localhost:8080/someEndPoint -d '{"numRequests": n }'
+curl -X POST localhost:4000/someEndPoint -d '{"numRequests": n }'
 ```
 
 Your service will need to read the `numRequests` field in the POST request body to find the value of n.
+
+It should then return a simple HTML document that prints the total time recorded for making n requests like so:
+
+```
+<html><body>
+I made N requests and it took XXX time units.
+</body></html>
+```
+
+# Extending your RestGate
+
+If you finish early you should implement one of the following advanced api features:
+
+- Extend RestGate to read the Accept header on a request and return the content in that format. i.e. If I send a header of `-H Accept: text/html` I should get back HTML. If I send a header of `-H Accept: application/json` I should get back json with the total time value for all `n` requests and the data values returned for each request.
+- Extend RestGate to use some sort of authentication scheme. Using the `-H Authorization: 31245` header, have your server only respond to authorized requests and return an appropriate status code otherwise.
