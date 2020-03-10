@@ -4,3 +4,4 @@ _site
 a.out
 .tags
 tmp
+.DS_Store

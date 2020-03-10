@@ -46,8 +46,8 @@ layout: home
 
 | Part 2: Distributed Systems | Materials
 |:---  |:--- |
-| [Distributed Systems Basics](/slides/4-dist-sys-intro.pdf) <br>Week 7 | |
-| [Scalable Applications and Communication Frameworks](5-microservices.pdf) <br>Week 8 | Exercise: [RestServ](/assignments/httprest) |
+| [Distributed Systems Basics](/slides/4-dist-sys-intro.pdf) <br>Week 7| |
+| [Scalable Applications and Communication Frameworks](5-microservices.pdf) <br>Weeks 8-9 | Exercise: [RestServ](/assignments/httprest) <br> [Quiz 3/10](https://forms.gle/Pn6s8wP8hQG2oitp9)|
 | Consensus and Consistency | | 
 | Cloud Service Management | | 
 
