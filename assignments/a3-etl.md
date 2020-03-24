@@ -73,9 +73,9 @@ While typically each microservice is responsible for maintaining its own databas
 
 We have provided you with a basic framework for your microservice implementation. Currently it only includes an API gateway and a simple analysis microservice to count the number of lines in a log file. To complete the assignment you must:
 
- - Move the data cleaning functionality out of the API gateway and into `ms-data-cleaning` service.
+ - Move the data cleaning functionality out of the API gateway and into `ms-data-cleaning` service. You should start here to get an idea of how to build a microservice. We have included a basic framework that allows you to make a post and get request. You should modify these to handle the data cleaning.
  - Implement `ms-browser-counts` and `ms-visitor-counts` microservices which count the frequency of browsers and visitors (you can base this on the code in the Monolith).
- - Implement a new `ms-website-counts` microservice which counts the number of times each URL appears per day. You will have to build this from scratch, although the other examples will give you guidance.
+ - Implement a new `ms-website-counts` microservice which counts the number of times each URL appears per day. You will have to build this from scratch, although the other examples will give you guidance. 
 
 For a greater challenge, you can also:
  - Move the authentication functionality out of `ms-api-gateway` into its own microservice, `ms-auth`.
@@ -84,21 +84,27 @@ For a greater challenge, you can also:
 
 ### Running the Microservices
 
-> @LUCAS check details below!
-
 To test the provided Microservices, compile and run them:
 ```
 # Start API Gateway in first terminal
-...
+cd ms-api-gateway
+go build .
+./ms-api-gateway
+
 
 # Start Line Count in second terminal
-...
-
+cd ms-line-count
+go build .
+./ms-line-count
 ```
-  - To access the Log upload page, visit: [http://localhost:80/AAAAA](http://localhost:80/AAAAA)
-  - To access the Browser Count results, visit: [http://localhost:80/BBBBB](http://localhost:80/BBBBB)
-  - To access the Visitor Count results, visit: [http://localhost:80/CCCCC](http://localhost:80/CCCCC)
+
+  - To access the Log upload page, visit: [http://localhost:80](http://localhost:80)
+  - To access the Line Count results, visit [http://localhost/lines/count/FILE_NAME_HERE](http://localhost/lines/count/FILE_NAME_HERE) 
+  - To access the Browser Count results, visit: [http://localhost:80/browser/count](http://localhost:80/browser/count) *Note: You need to implement this first.*
+  - To access the Visitor Count results, visit: [http://localhost:80/visitor/count](http://localhost:80/visitor/count) * Note: You need to implement this first.*
   - **Note the different port (80) used for the microservice API Gateway!**
+
+
 
 ---
 
