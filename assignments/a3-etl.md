@@ -101,9 +101,17 @@ go build .
   - To access the Log upload page, visit: [http://localhost:80](http://localhost:80)
   - To access the Line Count results, visit [http://localhost/lines/count/FILE_NAME_HERE](http://localhost/lines/count/FILE_NAME_HERE) 
   - To access the Browser Count results, visit: [http://localhost:80/browser/count](http://localhost:80/browser/count) *Note: You need to implement this first.*
-  - To access the Visitor Count results, visit: [http://localhost:80/visitor/count](http://localhost:80/visitor/count) * Note: You need to implement this first.*
+  - To access the Visitor Count results, visit: [http://localhost:80/visitor/count](http://localhost:80/visitor/count) *Note: You need to implement this first.*
   - **Note the different port (80) used for the microservice API Gateway!**
 
+
+### Where to start?
+
+You should start this assignment by first looking at how `ms-line-count` is implemented and how it interacts with `ms-api-gateway`. You should do your best to see how the code flows and how it handles and responds to requests from `ms-api-gateway`. Especially notice how all responses use a standard format. Your api should use the same format using the structs and functions in `shared.go`. Also note, all requests to the api will need to go through `ms-api-gateway` and be forwarded to the microservices doing the actual work, you should not directly talk to individual microservices.
+
+Once you understand how `ms-line-count` works, you should work on moving the log file parsing and cleaning functionality out of `ms-api-gateway` and into `ms-data-cleaning`. We have provided a skeleton for `ms-data-cleaning` that provides basic endpoints for GET and POST. You will need to modify these to accept the raw log file bytes from `ms-api-gateway`, clean them and store them in the database just like the monolith does.
+
+Once you have `ms-data-cleaning` working, you should build the rest of your microservices.
 
 
 ---
@@ -117,3 +125,7 @@ go build .
 
 **Q:** I have a question, what do I do?
  - **A:** Message us in `#a3etl` on slack and we will add it here!
+
+ **Q:** Can I modify the `shared.go` file in the repos?
+ - **A:** We have provided the `shared.go` file as a way to help your code remain consistent. You should use the various functions in this file in your api but should not modify them. 
+
