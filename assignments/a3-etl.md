@@ -10,7 +10,7 @@ In this project you will take a monolithic web service and turn it into a set of
 **General Requirements:** 
   - Your solution must be written in Go.
   - You may work individually or in a team with maximum size 3 students.
-  - You must create your repository in [GitHub Classrooms](https://classroom.github.com/g/qxHM8OIw). (**DON'T DO THIS UNTIL WE TELL YOU TO!**)
+  - You must create your repository in [GitHub Classrooms](https://classroom.github.com/g/qxHM8OIw). (**Please put the team member names in the title of your repo**)
   - All team members must contribute commits to the repository and work should be divided evenly. You should regularly commit and push as you work, instead of waiting until the end to push.
 
 *Due Sunday April 5th, 11:59pm*
