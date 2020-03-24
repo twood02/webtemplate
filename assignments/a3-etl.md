@@ -10,7 +10,7 @@ In this project you will take a monolithic web service and turn it into a set of
 **General Requirements:** 
   - Your solution must be written in Go.
   - You may work individually or in a team with maximum size 3 students.
-  - You must create your repository in [GitHub Classrooms](https://classroom.github.com/g/qxHM8OIw).
+  - You must create your repository in [GitHub Classrooms](https://classroom.github.com/g/qxHM8OIw). (**DON'T DO THIS UNTIL WE TELL YOU TO!**)
   - All team members must contribute commits to the repository and work should be divided evenly. You should regularly commit and push as you work, instead of waiting until the end to push.
 
 *Due Sunday April 5th, 11:59pm*
@@ -74,7 +74,7 @@ We have provided you with a basic framework for your microservice implementation
  - Implement a new `ms-website-counts` microservice which counts the number of times each URL appears per day. You will have to build this from scratch, although the other examples will give you guidance.
 
 For a greater challenge, you can also:
- - Move the authentication functionality out of `ms-api-gateway` into its own microservice.
+ - Move the authentication functionality out of `ms-api-gateway` into its own microservice, `ms-auth`.
  - Create additional reports, such as 1) returning the top 5 most popular websites and 2) returning a list of all websites visited by a particular IP address.
 
 
@@ -96,6 +96,7 @@ To test the provided Microservices, compile and run them:
   - To access the Visitor Count results, visit: [http://localhost:80/CCCCC](http://localhost:80/CCCCC)
   - **Note the different port (80) used for the microservice API Gateway!**
 
+---
 
 ## FAQ
 
