@@ -49,11 +49,13 @@ go build .
 ./monolith 
 ```
 
+> If you get errors about missing packages, you will need to run commands like `go get github.com/mattn/go-sqlite3` to install them!
+
 Then use your browser to go to [http://localhost:8000](http://localhost:8000)
 
-  - You will need to log in with username / password `admin` / `password1`.
+  - You will need to log in with username / password `admin` / `password`.
 
-You will be presented with a simple webpage that allows you to upload a file and start the pipeline.
+You will be presented with a simple webpage that allows you to upload a file and start the pipeline.  The `logs` directory contains some sample logs to use.
 
 The Monolith will show a status message when it completes running the pipeline.
 
@@ -117,14 +119,14 @@ Once you have `ms-data-cleaning` working, you should build the rest of your micr
 ---
 
 ## FAQ
+**Q:** I have a question, what do I do?
+ - **A:** Message us in `#a3etl` on slack and we will add it here!
+
 **Q:** How do I learn Go? 
   - **A:** Check our [Go Resources](/wiki/go/) for videos and links to get you started!
 
 **Q:** How can my microservices find each other? 
   - **A:** Normally a service discovery framework would be used for components to learn how to communicate with each other. For simplicity, we will assume all microservices run on localhost, and the ports are stored in [`config.yaml`](https://github.com/gwAdvNet20/ETL-pipeline/blob/master/config.yaml). The contents of the config file are accessible using the [viper](https://github.com/spf13/viper) library, e.g., `viper.GetString("services.ms-data-cleaning")`
-
-**Q:** I have a question, what do I do?
- - **A:** Message us in `#a3etl` on slack and we will add it here!
 
  **Q:** Can I modify the `shared.go` file in the repos?
  - **A:** We have provided the `shared.go` file as a way to help your code remain consistent. You should use the various functions in this file in your api but should not modify them. 
