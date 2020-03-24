@@ -59,10 +59,12 @@ You will be presented with a simple webpage that allows you to upload a file and
 
 The Monolith will show a status message when it completes running the pipeline.
 
-  - To access the Browser Count results, visit: [http://localhost:8000/browser/count](http://localhost:8000/browser/count)
+  - To access the Browser Count results, visit: [http://localhost:8000/browser/count](http://localhost:8000/browser/count). 
+    - You should get back a JSON result like: `{"Chrome":40,"Firefox":65,"MSIE":52,"Opera":64,"Safari":79}`
   - To access the Visitor Count results, visit: [http://localhost:8000/visitor/count](http://localhost:8000/visitor/count)
+    - You should get back a JSON result like: `{"02-03-2020":39,"03-03-2020":44,"04-03-2020":40,"05-03-2020":40,"06-03-2020":21,"07-03-2020":47,"08-03-2020":35,"09-03-2020":34}`
 
-If you want to see the data that was stored in the database, you can use a tool like [sqlite browser](https://sqlitebrowser.org/).
+If you want to see the data that was stored in the database, you can use a tool like [sqlite browser](https://sqlitebrowser.org/) or the SQLite addon for VS Code.
 
 ## The Microservices
 As we have discussed in class, the monolithic design has some drawbacks such as making it harder to upgrade or scale individual components. Your task is to implement a microservice based solution, which will look more like the following:
