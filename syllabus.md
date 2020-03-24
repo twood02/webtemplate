@@ -33,16 +33,26 @@ By the end of this course, students will:
   * Throughout: Cloud Computing
     * We will use a variety of cloud services from AWS
 
+### Grading Breakdown ###
+Final grades will be calculated based on this breakdown:
+
+ - Assignments = 50%
+ - Midterm = 20%
+ - Quizzes = 20% 
+ - Participation = 10% 
+
+> **Update 3/19/202:** Since we are moving to online instruction for the remainder of the course, the grading policy may be adjusted.
 
 ### Course Policies  ###
 
 > **If you have a disability that may effect your participation in this course and wish to discuss academic accommodations, please contact Prof. Wood as soon as possible.**
 
 **Late work policy:**
-  * TBD
   * If you have been ill and have a doctor's certificate to prove it, you will be eligible to take a missed quiz, provided you submit this certificate (during my office hours) reasonably soon after recovering from the affliction. Significant illnesses may be grounds for delayed assignment or project submission, but you should email me before the deadline if physically possible.
 
 **Illness policy:** If you are ill and it will cause you to miss class or an assignment, you should let me know in advance if possible.  I cannot extend deadlines unless you provide a note from a doctor.  
+
+> **Update 3/19/202:** Given the current pandemic, we will be lenient with deadlines, but please contact us as soon as you can if you expect to submit something late. We will work with you to make a plan that fits your situation.
 
 **Academic Integrity policy:** It is very important in this course (and in life), that your work be your own. These guidelines will help you achieve that.
 
