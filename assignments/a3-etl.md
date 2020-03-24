@@ -39,22 +39,26 @@ For details of the log format, [check here](https://www.dataquest.io/blog/data-p
 
 ### Running the Monolith
 
-> @LUCAS check details below!
+> If you need to change the port you will need to modify `config.yaml` and change the value of monolith. You will also need to update the html file.
 
 To test the Monolith, compile and run it:
+
 ```
 cd monolith
-go build
-./monolith (ARE THERE ANY ARGS???)
+go build .
+./monolith 
 ```
+
 Then use your browser to go to [http://localhost:8000](http://localhost:8000)
 
   - You will need to log in with username / password `admin` / `password1`.
 
+You will be presented with a simple webpage that allows you to upload a file and start the pipeline.
+
 The Monolith will show a status message when it completes running the pipeline.
 
-  - To access the Browser Count results, visit: [http://localhost:8000/XXXX](http://localhost:8000/XXXX)
-  - To access the Visitor Count results, visit: [http://localhost:8000/YYYY](http://localhost:8000/YYYY)
+  - To access the Browser Count results, visit: [http://localhost:8000/browser/count](http://localhost:8000/browser/count)
+  - To access the Visitor Count results, visit: [http://localhost:8000/visitor/count](http://localhost:8000/visitor/count)
 
 If you want to see the data that was stored in the database, you can use a tool like [sqlite browser](https://sqlitebrowser.org/).
 
