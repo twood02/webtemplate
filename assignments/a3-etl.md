@@ -99,6 +99,8 @@ To test the provided Microservices, compile and run them:
 ---
 
 ## FAQ
+**Q:** How do I learn Go? 
+  - **A:** Check our [Go Resources](/wiki/go/) for videos and links to get you started!
 
 **Q:** How can my microservices find each other? 
   - **A:** Normally a service discovery framework would be used for components to learn how to communicate with each other. For simplicity, we will assume all microservices run on localhost, and the ports are stored in [`config.yaml`](https://github.com/gwAdvNet20/ETL-pipeline/blob/master/config.yaml). The contents of the config file are accessible using the [viper](https://github.com/spf13/viper) library, e.g., `viper.GetString("services.ms-data-cleaning")`
