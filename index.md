@@ -50,7 +50,7 @@ layout: home
 | [Distributed Systems Basics](/slides/4-dist-sys-intro.pdf) <br>Week 7| **Midterm:** Tuesday Feb 25th - you can bring one sheet of hand written notes. |
 | [Scalable Apps & Comm Frameworks](5-microservices.pdf) <br>Weeks 8-9 | **Exercise:** [RestServ](/assignments/httprest) <br> [Quiz 3/10](https://forms.gle/Pn6s8wP8hQG2oitp9)|
 | [Spring break!]() <br> Week 10 | |
-| [Moving Online & Microservices](/slides/6-going-online.pdf) <br> Week 11 <br> (Video will be posted later)| [Go Resources](/wiki/go/) <br> **Exercise:** [ETL Pipeline](/assignments/etl-pipeline/) |
+| [Moving Online & Microservices](/slides/6-going-online.pdf) <br> Week 11 | [Go Resources](/wiki/go/) <br> **Exercise:** [ETL Pipeline](/assignments/etl-pipeline/) due April 5th<br> **3/24/20:**  [Class Video](https://gwu.webex.com/recordingservice/sites/gwu/recording/playback/67a6bcc0fa1c4dd4be686830e49e6996) --- [Office hour ETL walkthrough video](https://gwu.webex.com/recordingservice/sites/gwu/recording/playback/e7785f33d3fb4bed91dcb526e9c06974) |
 | Consensus and Consistency | | 
 | Cloud Service Management | | 
 
