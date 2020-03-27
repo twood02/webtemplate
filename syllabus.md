@@ -43,6 +43,19 @@ Final grades will be calculated based on this breakdown:
 
 > **Update 3/19/202:** Since we are moving to online instruction for the remainder of the course, the grading policy may be adjusted.
 
+#### Participation
+Participation will be measured each "week," defined as the days from Tuesday until Monday. Up until March 30th, participation was required at least once every two weeks. Starting Tuesday March 31st, participation is required at least once every week.
+
+The following activities will qualify for your participation:
+  - Asking or answering a question in class
+  - Asking or answering a question on Slack in a public channel
+  - Attending virtual office hours
+
+Participating in at least one of these ways will give you 2 points for the week. 
+
+Throughout the semester there will be various "bonus point" opportunities. Responding to these will give you an extra point for the week (maximum 4 points total per week).
+
+
 ### Course Policies  ###
 
 > **If you have a disability that may effect your participation in this course and wish to discuss academic accommodations, please contact Prof. Wood as soon as possible.**
