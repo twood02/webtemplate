@@ -19,10 +19,10 @@ author: Timothy Wood
 description: > # this means to ignore newlines until "baseurl:"
   Course description goes here.
 
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://cs2113f18.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/pow/" # the subpath of your site, e.g. /blog
+url: "https://gwcloudlab.github.io/pow/" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
-github_username:  cs2113f18
+github_username:  gwcloudlab
 
 # destination: ./docs
 
