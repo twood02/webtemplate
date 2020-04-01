@@ -79,11 +79,12 @@ We have provided you with a basic framework for your microservice implementation
 
  - Move the data cleaning functionality out of the API gateway and into `ms-data-cleaning` service. You should start here to get an idea of how to build a microservice. We have included a basic framework that allows you to make a post and get request. You should modify these to handle the data cleaning.
  - Implement `ms-browser-counts` and `ms-visitor-counts` microservices which count the frequency of browsers and visitors (you can base this on the code in the Monolith).
- - Implement a new `ms-website-counts` microservice which counts the number of times each URL appears per day. You will have to build this from scratch, although the other examples will give you guidance. 
+ - Implement a new `ms-website-counts` microservice which counts the number of times each URL appears per day. You should count websites based on the root of the url(i.e. facebook.com) not the unique paths. You will have to build this from scratch, although the other examples will give you guidance. 
 
 For a greater challenge, you can also:
  - Move the authentication functionality out of `ms-api-gateway` into its own microservice, `ms-auth`.
  - Create additional reports, such as 1) returning the top 5 most popular websites and 2) returning a list of all websites visited by a particular IP address.
+ - For an extra challenge you can implement a second endpoint for ms-website-counts that counts the unique paths as well.
 
 
 ### Running the Microservices
@@ -115,8 +116,9 @@ You should start this assignment by first looking at how `ms-line-count` is impl
 
 Once you understand how `ms-line-count` works, you should work on moving the log file parsing and cleaning functionality out of `ms-api-gateway` and into `ms-data-cleaning`. We have provided a skeleton for `ms-data-cleaning` that provides basic endpoints for GET and POST. You will need to modify these to accept the raw log file bytes from `ms-api-gateway`, clean them and store them in the database just like the monolith does.
 
-Once you have `ms-data-cleaning` working, you should build the rest of your microservices.
+Once you have `ms-data-cleaning` working, you can build the rest of your microservices.
 
+**NOTE:** You can also choose to start by building the other microservices for browser, visit, and website counts first since they dont depend on any other functionality. You can use the existing datacleaning built into the `ms-api-gateway` and then once the other microservices are done you can break out the data cleaning into its own service.
 
 ---
 
@@ -131,5 +133,18 @@ Once you have `ms-data-cleaning` working, you should build the rest of your micr
   - **A:** Normally a service discovery framework would be used for components to learn how to communicate with each other. For simplicity, we will assume all microservices run on localhost, and the ports are stored in [`config.yaml`](https://github.com/gwAdvNet20/ETL-pipeline/blob/master/config.yaml). The contents of the config file are accessible using the [viper](https://github.com/spf13/viper) library, e.g., `viper.GetString("services.ms-data-cleaning")`
 
  **Q:** Can I modify the `shared.go` file in the repos?
- - **A:** We have provided the `shared.go` file as a way to help your code remain consistent. You should use the various functions in this file in your api but should not modify them. 
+  - **A:** We have provided the `shared.go` file as a way to help your code remain consistent. You should use the various functions in this file in your api but should not modify them. 
+
+ **Q:** For the website count microservice, when we count how many times a website is searched on a specific day should we use the base website or should we use the full URL to determine total counts: https://facebook.com  VS https://facebook.com/myurl/123451
+  - **A:** You should count the website using the base URL rather than the full URL. So if you are visiting https://facebook.com/myurl/123451 then the count for facebook.com should increase by one. If you want an extra challenge you can add an extra endpoint to count unique URL's.
+
+ **Q:** Should browser, visitor, and website counts be based on filenames or overall data?
+  - **A:** Unlike ms-line-counts, your counts should be based on all of the data in the database regardless of which file the data came from. 
+
+ **Q:** How should we name our endpoints?
+  - **A:** Generally you should keep nouns in your endpoints and verbs out of them. So if you are updating browser counts then an example request would be: `POST /browser/count` where as if you are requesting browser counts then an example would be: `GET /browser/count`. You can use different logic for if there is a `GET` or a `POST` method used in your routes.
+
+ **Q:** How can I test my microservices?
+  - **A:** You can use tools like `curl` to make requests to your microservice in isolation and not have to worry about integrating with the rest of the services. If you want to make a GET request: `curl -X GET -s localhost:4002/lines/count/log_a.txt`. If you want to make a POST request: `curl -X POST localhost:4002/lines/count -d ‘{"fname":"log_a.txt"}'`
+
 
