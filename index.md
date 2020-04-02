@@ -7,8 +7,8 @@ layout: home
     <ul class="contact-list">
         <li><a href="https://faculty.cs.gwu.edu/timwood/"><b>Prof. Tim Wood</b></a></li>
         <li><a href="mailto:timwood@gwu.edu">timwood@gwu.edu</a></li>
-        <li>Office Hours: TBD, SEH 4580</li>
-        <li>Class: Tuesdays 10AM-12:30PM in Tompkins 402</li>
+        <li>Office Hours: By appointment (email/slack me)</li>
+        <li>Class: Tuesdays 10AM-12:30PM on Zoom</li>
     </ul>
 </div>
 <div class="footer-col two-col-2">
@@ -25,10 +25,7 @@ layout: home
 
 
 ## Announcements ##
- - The rest of the semester after Spring Break will all be done online. Please contact the instructors if you have any difficulties or concerns!
- - The networking midterm will be on Tuesday 2/25
- - Tech Blog due Thursday 2/20
- - The [Reliable UDP](/assignments/reliable-udp)  Assignment is due Sunday 2/2 at 11:59PM
+ - The rest of the semester after Spring Break will all be done online. Please contact the instructors if you have any difficulties or concerns! Please continue to reserve 10-12:30 on Tuesdays for this class, although most weeks we will try to have our online meeting shorter than that.
 
 ## Class Resources ##
  - [AWS Educate](https://www.awseducate.com) 
@@ -51,7 +48,8 @@ layout: home
 | [Scalable Apps & Comm Frameworks](5-microservices.pdf) <br>Weeks 8-9 | **Exercise:** [RestServ](/assignments/httprest) <br> [Quiz 3/10](https://forms.gle/Pn6s8wP8hQG2oitp9)|
 | [Spring break!]() <br> Week 10 | |
 | [Moving Online & Microservices](/slides/6-going-online.pdf) <br> Week 11 | [Go Resources](/wiki/go/) <br> **Exercise:** [ETL Pipeline](/assignments/etl-pipeline/) due April 5th<br> **3/24/20:**  [Class Video](https://gwu.webex.com/recordingservice/sites/gwu/recording/playback/67a6bcc0fa1c4dd4be686830e49e6996) --- [Office hour ETL walkthrough video](https://gwu.webex.com/recordingservice/sites/gwu/recording/playback/e7785f33d3fb4bed91dcb526e9c06974) |
-| Consensus and Consistency | | 
+| [Eventual vs Strong Consistency <br> and State Machine Replication](/slides/7-replicated-services-notes.pdf) <br> Week 12 | **3/31/20:** [Class Video](https://youtu.be/rBRtTrowFKQ) / [Slide PDF](/slides/7-replicated-services-notes.pdf) --- [Lucas's advice on ETL](https://youtu.be/rBRtTrowFKQ?t=5102) <br> **Reading:**  [Eventually Consistent](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html) by Werner Vogels, Amazon CTO <br> **Reading Quiz:** [Consistency Models](https://docs.google.com/forms/d/e/1FAIpQLSeS0AzQFawefZDwKYUmT_0202lP_W7XjZDJIUrwcg3KbeYGQw/viewform?usp=sf_link), due May 3rd (see [Tasks](/tasks/) for quiz info)| 
+| Consensus with Raft <br> Week 13 | |
 | Cloud Service Management | | 
 
 </div>
