@@ -175,7 +175,12 @@ Website Counts
 
 ## How to submit your code. 
 
-Once you have completed your ETL microservices you will need to submit your code for grading. In order to do so, you should merge all your changes to master so that the master branch contains the final product. Please create an issue on your repo titled ETL Submission with your team name, which team members contributed which parts, and which extra credit functionality you did and how to call them. Then tag us in the issue using our github usernames(@twood02 and @thelimeburner).
+Once you have completed your ETL microservices you will need to submit your code for grading. In order to do so, you should merge all your changes to master so that the master branch contains the final product. Please create an issue on your repo titled ETL Submission with the following information:
+- Your team name and members
+- Which team members contributed which parts
+- Which extra credit functionality you did, if any, and how to call them. 
+
+Then tag us in the issue using our github usernames(@twood02 and @thelimeburner).
 
 ---
 ## FAQ
