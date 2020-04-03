@@ -122,6 +122,62 @@ Once you have `ms-data-cleaning` working, you can build the rest of your microse
 
 ---
 
+## Output
+
+In order to make grading consistent we ask that when we make the following calls to your ms-api-gateway we receive the following output. We will use an automated script to make these calls and verify the output is correct:
+
+
+GET http://localhost:80/visitor/count 
+Visitor Counts
+```
+{
+  "statusCode": 201,
+  "message": "Success",
+  "data": {
+    "Date 1" : 100,
+    "Date 2" : 25,
+    "Date 3" : 75,
+    ...
+  }
+}
+```
+
+GET http://localhost:80/browser/count
+Browser Counts
+```
+{
+  "statusCode": 201,
+  "message": "Success",
+  "data": {
+    "Browser Name 1" : 100,
+    "Browser Name 2" : 25,
+    "Browser Name 3" : 75,
+    ...
+  }
+}
+```
+GET http://localhost:80/website/count
+Website Counts
+```
+{
+  "statusCode": 201,
+  "message": "Success",
+  "data": {
+    "facebook.com" : 100,
+    "google.com" : 25,
+    "mywebsite.com" : 75,
+    ...
+  }
+}
+```
+
+---
+
+## How to submit your code. 
+
+Once you have completed your ETL microservices you will need to submit your code for grading. In order to do so, you should merge all your changes to master so that the master branch contains the final product. Please create an issue on your repo titled ETL Submission with your team name, which team members contributed which parts, and which extra credit functionality you did and how to call them. Then tag us in the issue using our github usernames(@twood02 and @thelimeburner).
+
+---
 ## FAQ
 **Q:** I have a question, what do I do?
  - **A:** Message us in `#a3etl` on slack and we will add it here!
