@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "The Curious Mr.X" - analyzing malicious network reconnaissance by wireshark
+title:  The Curious Mr.X :  analyzing malicious network reconnaissance by wireshark
 permalink: /wiki/wireshark/
 ---
 
