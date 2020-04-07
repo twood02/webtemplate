@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "The Curious Mr.X" - analyzing malicious network reconnaissance by wireshark
-permalink: /wiki/WireSharkPuzzle/
+permalink: /wiki/wireshark/
 ---
 
 *by:* Henian Wang and Guodong Xie
