@@ -16,7 +16,7 @@ permalink: /wiki/
 - [How does In-Flight WiFi really work?](/wiki/inflightWifiBlog/)
 - [Promises in JS](/wiki/Promises/)
 - [HTTP vs HTTP 2 vs HTTPs with SSL](/wiki/http1-2httpsSSL/)
-- Wireshark <!--[Wireshark Puzzle]()-->
+- [Wireshark Puzzle](/wiki/wireshark/)
 - [SYN Flooding](/wiki/syn_flooding/)
 - [How to use Goroutines and how they work under the hood](/wiki/goroutine_study/)
 - [An Introduction to Stress Testing and Jmeter](/wiki/StressTestingBlog/)
