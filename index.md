@@ -49,7 +49,7 @@ layout: home
 | [Spring break!]() <br> Week 10 | |
 | [Moving Online & Microservices](/slides/6-going-online.pdf) <br> Week 11 | [Go Resources](/wiki/go/) <br> **Exercise:** [ETL Pipeline](/assignments/etl-pipeline/) due April 5th<br> **3/24/20:**  [Class Video](https://gwu.webex.com/recordingservice/sites/gwu/recording/playback/67a6bcc0fa1c4dd4be686830e49e6996) --- [Office hour ETL walkthrough video](https://gwu.webex.com/recordingservice/sites/gwu/recording/playback/e7785f33d3fb4bed91dcb526e9c06974) |
 | [Eventual vs Strong Consistency <br> and State Machine Replication](/slides/7-replicated-services-notes.pdf) <br> Week 12 | **3/31/20:** [Class Video](https://youtu.be/rBRtTrowFKQ) / [Slide PDF](/slides/7-replicated-services-notes.pdf) --- [Lucas's advice on ETL](https://youtu.be/rBRtTrowFKQ?t=5102) <br> **Reading:**  [Eventually Consistent](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html) by Werner Vogels, Amazon CTO <br> **Reading Quiz:** [Consistency Models](https://docs.google.com/forms/d/e/1FAIpQLSeS0AzQFawefZDwKYUmT_0202lP_W7XjZDJIUrwcg3KbeYGQw/viewform?usp=sf_link), due May 3rd (see [Tasks](/tasks/) for quiz info)| 
-| Consensus with Raft <br> Week 13 | |
+| [Consensus & Fault Tolerance](/slides/8-consensus-annotated.pdf) <br> Week 13 | **4/7/20:** [Class Video](https://www.youtube.com/watch?v=3KHrluK3kDU) / [Slide PDF](/slides/8-consensus-annotated.pdf) |
 | Cloud Service Management | | 
 
 </div>
