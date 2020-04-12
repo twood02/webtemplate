@@ -30,7 +30,7 @@ To start your Raft journey, begin by appreciating the history of what it builds 
   - Read the Abstract and glance at (but don't read, unless you really want to) Lamport's [classic 1998 paper on Paxos](https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf)
     - If you are curious, the [history of paxos](https://lamport.azurewebsites.net/pubs/pubs.html#lamport-paxos) is also a quick and interesting read
   - Next, read the Abstract and glance at (but don't read, unless you really want to) [Ongaro's 2014 Raft paper](https://raft.github.io/raft.pdf)
-  	- if you are curious, learn [why it is called Raft](https://groups.google.com/forum/#!topic/raft-dev/95rZqptGpmU)
+    - if you are curious, learn [why it is called Raft](https://groups.google.com/forum/#!topic/raft-dev/95rZqptGpmU)
   - Having looked at both papers, reflect on their similarities and differences
 
 ---
