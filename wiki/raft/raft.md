@@ -75,6 +75,6 @@ Step through these slides (or [look at the PDF](raft-practice.pdf)) and answer t
 
 ## 4. Take the Raft Quiz
 
-The Raft quiz will be posted here...
+Once you are comfortable with Raft, take the [Raft Consensus Quiz](https://docs.google.com/forms/d/e/1FAIpQLSda8Ew9m-J3-Dw7V8JSZWoYDQ6wgB-NoVoo-4Gq3piOEmIPzA/viewform?usp=sf_link).  See the [Tasks](/tasks/) page for due dates and details on allowed material for quizzes.
 
 
