@@ -4,7 +4,7 @@ title:  "Assignment 4: Technical Blogging 2"
 permalink: /assignments/technical-blog-2/
 ---
 
-> For the final assignemnt you can choose between writing a [technical blog](/assignments/technical-blog-2/) or implementing the [leader election portion](/assignments/raft-election/) of Raft.
+> For the final assignment you can choose between writing a [technical blog](/assignments/technical-blog-2/) or implementing the [leader election portion](/assignments/raft-election/) of Raft.
 
 In this assignment, you will write a second blog post on a distributed systems topic that interests you. This will be similar to the first networking tech blog you did, but there are a few special requirements.
 
