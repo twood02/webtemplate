@@ -4,8 +4,9 @@ title: "Assignment 4: Raft Leader Election"
 permalink: /assignments/raft-election/
 ---
 
-> For the final assignment you can choose between writing a [technical blog](/assignments/technical-blog-2/) or implementing the [leader election portion](/assignments/raft-election/) of Raft.
+> For the final assignment you can choose between writing a [technical blog](/assignments/technical-blog-2/) or implementing the [leader election portion](/assignments/raft-election/) of Raft. 
 
+**Note:** You can complete this assignment in a group of 1-3 students.
 
 This project is adapted from [MIT's 6.824 course](https://pdos.csail.mit.edu/6.824/index.html). Their assignment includes the full Raft protocol, but we will only do the first stage which focuses on leader election. You must implement the functions necessary to allow a candidate node to start an election and receive votes from other nodes. An elected leader should send heartbeat messages to remain leader, and if it fails, then a new election should begin.
 

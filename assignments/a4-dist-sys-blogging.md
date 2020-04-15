@@ -21,12 +21,12 @@ Your blog should be focused on describing a small project that you build. You ca
 
 Your writeup should follow the [basic guidelines from the prior assignment](/assignments/technical-blog/).
 
-**Original Requirements:** 
+**Base Requirements:** 
  - Must be long enough to be interesting (at least 750 words)
  - You must write some code or run experiments
  - Present useful information in an understandable way 
  - Present useful information in a visually appealing way.
- - Work in a group with 1-3 members
+ - Work in a group with 1-2 members
  - *All* members of the group must contribute (i.e., commits cannot all be made by a single user)
 
 **New Requirements:**
