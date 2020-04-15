@@ -5,6 +5,7 @@ permalink: /assignments/raft-election/
 ---
 
 > For the final assignment you can choose between writing a [technical blog](/assignments/technical-blog-2/) or implementing the [leader election portion](/assignments/raft-election/) of Raft. 
+> **The starter code has not yet been posted... coming soon!**
 
 **Note:** You can complete this assignment in a group of 1-3 students.
 
