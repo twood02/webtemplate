@@ -44,6 +44,7 @@ While the Raft paper is relatively easy to follow, we only expect you to underst
   - Read this overview [Raft: Consensus made simple(r)](https://www.brianstorti.com/raft/)
 
 At this point you should understand the high level ideas in Raft. *Optionally*, if you want to go deeper:
+  - Play around with this [Raft Simulator](https://observablehq.com/@stwind/raft-consensus-simulator)
   - Watch a [presentation by one of Raft's authors](https://youtu.be/vYp4LYbnnW8)
   - Read the full [Raft paper](https://raft.github.io/raft.pdf)
   - (You should not need to do this to solve the quiz)
