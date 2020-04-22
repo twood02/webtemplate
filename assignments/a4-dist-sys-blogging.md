@@ -23,6 +23,8 @@ Your blog should be focused on describing a small project that you build. You ca
 
 Your writeup should follow the [basic guidelines from the prior assignment](/assignments/technical-blog/).
 
+As before, you should create a fork of the class website repository (you may already have this from the prior assignment). Put your post in `wiki/somename` where `somename` is a short description of your topic.
+
 **Base Requirements:** 
  - Must be long enough to be interesting (at least 750 words)
  - You must write some code or run experiments
