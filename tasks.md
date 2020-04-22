@@ -25,7 +25,7 @@ This page contains a list of all remaining tasks for the semester.
  - [Reliable UDP](/assignments/reliable-udp): Final deadline April 19th if revisions were needed. 
  - [Networking Tech Blog](/assignments/technical-blog/): We may ask you for minor revisions before posting publicly.
  - [Microservice ETL Pipeline](/assignments/etl-pipeline/): Suggested Deadline Sunday April 5th, final deadline April 26th.
- - [Raft Leader Election](/assignments/raft-election/) or [Dist. Sys. Tech Blog](/assignments/technical-blog-2/): Suggested Deadline Tuesday April 28th, final deadline May 12th (*No submissions accepted after this date! Please submit earlier if possible*)
+ - [Raft Leader Election](/assignments/raft-election/) or [Dist. Sys. Tech Blog](/assignments/technical-blog-2/): Suggested Deadline <del>Tuesday April 28th</del> Sunday May 3rd, final deadline <del>May 10th</del> May 12th (*No submissions accepted after this date! Please submit earlier if possible*)
 
 #### Quizzes:
 All quizzes will be "open note," meaning you can use any materials linked to from the course website or notes that you have taken. Most of them will be based on a reading or lecture, which you may refer to as you do the quiz. *You may only attempt a quiz once and you may **not** consult with other students about answers!*
