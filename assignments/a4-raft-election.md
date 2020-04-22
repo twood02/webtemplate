@@ -5,7 +5,7 @@ permalink: /assignments/raft-election/
 ---
 
 > For the final assignment you can choose between writing a [technical blog](/assignments/technical-blog-2/) or implementing the [leader election portion](/assignments/raft-election/) of Raft. 
-> **The starter code has not yet been posted... coming soon!**
+> **The starter code is [now available](https://classroom.github.com/g/GyQNqwt1)!** 
 
 **Note:** You can complete this assignment in a group of 1-3 students.
 
@@ -38,23 +38,19 @@ Your implementation must support the following interface, although some of these
 // create a new Raft server instance:
 rf := Make(peers, me, persister, applyCh)
 
-// start agreement on a new log entry:
-rf.Start(command interface{}) (index, term, isleader)
-
 // ask a Raft for its current term, and whether it thinks it is leader
 rf.GetState() (term, isLeader)
 
-// each time a new entry is committed to the log, each Raft peer
-// should send an ApplyMsg to the service (or tester).
-type ApplyMsg
 ```
 
-A service calls `Make(peers,me,...)` to create a Raft peer. The peers argument is an array of network identifiers of the Raft peers (including this one), for use with RPC. The `me` argument is the index of this peer in the peers array. `Start(command)` asks Raft to start the processing to append the command to the replicated log. `Start()` should return immediately, without waiting for the log appends to complete. The service expects your implementation to send an `ApplyMsg` for each newly committed log entry to the `applyCh` channel argument to `Make()`.
+A service calls `Make(peers,me,...)` to create a Raft peer. The peers argument is an array of network identifiers of the Raft peers (including this one), for use with RPC. The `me` argument is the index of this peer in the peers array. In practice you will never call this yourself - the test cases will call this to setup several nodes and automatically configure the network connections between them.
 
 `raft.go` contains example code that sends an RPC (`sendRequestVote()`) and that handles an incoming RPC (`RequestVote()`). Your Raft peers should exchange RPCs using the `labrpc` Go package (source in `src/labrpc`). The tester can tell `labrpc` to delay RPCs, re-order them, and discard them to simulate various network failures. While you can temporarily modify `labrpc`, make sure your Raft works with the original `labrpc`, since that's what we'll use to test and grade your lab. Your Raft instances must interact only with RPC; for example, they are not allowed to communicate using shared Go variables or files. 
 
 ## Your Task: Leader Election
 Implement Raft leader election and heartbeats (`AppendEntries` RPCs with no log entries). The goal is for a single leader to be elected, for the leader to remain the leader if there are no failures, and for a new leader to take over if the old leader fails or if packets to/from the old leader are lost. Run `go test -run 2A` to test your code. 
+
+> The source code you've been provided is for an assignment that implements the full Raft protocol. We've removed many of the methods we won't use, but some are still there. You should focus on the sections of code referred to as `2A` (since this was the election phase of the original assignment).  You won't need to implement pieces referred to as `2B` or `2C`.
 
 ### Hints:
   - You can't easily run your Raft implementation directly; instead you should run it by way of the tester, i.e. `go test -run 2A`.
