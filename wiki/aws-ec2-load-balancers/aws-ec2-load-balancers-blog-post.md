@@ -26,9 +26,10 @@ This blog post will begin with defining the needed vocabulary and providing an i
 ### All About Load Balancers 
 flow of traffic & load balancer placement illustrated below: 
 <img src="./load_balance.jpg" width="500" height="600"/>
+
 *created using Canva* 
 
-The load balancers sit between the client and servers. It helps to spread the traffic across servers to improve responsiveness and availability of applications, websites or databases.
+The load balancers sit between the client and servers and help spread the traffic across servers to improve responsiveness and availability of applications, websites or databases.
 Load balancers play a vital role in any organization where server uptime, client and staff connectivity, and performance are considered essential.
 
 General Benfits: 
@@ -44,3 +45,13 @@ Specific Benefits:
   - GSLB — Global Server Load Balancing extends L4 and L7 capabilities to servers in different geographic locations.
   
 ### AWS X Load Balancer 
+
+
+## Setup 
+### Application LB
+
+### Network LB
+
+### Classic LB
+
+## Evaluation 
