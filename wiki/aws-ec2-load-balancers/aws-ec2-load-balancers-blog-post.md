@@ -24,6 +24,6 @@ This blog post will begin with defining the needed vocabulary and providing an i
 
 ## Introduction  
 ### Why use a Load Balancer ?? 
-<img src="./load_balance.jpg" width="500" height="500"/> 
+<img src="./load_balance.jpg" width="500" height="700" align="center"/> 
 Load balancers play a vital role in any organization where server uptime, client and staff connectivity, and performance are considered essential.
 The load balancers sit between the client and servers. It helps to spread the traffic across servers to improve responsiveness and availability of applications, Java websites or databases.
