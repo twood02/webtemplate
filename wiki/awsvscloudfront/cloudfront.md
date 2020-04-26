@@ -117,8 +117,8 @@ The same image was used on both the AWS server and the Amazon CloudFront CDN ser
 
 The output of this script, run for the Amazon S3 and Amazon CloudFront urls, is a histogram. The histograms for each service are included below.
 
-![alt text](aws.png)
-![alt text](cloudfront.png)
+<img src="/wiki/awsvscloudfront/cloudfront.png">
+<img src="/wiki/awsvscloudfront/aws.png">
 
 Based on the results, we can see that using Amazon CloudFront as a CDN for web requests is much faster than using Amazon S3. Keep in mind that while the histograms may appear similar, the scales are vastly different; the request time for Amazon CloudFront ranges from 0.005 to 0.03 seconds, while the request time for Amazon S3 ranges from 0.43 to 0.51 seconds. This shows a very significant difference in web request time between the two CDN providers. 
 
@@ -128,5 +128,5 @@ I hope that after reading this blog you have become just as excited about CloudF
 
 
 #### Rererences
-https://aws.amazon.com/cloudfront/features/ \
+https://aws.amazon.com/cloudfront/features/
 https://aws.amazon.com/s3/
