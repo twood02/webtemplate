@@ -17,7 +17,7 @@ htslider.min.js"></script>
 
 A while ago I created a simple NodeJS web application that gives users a unique quote from the hit show ‘The Simpsons’. After many months of deliberation, I finally decided on deploying the app on Amazon’s AWS (Amazon Web Services). AWS provides serverless computing solutions to allow developers to create modern applications at lower cost of ownership. Some of the benefits include smaller overhead costs from managing servers, reliability and scalability. I ultimately chose AWS due to its ease of scalability, which will come in handy when inevitably this app goes viral. After following the steps in this article you should be able to make your very own app that is running on EC2 instance, stored on an S3 bucket, load distributed with elastic load balancing and cached with AWS’s Cloud Distribution Network Cloudfront. Phew…that sounds like a lot but if you follow along you should have your application up and running in no time at all.
 
-I have provided a sample app that you may use to follow along to if you wish. The final product of which can be found [here.](https://d2atvopqlkjqa5.cloudfront.net)
+I have provided a sample app that you may use to follow along to if you wish. The final product of which can be found [here.](http://simpsons-2003060048.us-east-1.elb.amazonaws.com/) [With cloudfront](https://d2atvopqlkjqa5.cloudfront.net)
 
 ## Amazon EC2.
 
