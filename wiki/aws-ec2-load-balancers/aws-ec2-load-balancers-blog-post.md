@@ -43,14 +43,11 @@ Specific Benefits:
   - L4 (Network/Classic LB) — directs traffic based on data from network and transport layer protocols, such as IP address and TCP port.
   - L7 (Application LB)— adds content switching to load balancing, allowing routing decisions based on attributes like HTTP header, uniform resource identifier, SSL session ID and HTML form data.
   - GSLB — Global Server Load Balancing extends L4 and L7 capabilities to servers in different geographic locations.
-  
-### AWS X Load Balancer 
-
 
 For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
-<a href="table.png"> Link </a>
+<a href="table.pdf"> Link </a>
 
-## Setup 
+## Setup Tutorials
 ### Application LB
 
 ### Network LB
