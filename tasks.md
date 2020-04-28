@@ -32,4 +32,4 @@ All quizzes will be "open note," meaning you can use any materials linked to fro
  - [Microservices Quiz](https://forms.gle/Pn6s8wP8hQG2oitp9): Taken in class on March 10th.
  - [Consistency Models Quiz](https://docs.google.com/forms/d/e/1FAIpQLSeS0AzQFawefZDwKYUmT_0202lP_W7XjZDJIUrwcg3KbeYGQw/viewform?usp=sf_link): Assigned week 12, final deadline May 3rd. Based on [Eventually Consistent](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html) reading.
  - [Raft Quiz](https://docs.google.com/forms/d/e/1FAIpQLSda8Ew9m-J3-Dw7V8JSZWoYDQ6wgB-NoVoo-4Gq3piOEmIPzA/viewform?usp=sf_link): Assigned week 13, final deadline May 3rd.  Based on [Raft Resources](/wiki/raft/).
- - A Web/Cloud quiz will be posted 
+ - [VMs, Containers, Clouds, CDNs, and Serverless Quiz](https://docs.google.com/forms/d/e/1FAIpQLSdUsegrnPKAXfCdG6DrYbgaWZkgJstD0s24OowdvHjRgxBCGA/viewform?usp=sf_link): Assigned end of semester, final deadline May 6th. Based on [4/14](/slides/9-cloud-vms-containers.pdf) and [4/21](/slides/10-distributed-clouds.pdf) lectures.
