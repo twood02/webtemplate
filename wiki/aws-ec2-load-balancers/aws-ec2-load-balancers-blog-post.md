@@ -47,6 +47,9 @@ Specific Benefits:
 ### AWS X Load Balancer 
 
 
+For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
+<a href="table.png"> Link </a>
+
 ## Setup 
 ### Application LB
 
