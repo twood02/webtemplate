@@ -169,18 +169,9 @@ public class LockFactory {
         return null;
     }
     
-    private static void createZnode(String path) throws Exception{
-         
-        if(DEFAULT_ZOOKEEPER!=null){
-            InetAddress address = InetAddress.getLocalHost();
-            String data = address.getHostAddresss()+":unlock";
-            DEFAULT_ZOOKEEPER.create(path, data.getBytes(),Collections.singletonList(new ACL(Perms.ALL,Ids.ANYONE_ID_UNSAFE)) , CreateMode.EPHEMERAL);
-        }
-    }
-    
     private static ZooKeeper getDefaultZookeeper() {
         try {
-            ZooKeeper zooKeeper = new ZooKeeper("192.168.1.105:2181", 3000, new Watcher(){
+            ZooKeeper zooKeeper = new ZooKeeper("192.168.1.105:7212", 3000, new Watcher(){
                 public void process(WatchedEvent event) {
                   System.out.println("event: " + event.getType());
                 }
@@ -193,6 +184,15 @@ public class LockFactory {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static void createZnode(String path) throws Exception{
+         
+        if(DEFAULT_ZOOKEEPER!=null){
+            InetAddress address = InetAddress.getLocalHost();
+            String data = address.getHostAddresss()+":unlock";
+            DEFAULT_ZOOKEEPER.create(path, data.getBytes(),Collections.singletonList(new ACL(Perms.ALL,Ids.ANYONE_ID_UNSAFE)) , CreateMode.EPHEMERAL);
+        }
     }
 }
 ```  
