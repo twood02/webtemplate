@@ -7,7 +7,7 @@ permalink: /wiki/etcdTutorialBlog/
 *by:* Katie Bramlett, Sreya Nalla, and Linnea Dierksheide
 
 
-Etcd is a fundamental software in the realm of distributed systems. Here, we will share more about etcd and its applications, how to set it up, and more.
+#### Etcd is a fundamental software in the realm of distributed systems. Here, we will share more about etcd and its applications, how to set it up, and more.
 
 ---
 
@@ -30,6 +30,6 @@ Many of the characteristics of etcd make it a valuable asset to distributed syst
 ### Libraries Used in Web Interface
 
 ### Sources Used:
-Rus, Calin. "What Is Etcd and How Do You Set Up an Etcd Kubernetes Cluster?." *Rancher,* 7 Apr. 2020, rancher.com/blog/2019/2019-01-29-what-is-etcd/. Accessed 1 May 2020.
+Rus, Calin. "What Is Etcd and How Do You Set Up an Etcd Kubernetes Cluster?." *Rancher,* 7 Apr. 2020, www.rancher.com/blog/2019/2019-01-29-what-is-etcd/. Accessed 1 May 2020.
 
 
