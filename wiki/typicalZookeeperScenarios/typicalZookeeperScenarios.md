@@ -21,7 +21,7 @@ Configuration management is common in the distributed application environment, s
 We can put the configuration information can give completely Zookeeper to manage, the configuration information stored in a directory of Zookeeper node, then all you need to modify the application of the machine state monitoring configuration information, once the configuration information changes, each machine application will receive notice to Zookeeper, then get the new configuration information from Zookeeper is applied to the system. 
 
 #### Configuration management Structure Diagram   
-![image](https://github.com/zhuolungao/gwAdvNet20.github.io/blob/ZookeeperBlog/wiki/typicalZookeeperScenarios/images/ConfigurationManagement.png)
+![image](/wiki/typicalZookeeperScenarios/images/ConfigurationManagement.png)
 
 ### Group Membership
 ---    
