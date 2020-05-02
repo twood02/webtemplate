@@ -12,7 +12,7 @@ Etcd is a fundamental software in the realm of distributed systems. Here, we wil
 ---
 
 ### What is etcd?
-"Etcd is an open-source distributed key-value store created by the CoreOS team, now managed by the Cloud Native Computing Foundation. It serves as the backbone of many distributed systems, providing a reliable way for storing data across a cluster of servers. It works on a variety of operating systems including Linux, BSD and OS X (Rus)."
+"Etcd is an open-source distributed key-value store created by the CoreOS team, now managed by the Cloud Native Computing Foundation. It serves as the backbone of many distributed systems, providing a reliable way for storing data across a cluster of servers. It works on a variety of operating systems including Linux, BSD and OS X. (Rus)"
 
 Many of the characteristics of etcd make it a valuable asset to distributed systems:
 - Fully Replicated: The entire store is available on every node in the cluster
@@ -30,5 +30,6 @@ Many of the characteristics of etcd make it a valuable asset to distributed syst
 ### Libraries Used in Web Interface
 
 ### Sources Used:
+Rus, Calin. "What Is Etcd and How Do You Set Up an Etcd Kubernetes Cluster?." *Rancher,* 7 Apr. 2020, rancher.com/blog/2019/2019-01-29-what-is-etcd/. Accessed 1 May 2020.
 
 
