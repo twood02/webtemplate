@@ -48,9 +48,11 @@ For a detailed comparision of different features of each LB view this attachment
 <a href="table.pdf"> Link </a>
 
 ## Setup Tutorials
-### Application LB
+### Application LB & Network LB
+<img src="./browser_graphic.jpg" width="600" height="500"/>
 
-### Network LB
+*created using Canva* 
+1. Open a new EC2 instance and select the add load balancer option 
 
 ### Classic LB
 
