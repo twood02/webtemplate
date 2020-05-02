@@ -1,3 +1,9 @@
+| layout | name | permalink |
+| ------ | :----: | --------:|
+| page   | typicalZookeeperScenarios| /wiki/typicalZookeeperScenarios/|  
+
+by: Zhuolun Gao
+
 ### Introduction  
 ---
 Zookeeper from the Perspective of design patterns, is a distributed service management framework based on the observer pattern design, it is responsible for data storage and management of all care about, and then accept the observer registration, once the state of the data changes, they will be responsible for notifying the observer that have registered for the Zookeeper react accordingly, so as to realize the cluster similar to the Master/Slave control mode. 
@@ -11,7 +17,7 @@ Configuration management is common in the distributed application environment, s
 We can put the configuration information can give completely Zookeeper to manage, the configuration information stored in a directory of Zookeeper node, then all you need to modify the application of the machine state monitoring configuration information, once the configuration information changes, each machine application will receive notice to Zookeeper, then get the new configuration information from Zookeeper is applied to the system. 
 
 #### Configuration management Structure Diagram   
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/bigpicture.png)
+![image](https://github.com/zhuolungao/gwAdvNet20.github.io/blob/ZookeeperBlog/wiki/zookeeperBlog/images/ConfigurationManagement.png)
 
 ### Group Membership
 ---    
@@ -21,7 +27,7 @@ Zookeeper can not only help us maintain the service status of machines in the cu
 
 How Zookeeper implements the Leader Election, which is to select a Master Server. Like the previous one, each Server creates one EPHEMERAL directory node, except that it is also a SEQUENTIAL directory node, so it is EPHEMERAL_SEQUENTIAL directory node. It is EPHEMERAL_SEQUENTIAL directory node, because we can give each Server number, we can choose the current is the smallest number of Server as the Master, if the minimum number of Server dies, because it is EPHEMERAL node, dead Server had been removed and the corresponding node so that the current node list there is a minimum number of nodes, we select the node for the current Master. In this way, the dynamic selection of Master is realized, which avoids the problem that single Master is prone to a single point of failure in the traditional sense.     
 #### Group Membership Structure Diagram   
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/http1-2httpsSSL/images/bigpicture.png)
+![image](https://github.com/zhuolungao/gwAdvNet20.github.io/blob/ZookeeperBlog/wiki/zookeeperBlog/images/GroupMembership.png)
 
 ### Impletment Zookeeper Distributed locks
 --
@@ -211,10 +217,10 @@ public class Main {
 		}		
 	}
 }
-
-```
+``` 
    
-
+###  Conclusion
+This article introduces the basic knowledge of Zookeeper and introduces several typical application scenarios. These are the basic function of Zookeeper, the most important is Zoopkeeper provides a good mechanism of distributed cluster management, it is the directory tree based on hierarchical data structure, and to effectively manage the nodes in the tree, in order to design a variety of distributed data management model, and not just confined to the above mentioned a few common scenarios.
 
 
 
