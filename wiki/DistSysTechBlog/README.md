@@ -1,3 +1,3 @@
-Distributed Systems Tech Blog
-CS 3907
+**Distributed Systems Tech Blog**<br>
+CS 3907<br>
 Katie Bramlett, Linnea Dierksheide, Sreya Nalla
