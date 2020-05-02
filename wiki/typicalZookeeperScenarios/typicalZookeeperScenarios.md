@@ -6,8 +6,6 @@ permalink: /wiki/typicalZookeeperScenarios/
 
 *by:* Zhuolun Gao
 
-
-The blog includes several Zookeeper scenarios and implements dritributed lock.
 ---
 
 ### Introduction  
