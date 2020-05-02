@@ -59,7 +59,7 @@ AWS specific basic load blancer illustration:
 1. Open a new EC2 instance and select the add load balancer option 
 
 ### Classic LB
-<img src="./classic_graphic.png" width="600" height="300"/>
+<img src="./classic_graphic.png" width="300" height="300"/>
 *created using Canva* 
 #### Steps
 
