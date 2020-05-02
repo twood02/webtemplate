@@ -49,7 +49,7 @@ For a detailed comparision of different features of each LB view this attachment
 
 ## Setup Tutorials
 ### Application LB & Network LB
-<img src="./browser_graphic.png" width="600" height="500"/>
+<img src="./browser_graphic.png" width="600" height="300"/>
 
 *created using Canva* 
 1. Open a new EC2 instance and select the add load balancer option 
