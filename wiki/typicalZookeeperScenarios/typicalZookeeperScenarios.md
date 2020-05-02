@@ -1,8 +1,14 @@
-| layout | name | permalink |
-| ------ | :----: | --------:|
-| page   | typicalZookeeperScenarios| /wiki/typicalZookeeperScenarios/|  
+---
+layout: page
+title:  typicalZookeeperScenarios
+permalink: /wiki/typicalZookeeperScenarios/
+---
 
-by: Zhuolun Gao
+*by:* Zhuolun Gao
+
+
+The blog includes several Zookeeper scenarios and implements dritributed lock.
+---
 
 ### Introduction  
 ---
