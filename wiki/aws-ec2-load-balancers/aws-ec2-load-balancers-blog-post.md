@@ -47,13 +47,57 @@ Specific Benefits:
 For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
 <a href="table.pdf"> Link </a>
 
+AWS specific basic load blancer illustration: 
+<img src="./browser_graphic.png" width="600" height="300"/>
+*created using Canva*
+
 ## Setup Tutorials
 ### Application LB & Network LB
 <img src="./browser_graphic.png" width="600" height="300"/>
-
 *created using Canva* 
+#### Steps
 1. Open a new EC2 instance and select the add load balancer option 
 
 ### Classic LB
+<img src="./classic_graphic.png" width="600" height="300"/>
+*created using Canva* 
+#### Steps
 
 ## Evaluation 
+### Application LB
+Use Case(s):
+
+Benefits: 
+  - Support for path-based routing. You can configure rules for your listener that forward requests based on the URL in the request. This enables you to structure your application as smaller services, and route requests to the correct service based on the content of the URL.
+  - Support for host-based routing. You can configure rules for your listener that forward requests based on the host field in the HTTP header. This enables you to route requests to multiple domains using a single load balancer.
+  - Support for routing based on fields in the request, such as standard and custom HTTP headers and methods, query parameters, and source IP addresses.
+  - Support for routing requests to multiple applications on a single EC2 instance. You can register each instance or IP address with the same target group using multiple ports.
+  - Support for redirecting requests from one URL to another.
+  - Support for returning a custom HTTP response.
+  - Support for registering targets by IP address, including targets outside the VPC for the load balancer.
+  - Support for registering Lambda functions as targets.
+  - Support for the load balancer to authenticate users of your applications through their corporate or social identities before routing requests.
+  - Support for containerized applications. Amazon Elastic Container Service (Amazon ECS) can select an unused port when scheduling a task and register the task with a target group using this port. This enables you to make efficient use of your clusters.
+  - Support for monitoring the health of each service independently, as health checks are defined at the target group level and many CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each service dynamically based on demand.
+  - Access logs contain additional information and are stored in compressed format.
+  - Improved load balancer performance.
+
+### Network LB
+Use Case(s):
+
+Benefits: 
+  - Ability to handle volatile workloads and scale to millions of requests per second.
+  - Support for static IP addresses for the load balancer. You can also assign one Elastic IP address per subnet enabled for the load balancer.
+  - Support for registering targets by IP address, including targets outside the VPC for the load balancer.
+  - Support for routing requests to multiple applications on a single EC2 instance. You can register each instance or IP address with the same target group using multiple ports.
+  - Support for containerized applications. Amazon Elastic Container Service (Amazon ECS) can select an unused port when scheduling a task and register the task with a target group using this port. This enables you to make efficient use of your clusters.
+  - Support for monitoring the health of each service independently, as health checks are defined at the target group level and many Amazon CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each service dynamically based on demand.
+  
+### Classic LB
+Use Case(s):
+
+Benefits: 
+  - Support for EC2-Classic
+  - Support for TCP and SSL listeners
+  - Support for sticky sessions using application-generated cookies
+
