@@ -30,7 +30,7 @@ How Zookeeper implements the Leader Election, which is to select a Master Server
 ![image](https://github.com/zhuolungao/gwAdvNet20.github.io/blob/ZookeeperBlog/wiki/typicalZookeeperScenarios/images/GroupMembership.png)
 
 ### Impletment Zookeeper Distributed locks
---
+---
 Finally, we implement Zookeeper distributed locks according to specific requirements. The data of each node in the zookeeper cluster is consistent, so we can take advantage of the strong consistency of each node to mark the lock. First the action contains three methods: lock, unlock and isLocked. Then we can create a LockFactory to produce locks (premise: each lock needs a path to specify (e.g. /lock)). The lock creation process is described as follows:   
 
 1. According to the specified path, find out whether this node under the zookeeper cluster exists.
@@ -64,10 +64,23 @@ import org.apache.zookeeper.data.Stat;
 public class Lock {
     private String path;
     private ZooKeeper zooKeeper;
+
     public Lock(String path){
         this.path = path;
     }
-     
+    
+    public String getPath() {
+        return path;
+    }
+ 
+    public void setPath(String path) {
+        this.path = path;
+    }
+ 
+    public void setZooKeeper(ZooKeeper zooKeeper) {
+        this.zooKeeper = zooKeeper;
+    }    
+
     // lock it
     public synchronized void lock() throws Exception{
         Stat stat = zooKeeper.exists(path, true);
@@ -97,18 +110,6 @@ public class Lock {
         }
         return false;
     }
- 
-    public String getPath() {
-        return path;
-    }
- 
-    public void setPath(String path) {
-        this.path = path;
-    }
- 
-    public void setZooKeeper(ZooKeeper zooKeeper) {
-        this.zooKeeper = zooKeeper;
-    }    
 }
 ```  
 ```java
@@ -129,7 +130,7 @@ public class LockFactory {
      
     public static final ZooKeeper DEFAULT_ZOOKEEPER = getDefaultZookeeper();
     
-    //data format:  ip:stat  如: 192.168.1.107:lock   or    192.168.1.107:unlock
+    //data format:  ip:stat  e.g. 192.168.1.105:lock   or    192.168.1.105:unlock
     
     public static synchronized Lock getLock(String path,String ip) throws Exception{
         if(DEFAULT_ZOOKEEPER != null){
@@ -163,10 +164,19 @@ public class LockFactory {
         }
         return null;
     }
-     
+    
+    private static void createZnode(String path) throws Exception{
+         
+        if(DEFAULT_ZOOKEEPER!=null){
+            InetAddress address = InetAddress.getLocalHost();
+            String data = address.getHostAddresss()+":unlock";
+            DEFAULT_ZOOKEEPER.create(path, data.getBytes(),Collections.singletonList(new ACL(Perms.ALL,Ids.ANYONE_ID_UNSAFE)) , CreateMode.EPHEMERAL);
+        }
+    }
+    
     private static ZooKeeper getDefaultZookeeper() {
         try {
-            ZooKeeper zooKeeper = new ZooKeeper("192.168.1.107:2181", 3000, new Watcher(){
+            ZooKeeper zooKeeper = new ZooKeeper("192.168.1.105:2181", 3000, new Watcher(){
                 public void process(WatchedEvent event) {
                   System.out.println("event: " + event.getType());
                 }
@@ -179,15 +189,6 @@ public class LockFactory {
             e.printStackTrace();
         }
         return null;
-    }
- 
-    private static void createZnode(String path) throws Exception{
-         
-        if(DEFAULT_ZOOKEEPER!=null){
-            InetAddress address = InetAddress.getLocalHost();
-            String data = address.getHostAddresss()+":unlock";
-            DEFAULT_ZOOKEEPER.create(path, data.getBytes(),Collections.singletonList(new ACL(Perms.ALL,Ids.ANYONE_ID_UNSAFE)) , CreateMode.EPHEMERAL);
-        }
     }
 }
 ```  
