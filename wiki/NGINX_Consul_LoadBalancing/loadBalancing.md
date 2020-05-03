@@ -40,6 +40,7 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 
 ![flowchart2](images/flowchart2.png)
 
-*Footnotes*
+---
+Footnotes
 1) https://ahrefs.com/blog/most-visited-websites/
 2) https://www.nginx.com/resources/glossary/load-balancing/
