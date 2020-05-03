@@ -66,7 +66,11 @@ Breakdown:
 3. Create a new security group and set a name and description 
 4. Configure the target group by keeping the default (New target group), setting a name, keeping ddefault target type (Instance), protocol (HTTP), and port (80); also keep the default settings for health checks 
 5. Register instances w/target group; For Instances, select one or more instances, keep the default port (80) and choose Add to registered
-6. Review the settings that you selected. Verify that it's sending traffic to your EC2 instances by checking Load Balancing -> Target Groups tab
+6. Review the settings that you selected. 
+7. Verify that it's sending traffic to your EC2 instances by checking Load Balancing -> Target Groups tab
+
+<img src="./success.png" width="350" height="350"/><br>
+*created using Canva* <br>
 
 ### Classic LB
 <img src="./classic_graphic.png" width="300" height="275"/><br>
@@ -81,6 +85,8 @@ Breakdown:
 6. Review the selected settings and click the create button 
 7. Verify that it's sending traffic to your EC2 instances by viewing the Description -> Status tab 
 
+<img src="./success.png" width="350" height="350"/><br>
+*created using Canva* <br>
 ## Evaluation 
 ### Application LB
 Use Case(s):
