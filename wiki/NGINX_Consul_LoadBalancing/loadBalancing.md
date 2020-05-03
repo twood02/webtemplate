@@ -32,13 +32,17 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 
 [NGINX](https://www.nginx.com) is an open source web server that offers, among other services, software-based load balancing. Many high-traffic websites like Netflix and Dropbox use NGINX/NGINX Plus to efficiently direct web traffic. NGINX uses the Round Robin method by default for load balancing but allows the user to specify another algorithm to accommodate the user’s needs. 
 
-### Investigation
-
 
 ## Consul
 [Consul](https://www.consul.io) is a software service networking tool that offers a plethora of services, including dynamic load balancing. Consul offers [Consul Template](https://learn.hashicorp.com/consul/integrations/nginx-consul-template) which can be used in conjunction with NGINX to improve performance by performing health checks and automatically updating your NGINX configuration file. As you can see in the diagram below, when running a Consul client agent on the same instance as your NGINX load balancer, the Consul Template works in between the data center and the load balancer to update the NGINX load balancer configuration file to account for servers that are offline. By performing these health checks and auto updating the load balancer to direct traffic only to the healthy servers, it should enhance performance by eliminating the time that the NGINX load balancer would typically consume in waiting for a response from a server that is offline (NGINX typically waits about 60 seconds before determining that a server is offline).  
 
 ![flowchart2](images/flowchart2.png)
+
+## Investigation 
+For the first part of our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. Similarly to how we measured HTTP request time in lecture, we utilized Jupyter and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. 
+
+For the second part of our investigation, we added a Consul template to the load balancer configuration. This would, in theory, perform regular health checks on our nodes to determine if they could be accessed. If they appeared to be offline, Consul would update our load balancer configuration to remove the offline nodes. This enables the load balancer to skip the long request time to check if a node is offline and instead directs traffic only to the online nodes. We utilized the same script to make simultaneous requests to the load balancer and organized the results in a histogram. 
+
 
 ---
 Footnotes
