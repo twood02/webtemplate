@@ -46,9 +46,9 @@ Specific Benefits:
 
 For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
 <a href="table.pdf"> Link </a>
-
-AWS specific basic load blancer illustration: 
-<img src="./aws_graphic.png" width="500" height="600"/>
+<br>
+AWS specific basic load blancer illustration: <br>
+<img src="./aws_graphic.png" width="500" height="600"/><br>
 *created using Canva*
 
 ## Setup Tutorials
