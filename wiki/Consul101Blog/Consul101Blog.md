@@ -1,6 +1,6 @@
 ﻿---
 layout: page
-title:  An Introduction to Stress Testing and Jmeter
+title:  An Intro to Consul Agents, Data-centers, and Services
 permalink: /wiki/Consul101Blog/
 ---
 
