@@ -25,7 +25,7 @@ This blog post will begin with defining the needed vocabulary and providing an i
 ## Introduction  
 ### All About Load Balancers 
 flow of traffic & load balancer placement illustrated below: 
-<img src="./load_balance.jpg" width="500" height="600"/>
+<img src="./load_balance.jpg" width="500" height="350"/>
 
 *created using Canva* 
 
