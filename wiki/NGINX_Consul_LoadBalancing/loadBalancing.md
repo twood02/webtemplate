@@ -39,8 +39,15 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 ![flowchart2](images/flowchart2.png)
 
 ## Investigation 
-For the first part of our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. Similarly to how we measured HTTP request time in lecture, we utilized Jupyter and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. 
+For our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. 
 
+![nginxNodes](images/2020-05-03_14-27-34.gif)
+
+Similarly to how we measured HTTP request time in lecture, we utilized Jupyter and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. 
+
+![allOnline](images/allonlinenoconsul.png)
+
+![oneOffline](images/node2offlinenoconsul.png)
 
 
 ---
