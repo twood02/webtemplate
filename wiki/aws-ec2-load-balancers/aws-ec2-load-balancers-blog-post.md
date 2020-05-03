@@ -35,10 +35,14 @@ General Benfits:
   - Redundancy
   - Flexibility
   - Efficiency
-  
+
+OSI Model w/LB: 
+<img src="./osi.png" width="500" height="350"/><br>
+*Classic LB has features of both Layer 4 & 7*
+
 Specific Benefits: 
   - L4 (Network/Classic LB) — directs traffic based on data from network and transport layer protocols, such as IP address and TCP port.
-  - L7 (Application LB)— adds content switching to load balancing, allowing routing decisions based on attributes like HTTP header, uniform resource identifier, SSL session ID and HTML form data.
+  - L7 (Application/Classic LB)— adds content switching to load balancing, allowing routing decisions based on attributes like HTTP header, uniform resource identifier, SSL session ID and HTML form data.
   - GSLB — Global Server Load Balancing extends L4 and L7 capabilities to servers in different geographic locations.
 
 For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
@@ -89,6 +93,14 @@ Breakdown:
 *created using Canva* <br>
 ## Evaluation 
 ### Application LB
+ALB works on a Layer 7 OSI model and allows traffic distribution toward backend instances based on the information inside the HTTP requests header. With Application Load Balancer, the connection is terminated at the ALB, and there are connection pools toward the backend instances.
+
+CloudWatch Metrics: 
+  - HealthyHost Count: shows the number of healthy instances in each Availability Zone.
+  - Latency: measures the elapsed time (in seconds) from the moment of the request being forwarded to the backend section, to the moment of the response from the backend section.
+  - Rejected Connection Count: because ALB doesn’t use surge queues like the Classic Load Balancer, it’s important to pay attention to this metric. This is the number of connections rejected because the load balancer couldn’t make a connection to the health target to route the request.
+  - Access logs: For ALB, access logs are generated every five minutes and stored to S3. You will have to pay S3 expenses but you won’t pay for the data transfer to the S3. Access logs are “eventually consistent,” which means that the files can be produced out of order. AWS does not guarantee that every request will be written to the access logs. 
+  
 Use Case(s):
 
 Benefits: 
@@ -118,6 +130,8 @@ Benefits:
   - Support for monitoring the health of each service independently, as health checks are defined at the target group level and many Amazon CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each service dynamically based on demand.
   
 ### Classic LB
+The Classic Load Balancer is a connection-based balancer where requests are forwarded by the load balancer without “looking into” any of these requests. They just get forwarded to the backend section.
+
 Use Case(s):
 
 Benefits: 
