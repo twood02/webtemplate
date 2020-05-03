@@ -25,7 +25,7 @@ This blog post will begin with defining the needed vocabulary and providing an i
 ## Introduction  
 ### All About Load Balancers 
 flow of traffic & load balancer placement illustrated below: 
-<img src="./load_balance.jpg" width="500" height="350"/>
+<img src="./load_balance.jpg" width="500" height="450"/>
 
 *created using Canva* 
 
@@ -48,7 +48,7 @@ For a detailed comparision of different features of each LB view this attachment
 <a href="table.pdf"> Link </a>
 <br>
 AWS specific basic load blancer illustration: <br>
-<img src="./aws_graphic.png" width="500" height="600"/><br>
+<img src="./aws_graphic.png" width="500" height="350"/><br>
 *created using Canva*
 
 ## Setup Tutorials
