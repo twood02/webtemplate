@@ -55,13 +55,22 @@ AWS specific basic load blancer illustration:
 ### Application LB & Network LB
 <img src="./browser_graphic.png" width="550" height="300"/>
 *created using Canva* 
-#### Steps
+
+<b>Steps</b>
 1. Open a new EC2 instance and select the add load balancer option 
 
 ### Classic LB
 <img src="./classic_graphic.png" width="300" height="275"/>
 *created using Canva* 
-#### Steps
+
+<b>Steps</b>
+1. Open a new EC2-Classic instance and select the add load balancer option
+2. Select the Classic Load Balancer option 
+3. Set a name for the LB and leave the default configuration for the listener
+4. Configure the health checks by leaving Ping Protocol set to HTTP, Ping Port set to 80, and Ping Path set to a single forward slash ("/")
+5. Select the EC2 instances to register with the Load Balancer
+6. Review the selected settings and click the create button 
+7. Verify that it's sending traffic to your EC2 instances by viewing the Description -> Status tab 
 
 ## Evaluation 
 ### Application LB
