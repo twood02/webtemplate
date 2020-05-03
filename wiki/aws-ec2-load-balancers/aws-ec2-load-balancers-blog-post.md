@@ -19,6 +19,7 @@ This blog post will begin with defining the needed vocabulary and providing an i
 - Application Load Balancer: functions at the application layer, the seventh layer of the Open Systems Interconnection (OSI) model. After the load balancer receives a request, it evaluates the listener rules in priority order to determine which rule to apply, and then selects a target from the target group for the rule action. 
 - Network Load Balancer: functions at the 4th layer of the Open Systems Interconnection (OSI) model. After the load balancer receives a connection request, it selects a target from the target group for the default rule. It attempts to open a TCP connection to the selected target on the port specified in the listener configuration. 
 - Classic Load Balancer: operates at Layer 4 of the OSI model. This means that the load balancer routes traffic between clients and backend servers based on IP address and TCP port. In the default configuration, the Classic Load Balancer will route traffic evenly between Availability Zones (AZ) that are enabled in the ELB.
+- Virtual Private Cloud (VPC): 
 
 *source: AWS Documentation 
 
@@ -47,20 +48,32 @@ Specific Benefits:
 For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
 <a href="table.pdf"> Link </a>
 <br>
-AWS specific basic load blancer illustration: <br>
+AWS specific basic load balancer illustration: <br>
 <img src="./aws_graphic.png" width="500" height="350"/><br>
 *created using Canva*
+Breakdown: 
+  - Target: 
+  - Target group: 
+  - Listener: 
+  - Rule: 
+  - Health check: 
 
 ## Setup Tutorials
 ### Application LB & Network LB
-<img src="./browser_graphic.png" width="550" height="300"/>
+<img src="./browser_graphic.png" width="550" height="300"/><br>
 *created using Canva* 
 
 <b>Steps</b>
-1. Open a new EC2 instance and select the add load balancer option 
+*The steps are essentially the same just substitute either Application or Network for y/n*
+1. Open a new EC2 instance and select the add y/n load balancer option 
+2. Configure the name, scheme & IP address type (default), listener (default), and availabilty zone (same one used for EC2)
+3. Create a new security group and set a name and description 
+4. Configure the target group by keeping the default (New target group), setting a name, keeping ddefault target type (Instance), protocol (HTTP), and port (80); also keep the default settings for health checks 
+5. Register instances w/target group; For Instances, select one or more instances, keep the default port (80) and choose Add to registered
+6. Review the settings that you selected. Verify that it's sending traffic to your EC2 instances by checking Load Balancing -> Target Groups tab
 
 ### Classic LB
-<img src="./classic_graphic.png" width="300" height="275"/>
+<img src="./classic_graphic.png" width="300" height="275"/><br>
 *created using Canva* 
 
 <b>Steps</b>
