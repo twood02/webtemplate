@@ -69,7 +69,7 @@ Breakdown:
 6. Review the settings that you selected. 
 7. Verify that it's sending traffic to your EC2 instances by checking Load Balancing -> Target Groups tab
 
-<img src="./success.png" width="350" height="350"/><br>
+<img src="./success.png" width="350" height="500"/><br>
 *created using Canva* <br>
 
 ### Classic LB
@@ -85,7 +85,7 @@ Breakdown:
 6. Review the selected settings and click the create button 
 7. Verify that it's sending traffic to your EC2 instances by viewing the Description -> Status tab 
 
-<img src="./success.png" width="350" height="350"/><br>
+<img src="./success.png" width="350" height="500"/><br>
 *created using Canva* <br>
 ## Evaluation 
 ### Application LB
