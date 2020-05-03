@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title:  An Intro to Consul Agents, Data-centers, and Services
 permalink: /wiki/Consul101Blog/
