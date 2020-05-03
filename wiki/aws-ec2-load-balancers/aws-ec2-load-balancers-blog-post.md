@@ -19,13 +19,13 @@ This blog post will begin with defining the needed vocabulary and providing an i
 - Application Load Balancer: functions at the application layer, the seventh layer of the Open Systems Interconnection (OSI) model. After the load balancer receives a request, it evaluates the listener rules in priority order to determine which rule to apply, and then selects a target from the target group for the rule action. 
 - Network Load Balancer: functions at the 4th layer of the Open Systems Interconnection (OSI) model. After the load balancer receives a connection request, it selects a target from the target group for the default rule. It attempts to open a TCP connection to the selected target on the port specified in the listener configuration. 
 - Classic Load Balancer: operates at Layer 4 of the OSI model. This means that the load balancer routes traffic between clients and backend servers based on IP address and TCP port. In the default configuration, the Classic Load Balancer will route traffic evenly between Availability Zones (AZ) that are enabled in the ELB.
-- Virtual Private Cloud (VPC): 
-
+- Virtual Private Cloud (VPC): an on-demand configurable pool of shared computing resources allocated within a public cloud environment, providing a certain level of isolation between the different organizations using the resources.
 *source: AWS Documentation 
 
 ## Introduction  
 ### All About Load Balancers 
-
+<img src="./balance.png" width="300" height="350"/><br>
+*created using Canva* <br>
 The load balancers sit between the client and servers and help spread the traffic across servers to improve responsiveness and availability of applications, websites or databases.
 Load balancers play a vital role in any organization where server uptime, client and staff connectivity, and performance are considered essential.
 
@@ -48,11 +48,11 @@ AWS specific basic load balancer illustration: <br>
 <img src="./aws_graphic.png" width="500" height="350"/><br>
 *created using Canva* <br>
 Breakdown: 
-  - Target: 
-  - Target group: 
-  - Listener: 
-  - Rule: 
-  - Health check: 
+  - Target: Targets are the resources to be invoked when a rule is triggered.
+  - Target group: register your targets with a target group overriding the default values. 
+  - Listener: a process that checks for connection requests, using the protocol and port that you configure. The rules that you define for a listener determine how the load balancer routes requests to its registered targets.
+  - Rule: Each rule consists of a priority, one or more actions, and one or more conditions. 
+  - Health check: LB periodically sends requests to its registered targets to test their status (health checks)
 
 ## Setup Tutorials
 ### Application LB & Network LB
