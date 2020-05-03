@@ -50,7 +50,7 @@ For a detailed comparision of different features of each LB view this attachment
 <br>
 AWS specific basic load balancer illustration: <br>
 <img src="./aws_graphic.png" width="500" height="350"/><br>
-*created using Canva*
+*created using Canva* <br>
 Breakdown: 
   - Target: 
   - Target group: 
@@ -63,7 +63,7 @@ Breakdown:
 <img src="./browser_graphic.png" width="550" height="300"/><br>
 *created using Canva* 
 
-<b>Steps</b>
+<b>Steps</b> <br>
 *The steps are essentially the same just substitute either Application or Network for y/n*
 1. Open a new EC2 instance and select the add y/n load balancer option 
 2. Configure the name, scheme & IP address type (default), listener (default), and availabilty zone (same one used for EC2)
