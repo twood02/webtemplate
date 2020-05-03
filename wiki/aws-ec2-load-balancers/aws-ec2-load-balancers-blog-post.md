@@ -89,7 +89,7 @@ Breakdown:
 <img src="./success.png" width="350" height="500"/><br>
 ## Example 
 ### Web Server
-<img src="./nginx.png" width="350" height="500"/><br>
+<img src="./nginx.png" width="600" height="350"/><br>
 
 Nginx (open source web server) will be used w/EC2 or EC2-Classic instance and each of the experiments will be a different AWS Load Balancer
 
@@ -157,4 +157,6 @@ Although most new implementations of load balancing do not include Classic Load 
 Application Load Balancers are used for HTTP and HTTPS traffic and enable advanced routing, SSL/TLS termination, and visibility for microservices, containers, and other application architectures. ALB serves distributed architectures best, wherein HTTP header details need to be read; for this reason, ALB allows for great flexibility but is not suitable for encrypted requests.
 
 Network Load Balancers handle only TCP packets and cannot access the details of an HTTP request in the same way as ALB. However, if end-to-end encryption is required, then NLB is the best option as it simply sends traffic—TCP packets—directly to the web server reducing latency and ensuring security from the client to the server. NLB is useful for applications that require fixed IP addresses and high-performance routing.
+
+## Credits 
 
