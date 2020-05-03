@@ -48,7 +48,7 @@ For a detailed comparision of different features of each LB view this attachment
 <a href="table.pdf"> Link </a>
 
 AWS specific basic load blancer illustration: 
-<img src="./browser_graphic.png" width="600" height="300"/>
+<img src="./aws_graphic.png" width="500" height="600"/>
 *created using Canva*
 
 ## Setup Tutorials
