@@ -25,7 +25,7 @@ This blog post will begin with defining the needed vocabulary and providing an i
 ## Introduction  
 ### All About Load Balancers 
 <img src="./balance.png" width="350" height="350"/><br>
-*created using Canva* <br>
+
 The load balancers sit between the client and servers and help spread the traffic across servers to improve responsiveness and availability of applications, websites or databases.
 Load balancers play a vital role in any organization where server uptime, client and staff connectivity, and performance are considered essential.
 
@@ -36,7 +36,7 @@ General Benfits:
   - Flexibility
   - Efficiency
 
-OSI Model w/LB: 
+OSI Model w/LB 
 <img src="./osi.png" width="500" height="350"/><br>
 *Classic LB has features of both Layer 4 & 7*
 
@@ -61,7 +61,6 @@ Breakdown:
 ## Setup Tutorials
 ### Application LB & Network LB
 <img src="./browser_graphic.png" width="550" height="300"/><br>
-*created using Canva* 
 
 <b>Steps</b> <br>
 *The steps are essentially the same just substitute either Application or Network for y/n*
@@ -74,11 +73,9 @@ Breakdown:
 7. Verify that it's sending traffic to your EC2 instances by checking Load Balancing -> Target Groups tab
 
 <img src="./success.png" width="350" height="500"/><br>
-*created using Canva* <br>
 
 ### Classic LB
 <img src="./classic_graphic.png" width="300" height="275"/><br>
-*created using Canva* 
 
 <b>Steps</b>
 1. Open a new EC2-Classic instance and select the add load balancer option
@@ -90,18 +87,15 @@ Breakdown:
 7. Verify that it's sending traffic to your EC2 instances by viewing the Description -> Status tab 
 
 <img src="./success.png" width="350" height="500"/><br>
-*created using Canva* <br>
-## Evaluation 
+## Analysis 
 ### Application LB
 ALB works on a Layer 7 OSI model and allows traffic distribution toward backend instances based on the information inside the HTTP requests header. With Application Load Balancer, the connection is terminated at the ALB, and there are connection pools toward the backend instances.
 
-CloudWatch Metrics: 
+Key CloudWatch Metrics: 
   - HealthyHost Count: shows the number of healthy instances in each Availability Zone.
   - Latency: measures the elapsed time (in seconds) from the moment of the request being forwarded to the backend section, to the moment of the response from the backend section.
   - Rejected Connection Count: because ALB doesn’t use surge queues like the Classic Load Balancer, it’s important to pay attention to this metric. This is the number of connections rejected because the load balancer couldn’t make a connection to the health target to route the request.
   - Access logs: For ALB, access logs are generated every five minutes and stored to S3. You will have to pay S3 expenses but you won’t pay for the data transfer to the S3. Access logs are “eventually consistent,” which means that the files can be produced out of order. AWS does not guarantee that every request will be written to the access logs. 
-  
-Use Case(s):
 
 Benefits: 
   - Support for path-based routing. You can configure rules for your listener that forward requests based on the URL in the request. This enables you to structure your application as smaller services, and route requests to the correct service based on the content of the URL.
@@ -119,7 +113,12 @@ Benefits:
   - Improved load balancer performance.
 
 ### Network LB
-Use Case(s):
+Key CloudWatch Metrics: 
+  - HealthyHost Count: shows the number of healthy instances in each Availability Zone.
+  - ActiveFlow Count
+  - TCP Client Reset Count
+  - TCP ELB Reset Count
+  - TCP Target Reset Count
 
 Benefits: 
   - Ability to handle volatile workloads and scale to millions of requests per second.
@@ -130,7 +129,7 @@ Benefits:
   - Support for monitoring the health of each service independently, as health checks are defined at the target group level and many Amazon CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each service dynamically based on demand.
   
 ### Classic LB
-The Classic Load Balancer is a connection-based balancer where requests are forwarded by the load balancer without “looking into” any of these requests. They just get forwarded to the backend section.
+The Classic Load Balancer is a connection-based balancer where requests are forwarded by the load balancer without “looking into” any of these requests; they just get forwarded to the backend section.
 
 Use Case(s):
 
@@ -138,4 +137,11 @@ Benefits:
   - Support for EC2-Classic
   - Support for TCP and SSL listeners
   - Support for sticky sessions using application-generated cookies
+  
+## When Which ? 
+Although most new implementations of load balancing do not include Classic Load Balancers, there are still reasons some need it. These include, per Amazon’s own CLB page, support for EC2-Classic, TCP and SSL listeners, and sticky sessions using application-generated cookies. But the real interest is in the possible use cases for ALB and NLB.
+
+Application Load Balancers are used for HTTP and HTTPS traffic and enable advanced routing, SSL/TLS termination, and visibility for microservices, containers, and other application architectures. ALB serves distributed architectures best, wherein HTTP header details need to be read; for this reason, ALB allows for great flexibility but is not suitable for encrypted requests.
+
+Network Load Balancers handle only TCP packets and cannot access the details of an HTTP request in the same way as ALB. However, if end-to-end encryption is required, then NLB is the best option as it simply sends traffic—TCP packets—directly to the web server reducing latency and ensuring security from the client to the server. NLB is useful for applications that require fixed IP addresses and high-performance routing.
 
