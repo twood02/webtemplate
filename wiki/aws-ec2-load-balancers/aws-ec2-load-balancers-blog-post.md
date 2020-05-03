@@ -87,6 +87,13 @@ Breakdown:
 7. Verify that it's sending traffic to your EC2 instances by viewing the Description -> Status tab 
 
 <img src="./success.png" width="350" height="500"/><br>
+## Example 
+### Web Server
+
+### Experiment 1 - ALB
+### Experiment 2 - NLB
+### Experiment 3 - CLB
+
 ## Analysis 
 ### Application LB
 ALB works on a Layer 7 OSI model and allows traffic distribution toward backend instances based on the information inside the HTTP requests header. With ALB, the connection is terminated at the ALB, and there are connection pools toward the backend instances.
@@ -138,7 +145,8 @@ Benefits:
   - Support for TCP and SSL listeners
   - Support for sticky sessions using application-generated cookies
   
-## When Which ? 
+## Conclusion
+### When Which ?
 Although most new implementations of load balancing do not include Classic Load Balancers, there are still reasons some need it. These include, per Amazon’s own CLB page, support for EC2-Classic, TCP and SSL listeners, and sticky sessions using application-generated cookies. But the real interest is in the possible use cases for ALB and NLB.
 
 Application Load Balancers are used for HTTP and HTTPS traffic and enable advanced routing, SSL/TLS termination, and visibility for microservices, containers, and other application architectures. ALB serves distributed architectures best, wherein HTTP header details need to be read; for this reason, ALB allows for great flexibility but is not suitable for encrypted requests.
