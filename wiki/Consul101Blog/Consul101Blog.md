@@ -1,7 +1,7 @@
 ﻿---
 layout: page
 title:  An Introduction to Stress Testing and Jmeter
-permalink: /wiki/ConsulDataAgentService/
+permalink: /wiki/Consul101Blog/
 ---
 
 *by:* James Levy
