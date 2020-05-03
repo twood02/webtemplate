@@ -89,8 +89,13 @@ Breakdown:
 <img src="./success.png" width="350" height="500"/><br>
 ## Example 
 ### Web Server
+<img src="./nginx.png" width="350" height="500"/><br>
 
+Nginx (open source web server) will be used w/EC2 or EC2-Classic instance and each of the experiments will be a different AWS Load Balancer
+
+Setup: follow the default set up and launch of the EC2 instance and then connect the instance to nginx via ssh on the command line
 ### Experiment 1 - ALB
+
 ### Experiment 2 - NLB
 ### Experiment 3 - CLB
 
