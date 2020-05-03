@@ -24,7 +24,7 @@ This blog post will begin with defining the needed vocabulary and providing an i
 
 ## Introduction  
 ### All About Load Balancers 
-<img src="./balance.png" width="300" height="350"/><br>
+<img src="./balance.png" width="350" height="350"/><br>
 *created using Canva* <br>
 The load balancers sit between the client and servers and help spread the traffic across servers to improve responsiveness and availability of applications, websites or databases.
 Load balancers play a vital role in any organization where server uptime, client and staff connectivity, and performance are considered essential.
