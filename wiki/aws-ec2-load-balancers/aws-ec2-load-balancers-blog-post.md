@@ -88,13 +88,22 @@ Breakdown:
 
 <img src="./success.png" width="350" height="500"/><br>
 ## Example 
-### Web Server
-<img src="./nginx.png" width="600" height="350"/><br>
+Instance Setup: EC2 instance (t2.micro) Amazon Linux 2 AMI 
+install on EC2 shell: httpd
 
-Nginx (open source web server) will be used w/EC2 or EC2-Classic instance and each of the experiments will be a different AWS Load Balancer
-
-Setup: follow the default set up and launch of the EC2 instance and then connect the instance to nginx via ssh on the command line
 ### Experiment 1 - ALB
+Load Balancer Setup: mostly default settings -> important to register target as the EC2 instances
+Wait ~5 min for load balancer to configure
+EC2 instances each have an index.html 
+
+Navigate to the DNS for the LB and each index.html page will display on refresh. 
+
+Server/Instance 1 displays: 
+<img src="./first.png" width="350" height="400"/><br>
+
+Server/Instance 2 displays: 
+<img src="./second.png" width="350" height="400"/><br>
+
 
 ### Experiment 2 - NLB
 ### Experiment 3 - CLB
@@ -161,5 +170,4 @@ Network Load Balancers handle only TCP packets and cannot access the details of 
 
 ## Credits 
 1. AWS documentation is stellar and many of the definitions and the set up steps come from me using it 
-2. Nginx documentation (specifically AWS compatible) is also great
-3. Canva for being the tool I used to make all the graphics (except the Nginx logo - Google/Wikipedia)
+2. Canva for being the tool I used to make all the graphics (except the Nginx logo - Google/Wikipedia; and screenshots)
