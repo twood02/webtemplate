@@ -322,7 +322,7 @@ According to the official document of Consul, “etcd et al. provide only a prim
 
 Also, as it is stated in the official document, “Consul provides first-class support for **service discovery, health checking, K/V storage, and multiple data centers**. To support anything more than simple K/V storage, all these other systems require additional tools and libraries to be built on top. By using client nodes, Consul provides a simple API that only requires thin clients. Additionally, the API can be avoided entirely by using configuration files and the DNS interface to have a complete service discovery solution with no development at all.”
 
-### 4. Summary
+## 4. Summary
 etcd is a strongly consistent, distributed key-value store that provides a reliable way to store data. It mainly uses Raft algorithm to implement and it is easy to use. Docker is a software platform that allows you to build, test, and deploy applications quickly. Therefore, in this article, I mainly guided you to set up etcd, and build a 3-node etcd cluster in Docker from scratch. You can see 3 nodes work together and share consistent information in a cluster.
 
 Compared with Consul, etcd has pros and cons. If looking for a distributed consistent key value store, etcd is a better choice over Consul. If looking for end-to-end cluster service discovery, etcd will not have enough features, instead, choose Consul or Kubernetes.
