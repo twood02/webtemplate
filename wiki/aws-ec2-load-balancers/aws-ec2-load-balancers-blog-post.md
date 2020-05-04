@@ -109,6 +109,9 @@ Server/Instance 2 displays: <br>
 
 
 ### Experiment 2 - NLB
+Nginx: <br>
+<img src="./nginx.png" width="400" height="250"/><br>
+(open source web server)
 
 install on EC2 shell: ufw, nginx
 Load Balancer Setup: mostly default settings -> important to register target as the EC2 instances & same VPC as instances
@@ -117,10 +120,10 @@ Wait ~5 min for load balancer to configure
 Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
 
 Server/Instance 1 displays: <br>
-<img src="./nlb1.png" width="400" height="350"/><br>
+<img src="./nlb1.png" width="550" height="350"/><br>
 
 Server/Instance 2 displays: <br>
-<img src="./nlb2.png" width="400" height="350"/><br>
+<img src="./nlb2.png" width="550" height="350"/><br>
 ### Experiment 3 - CLB
 
 ## Analysis 
