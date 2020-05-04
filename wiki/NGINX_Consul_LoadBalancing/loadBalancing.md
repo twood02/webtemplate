@@ -141,7 +141,7 @@ plt.xlim(0, 70)
 plt.show()
 ```
 
-Each of the EC2 instances that we created was a t2.micro type, used the Ubuntu 18.04 distribution and was hosted on the US East region. All instances used the same security group which enabled TCP and UDP access to the necessary ports that Consul requires access to for both the application and the web UI platform. For more information on instantiating and configuring AWS EC2, please see [this](https://aws.amazon.com/ec2/) link.
+Each of the EC2 instances that we created was a t2.micro type, used the Ubuntu 18.04 distribution and was hosted on the US East region. All instances used the same security group which enabled TCP and UDP access to the necessary ports that Consul requires access to for both the application and the web UI platform. For more information on instantiating and configuring AWS EC2, please see [this link](https://aws.amazon.com/ec2/).
 
 #### Results
 
