@@ -125,6 +125,29 @@ Server/Instance 1 displays: <br>
 Server/Instance 2 displays: <br>
 <img src="./nlb2.png" width="550" height="350"/><br>
 ### Experiment 3 - CLB
+Since CLB can handle both TCP and HTTP traffic, I tried both of the above examples with a CLB. 
+*obervation: much fewer options in general from protocols to supported EC2 images*
+ALB Experiment: 
+Load Balancer Setup: same settings as ALB (ie. Ping Path)
+Navigate to the DNS for the LB and each index.html page will display on refresh. 
+
+Server 1 displays: <br>
+<img src="./clb1.png" width="400" height="250"/><br>
+
+Server 2 displays: <br>
+<img src="./clb2.png" width="400" height="250"/><br>
+
+NLB Experiment: 
+Load Balancer Setup: same settings as NLB
+Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
+
+Server/Instance 1 displays: <br>
+<img src="./clb3.png" width="550" height="350"/><br>
+
+Server/Instance 2 displays: <br>
+<img src="./clb4.png" width="550" height="350"/><br>
+
+side note: migration from CLassic to ALB/NLB was super easy with the mogration wizards (nice job AWS!)
 
 ## Analysis 
 ### Application LB
@@ -137,8 +160,8 @@ Key CloudWatch Metrics:
   - Access logs: For ALB, access logs are generated every five minutes and stored to S3. You will have to pay S3 expenses but you won’t pay for the data transfer to the S3. Access logs are “eventually consistent,” which means that the files can be produced out of order. AWS does not guarantee that every request will be written to the access logs. 
 
 Benefits: 
-  - Support for path-based routing. You can configure rules for your listener that forward requests based on the URL in the request. This enables you to structure your application as smaller services, and route requests to the correct service based on the content of the URL.
-  - Support for host-based routing. You can configure rules for your listener that forward requests based on the host field in the HTTP header. This enables you to route requests to multiple domains using a single load balancer.
+  - Support for path-based routing; enables you to structure your application as smaller services, and route requests to the correct service based on the content of the URL.
+  - Support for host-based routing; enables you to route requests to multiple domains using a single load balancer.
   - Support for routing based on fields in the request, such as standard and custom HTTP headers and methods, query parameters, and source IP addresses.
   - Support for routing requests to multiple applications on a single EC2 instance. You can register each instance or IP address with the same target group using multiple ports.
   - Support for redirecting requests from one URL to another.
@@ -147,7 +170,7 @@ Benefits:
   - Support for registering Lambda functions as targets.
   - Support for the load balancer to authenticate users of your applications through their corporate or social identities before routing requests.
   - Support for containerized applications. Amazon Elastic Container Service (Amazon ECS) can select an unused port when scheduling a task and register the task with a target group using this port. This enables you to make efficient use of your clusters.
-  - Support for monitoring the health of each service independently, as health checks are defined at the target group level and many CloudWatch metrics are reported at the target group level. Attaching a target group to an Auto Scaling group enables you to scale each service dynamically based on demand.
+  - Support for monitoring the health of each service independently, as health checks are defined at the target group level and many CloudWatch metrics are reported at the target group level.
   - Access logs contain additional information and are stored in compressed format.
   - Improved load balancer performance.
 
@@ -172,6 +195,15 @@ Benefits:
 ### Classic LB
 The Classic Load Balancer is a connection-based balancer where requests are forwarded by the load balancer without “looking into” any of these requests; they just get forwarded to the backend section.
 
+Key CloudWatch Metrics: 
+  - RequestCount: This metric measures the amount of traffic your load balancer is handling. Keeping an eye on peaks and drops allows you to alert on drastic changes which might indicate a problem with AWS or upstream issues like DNS.
+  - SurgeQueueLength: When your backend instances are fully loaded and can’t process any more requests, incoming requests are queued, which can increase latency (see below) leading to slow user navigation or timeout errors. That’s why this metric should remain as low as possible, ideally at zero.
+  - SpilloverCount: When the SurgeQueueLength reaches the maximum of 1,024 queued requests, new requests are dropped, the user receives a 503 error, and the spillover count metric is incremented. In a healthy system, this metric is always equal to zero.
+  - HTTPCode ELB 5XX: This metric counts the number of requests that could not be properly handled. It can have different root causes:
+      - If the error code is 502 (Bad Gateway), the backend instance returned a response, but the load balancer couldn’t parse it because the load balancer was not working properly or the response was malformed.
+     - If it’s 503 (Service Unavailable), the error comes from your backend instances or the load balancer, which may not have had enough capacity to handle the request.
+     - If a 504 error (Gateway Timeout) is returned, the response time exceeded ELB’s idle timeout. 
+
 Benefits: 
   - Support for EC2-Classic
   - Support for TCP and SSL listeners
@@ -189,4 +221,4 @@ Network Load Balancers handle only TCP packets and cannot access the details of 
 ## Credits 
 1. AWS documentation is stellar and many of the definitions and the set up steps come from me using it 
 2. Canva for being the tool I used to make all the graphics (except the Nginx logo - Google/Wikipedia; and screenshots)
-3. Application LB tutorial that made me stop trying to use Nginx: https://www.edureka.co/blog/elastic-load-balancer-tutorial-application-load-balancer
+3. Application LB tutorial that worked after changing my vpc: https://www.edureka.co/blog/elastic-load-balancer-tutorial-application-load-balancer
