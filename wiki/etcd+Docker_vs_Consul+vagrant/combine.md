@@ -379,7 +379,9 @@ Author: Ziyue Li
 #### What is Service Discovery?
 
 In the framework of microservices, service discovery is a crucial module that must be mentioned.. Let's look at a picture below:
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/etcd%26Docker_Versus_Consul%26vagrant/figure1.png)
+
+
+![image](/wiki/etcd+Docker_vs_Consul+vagrant/images/figure1.png)
 In the figure, an interface of the client needs to call service A-N. The client must know the network location of all services. In the past, the configuration was in the configuration file, and some configuration may be in the database. Here are a few problems raised by such mode:
 
 -	High complexity of configuration (programmers need to configure the network location of N services,)
@@ -387,7 +389,7 @@ In the figure, an interface of the client needs to call service A-N. The client 
 - In the case of clusters, it is difficult to set up the whole architecture (except for the reverse proxy method)
 
 Service Discovery solved the above problems
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/etcd%26Docker_Versus_Consul%26vagrant/figure2.png)
+![image](/wiki/etcd+Docker_vs_Consul+vagrant/images/figure2.png)
 In the figure above, service A-N registers its current network location with the service discovery module . Service discovery is recorded in the form of K-V, where K is generally the service name and V is IP: PORT. The service discovery module periodically polls to see if these services can be accessed (this is the health check). When the client calls services A-N, it runs to the service discovery module to ask about their network location, and then calls their services. In this case, the client does not need to record these service network locations at all, and complexity reduced in this way.
 
 #### Introduction to Consul
@@ -449,7 +451,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 After install that with "vagrant up", we can get access of the consul through 192.168.99.100:8500:
-![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/etcd%26Docker_Versus_Consul%26vagrant/figure3.png)
+![image](/wiki/etcd+Docker_vs_Consul+vagrant/images/figure3.png)
 
 #### References
 https://en.wikipedia.org/wiki/Vagrant_(software)
