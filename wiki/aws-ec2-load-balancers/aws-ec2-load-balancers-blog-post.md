@@ -50,7 +50,7 @@ For a detailed comparision of different features of each LB view this attachment
 <br>
 AWS specific basic load balancer illustration: <br>
 <img src="./aws_graphic.png" width="500" height="350"/><br>
-*created using Canva* <br>
+
 Breakdown: 
   - Target: Targets are the resources to be invoked when a rule is triggered.
   - Target group: register your targets with a target group overriding the default values. 
