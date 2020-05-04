@@ -98,11 +98,11 @@ EC2 instances each have an index.html
 
 Navigate to the DNS for the LB and each index.html page will display on refresh. 
 
-Server/Instance 1 displays: 
-<img src="./first.png" width="350" height="400"/><br>
+Server/Instance 1 displays: <br>
+<img src="./first.png" width="350" height="250"/><br>
 
-Server/Instance 2 displays: 
-<img src="./second.png" width="350" height="400"/><br>
+Server/Instance 2 displays: <br>
+<img src="./second.png" width="350" height="250"/><br>
 
 
 ### Experiment 2 - NLB
