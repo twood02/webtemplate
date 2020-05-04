@@ -30,7 +30,7 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 
 ## NGINX 
 
-[NGINX](https://www.nginx.com) is an open source web server that offers, among other services, software-based load balancing. Many high-traffic websites like Netflix and Dropbox use NGINX/NGINX Plus to efficiently direct web traffic. NGINX uses the Round Robin method by default for load balancing but allows the user to specify another algorithm to accommodate the user’s needs. 
+[NGINX](https://www.nginx.com) is an open source web server that offers, among other services, software-based load balancing. Many high-traffic websites like Netflix and Dropbox use NGINX/NGINX Plus to efficiently direct web traffic. NGINX uses the Round Robin method by default for load balancing but allows the user to specify another algorithm to accommodate the user’s needs. For more information on configuring NGINX, see [this link](https://upcloud.com/community/tutorials/configure-load-balancing-nginx/). 
 
 
 ## Consul
