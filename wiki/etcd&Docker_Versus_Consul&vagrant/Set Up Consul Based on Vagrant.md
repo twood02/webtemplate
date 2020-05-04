@@ -76,6 +76,9 @@ After install that with vagrant up, we can get access of the consul through 192.
 
 #### References
 https://en.wikipedia.org/wiki/Vagrant_(software)
+
 https://cloud.tencent.com/developer/article/1444664
+
 https://codeblog.dotsandbrackets.com/vagrant-create-consul-cluster/
+
 https://en.wikipedia.org/wiki/Consul_(software)
