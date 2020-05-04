@@ -1,4 +1,4 @@
-### Set Up Consul Based on Vagrant
+# Set Up Consul Based on Vagrant
 #### What is Service Discovery?
 
 In the framework of microservices, service discovery is a crucial module that must be mentioned.. Let's look at a picture below:
