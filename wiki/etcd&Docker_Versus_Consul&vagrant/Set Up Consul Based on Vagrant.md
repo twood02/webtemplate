@@ -18,11 +18,12 @@ Frameworks commonly used for service discovery are
 - zookeeper
 - etcd
 - consul
- Consul is distributed, highly available, and horizontally scalable. Some key features provided by consul:
-     service discovery: Consul makes service registration and service discovery easy through DNS or HTTP interfaces. Some external services, such as those provided by saas, can also be registered in the same way.
-     health checking: Health checking enables consul to quickly alert operations in the cluster. Integration with service discovery can prevent services from being forwarded to failed services.
-     key / value storage: A system for storing dynamic configurations. Provide a simple HTTP interface that can be operated from anywhere.
-     Multi-datacenter: Supports any number of areas without complicated configuration.
+
+Consul is distributed, highly available, and horizontally scalable. Some key features provided by consul:
+- service discovery: Consul makes service registration and service discovery easy through DNS or HTTP interfaces. Some external services, such as those provided by saas, can also be registered in the same way.
+- health checking: Health checking enables consul to quickly alert operations in the cluster. Integration with service discovery can prevent services from being forwarded to failed services.
+- key / value storage: A system for storing dynamic configurations. Provide a simple HTTP interface that can be operated from anywhere.
+- Multi-datacenter: Supports any number of areas without complicated configuration.
 
 #### Introduction to Vagrant
 Vagrant is an open-source software product for building and maintaining portable virtual software development environments; e.g., for VirtualBox, KVM, Hyper-V, Docker containers, VMware, and AWS. It tries to simplify the software configuration management of virtualizations in order to increase development productivity. Vagrant is written in the Ruby language, but its ecosystem supports development in a few languages.
