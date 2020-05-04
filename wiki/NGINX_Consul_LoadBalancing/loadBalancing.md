@@ -38,6 +38,10 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 
 ![flowchart2](images/flowchart2.png)
 
+After configuring the EC2 instances to be a Consul datacenter, I setup the main NGINX node to run a Consul Template, which scans a service called web for online nodes and populates the NGINX load balancing configuration file with the set of available nodes. Consul determines which nodes to put in the file by checking whether the service is running on that node. The Consul service on each node communicates back to the leader the state of the node, which publishes that information to the rest of the nodes. This allows non-leader nodes to display the state of all nodes in the datacenter. We noticed this on the Consul UI page, where we could see all the nodes listed for the service and their health. For services, Consul conducts separate checks to determine if the specific server is online and healthy. An example of this is one of the nodes being online but not accepting connections on port 80 for HTTP requests. This would result in a positive result for the Node Check but a negative result for the Service Check. The Consul UI also shows the result of the Service Check: the basic HTML file that we uploaded onto each of the nodes. 
+
+Once Consul has completed the Service Check, the Consul Template adds the service URL to the NGINX load balancer configuration file. This allows for dynamic updates to the load balancer depending on the health of the nodes and the Apache service. This is really cool, because it removes the need for NGINX to determine whether a node is online while handling requests; all nodes in the load balancer configuration will be online, so all requests will be sent to active nodes that pass the Service Check.
+
 ## Investigation 
 
 #### Overview
@@ -137,6 +141,15 @@ Interestingly, but also expected, is the output from generating the second histo
 
 ![oneOffline](images/node2offlinenoconsul.png)
 
+After taking one node offline, we enabled Consul on the web service nodes and the NGINX load balancer node. We also ran the Consul Template on the load balancer node to pull the list of healthy nodes in the service and put their addresses in the load balancer configuration file. We ran another analysis using the same script on the NGINX load balancer running the Consul Template with all nodes online. The respective histogram is pictured below. Notice that the response times are comparable to the NGINX load balancer without Consul when all nodes were online.
+
+![allOnline](images/allonlineconsul.png)
+
+The last test we did was the major test of the investigation: taking a node offline while keeping Consul Template on the load balancer to see if requests were faster. As mentioned before, Consul keeps a running track of which nodes are both online and passing the Service Check. Accordingly, when we took a node offline, Consul immediately noticed the Node Check failed and removed it from the NGINX load balancer configuration file. This effectively stops traffic from being sent to that node as soon as Consul detects it going offline. We sent another 100 requests to the load balancer with the node offline and generated a histogram with the resulting request times.
+
+![oneOffline](images/node2offlineconsul.png)
+
+#### Conclusion
 
 ---
 Footnotes
