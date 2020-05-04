@@ -215,9 +215,9 @@ Benefits:
 Although most new implementations of load balancing do not include Classic Load Balancers, there are still reasons some need it. These include, per Amazon’s own CLB page, support for EC2-Classic, TCP and SSL listeners, and sticky sessions using application-generated cookies.
   --> Legacy 
 
-Application Load Balancers are used for HTTP and HTTPS traffic and enable advanced routing, SSL/TLS termination, and visibility for microservices, containers, and other application architectures. ALB serves distributed architectures best, wherein HTTP header details need to be read; for this reason, ALB allows for great flexibility but is not suitable for encrypted requests.
+Application Load Balancers are used for HTTP/HTTPS traffic and enable advanced routing, SSL/TLS termination, and visibility for microservices, containers, and other application architectures. ALB serves distributed architectures best; ALB allows for great flexibility but is not suitable for encrypted requests.
   
-Network Load Balancers handle only TCP packets and cannot access the details of an HTTP request in the same way as ALB. However, if end-to-end encryption is required, then NLB is the best option as it simply sends traffic—TCP packets—directly to the web server reducing latency and ensuring security from the client to the server. NLB is useful for applications that require fixed IP addresses and high-performance routing.
+Network Load Balancers handle only TCP packets and cannot access the details of an HTTP request in the same way as ALB. However, if end-to-end encryption is required, then NLB is the best option as it  sends traffic—TCP packets—directly to the web server reducing latency and ensuring security from the client to the server; NLB is useful for applications that require fixed IP addresses and high-performance routing.
 
 ## Credits 
 1. AWS documentation is stellar and many of the definitions and the set up steps come from me using it 
