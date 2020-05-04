@@ -1,3 +1,4 @@
+---
 layout: page
 title:  etcd with Docker vs Consul with Vagrant
 permalink: /wiki/etcd+Docker_vs_Consul+vagrant/
