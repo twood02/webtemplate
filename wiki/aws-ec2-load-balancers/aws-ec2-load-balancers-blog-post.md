@@ -119,11 +119,12 @@ Wait ~5 min for load balancer to configure
 
 Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
 
-Server/Instance 1 displays: <br>
+Server 1 displays: <br>
 <img src="./nlb1.png" width="550" height="350"/><br>
 
-Server/Instance 2 displays: <br>
+Server 2 displays: <br>
 <img src="./nlb2.png" width="550" height="350"/><br>
+
 ### Experiment 3 - CLB
 Since CLB can handle both TCP and HTTP traffic, I tried both of the above examples with a CLB. 
 *obervation: much fewer options in general from protocols to supported EC2 images*
@@ -141,10 +142,10 @@ NLB Experiment:
 Load Balancer Setup: same settings as NLB
 Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
 
-Server/Instance 1 displays: <br>
+Server 1 displays: <br>
 <img src="./clb3.png" width="550" height="350"/><br>
 
-Server/Instance 2 displays: <br>
+Server 2 displays: <br>
 <img src="./clb4.png" width="550" height="350"/><br>
 
 side note: migration from CLassic to ALB/NLB was super easy with the mogration wizards (nice job AWS!)
