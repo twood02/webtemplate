@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
  end
 end
 ```
-After install that with vagrant up, we can get access of the consul through 192.168.99.100:8500:
+After install that with "vagrant up", we can get access of the consul through 192.168.99.100:8500:
 ![image](https://github.com/wzli1214/gwAdvNet20.github.io/blob/dev/wiki/etcd%26Docker_Versus_Consul%26vagrant/figure3.png)
 
 #### References
