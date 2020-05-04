@@ -39,13 +39,101 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 ![flowchart2](images/flowchart2.png)
 
 ## Investigation 
-For our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. 
+
+#### Overview
+
+For our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. The contents of each of the HTML files was relatively the same; below is the code used on the third EC2 instance.
+
+```html
+<!DOCTYPE HTML>
+<html>
+
+        <head>
+                <title>Node 3</title>
+        </head>
+        <body>
+                <h1>Node 3</h1>
+                <p>You are connected to Node 3 with IP: 52.86.47.4</p>
+        </body>
+
+</html>
+```
 
 ![nginxNodes](images/2020-05-03_14-27-34.gif)
 
-Similarly to how we measured HTTP request time in lecture, we utilized Jupyter and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. 
+Pictured above is the NGINX load balancer configured using the least connections technique with all three of our EC2 instances online. Essentially, the load balancer compares the current number of connections that exist to each server and sends the incoming request to the server with the fewest connections<sup>3</sup>. This allowed us to ensure that each of the nodes received a relatively equal number of incoming connections.
+
+#### Script and Environment
+
+Similarly to how we measured HTTP request time in lecture, we utilized [Jupyter](https://jupyter.org/) on an Amazon Cloud9 instance and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. For information on installing Jupyter, see [this link](https://jupyter.org/install) and for information on configuring Cloud9, see [this link](https://docs.aws.amazon.com/cloud9/latest/user-guide/setting-up.html). 
+
+To install the required packages, execute the following pip command:
+
+```
+# Use pip with current python version to install packages
+python3 -m pip install -U jupyter numpy scipy pandas matplotlib seaborn
+```
+
+It is important to specify that we want to use python3 when calling pip because many distributions come with both Python 2 and Python 3. By running pip with Python 3, we can guarantee that the packages being installed are the most recent and are compatible with the version of Python that our scripts are utilizing.
+
+Ensure that you have a port open on which you can run Jupyter. For this investigation, we opened and used port 8080 on Cloud9. After ensuring that you have a port available, run Jupyter on your Cloud9 instance by executing the following command in the console:
+
+```bash
+# run jupyter on port 8080
+ipython3 notebook --ip=0.0.0.0 —port=8080 --no-browser
+```
+
+The script we used for the investigation is provided below:
+
+```python
+# Import required packages
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import requests
+import time
+
+# Set url for requests
+data_url = 'url-goes-here'
+# Create empty list for values
+x = np.array([])
+# Send 100 requests
+for i in range(0, 100) :
+    # Keep track of request start time
+    start = time.time()
+    # Make request to url
+    r = requests.get(data_url)
+    # Calculate amount of time elapsed in request
+    elapsed = time.time() - start
+    # Add new data point to list
+    x = np.append(x, elapsed)
+    # Pause for one second
+    time.sleep(1)
+
+# Define histogram variables
+num_bins = 20
+# Plot data on histogram
+n, bins, patches = plt.hist(x, num_bins, facecolor='blue', alpha=0.5)
+# Set axis labels and title
+plt.ylabel('Number of Requests')
+plt.xlabel('Response Time (sec)')
+plt.title('Response Time for NGINX without Consul (all online)')
+# Show grid on histogram
+plt.grid(True)
+# Set limit to remove outlier points; this varied based on the data we received
+plt.xlim(0, 70)
+# Display the histogram in Jupyter
+plt.show()
+```
+
+#### Results
+
+After running the Python script in Jupyter to generate requests to our NGINX load balancer, we generated a set of Histograms. The first histogram is the result of 100 requests sent to the load balancer while all three nodes were up and running. As is expected, the response time for a simple HTML file is extremely short. The histogram that was generated is pictured below.
 
 ![allOnline](images/allonlinenoconsul.png)
+
+Interestingly, but also expected, is the output from generating the second histogram, which had one of our EC2 instances offline. Notice that the scale of this histogram is vastly different. For approximately 10% of incoming requests, NGINX still attempted to direct traffic to the offline node. This resulted in an extremely long request time, because the load balancer continued to wait for the request to receive a response for 60 seconds. The rest of the connections were sent to the online nodes. What's super interesting about this is that NGINX doesn't send a strict 33% of traffic to each node; they prioritize the nodes that have not received connections recently. Since the offline node took a long time to respond, it received less connections. However, the load balancer still waited for the offline node to respond each time. This made the request time for a significant number of requests unhealthily long. The histogram generated when we had one node offline is pictured below.
 
 ![oneOffline](images/node2offlinenoconsul.png)
 
@@ -54,3 +142,4 @@ Similarly to how we measured HTTP request time in lecture, we utilized Jupyter a
 Footnotes
 1) https://ahrefs.com/blog/most-visited-websites/
 2) https://www.nginx.com/resources/glossary/load-balancing/
+3) https://www.nginx.com/blog/choosing-nginx-plus-load-balancing-techniques/
