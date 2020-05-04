@@ -89,12 +89,12 @@ Breakdown:
 <img src="./success.png" width="350" height="500"/><br>
 ## Example 
 Instance Setup: EC2 instance (t2.micro) Amazon Linux 2 AMI 
-install on EC2 shell: httpd
 
 ### Experiment 1 - ALB
 Diagram: <br>
 <img src="./alb-diagram.png" width="350" height="350"/><br>
 
+install on EC2 shell: httpd
 Load Balancer Setup: mostly default settings -> important to register target as the EC2 instances
 Wait ~5 min for load balancer to configure
 EC2 instances each have an index.html 
@@ -109,7 +109,18 @@ Server/Instance 2 displays: <br>
 
 
 ### Experiment 2 - NLB
-Load Balancer Setup: 
+
+install on EC2 shell: ufw, nginx
+Load Balancer Setup: mostly default settings -> important to register target as the EC2 instances & same VPC as instances
+Wait ~5 min for load balancer to configure
+
+Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
+
+Server/Instance 1 displays: <br>
+<img src="./nlb1.png" width="400" height="350"/><br>
+
+Server/Instance 2 displays: <br>
+<img src="./nlb2.png" width="400" height="350"/><br>
 ### Experiment 3 - CLB
 
 ## Analysis 
