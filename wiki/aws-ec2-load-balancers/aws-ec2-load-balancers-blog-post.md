@@ -92,6 +92,9 @@ Instance Setup: EC2 instance (t2.micro) Amazon Linux 2 AMI
 install on EC2 shell: httpd
 
 ### Experiment 1 - ALB
+Diagram: <br>
+<img src="./alb-diagram.png" width="350" height="350"/><br>
+
 Load Balancer Setup: mostly default settings -> important to register target as the EC2 instances
 Wait ~5 min for load balancer to configure
 EC2 instances each have an index.html 
@@ -99,13 +102,14 @@ EC2 instances each have an index.html
 Navigate to the DNS for the LB and each index.html page will display on refresh. 
 
 Server/Instance 1 displays: <br>
-<img src="./first.png" width="350" height="250"/><br>
+<img src="./first.png" width="400" height="250"/><br>
 
 Server/Instance 2 displays: <br>
-<img src="./second.png" width="350" height="250"/><br>
+<img src="./second.png" width="400" height="250"/><br>
 
 
 ### Experiment 2 - NLB
+Load Balancer Setup: 
 ### Experiment 3 - CLB
 
 ## Analysis 
@@ -171,3 +175,4 @@ Network Load Balancers handle only TCP packets and cannot access the details of 
 ## Credits 
 1. AWS documentation is stellar and many of the definitions and the set up steps come from me using it 
 2. Canva for being the tool I used to make all the graphics (except the Nginx logo - Google/Wikipedia; and screenshots)
+3. Application LB tutorial that made me stop trying to use Nginx: https://www.edureka.co/blog/elastic-load-balancer-tutorial-application-load-balancer
