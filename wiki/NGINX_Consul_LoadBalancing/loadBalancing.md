@@ -83,7 +83,7 @@ Similarly to how we measured HTTP request time in lecture, we utilized [Jupyter]
 
 To install the required packages, execute the following pip command:
 
-```
+```bash
 # Use pip with current python version to install packages
 python3 -m pip install -U jupyter numpy scipy pandas matplotlib seaborn
 ```
