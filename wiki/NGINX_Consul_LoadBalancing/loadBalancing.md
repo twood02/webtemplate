@@ -38,15 +38,21 @@ Load balancers can either be hardware or software. For a hardware-based load bal
 
 ![flowchart2](images/flowchart2.png)
 
-After configuring the EC2 instances to be a Consul datacenter, I setup the main NGINX node to run a Consul Template, which scans a service called web for online nodes and populates the NGINX load balancing configuration file with the set of available nodes. Consul determines which nodes to put in the file by checking whether the service is running on that node. The Consul service on each node communicates back to the leader the state of the node, which publishes that information to the rest of the nodes. This allows non-leader nodes to display the state of all nodes in the datacenter. We noticed this on the Consul UI page, where we could see all the nodes listed for the service and their health. For services, Consul conducts separate checks to determine if the specific server is online and healthy. An example of this is one of the nodes being online but not accepting connections on port 80 for HTTP requests. This would result in a positive result for the Node Check but a negative result for the Service Check. The Consul UI also shows the result of the Service Check: the basic HTML file that we uploaded onto each of the nodes. 
+After configuring the EC2 instances to be a Consul datacenter by following the [Consul Deployment Guide](https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide), I setup the main NGINX node to run a Consul Template following [this](https://learn.hashicorp.com/consul/integrations/nginx-consul-template) tutorial, which scans a service called web for online nodes and populates the NGINX load balancing configuration file with the set of available nodes. Consul determines which nodes to put in the file by checking whether the service is running on that node. Consul uses the Raft consensus algorithm to communicate the status of the nodes in the datacenter. The Consul agent on each node communicates back to the leader the state of the node, which publishes that information to the rest of the nodes. This enables non-leader nodes to accurately display the state of all nodes in the datacenter. We noticed this on the Consul UI page, where we could see all the nodes listed for the service and their health. In the below image, we see all the nodes connected to the Consul datacenter called dc1. Note that the "star" icon denotes the Raft leader.
 
-Once Consul has completed the Service Check, the Consul Template adds the service URL to the NGINX load balancer configuration file. This allows for dynamic updates to the load balancer depending on the health of the nodes and the Apache service. This is really cool, because it removes the need for NGINX to determine whether a node is online while handling requests; all nodes in the load balancer configuration will be online, so all requests will be sent to active nodes that pass the Service Check.
+![Raft in Consul](images/raftconsul.png)
+
+For services, like the web service we utilized with Consul Template, Consul conducts separate checks to determine if each node is online and healthy. An example of this is one of the nodes being online but not accepting connections on port 80 for HTTP requests. This would result in a positive result for the Node Check but a negative result for the Service Check. As a result, the node would not be marked healthy for the service and consequently will not be included in the pool of available nodes for the service. The [Consul UI](https://learn.hashicorp.com/consul/getting-started/ui) also shows the result of the Service Check: the basic HTML file that we uploaded onto each of the nodes. See the below GIF for a quick overview of some of the Consul UI features.
+
+![Consul UI](images/consului.gif)
+
+Once Consul has completed the Service Check, the Consul Template adds the service URL to the NGINX load balancer configuration file. This allows for dynamic updates to the load balancer depending on the health of the nodes and the Apache service. This is really cool, because it removes the need for NGINX to determine whether a node is online while handling requests; all nodes in the load balancer configuration will be online, so all requests will be sent to active nodes that pass the Service Check. This is extremely useful, because it puts the bulk of the node checking on the backend and makes it Consul's responsibility instead of NGINX attempting to redirect to offline nodes. This dramatically improves the user's experience by removing those long wait times for NGINX to exhaust an offline node's request before attempting to re-route the user to an online node. This is an extremely significant improvement, because as you will see in the Investigation section, the percentage of users that still get directed to an offline node using the NGINX last connected technique is statistically signficiant.
 
 ## Investigation 
 
 #### Overview
 
-For our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. The contents of each of the HTML files was relatively the same; below is the code used on the third EC2 instance.
+For our investigation, we configured NGINX as a load balancer on an Amazon EC2 instance with three other EC2 instances to serve as application nodes. We then followed the Consul Deployment Guide (linked above) to configure each of the EC2 instances as a node in a Consul Datacenter. The NGINX load balancer instance was the only instance running NGINX as a web platform; the three nodes utilized Apache to deliver web content. Each of the instance nodes had the same identical index.html file which contained basic information about the node that the load balancer directed the traffic to. The basic information included the node identifier (1-3) and the IP address of the node. This information was hard-coded in to reduce reliance on scripts and libraries that could have variable speeds. The contents of each of the HTML files was relatively the same; below is the code used on the third EC2 instance.
 
 ```html
 <!DOCTYPE HTML>
@@ -63,13 +69,17 @@ For our investigation, we configured NGINX as a load balancer on an Amazon EC2 i
 </html>
 ```
 
-![nginxNodes](images/2020-05-03_14-27-34.gif)
+![nginxNodes](images/loadbalancer.gif)
 
 Pictured above is the NGINX load balancer configured using the least connections technique with all three of our EC2 instances online. Essentially, the load balancer compares the current number of connections that exist to each server and sends the incoming request to the server with the fewest connections<sup>3</sup>. This allowed us to ensure that each of the nodes received a relatively equal number of incoming connections.
 
+After verifying that NGINX was able to distribute traffic between the EC2 instances, we took one of the EC2 instances offline to see how the NGINX load balancer would react. We measured the request time for 100 HTTP requests to the load balancer and generated a histogram for the result.
+
+Next, we installed Consul on all four instances to create a Consul datacenter. This allowed for the dynamic health checking of each of the EC2 instances that the NGINX load balancer is responsible for distributing traffic between. We hoped that this would make the NGINX load balancing much more effective by removing offline and unreachable nodes to allow for dynamic scaling and fault tolerance. We performed the same tests with all EC2 instances online and one instance offline. We ensured that the same instance was taken offline.
+
 #### Script and Environment
 
-Similarly to how we measured HTTP request time in lecture, we utilized [Jupyter](https://jupyter.org/) on an Amazon Cloud9 instance and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. For information on installing Jupyter, see [this link](https://jupyter.org/install) and for information on configuring Cloud9, see [this link](https://docs.aws.amazon.com/cloud9/latest/user-guide/setting-up.html). 
+Similarly to how we measured HTTP request time in lecture, we utilized [Jupyter](https://jupyter.org/) on an Amazon Cloud9 instance and the Python requests library to make 100 requests to the load balancing node to measure the access time when all nodes were online and when one node was taken offline. For information on installing Jupyter, see [this link](https://jupyter.org/install) and for information on configuring Cloud9, see [this link](https://docs.aws.amazon.com/cloud9/latest/user-guide/setting-up.html).
 
 To install the required packages, execute the following pip command:
 
@@ -131,13 +141,15 @@ plt.xlim(0, 70)
 plt.show()
 ```
 
+Each of the EC2 instances that we created was a t2.micro type, used the Ubuntu 18.04 distribution and was hosted on the US East region. All instances used the same security group which enabled TCP and UDP access to the necessary ports that Consul requires access to for both the application and the web UI platform. For more information on instantiating and configuring AWS EC2, please see [this](https://aws.amazon.com/ec2/) link.
+
 #### Results
 
 After running the Python script in Jupyter to generate requests to our NGINX load balancer, we generated a set of Histograms. The first histogram is the result of 100 requests sent to the load balancer while all three nodes were up and running. As is expected, the response time for a simple HTML file is extremely short. The histogram that was generated is pictured below.
 
 ![allOnline](images/allonlinenoconsul.png)
 
-Interestingly, but also expected, is the output from generating the second histogram, which had one of our EC2 instances offline. Notice that the scale of this histogram is vastly different. For approximately 10% of incoming requests, NGINX still attempted to direct traffic to the offline node. This resulted in an extremely long request time, because the load balancer continued to wait for the request to receive a response for 60 seconds. The rest of the connections were sent to the online nodes. What's super interesting about this is that NGINX doesn't send a strict 33% of traffic to each node; they prioritize the nodes that have not received connections recently. Since the offline node took a long time to respond, it received less connections. However, the load balancer still waited for the offline node to respond each time. This made the request time for a significant number of requests unhealthily long. The histogram generated when we had one node offline is pictured below.
+Interestingly, but also expected, is the output from generating the second histogram, which had one of our EC2 instances offline. Notice that the scale of this histogram is vastly different. For approximately 10% of incoming requests, NGINX still attempted to direct traffic to the offline node. This resulted in an extremely long request time, because the load balancer continued to wait for the request to receive a response for 60 seconds. The rest of the connections were sent to the online nodes. What's super interesting about this is that NGINX doesn't send a strict 33% of traffic to each node; they prioritize the nodes that have not received connections recently. Since the offline node took a long time to respond, it received less connections. However, the load balancer still waited for the offline node to respond each time. This made the request time for a significant percentage of requests unreasonably long. The histogram generated when we had one node offline is pictured below.
 
 ![oneOffline](images/node2offlinenoconsul.png)
 
@@ -145,7 +157,7 @@ After taking one node offline, we enabled Consul on the web service nodes and th
 
 ![allOnline](images/allonlineconsul.png)
 
-The last test we did was the major test of the investigation: taking a node offline while keeping Consul Template on the load balancer to see if requests were faster. As mentioned before, Consul keeps a running track of which nodes are both online and passing the Service Check. Accordingly, when we took a node offline, Consul immediately noticed the Node Check failed and removed it from the NGINX load balancer configuration file. This effectively stops traffic from being sent to that node as soon as Consul detects it going offline. We sent another 100 requests to the load balancer with the node offline and generated a histogram with the resulting request times.
+The last test we did was the major test of the investigation: taking a node offline while keeping Consul Template on the load balancer to see if requests were faster. As mentioned before, Consul keeps a running track of which nodes are both online and passing the Service Check. Accordingly, when we took a node offline, Consul immediately noticed the Node Check failed and removed it from the NGINX load balancer configuration file. This effectively stopped traffic from being sent to that node as soon as Consul detects it going offline. We sent another 100 requests to the load balancer with the node offline and generated a histogram with the resulting request times.
 
 ![oneOffline](images/node2offlineconsul.png)
 
