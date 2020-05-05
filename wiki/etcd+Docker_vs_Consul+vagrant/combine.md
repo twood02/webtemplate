@@ -8,11 +8,13 @@ permalink: /wiki/etcd+Docker_vs_Consul+vagrant/
 
 
 The short description of the Post:
-This is a post of etcd with Docker vs Consul with Vagrant. The section **Deploy a 3-node etcd Cluster in Docker** is written by Weizhao Li, the section of **Set Up Consul Based on Vagrant** is written by Ziyue Li. 
+This is a post of etcd with Docker vs Consul with Vagrant. The section of **Deploy a 3-node etcd Cluster in Docker** is written by Weizhao Li, the section of **Set Up Consul Based on Vagrant** is written by Ziyue Li. 
 
 In **Deploy a 3-node etcd Cluster in Docker**, Weizhao covered the introduction of etcd and Docker, the main idea of Raft algorithm, and he provided an experiment to show how to deploy etcd in Docker and how to set up a multi-node etcd cluster in Docker. Finally, he talked about the comparison of etcd and consul.
 
 In **Set Up Consul Based on Vagrant**, Ziyue introduced Consul and provided a mini-experiment of Consul based on Vagrant
+
+---
 
 # Section1: Deploy a 3-node etcd Cluster in Docker
 Author: Weizhao Li
@@ -26,7 +28,7 @@ Keywords: etcd, Raft, cluster, Docker, Consul
 ## 1. Introduction
 ### 1.1 What is etcd?
 
-“Etcd is a distributed, consistent key-value store for shared configuration and service discovery”, this is the description of etcd in the official document. In June of 2013, CoreOS team developed the etcd project, their goal was to build a high available distributed key-value store database. Within the distributed system, shared configuration and service discovery are the basic and important problems, etcd is supposed to solve those problems.
+“Etcd is a distributed, consistent key-value store for shared configuration and service discovery”, this is the description of etcd in the official document. In June of 2013, CoreOS team developed the etcd project, their goal was to build a highly available distributed key-value store database. Within the distributed system, shared configuration and service discovery are the basic and important problems, etcd is supposed to solve those problems.
 
 When designing the etcd, the key points are:
 
@@ -36,7 +38,7 @@ When designing the etcd, the key points are:
 - Reliable: support distributed structure, use consensus algorithm based on Raft.
 
 ### 1.2 What is Raft algorithm?
-Raft is a consensus algorithm from Stanford University, which is mainly used in log replication of distributed systems. The main idea of raft is to utilize the leader election to ensure strong consistency. The advantages of Raft is it is much easier to understand than Paxos and it has fault tolerance, which means some nodes fail or have network problems, most of the other nodes could work normally.
+Raft is a consensus algorithm from Stanford University, which is mainly used in log replication of distributed systems. The main idea of Raft is to utilize the leader election to ensure strong consistency. The advantages of Raft is it is much easier to understand than Paxos and it has fault tolerance, which means some nodes fail or have network problems, most of the other nodes could work normally.
 
 With etcd, users can set up multiple instances in multiple nodes, and group them as a cluster. Instances within the same cluster will share consistent information.
 
@@ -73,7 +75,9 @@ Now, I am going to guide you on how to deploy a 3-node cluster in Docker. First,
 
 Cluster means deploying the same application or service on different servers and forming them as a cluster, providing external services through load-balancing equipment.
 
-The load-balancing equipment will deliver the request from the user to a certain server. Load Balancing is a computer technology used to distribute load among multiple computers (computer clusters), network connections, CPUs, disk drives, or other resources to achieve optimal resource usage, maximize throughput, or minimize response time while avoiding overload.
+![image](/wiki/etcd+Docker_vs_Consul+vagrant/images/load-balancer.png)
+
+This is an example of load balancer. The load-balancing equipment will deliver the request from the user to a certain server. Load Balancing is a computer technology used to distribute load among multiple computers (computer clusters), network connections, CPUs, disk drives, or other resources to achieve optimal resource usage, maximize throughput, or minimize response time while avoiding overload.
 
 **Under the same configuration, the fewer the number of nodes, the better the cluster performance. But we need to avoid the even number of nodes, because:**
 
@@ -83,9 +87,9 @@ The load-balancing equipment will deliver the request from the user to a certain
 
 There are three ways of setting up a etcd cluster, if the IP of each node is known, you can use a static way to set up the cluster. However, in most cases, you don’t know the IP of each node, then you have to use discover ways. The discover ways contain etcd discovery and DNS discovery.
 
-- Static: If the IP of each node is known, when starting etcd server, configure all node information through –initial-cluster parameter.
+- Static: If the IP of each node is known, when starting the etcd server, configure all node information through –initial-cluster parameter.
 - etcd Discovery: The etcd discovery uses the existing etcd cluster as a data interaction point, and then implements the service discovery mechanism through the existing cluster when expanding the new cluster.
-- DNS discovery: DNS discovery mainly records the domain name information of each node in the cluster through the dns service, and each node obtains mutual address information from the dns service to establish a cluster.
+- DNS discovery: DNS discovery mainly records the domain name information of each node in the cluster through the DNS service, and each node obtains mutual address information from the DNS service to establish a cluster.
 
 In this blog, I am going to show you how to deploy a 3-node cluster in a static way. We need Docker to generate three hosts that have three different IPs.
 
@@ -162,7 +166,7 @@ $ docker run -d -v /usr/share/ca-certificates/:/etc/ssl/certs -p 4001:4001 -p 23
 
 **Note:**
 - You have to change the IP address of this node according to its IP, change the name after -name .
-- For worker 1 and worker 2, follow the same steps as the instruction of manager 1 node instead changing the IP address and the name.
+- For worker 1 and worker 2, follow the same steps as the instruction of manager 1 node instead of changing the IP address and the name.
 - To see the meaning of each flag, eg. -XXX, enter this website Clustering flags
 https://github.com/etcd-io/etcd/blob/master/Documentation/op-guide/configuration.md
 
@@ -258,7 +262,7 @@ The result is:
 We can see etcd0, namely, manager1, is the leader of this election. Within the other two nodes, we can see the same information, that means the information is consistent in each node.
 
 ### 2.3 API Operations
-**1.Example of key-value store**
+**1.Example of the key-value store**
 
 In any node of this cluster, you can store the key-value pair, and each node can see the consistent up-to-date information. Eg. in manager 1, enter
 
@@ -296,7 +300,7 @@ We can see all the member in this cluster.
 
 Eg2.
 
-To see whether this node is leader, enter this command according to its IP address, eg.
+To see whether this node is the leader, enter this command according to its IP address, eg.
 
 ```
 docker@manager1:~/etcd-v3.3.0-rc.0-linux-amd64$ curl http://192.168.99.105:2379/v2/stats/leader
@@ -313,7 +317,7 @@ As you can see, manager1, namely, etcd0 is the leader, and it has two followers.
 
 etcd is a distributed key-value storage system using http protocol and Raft algorithm. Since it is easy to use and simple, many systems use etcd as part of service discovery, such as kubernetes (K8s). **But the problem** is that because it is just a storage system, if you want to provide complete service discovery functions, you need some third-party tools.
 
-With Registrator, and confd, a very simple and powerful service discovery framework can be built. But compared to Consul, this type of operation is a little more troublesome. Therefore, in most of the cases, etcd are used for key-value storage, such as kubernetes.
+With Registrator, and confd, a very simple and powerful service discovery framework can be built. But compared to Consul, this type of operation is a little more troublesome. Therefore, in most of the cases, etcd is used for key-value storage, such as kubernetes.
 
 Furthemore, **etcd scales better than Consul**. According to the experiment, when creating 1-million keys, 256 bytes key, 1KB value, etcd costs less response time and less memory, other systems like Consul suffer from high latencies and memory pressure.
 
@@ -347,12 +351,12 @@ Compared with Consul, etcd has pros and cons. If looking for a distributed consi
 
 ***Pros***
 1. Simple and easy to use, no need to integrate SDK
-2. Bring your own health checking
+2. Provides health checking
 3. Support multiple data centers
 
 ***Cons***
 1. Cannot have notification of real-time service information change
-2. It doesn’t scale well, when creating a large amount of k/v store, it has high latencies and memory pressure
+2. It doesn’t scale well when creating a large amount of k/v store, it has high latencies and memory pressure
 
 ## Reference
 
@@ -373,7 +377,7 @@ Compared with Consul, etcd has pros and cons. If looking for a distributed consi
 - Consul vs. ZooKeeper, doozerd, etcd https://www.consul.io/intro/vs/zookeeper.html
 
 
-
+---
 
 # Section 2: Set Up Consul Based on Vagrant
 Author: Ziyue Li
