@@ -12,20 +12,36 @@ Here, we offer a step-by-step tutorial for setting up Consul, implementing a key
 ---
 
 ### What is Consul?
-**Consul** is a multi-cloud service networking platform to connect and secure services across any runtime platform and public or private cloud. First released in 2014, it was intended for DNS-based service discovery, and provides a fully featured service-mesh control plane, distributed key-value storage, service discovery, segmentation, and configuration. Registered services and nodes can be queried using a DNS interface or an HTTP interface.<br><br> 
+**Consul** is a multi-cloud service networking platform to connect and secure services across any runtime platform and public or private cloud. First released in 2014, it was intended for DNS-based service discovery, and provides a fully featured service-mesh control plane, distributed key-value storage, service discovery, segmentation, and configuration. Registered services and nodes can be queried using a DNS interface or an HTTP interface.<br> 
 *Some of Consul's main features are:*
 - service discovery
 - health checking
 - KV store
 - secure service communication
 - multi datacenter. <br> 
+#### The Raft Algorithm
 
 ### Step-by-Step Tutorial
 #### Setting Up Consul:
 1. Install Consul<br>
-		Install Consul in one of 3 ways:
-    
-    Verify Installation:
+*Install Consul in one of 3 ways:*<br>
+ Manual Installation | Homebrew on OS X | Chocolately on Windows
+- | - | -
+Find the appropriate package for your system and download it <br>[here.](https://www.consul.io/downloads.html) | Homebrew is a free and open-source package management system for Mac OS X. From the command line, run:<br>`brew install consul` | Chocolately is a free and open-source package management system for Windows. From the command line, run:<br>`choco install consul`
+<br>
+*Verify Installation:*<br>
+After installing Consul, verify that the installation worked by opening a new terminal session and running the command `consul`.<br>
+You should see:<br>
+```
+$ consul
+usage consul [--version] [--help] <command> [<args>]
+
+Available commands are:
+    agent          Runs a Consul agent
+    event          Fire a new event
+
+...
+```
 2. 
 3. 
 #### Store Data in Consul KV
