@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  This repo is a practical blog about spring boot database server using Zookeeper.
+title:  This repo is a practical blog about spring boot server using Zookeeper.
 permalink: /wiki/zookeeper/
 ---
 
