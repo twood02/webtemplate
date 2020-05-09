@@ -1,10 +1,10 @@
 ---
 layout: page
 title:  YOUR TITLE
-permalink: /wiki/SHORTNAME/
+permalink: /wiki/benchmark/
 ---
 
-*by:* Name 1 and Name2
+*by:* Samuel Farid and Hamid Reza
 
 
 A short description of your post goes here.
