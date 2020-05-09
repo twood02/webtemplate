@@ -117,3 +117,12 @@ Through this simple example we had demonstrated how to use java to interact with
 |sync| | ✔︎|
 |createSession| ✔︎| |
 |closeSession| ✔︎| |
+
+# Summary
+You can use zookeeper to monitor your distributed system. A common way to do it is use Spring Boot. Because java has good compatibility with zookeeper, it can be very easy to build a system using the library provided. You can find more information on zookeeper website [**here**](https://zookeeper.apache.org/doc/r3.3.5/javaExample.html).
+For questions about Spring Boot, the [**Spring Boot website**](https://spring.io/projects/spring-boot) provides some good tips for you to start.
+
+# References
+1. [**Zookeeper Installation**](https://zookeeper.apache.org/releases.html)
+1. [**Zookeeper Java Example**](https://zookeeper.apache.org/doc/r3.3.5/javaExample.html)
+1. [**Spring Boot Guide**](https://spring.io/projects/spring-boot)
