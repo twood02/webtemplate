@@ -35,8 +35,7 @@ If you can run everything till this point, congratulation! You have successfully
 ## What can we do with zookeeper?
 Zookeeper can provides you with a way to manage your distributed system. You can listen to changes in your system using zookeeper. You can implement a simple leader election algorithm to keep your system's data integrity.
 Because zookeeper can listen to changes in the system, we can use it to connect to databases to monitor changes and synchronize the changes between different copies of the database.
-In this project we are first going to do a very simple demo of zookeeper. We are going to set up a zookeeper node that can be accessed by a spring boot server. This way we will have a zookeeper system that can be easily accessed. This provides a very basic framework which can be continue build upon.
-We will also demonstrate some simple APIs you can use in a distributed system, particularly if you have multiple copies of the same database.
+In this project we are going to do a very simple demo of zookeeper. We are going to set up a zookeeper node that can be accessed by a spring boot server. This way we will have a zookeeper system that can be easily accessed. This provides a very basic framework which can be continue build upon.
 
 In order to access zookeeper, we are going to use java spring boot framework.
 First, we need to set pom.xml. In it we need to set spring boot and zookeeper java.
