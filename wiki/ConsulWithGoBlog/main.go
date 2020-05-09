@@ -57,6 +57,10 @@ func login(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("key:", key)
 			response := getKVPair(key)
 			fmt.Fprintf(w, response)
+
+		} else if strings.Compare(formName3, "Get all KV pairs stored") == 0 {
+			response := getAllKVPair()
+			fmt.Fprintf(w, response)
 		}
 
 	}
@@ -95,12 +99,42 @@ func putKVPair(key string, value string) string {
 
 func getKVPair(key string) string {
 	fmt.Println("key: ", key)
-	pair, _, err := kv.Get(key, nil)
+
+	pairs, _, err := kv.List(key, nil)
+	if pairs != nil || err != nil {
+		pair, _, err := kv.Get(key, nil)
+		if err != nil {
+			// panic(err)
+			response := "No KV pair found for this key"
+			fmt.Println(response)
+			return response
+		}
+		return (string)(pair.Value)
+	}
+	response := "NO KV pair found for this key"
+	return response
+
+}
+
+func getAllKVPair() string {
+	fmt.Println("getting all")
+	key := ""
+	pairs, _, err := kv.List(key, nil)
 	if err != nil {
-		// panic(err)
-		response := "No KV pair found for this key"
-		fmt.Println(response)
+		response := "Bad"
 		return response
 	}
-	return (string)(pair.Value)
+	response := ""
+	index := 0
+	for i := range pairs {
+		p := pairs[i]
+		val := (string)(p.Value)
+		key := (string)(p.Key)
+		addition := "Key: " + key + ", Value: " + val + "\n"
+		fmt.Print(addition)
+		response += addition
+		index++
+	}
+	fmt.Println(response)
+	return response
 }
