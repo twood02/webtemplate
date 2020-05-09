@@ -103,3 +103,18 @@ public class RestController {
 
 Run this spring boot project on your local machine. In your browser or use the console to access `localhost:8080/zkget`, you will get the result from your zookeeper.
 Through this simple example we had demonstrated how to use java to interact with zookeeper server, using the same setup you should be able to do something more complex than this. You can implement leader election algorithms, you can manage data changes using zookeeper. Basically zookeeper acts like the brain of your distributed system.
+
+# Zookeeper API Table
+| ZoopKeeper API | sync | async|
+|--|--|--|
+|create| ✔︎| ✔︎|
+|delete| ✔︎| ✔︎|
+|exist| ✔︎| ✔︎|
+|getData| ✔︎| ✔︎|
+|setData| ✔︎| ✔︎|
+|getACL| ✔︎| ✔︎|
+|setACL| ✔︎| ✔︎|
+|getChildren| ✔︎| ✔︎|
+|sync| | ✔︎|
+|createSession| ✔︎| |
+|closeSession| ✔︎| |
