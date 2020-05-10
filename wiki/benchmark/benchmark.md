@@ -10,7 +10,7 @@ permalink: /wiki/benchmark/
 A short description of your post goes here.
 
 ---
-# Creating Environment and Deploying a Web Application with Elastic Beanstalk
+# Creating an Environment and Deploying a Web Application with Elastic Beanstalk
 
 In this experiment we will deploy a sample web application in amazon cloud servers by Elastic Beanstalk service. As Amazon explains: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
 
