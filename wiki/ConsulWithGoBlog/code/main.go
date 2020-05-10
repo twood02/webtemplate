@@ -12,39 +12,36 @@ import (
 
 var kv *api.KV
 
-func sayhelloName(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()       // parse arguments, you have to call this by yourself
+func setup(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()       // parse arguments entered in form
 	fmt.Println(r.Form) // print form information in server side
 	fmt.Println("path", r.URL.Path)
 	fmt.Println("scheme", r.URL.Scheme)
 	fmt.Println(r.Form["url_long"])
+	// get inputs entered by user
 	for k, v := range r.Form {
 		fmt.Println("key:", k)
 		fmt.Println("val:", strings.Join(v, ""))
 	}
-	fmt.Fprintf(w, "Hello Sreya!") // send data to client side
 }
-func login(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("method:", r.Method) //get request method
+func processForm(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("index.html")
 		t.Execute(w, nil)
 	} else {
 		r.ParseForm()
-		// logic part of log in
+		// determine which action to perform
 		formName := strings.Join(r.Form["store-submit"], "")
 		formName2 := strings.Join(r.Form["getval-submit"], "")
 		formName3 := strings.Join(r.Form["getall-submit"], "")
-		fmt.Println(formName)
-		fmt.Println(strings.Compare(formName, "Store KV pair"))
-		fmt.Println(strings.Compare(formName2, "Get corresponding value stored"))
-		fmt.Println(strings.Compare(formName3, "Get all KV pairs stored"))
+		strings.Compare(formName, "Store KV pair")
+		strings.Compare(formName2, "Get corresponding value stored")
+		strings.Compare(formName3, "Get all KV pairs stored")
 
+		// store KV pair
 		if strings.Compare(formName, "Store KV pair") == 0 {
 			key := strings.Join(r.Form["key"], "")
 			value := strings.Join(r.Form["value"], "")
-			fmt.Println("key:", key)
-			fmt.Println("value:", value)
 			response := putKVPair(key, value)
 			if strings.Compare(response, "KV store success") == 0 {
 				fmt.Fprintf(w, response+"\n"+"Key: "+key+"  Value: "+value)
@@ -52,15 +49,24 @@ func login(w http.ResponseWriter, r *http.Request) {
 				fmt.Fprintf(w, "Unable to store KV pair. Key/Value pair is empty")
 			}
 
-		} else if strings.Compare(formName2, "Get corresponding value stored") == 0 {
+		} else if strings.Compare(formName2, "Get corresponding value stored") == 0 { // get value given key
 			key := strings.Join(r.Form["key"], "")
-			fmt.Println("key:", key)
 			response := getKVPair(key)
-			fmt.Fprintf(w, response)
+			if strings.Compare(response, "No KV pair found for this key") == 0 {
+				fmt.Fprintf(w, "No pair found. Emapty key entered in search.")
+			} else if strings.Compare(response, "No pair found for this key") == 0 {
+				fmt.Fprintf(w, "No pair found for key '"+key+"'.")
+			} else {
+				fmt.Fprintf(w, "Value found key '"+key+"': "+response)
+			}
 
-		} else if strings.Compare(formName3, "Get all KV pairs stored") == 0 {
+		} else if strings.Compare(formName3, "Get all KV pairs stored") == 0 { //get all values store by node
 			response := getAllKVPair()
-			fmt.Fprintf(w, response)
+			if strings.Compare(response, "Bad") == 0 {
+				fmt.Fprintf(w, "Unable to get all KV pairs stored")
+			} else {
+				fmt.Fprintf(w, "Displaying all KV pairs stored. \n\n"+response)
+			}
 		}
 
 	}
@@ -68,56 +74,53 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	kv = consulInit()
-	http.HandleFunc("/", sayhelloName) // setting router rule
-	http.HandleFunc("/index", login)
+	http.HandleFunc("/", setup)              // setting router rule
+	http.HandleFunc("/index", processForm)   // connection to web interface/form
 	err := http.ListenAndServe(":9090", nil) // setting listening port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
 }
 
+// initialize KV struct
 func consulInit() *api.KV {
 	client, err := api.NewClient(api.DefaultConfig())
 	if err != nil {
 		panic(err)
 	}
-
 	return client.KV()
 }
 
+// add KV pair
 func putKVPair(key string, value string) string {
 	p := &api.KVPair{Key: key, Value: []byte(value)}
 	_, err := kv.Put(p, nil)
 	if err != nil {
 		return (string)("KV store failed")
-		// panic(err)
 	}
-	fmt.Println("put KV called")
 	response := "KV store success"
 	return (string)(response)
 }
 
+// GET value given pair
 func getKVPair(key string) string {
-	fmt.Println("key: ", key)
 
 	pairs, _, err := kv.List(key, nil)
 	if pairs != nil || err != nil {
 		pair, _, err := kv.Get(key, nil)
 		if err != nil {
-			// panic(err)
 			response := "No KV pair found for this key"
-			fmt.Println(response)
 			return response
 		}
 		return (string)(pair.Value)
 	}
-	response := "NO KV pair found for this key"
+	response := "No pair found for this key"
 	return response
 
 }
 
+// GET all pairs
 func getAllKVPair() string {
-	fmt.Println("getting all")
 	key := ""
 	pairs, _, err := kv.List(key, nil)
 	if err != nil {
@@ -131,10 +134,8 @@ func getAllKVPair() string {
 		val := (string)(p.Value)
 		key := (string)(p.Key)
 		addition := "Key: " + key + ", Value: " + val + "\n"
-		fmt.Print(addition)
 		response += addition
 		index++
 	}
-	fmt.Println(response)
 	return response
 }
