@@ -16,6 +16,22 @@ Znode is the basic structure of a Zookeeper system. Znode have the following fea
 - Access Control List allows each znode to have its own functions (create, read, write, delete, admin);
 - Client can set watches on znode so that when a znode is changed, zookeeper can send a notification to the client;
 
+## Types of Znode
+Types of znode:
+1. Ephemeral ZNode
+
+    The lifetime of the ephemeral znode is dependant on the session. Once the session is terminated, the znode will be deleted automatically. Although the ephemeral znode is associated with a connection between client and zookeeper server, it is visible for all the clients.
+
+    > Ephemeral znode does not allow to have child node.
+
+2. Persistent Znode
+
+    Persistent znode is only deleted by manual delete operation from client side.
+
+3. Sequential Znode
+
+    Client could ask to create a znode with a sequential number as a suffix of the path. Each sibling sequential znode has a unique number from the parent's point of view.
+
 ## How to install Zookeeper?
 
 First download a latest Zookeeper on Apache website [**here**](https://zookeeper.apache.org/releases.html). Unpack the tar file and find the conf folder.
@@ -31,6 +47,29 @@ First, let us create a new znode! Run the following command `create /node_1 hell
 
 Remember znode's structure is a tree, you can create new znodes under any existing znode.
 If you can run everything till this point, congratulation! You have successfully installed zookeeper.
+
+## Configuring ZooKeeper
+Booting a zookeeper server needs a config file under folder `conf/`. Let's take a look at a sample config file in a three replicated ZooKeeper.
+```bash
+tickTime=2000 #time unit in ms used by Zookeeper
+dataDir=./data/zookeeper1 #dir to store log info
+clientPort=2181 #the port to listen for client connections
+initLimit=5
+syncLimit=2
+#available server, the former port is for peer communication, the latter port is for leader election (TCP)
+server.1=localhost:2881:3881
+server.2=localhost:2882:3882
+server.3=localhost:2888:3888
+```
+## Starting ZooKeeper Server
+Start a zookeeper server: `bin/zkServer.sh start zoo1.cfg`.
+
+Check the status of a server: `bin/zkServer.sh status zoo1.cfg`.
+
+Stop a zookeeper server: `bin/zkServer.sh stop`.
+
+## Connect to the Server
+We could use ZooKeeper CLI to connect with a server on the ZooKeeper cluster: `bin/zkCli.sh -server 127.0.0.1:2181`.
 
 ## What can we do with zookeeper?
 Zookeeper can provides you with a way to manage your distributed system. You can listen to changes in your system using zookeeper. You can implement a simple leader election algorithm to keep your system's data integrity.
@@ -104,7 +143,7 @@ public class RestController {
 Run this spring boot project on your local machine. In your browser or use the console to access `localhost:8080/zkget`, you will get the result from your zookeeper.
 Through this simple example we had demonstrated how to use java to interact with zookeeper server, using the same setup you should be able to do something more complex than this. You can implement leader election algorithms, you can manage data changes using zookeeper. Basically zookeeper acts like the brain of your distributed system.
 
-# Zookeeper API Table
+# Zookeeper API Lookup Table
 | ZoopKeeper API | sync | async|
 |--|--|--|
 |create| ✔︎| ✔︎|
