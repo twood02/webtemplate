@@ -17,7 +17,7 @@ In this experiment we will deploy a sample web application in amazon cloud serve
 The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: t2.micro, t2.large, r5.large and m5.large. Details for each of these instance types are available below (Table 1).
 	
 Table 1: Amazon EC2 Pricing.
-table.PNG
+
 
 ![alt text](table.PNG "Title")
 
