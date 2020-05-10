@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  This repo is a practical blog about spring boot database server using Zookeeper.
+title:  This repo is a practical blog about spring boot server using Zookeeper.
 permalink: /wiki/zookeeper/
 ---
 
@@ -74,8 +74,7 @@ We could use ZooKeeper CLI to connect with a server on the ZooKeeper cluster: `b
 ## What can we do with zookeeper?
 Zookeeper can provides you with a way to manage your distributed system. You can listen to changes in your system using zookeeper. You can implement a simple leader election algorithm to keep your system's data integrity.
 Because zookeeper can listen to changes in the system, we can use it to connect to databases to monitor changes and synchronize the changes between different copies of the database.
-In this project we are first going to do a very simple demo of zookeeper. We are going to set up a zookeeper node that can be accessed by a spring boot server. This way we will have a zookeeper system that can be easily accessed. This provides a very basic framework which can be continue build upon.
-We will also demonstrate some simple APIs you can use in a distributed system, particularly if you have multiple copies of the same database.
+In this project we are going to do a very simple demo of zookeeper. We are going to set up a zookeeper node that can be accessed by a spring boot server. This way we will have a zookeeper system that can be easily accessed. This provides a very basic framework which can be continue build upon.
 
 In order to access zookeeper, we are going to use java spring boot framework.
 First, we need to set pom.xml. In it we need to set spring boot and zookeeper java.
@@ -157,3 +156,12 @@ Through this simple example we had demonstrated how to use java to interact with
 |sync| | ✔︎|
 |createSession| ✔︎| |
 |closeSession| ✔︎| |
+
+# Summary
+You can use zookeeper to monitor your distributed system. A common way to do it is use Spring Boot. Because java has good compatibility with zookeeper, it can be very easy to build a system using the library provided. You can find more information on zookeeper website [**here**](https://zookeeper.apache.org/doc/r3.3.5/javaExample.html).
+For questions about Spring Boot, the [**Spring Boot website**](https://spring.io/projects/spring-boot) provides some good tips for you to start.
+
+# References
+1. [**Zookeeper Installation**](https://zookeeper.apache.org/releases.html)
+1. [**Zookeeper Java Example**](https://zookeeper.apache.org/doc/r3.3.5/javaExample.html)
+1. [**Spring Boot Guide**](https://spring.io/projects/spring-boot)
