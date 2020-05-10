@@ -28,10 +28,12 @@ For deploying a web application with Elastic Beanstalk, first we have to login t
 ![alt text](1.PNG "Screenshot 1")
 <div align="center">Screenshot 1.</div>
 
+
 Then we must create an environment for our web application (Screenshot 2). In this section, we can configure our environment to test the application with different machine types.
  
 ![alt text](2.PNG "Screenshot 2")
 <div align="center">Screenshot 2.</div>
+
 Here we should select “Web server environment” for deploying a web application (Screenshot 3).
  
 ![alt text](3.PNG "Screenshot 3")
