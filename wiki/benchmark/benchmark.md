@@ -19,7 +19,7 @@ The sample application contains a welcome webpage with couple of links to other 
 Table 1: Amazon EC2 Pricing.
 
 
-![alt text](table.PNG "Title")
+![alt text](table.PNG "Table 1: Amazon EC2 Pricing.")
 
 
 For deploying a web application with Elastic Beanstalk, first we have to login to the AWS console. Then search Elastic Beanstalk and open launch the service (Screenshot 1).
