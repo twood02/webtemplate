@@ -78,9 +78,10 @@ Now we can upload and deploy our web application (Screenshot 10).
 
 # Distributed Load Testing on AWS
 
-This AWS solution integrates various AWS services to simulate different workloads and determines your application’s behavior. That helps in identifying the bottlenecks before releasing the application. 
+This AWS solution integrates various AWS services to simulate different workloads and determines your application’s behavior. That helps in identifying the bottlenecks before releasing the application. In other words, how the application is going to perform in production and at scale.
+
 
 The following diagram shows the architecture of this solution:
 
 
-![alt text](https://d1.awsstatic.com/Solutions/Solutions%20Category%20Template%20Draft/Solution%20Architecture%20Diagrams/distributed-load-testing-on-aws-architecture.f4325edc7552df2a3977d67c491b330819e52e9f.png "Title")
+![alt text](https://d1.awsstatic.com/Solutions/Solutions%20Category%20Template%20Draft/Solution%20Architecture%20Diagrams/distributed-load-testing-on-aws-architecture.f4325edc7552df2a3977d67c491b330819e52e9f.png "AWS Distributed Load Testing Architecture ")
