@@ -6,8 +6,17 @@ permalink: /wiki/ConsulWithGoBlog/
 
 *by:* Katie Bramlett, Sreya Nalla, and Linnea Dierksheide
 
-#### Consul is an important software platform in the realm of distributed systems.
-Here, we offer a step-by-step tutorial for setting up Consul, implementing a key-value store with Consul KV, and creating a simple web interface to access the store using the Go API.
+### Exploring Consul: Building a Web Interface for Key-Value Store
+
+We offer an explanation of distributed consensus, what Consul can do, and a step-by-step tutorial for building a simple Web interface for a key value store using Consul.
+
+---
+
+### Distributed Consensus & Raft
+For a system with ust one node, making updates is simple. The client can just send the change directly to that node and if they get a success response from the system, the client can be confident that their change was made. However, if we have a *distributed* system, meaning that there are many nodes that should be working together and have the same information, making updates across the entire system becomes a lot more difficult. If we just send one request to a single nodes, how can we ensure that all nodes will get the update? What if nodes get updates in different orders? What we want is a way for all the nodes to come to a clear *consensus* on the state of the system. We would also want the system we use to provide strong consistency, fault tolerance, and liveness.
+
+
+**Raft** is one broadly used distributed consensus algorithm, and it is the one that drives Consul. Each node is a follower, a candidate, or a leader. The leader node receives all requests and sends the updates to the followers (the rest of the nodes), all of which keep a replicated log of all the changes to the system. Once a majority of nodes let the leader know they've logged the request, it becomes committed. The leader also sends "heartbeats" every so often to the nodes. A node becomes a candidate if it stops receiving heartbeats from the leader (as this would mean the leader failed in some form). This will trigger an election, and the candidate votes for itself and sends a vote request to all other nodes, which will vote for it if it its log isn't "behind" theirs. Once it receives a majority of votes, the candidate becomes the new leader and the process continues. Though this is a quick summary of Raft, it is simple to understand and implement, a key benefit over other consensus algorithms like Paxos.
 
 ---
 
@@ -19,7 +28,8 @@ Here, we offer a step-by-step tutorial for setting up Consul, implementing a key
 - KV store
 - secure service communication
 - multi datacenter. <br> 
-#### The Raft Algorithm
+
+--- 
 
 ### Step-by-Step Tutorial
 #### Setting Up Consul:
