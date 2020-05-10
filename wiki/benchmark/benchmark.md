@@ -80,7 +80,7 @@ Now we can upload and deploy our web application (Screenshot 10).
 
 This AWS solution integrates various AWS services to simulate different workloads and determines your application’s behavior. That helps in identifying the bottlenecks before releasing the application. In other words, how the application is going to perform in production and at scale.
 
-This solution uses Elastic Container Services to spin up containers that will create hundreds of connections to your end point.
+This solution uses Amazon Elastic Container service ([Amazon ECS](https://aws.amazon.com/ecs/)) to spin up containers that will create hundreds of connections to your end point.
 
 The following diagram shows the architecture of this solution:
 
@@ -89,5 +89,5 @@ The following diagram shows the architecture of this solution:
 
 The architecture consists of frontend and backend. In the frontend we have the web console which is a UI that we can use to interact with the solution. The UI uses Amazon CloudFront service to allow the user to configure the tests. We also have load testing API that is used to create tests and view the status of the tests. 
 
-The backend comprises of docker image pipeline and load testing engine. The solution uses Taurus which is an open source software and has a Docker image that allows generating hundreds and hundreds of concurrent connections to the end point. The Amazon S3 service is a simple storage service which is used to store that image in your account. After that AWS CodePipeline and AWS CodeBuild services are used to build that image and register it with Amazon ECR service that makes it easy for developers to store, manage, and deploy Docker container images.
+The backend comprises of docker image pipeline and load testing engine. The solution uses Taurus which is an open source software and has a Docker image that allows generating hundreds and hundreds of concurrent connections to the end point. The [Amazon S3](https://aws.amazon.com/s3/) service is a simple storage service which is used to store that image in your account. After that [AWS CodePipeline](https://aws.amazon.com/codepipeline/) and [AWS CodeBuild](https://aws.amazon.com/codebuild/) services are used to build that image and register it with [Amazon ECR](https://aws.amazon.com/ecr/) service that makes it easy for developers to store, manage, and deploy Docker container images.
 
