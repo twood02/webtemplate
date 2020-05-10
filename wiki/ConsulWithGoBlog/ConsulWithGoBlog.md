@@ -32,14 +32,12 @@ For a system with just one node, making updates is simple. The client can just s
 --- 
 
 ### Step-by-Step Tutorial
-In this tutorial, we will walk you through installing Consul and setting up a simple web interface using Go's Consul API. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:
+In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:
 /// TO DO - INSERT SCREENSHOT HERE ///
 #### Setting Up Consul:
-1. Install Consul<br>
-*Install Consul in one of 3 ways:*<br>
-Manual Installation | Homebrew on OS X | Chocolately on Windows
--- | -- | --
-Find the appropriate package for your system and download it <br>[here.](https://www.consul.io/downloads.html) | Homebrew is a free and open-source package management system for Mac OS X. From the command line, run:<br>`brew install consul` | Chocolately is a free and open-source package management system for Windows. From the command line, run:<br>`choco install consul`
+1. Install Consul
+Mac OS X users may run `brew install consul`.<br>
+All others may manually download it [here](https://www.consul.io/downloads.html).
 <br>
 *Verify Installation:*<br>
 After installing Consul, verify that the installation worked by opening a new terminal session and running the command `consul`.<br>
@@ -57,7 +55,7 @@ Available commands are:
 3. In the second terminal, run the command `consul members` to verify that you are an active node.
 4. In the second terminal, you can end your Consul connection by running `consul leave`.<br>This will remove all key-value pairs that you've stored.
 #### Creating The Web Interface:
-First, start by making the front-end html code. We have created a simple form with three different actions -- storing key-value pairs, getting a single key-value pair, and getting all key-value pairs.To access the source code for this form, click [here.](./code/index.html) Seen below is a snippet of the form that we have created. /// TEST LINK ///
+First, start by making the front-end html code. We have created a simple form with three different actions -- storing key-value pairs, getting a single key-value pair, and getting all key-value pairs.To access the source code for this form, click [here](./code/index.html). Seen below is a snippet of the form that we have created. /// TEST LINK ///
 ```
 	<div class="container">
     <h4>Store or Get Key/Value Pairs</h4>
@@ -77,19 +75,22 @@ First, start by making the front-end html code. We have created a simple form wi
       </form>
 	</div>
 ```
-Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the slides below, we will walk you through the code. To view the full source code, click [here.](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go)
-/// ADD PICTURES ONCE CODE IS RETOUCHED ///
+Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the slides below, we will walk you through the code. To view the full source code, click [here](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go).
+/// ADD SCREENSHOTS ONCE CODE IS RETOUCHED ///
 <ul id="slider">
-	<li><img src="https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/CONSUL_INIT_CODE.png"></li>
-	<li><img src="https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/CONSUL_GET_PUT_CODE.png"></li>
-	<li><img src=""></li>
+	<li><img src="./screenshots/CONSUL_INIT_CODE.png"></li>
+	<li><img src="./screenshots/CONSUL_GET_PUT_CODE.png"></li>
 </ul>
 
 Now, run the Consul Agent with `consul agent -dev`.
 Then,  build and run the Go code with `go run ./main.go`.
 You can access the form we have just built with the web server at [localhost:9090/index](localhost:9090/index).
 
-### Libraries Used in Web Interface
+**Libraries Used in Web Interface:**
+- [Consul API for Go](https://github.com/hashicorp/consul/tree/master/api)
+- `net/http` 
+<br>
+*We hope this provides you with more knowledge about storing and retrieving key-value pairs and how to interact with Consul KV using Go.*
 
 ### Sources Used:
 https://blog.scottlowe.org/2015/02/06/quick-intro-to-consul/
