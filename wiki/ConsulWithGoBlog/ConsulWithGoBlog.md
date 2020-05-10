@@ -80,7 +80,8 @@ First, start by making the front-end html code. We have created a simple form wi
 Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the slides below, we will walk you through the code. To view the full source code, click [here.](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go)
 /// ADD PICTURES ONCE CODE IS RETOUCHED ///
 <ul id="slider">
-	<li><img src=""></li>
+	<li><img src="https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/CONSUL_INIT_CODE.png"></li>
+	<li><img src="https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/CONSUL_GET_PUT_CODE.png"></li>
 	<li><img src=""></li>
 </ul>
 
