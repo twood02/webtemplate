@@ -15,7 +15,6 @@ A short description of your post goes here.
 In this experiment we will deploy a sample web application in amazon cloud servers by Elastic Beanstalk service. As Amazon explains: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
 
 The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: t2.micro, t2.large, r5.large and m5.large. Details for each of these instance types are available below (Table 1).
-
 ![alt text](table.PNG "Table 1: Amazon EC2 Pricing.")
 <div align="center">Table 1: Amazon EC2 Pricing.</div>
 
