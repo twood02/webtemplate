@@ -16,15 +16,16 @@ In this experiment we will deploy a sample web application in amazon cloud serve
 
 The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: t2.micro, t2.large, r5.large and m5.large. Details for each of these instance types are available below (Table 1).
 	
-Table 1: Amazon EC2 Pricing.
+
 
 
 ![alt text](table.PNG "Table 1: Amazon EC2 Pricing.")
-
+Table 1: Amazon EC2 Pricing.
 
 For deploying a web application with Elastic Beanstalk, first we have to login to the AWS console. Then search Elastic Beanstalk and open launch the service (Screenshot 1).
  
 Screenshot 1.
+![alt text](1.PNG "Screenshot 1")
 
 Then we must create an environment for our web application (Screenshot 2). In this section, we can configure our environment to test the application with different machine types.
  
