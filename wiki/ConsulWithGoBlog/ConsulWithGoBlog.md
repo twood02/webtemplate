@@ -33,7 +33,7 @@ For a system with just one node, making updates is simple. The client can just s
 
 ### Step-by-Step Tutorial
 In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:<br>
-![Web Interface](./screenshots/WebInterfaceScreenshot.png "Web Interface")
+<img src="./screenshots/WebInterfaceScreenshot.png" width="450" height="450"/>
 
 #### Setting Up Consul:
 1. Install Consul
@@ -82,7 +82,7 @@ You can access the form we have just built with the web server at [localhost:909
 - [Consul API for Go](https://github.com/hashicorp/consul/tree/master/api)
 - `net/http` 
 <br>
-*We hope this provides you with more knowledge about storing and retrieving key-value pairs and how to interact with Consul KV using Go.*
+#### We hope this provides you with more knowledge about storing and retrieving key-value pairs and how to interact with Consul KV using Go.
 <br>
 ### Sources Used:
 "A Quick Introduction to Consul." *Scott's Weblog*, 06 Feb. 2015, [www.blog.scottlowe.org/2015/02/06/quick-intro-to-consul/](https://blog.scottlowe.org/2015/02/06/quick-intro-to-consul/). Accessed 10 May 2020.
