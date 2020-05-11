@@ -20,38 +20,35 @@ The sample application contains a welcome webpage with couple of links to other 
 |--------|:--:|:------:|:---------:|:-------------------:|:--------------:|
 |t2.micro|	1 	|Variable|1         	|EBS Only	            |$0.0152 per Hour|
 |t2.large|	2	 |Variable|8          |EBS Only	            |$0.1216 per Hour|
-|r5.large|	2	 |10	     |16         |EBS Only	            |$0.1520 per Hour|
 |m5.large|	2	 |10	     |8          |EBS Only	            |$0.1240 per Hour|
+|r5.large|	2	 |10	     |16         |EBS Only	            |$0.1520 per Hour|
 
 
-For deploying a web application with Elastic Beanstalk, first we have to login to the AWS console. Then search Elastic Beanstalk and open launch the service (Screenshot 1).
- 
+For deploying a web application with Elastic Beanstalk, first we have to login to the AWS console. Then search Elastic Beanstalk and open launch the service.
+
 
 ![alt text](1.PNG "Screenshot 1")
-<div align="center">Screenshot 1.</div>
 
 
-Then we must create an environment for our web application (Screenshot 2). In this section, we can configure our environment to test the application with different machine types.
+Then we must create an environment for our web application. In this section, we can configure our environment to test the application with different machine types.
+ 
  
 ![alt text](2.PNG "Screenshot 2")
-<div align="center">Screenshot 2.</div>
 
-Here we should select “Web server environment” for deploying a web application (Screenshot 3).
+
+Here we should select “Web server environment” for deploying a web application.
+ 
  
 ![alt text](3.PNG "Screenshot 3")
-<div align="center">Screenshot 3.</div>
 
 
+In the next section, we can choose a name and domain for our environment. For changing “.us-east-2.elasticbeanstalk.com”, we can change our region  which will also effect the price of the instance that we will use.
 
 
-In the next section, we can choose a name and domain (Screenshot 4 and 5) for our environment. For changing “.us-east-2.elasticbeanstalk.com”, we can change our region  which will also effect the price of the instance that we will use.
- 
 ![alt text](4.PNG "Screenshot 4")
-<div align="center">Screenshot 4.</div>
- 
-![alt text](5.PNG "Screenshot 5")
-<div align="center">Screenshot 5.</div>
 
+
+![alt text](5.PNG "Screenshot 5")
 
 
 In platform section we should choose the language and platform branch that we have used to develop our web application. Here we have chosen “Go” and the proper platform branch (Screenshot 6).
