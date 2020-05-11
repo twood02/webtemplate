@@ -204,13 +204,13 @@ In this test we will use <i>r5.large</i> instance and test its behavior across d
 <br/><br/>
 
 ![alt text](load2.png "load2")
-<div align="center">Task count = 1 and Concurrency = 1</div>
+<div align="center">Task count = 10 and Concurrency = 20</div>
 <br/><br/>
 
 ![alt text](load3.png "load3")
-<div align="center">Task count = 1 and Concurrency = 1</div>
+<div align="center">Task count = 50 and Concurrency = 100</div>
 <br/><br/>
 
 ![alt text](load4.png "load4")
-<div align="center">Task count = 1 and Concurrency = 1</div>
+<div align="center">Task count = 50 and Concurrency = 150</div>
 <br/><br/>
