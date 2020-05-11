@@ -181,19 +181,19 @@ Finally, the results of the task will be shown:
 We use the previously created four instances each running the same web application for load testing with the same load. We set task count to 2, concurrency to 5, ramp up to 10s, and hold for 30s. The results are shown below:
 
 ![alt text](t2_micro.png "t2.micro")
-<div align="center"><i>t2.micro</i> instance reults</div>
+<div align="center"><i>t2.micro</i> instance results</div>
 <br/><br/>
 
 ![alt text](t2_large.png "t2.large")
-<div align="center"><i>t2.large</i> instance reults</div>
+<div align="center"><i>t2.large</i> instance results</div>
 <br/><br/>
 
 ![alt text](m5_large.png "m5.large")
-<div align="center"><i>m5.large</i> instance reults</div>
+<div align="center"><i>m5.large</i> instance results</div>
 <br/><br/>
 
 ![alt text](r5_large.png "r5.large")
-<div align="center"><i>r5.large</i> instance reults</div>
+<div align="center"><i>r5.large</i> instance results</div>
 <br/><br/>
 
 # Different loads for web application running on the same instance benchmark
