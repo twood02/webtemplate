@@ -101,4 +101,4 @@ You can access the form we have just built with the web server at [localhost:909
 "Consul KV." *HashiCorp Consul*, [www.consul.io/docs/agent/kv.html](https://www.consul.io/docs/agent/kv.html). Accessed 10 May 2020.
 "Store Data in Consul KV." *HashiCorp Consul*, [www.learn.hashicorp.com/consul/getting-started/kv](https://learn.hashicorp.com/consul/getting-started/kv). Accessed 10 May 2020.
 "4.1 Process Form Inputs." *GitBook*, [www.astaxie.gitbooks.io/build-web-application-with-golang/en/04.1.html](https://astaxie.gitbooks.io/build-web-application-with-golang/en/04.1.html). Accessed 10 May 2020.
-https://github.com/hashicorp/consul/tree/master/api
+[www.github.com/hashicorp/consul/tree/master/api](https://github.com/hashicorp/consul/tree/master/api)
