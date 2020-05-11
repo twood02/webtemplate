@@ -103,7 +103,7 @@ The testing itself runs in [AWS Fargate]( https://aws.amazon.com/fargate/) servi
 
 # How to use Distributed Load Testing solution?
 
-Launch the solution in the AWS console from this [link]( https://aws.amazon.com/solutions/distributed-load-testing-on-aws/”).
+Launch the solution in the AWS console from this [link](https://aws.amazon.com/solutions/distributed-load-testing-on-aws/).
 
 
 ![alt text](website.png "AWS Distributed Load Testing website")
@@ -159,7 +159,7 @@ After logging in to the console you will be able to create a task.
 ![alt text](step9.png "Console interface")
 
 
-Enter the setting as required for your test and click on “Submit”
+Enter the setting as required for your test and click on “Submit”.
 
 
 ![alt text](step10.png "Create a load test")
