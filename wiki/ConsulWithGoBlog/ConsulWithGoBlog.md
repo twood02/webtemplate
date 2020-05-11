@@ -3,7 +3,6 @@ layout: page
 title: Consul KV with Go API Web Interface
 permalink: /wiki/ConsulWithGoBlog/
 ---
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <script src="/assets/js/lightslider.min.js"></script> <script type="text/javascript"> $(document).ready(function() { $("#slider").lightSlider({ item: 1, mode: "slide", auto: false, loop: true, controls: true, pager: true, }); }); </script>
 
 *by:* Katie Bramlett, Sreya Nalla, and Linnea Dierksheide
 
@@ -67,14 +66,15 @@ First, start by making the front-end html code. We have created a simple form wi
 ```
 Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the screenshots below, we will walk you through some of the main functions of our code. To view the full source code, click [here](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go).
 <ul id="slider">
-    <li><img src="screenshots/MAIN.png"/></li>
-    <li><img src="screenshots/SETUP.png"/></li>
-    <li><img src="screenshots/PROCESS_FORM.png"/></li>
+	<li><img src="screenshots/MAIN.png"/></li>
+	<li><img src="screenshots/SETUP.png"/></li>
+	The first two slides shows how to set up the connection to the correct port and to the html form.
+	<li><img src="screenshots/PROCESS_FORM.png"/></li>
+	The third shows how we process the form submitted.
 	<li><img src="screenshots/CONSUL_INIT_CODE.png"/></li>
 	<li><img src="screenshots/CONSUL_GET_PUT_CODE.png"/></li>
+	The last two slides show how to initialize the necessary variables for using Consul KV, and the methods that actually 	      put or get the KV pairs from Consul. We also have a function which gets all the KV pairs stored, which you can find in         the source code linked above.
 </ul>
-
-The first two slides shows how to set up the connection to the correct port and to the html form. The third shows how we process the form submitted. The next two slides show how to initialize the necessary variables for using Consul KV, and the methods that actually put or get the KV pairs from Consul. We also have a function which gets all the KV pairs stored, which you can find in the source code linked above.
 
 Now, run the Consul Agent with `consul agent -dev`.
 Then,  build and run the Go code with `go run ./main.go`.
