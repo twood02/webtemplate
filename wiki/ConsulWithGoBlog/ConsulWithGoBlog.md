@@ -33,7 +33,9 @@ For a system with just one node, making updates is simple. The client can just s
 
 ### Step-by-Step Tutorial
 In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:<br>
-[Web Interface]: https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/WebInterfaceScreenshot.png "Web Interface"
+![Web Interface][logo]
+
+[logo]: https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/WebInterfaceScreenshot.png "Web Interface"
 #### Setting Up Consul:
 1. Install Consul
 Mac OS X users may run `brew install consul`.
