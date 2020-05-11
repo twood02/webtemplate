@@ -183,7 +183,7 @@ We use the previously created four instances each running the same web applicati
 ![alt text](t2_micro.png "t2.micro")
 
 
-<div align="center">t2.micro instance</div>
+<div align="center"><i>t2.micro</i> instance reults</div>
 
 
 ![alt text](t2_large.png "t2.large")
