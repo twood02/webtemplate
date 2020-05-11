@@ -217,5 +217,5 @@ In this test we will use <i>r5.large</i> instance and test its behavior across d
 
 
 # Summary
-In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to benchmark the web application on various instances with different loads. This will help you to understand how your application will perform at scale and at load and identify bottlenecks before you release your application.
+In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to do a benchmark performance test of the web application on various instances with different loads. This will help you to understand how your application will perform at scale and at load and identify bottlenecks before you release your application.
 
