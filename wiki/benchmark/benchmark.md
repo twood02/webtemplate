@@ -4,10 +4,10 @@ title:  Distributed Load Testing using AWS cloud services
 permalink: /wiki/benchmark/
 ---
 
-*by:* Samuel Farid and Hamid Reza
+*by:* Samuel Farid, Hamid Reza
 
 
-A short description of your post goes here.
+This blog is a step by step tutorial on how to use various AWS services to deploy a web application and how to perform distributed load testing.
 
 ---
 # Creating an Environment and Deploying a Web Application with AWS Elastic Beanstalk
@@ -214,3 +214,8 @@ In this test we will use <i>r5.large</i> instance and test its behavior across d
 ![alt text](load4.png "load4")
 <div align="center">Task count = 50 and Concurrency = 150</div>
 <br/><br/>
+
+
+# Summary
+In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to benchmark the web application on various instances with different loads. This will help you to understand how your application will perform at scale and at load and identify bottlenecks before you release your application.
+
