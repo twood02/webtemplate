@@ -32,19 +32,19 @@ For a system with just one node, making updates is simple. The client can just s
 --- 
 
 ### Step-by-Step Tutorial
-In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:
+In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:<br>
 ![Web Interface Screenshot](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/WebInterfaceScreenshot.png "Web Interface Screenshot")
 #### Setting Up Consul:
 1. Install Consul
 Mac OS X users may run `brew install consul`.
 All others may manually download it [here](https://www.consul.io/downloads.html).
-*Verify Installation:*<br>
+*Verify Installation:*
 After installing Consul, verify that the installation worked by opening a new terminal session and running the command `consul`.<br>
 2. Now, open up two command line terminals. In the first terminal, you can start your Consul Agent (aka node) by running `consul agent -dev`.
 3. In the second terminal, run the command `consul members` to verify that you are an active node.
 4. In the second terminal, you can end your Consul connection by running `consul leave`.<br>This will remove all key-value pairs that you've stored.
 #### Creating The Web Interface:
-First, start by making the front-end html code. We have created a simple form with three different actions -- storing key-value pairs, getting a single key-value pair, and getting all key-value pairs.To access the source code for this form, click [here](./code/index.html). Seen below is a snippet of the form that we have created. /// TEST LINK ///
+First, start by making the front-end html code. We have created a simple form with three different actions -- storing key-value pairs, getting a single key-value pair, and getting all key-value pairs.To access the source code for this form, click [here](./code/index.html). Seen below is a snippet of the form that we have created.
 ```
 	<div class="container">
     <h4>Store or Get Key/Value Pairs</h4>
