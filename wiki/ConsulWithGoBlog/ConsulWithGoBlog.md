@@ -99,6 +99,6 @@ You can access the form we have just built with the web server at [localhost:909
 "A Quick Introduction to Consul." *Scott's Weblog*, 06 Feb. 2015, [www.blog.scottlowe.org/2015/02/06/quick-intro-to-consul/](https://blog.scottlowe.org/2015/02/06/quick-intro-to-consul/). Accessed 10 May 2020.
 "Consensus Protocol." *HashiCorp Consul*, [www.consul.io/docs/internals/consensus.html](https://www.consul.io/docs/internals/consensus.html). Accessed 10 May 2020.
 "Consul KV." *HashiCorp Consul*, [www.consul.io/docs/agent/kv.html](https://www.consul.io/docs/agent/kv.html). Accessed 10 May 2020.
+Consul's GO API GitHub Repository. [www.github.com/hashicorp/consul/tree/master/api](https://github.com/hashicorp/consul/tree/master/api)
 "Store Data in Consul KV." *HashiCorp Consul*, [www.learn.hashicorp.com/consul/getting-started/kv](https://learn.hashicorp.com/consul/getting-started/kv). Accessed 10 May 2020.
 "4.1 Process Form Inputs." *GitBook*, [www.astaxie.gitbooks.io/build-web-application-with-golang/en/04.1.html](https://astaxie.gitbooks.io/build-web-application-with-golang/en/04.1.html). Accessed 10 May 2020.
-[www.github.com/hashicorp/consul/tree/master/api](https://github.com/hashicorp/consul/tree/master/api)
