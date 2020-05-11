@@ -45,7 +45,6 @@ After installing Consul, verify that the installation worked by opening a new te
 4. In the second terminal, you can end your Consul connection by running `consul leave`.<br>This will remove all key-value pairs that you've stored.
 #### Creating The Web Interface:
 First, start by making the front-end html code. We have created a simple form with three different actions -- storing key-value pairs, getting a single key-value pair, and getting all key-value pairs.To access the source code for this form, click [here](./code/index.html). Seen below is a snippet of the form that we have created.
-```html
 <div class="container">
     <h4>Store or Get Key/Value Pairs</h4>
     	<form action="" method="post">
@@ -63,7 +62,6 @@ First, start by making the front-end html code. We have created a simple form wi
       	<input type="submit" name="getall-submit" value="Get all KV pairs stored">
       </form>
 </div>
-```
 
 Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the screenshots below, we will walk you through some of the main functions of our code. To view the full source code, click [here](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go).
 
