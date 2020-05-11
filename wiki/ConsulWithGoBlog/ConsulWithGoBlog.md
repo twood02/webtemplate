@@ -83,7 +83,7 @@ You can access the form we have just built with the web server at [localhost:909
 - `net/http` 
 <br>
 *We hope this provides you with more knowledge about storing and retrieving key-value pairs and how to interact with Consul KV using Go.*
-
+<br>
 ### Sources Used:
 "A Quick Introduction to Consul." *Scott's Weblog*, 06 Feb. 2015, [www.blog.scottlowe.org/2015/02/06/quick-intro-to-consul/](https://blog.scottlowe.org/2015/02/06/quick-intro-to-consul/). Accessed 10 May 2020.
 "Consensus Protocol." *HashiCorp Consul*, [www.consul.io/docs/internals/consensus.html](https://www.consul.io/docs/internals/consensus.html). Accessed 10 May 2020.
