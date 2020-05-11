@@ -42,7 +42,7 @@ Here we should select “Web server environment” for deploying a web applicati
 ![alt text](3.PNG "Screenshot 3")
 
 
-In the next section, we can choose a name and domain for our environment. For changing “.us-east-2.elasticbeanstalk.com”, we can change our region  which will also effect the price of the instance that we will use.
+In the next section, we can choose a name and domain for our environment. For changing “.us-east-2.elasticbeanstalk.com”, we can change our region which will also affect the price of the instance that we will use.
 
 
 ![alt text](4.PNG "Screenshot 4")
@@ -51,31 +51,35 @@ In the next section, we can choose a name and domain for our environment. For ch
 ![alt text](5.PNG "Screenshot 5")
 
 
-In platform section we should choose the language and platform branch that we have used to develop our web application. Here we have chosen “Go” and the proper platform branch (Screenshot 6).
+In platform section we should choose the language and platform branch that we have used to develop our web application. Here we have chosen “Go” and the proper platform branch.
+ 
  
 ![alt text](6.PNG "Screenshot 6")
-<div align="center">Screenshot 6.</div>
 
-For changing instance types, click on “Configure more options” and then we have to select “Edit” in Capacity box (Screenshot 7).
+
+For changing instance types, click on “Configure more options” and then we have to select “Edit” in Capacity box.
+ 
  
 ![alt text](7.PNG "Screenshot 7")
-<div align="center">Screenshot 7.</div>
 
 
-Here, we can choose between different instance types (Screenshot 8).
+Here, we can choose between different instance types.
+ 
  
 ![alt text](8.PNG "Screenshot 8")
-<div align="center">Screenshot 8.</div>
 
-Then we save the configurations and create the environment (Screenshot 9). It will take about 10 minutes.
+
+Then we save the configurations and create the environment. It will take about 10 minutes.
+ 
  
 ![alt text](9.PNG "Screenshot 9")
-<div align="center">Screenshot 9.</div>
 
-Now we can upload and deploy our web application (Screenshot 10).
+
+Now we can upload and deploy our web application.
+ 
  
 ![alt text](10.PNG "Screenshot 10")
-<div align="center">Screenshot 10.</div>
+
 
 
 # Distributed Load Testing on AWS
