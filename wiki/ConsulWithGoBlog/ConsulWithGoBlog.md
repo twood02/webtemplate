@@ -33,22 +33,13 @@ For a system with just one node, making updates is simple. The client can just s
 
 ### Step-by-Step Tutorial
 In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:
-![Web Interface Screenshot]( "Web Interface Screenshot")
+![Web Interface Screenshot](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/screenshots/WebInterfaceScreenshot.png "Web Interface Screenshot")
 #### Setting Up Consul:
 1. Install Consul
 Mac OS X users may run `brew install consul`.
 All others may manually download it [here](https://www.consul.io/downloads.html).
 *Verify Installation:*<br>
 After installing Consul, verify that the installation worked by opening a new terminal session and running the command `consul`.<br>
-```
-$ consul
-usage consul [--version] [--help] <command> [<args>]
-
-Available commands are:
-    agent          Runs a Consul agent
-    event          Fire a new event
-...
-```
 2. Now, open up two command line terminals. In the first terminal, you can start your Consul Agent (aka node) by running `consul agent -dev`.
 3. In the second terminal, run the command `consul members` to verify that you are an active node.
 4. In the second terminal, you can end your Consul connection by running `consul leave`.<br>This will remove all key-value pairs that you've stored.
