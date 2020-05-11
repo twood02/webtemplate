@@ -41,16 +41,6 @@ All others may manually download it [here](https://www.consul.io/downloads.html)
 <br>
 *Verify Installation:*<br>
 After installing Consul, verify that the installation worked by opening a new terminal session and running the command `consul`.<br>
-You should see:<br>
-```
-$ consul
-usage consul [--version] [--help] <command> [<args>]
-
-Available commands are:
-    agent          Runs a Consul agent
-    event          Fire a new event
-...
-```
 2. Now, open up two command line terminals. In the first terminal, you can start your Consul Agent (aka node) by running `consul agent -dev`.
 3. In the second terminal, run the command `consul members` to verify that you are an active node.
 4. In the second terminal, you can end your Consul connection by running `consul leave`.<br>This will remove all key-value pairs that you've stored.
