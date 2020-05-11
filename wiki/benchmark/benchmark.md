@@ -101,7 +101,7 @@ The backend comprises of docker image pipeline and load testing engine. The solu
 The testing itself runs in [AWS Fargate]( https://aws.amazon.com/fargate/) service which runs your containers on the Elastic Container Service handling the networking and the underlying infrastructure. The [AWS Lambda]( https://aws.amazon.com/lambda/) service that takes the requests from the API to  run it in AWS Fargate. It also stores the test template in Amazon S3 and the information we are collecting in [Amazon DynamoDB](https://aws.amazon.com/dynamodb/). Then the [Amazon SQS]( https://aws.amazon.com/sqs/) service queues the tasks in AWS Fargate so that we can start spinning up the containers.  
 
 
-# How to Use Distributed Load Testing solution?
+# How to Use Distributed Load Testing Solution?
 
 Launch the solution in the AWS console from this [link](https://aws.amazon.com/solutions/distributed-load-testing-on-aws/).
 
