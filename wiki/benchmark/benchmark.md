@@ -14,9 +14,15 @@ A short description of your post goes here.
 
 In this experiment we will deploy a sample web application on Amazon cloud servers using [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) service. As Amazon explains: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
 
-The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: <i>t2.micro</i>, <i>t2.large</i>, <i>r5.large</i>, and <i>m5.large</i>. Details for each of these instance types are available below (Table 1).
-![alt text](table.PNG "Table 1: Amazon EC2 Pricing.")
-<div align="center">Table 1: Amazon EC2 Pricing.</div>
+The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: <i>t2.micro</i>, <i>t2.large</i>, <i>r5.large</i>, and <i>m5.large</i>. Their specs are shown below:
+ 
+|        |vCPU|ECU     |Memory(GiB)|Instance Storage (GB)|Linux/UNIX Usage|
+|--------|:--:|:------:|:---------:|:-------------------:|:--------------:|
+|t2.micro|	1 	|Variable|1         	|EBS Only	            |$0.0152 per Hour|
+|t2.large|	2	 |Variable|8          |EBS Only	            |$0.1216 per Hour|
+|r5.large|	2	 |10	     |16         |EBS Only	            |$0.1520 per Hour|
+|m5.large|	2	 |10	     |8          |EBS Only	            |$0.1240 per Hour|
+
 
 For deploying a web application with Elastic Beanstalk, first we have to login to the AWS console. Then search Elastic Beanstalk and open launch the service (Screenshot 1).
  
