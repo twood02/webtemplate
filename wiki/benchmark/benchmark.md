@@ -101,7 +101,7 @@ The backend comprises of docker image pipeline and load testing engine. The solu
 The testing itself runs in [AWS Fargate]( https://aws.amazon.com/fargate/) service which runs your containers on the Elastic Container Service handling the networking and the underlying infrastructure. The [AWS Lambda]( https://aws.amazon.com/lambda/) service that takes the requests from the API to  run it in AWS Fargate. It also stores the test template in Amazon S3 and the information we are collecting in [Amazon DynamoDB](https://aws.amazon.com/dynamodb/). Then the [Amazon SQS]( https://aws.amazon.com/sqs/) service queues the tasks in AWS Fargate so that we can start spinning up the containers.  
 
 
-# How to use Distributed Load Testing solution?
+# How to Use Distributed Load Testing solution?
 
 Launch the solution in the AWS console from this [link](https://aws.amazon.com/solutions/distributed-load-testing-on-aws/).
 
@@ -151,7 +151,7 @@ Click on “Outputs” tab, then you will find the console’s link. This consol
 ![alt text](step7.png "Outputs tab")
 
 
-# Creating a test:
+# Creating a Test:
 
 After logging in to the console you will be able to create a task.
 
@@ -177,7 +177,7 @@ Finally, the results of the task will be shown:
 ![alt text](step13.png "Running task")
 
 
-# Same load for web application running on different instances benchmark
+# Same Load for Web Application Running on Different Instances Benchmark
 We use the previously created four instances each running the same web application for load testing with the same load. We set task count to 2, concurrency to 5, ramp up to 10s, and hold for 30s. The results are shown below:
 
 ![alt text](t2_micro.png "t2.micro")
@@ -196,7 +196,7 @@ We use the previously created four instances each running the same web applicati
 <div align="center"><i>r5.large</i> instance results</div>
 <br/><br/>
 
-# Different loads for web application running on the same instance benchmark
+# Different Loads for Web Application Running on the Same Instance Benchmark
 In this test we will use <i>r5.large</i> instance and test its behavior across different loads. We will set the ramp up to 10s and hold for 30s. Each test we will change the task count and concurrency. The results are shown below:
 
 ![alt text](load1.png "load1")
@@ -217,5 +217,5 @@ In this test we will use <i>r5.large</i> instance and test its behavior across d
 
 
 # Summary
-In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to do a benchmark performance test of the web application on various instances with different loads. This will help you to understand how your application will perform at scale and at load and identify bottlenecks before you release your application.
+In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to do a benchmark performance test of the web application on various instances with different loads. This will help you to understand how your application will perform at scale and load running on different instance types and will help you to identify bottlenecks before you release the application.
 
