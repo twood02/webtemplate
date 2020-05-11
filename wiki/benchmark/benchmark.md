@@ -181,7 +181,10 @@ Finally, the results of the task will be shown:
 We use the previously created four instances each running the same web application for load testing with the same load. The results are shown below:
 
 ![alt text](t2_micro.png "t2.micro")
-<div align="center"><i>t2.micro instance</i></div>
+
+
+<div align="center">t2.micro instance</div>
+
 
 ![alt text](t2_large.png "t2.large")
 ![alt text](m5_large.png "m5.large")
