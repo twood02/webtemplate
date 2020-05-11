@@ -178,7 +178,7 @@ Finally, the results of the task will be shown:
 
 
 # Same load for web application running on different instances benchmark
-We use the previously created four instances each running the same web application for load testing with the same load. The results are shown below:
+We use the previously created four instances each running the same web application for load testing with the same load. We set task count to 2, concurrency to 5, ramp up to 10s, and hold for 30s. The results are shown below:
 
 ![alt text](t2_micro.png "t2.micro")
 <div align="center"><i>t2.micro</i> instance reults</div>
@@ -194,4 +194,23 @@ We use the previously created four instances each running the same web applicati
 
 ![alt text](r5_large.png "r5.large")
 <div align="center"><i>r5.large</i> instance reults</div>
+<br/><br/>
 
+# Different loads for web application running on the same instance benchmark
+In this test we will use <i>r5.large</i> instance and test its behavior across different loads. We will set the ramp up to 10s and hold for 30s. Each test we will change the task count and concurrency. The results are shown below:
+
+![alt text](load1.png "load1")
+<div align="center">Task count = 1 and Concurrency = 1</div>
+<br/><br/>
+
+![alt text](load2.png "load2")
+<div align="center">Task count = 1 and Concurrency = 1</div>
+<br/><br/>
+
+![alt text](load3.png "load3")
+<div align="center">Task count = 1 and Concurrency = 1</div>
+<br/><br/>
+
+![alt text](load4.png "load4")
+<div align="center">Task count = 1 and Concurrency = 1</div>
+<br/><br/>
