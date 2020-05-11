@@ -93,49 +93,89 @@ The following diagram shows the architecture of this solution:
 
 ![alt text](https://d1.awsstatic.com/Solutions/Solutions%20Category%20Template%20Draft/Solution%20Architecture%20Diagrams/distributed-load-testing-on-aws-architecture.f4325edc7552df2a3977d67c491b330819e52e9f.png "AWS Distributed Load Testing architecture")
 
+
 The architecture consists of frontend and backend. In the frontend we have the web console which is a UI that we can use to interact with the solution. The UI uses Amazon CloudFront service to allow the user to configure the tests. We also have load testing API that is used to create tests and view the status of the tests. 
 
 The backend comprises of docker image pipeline and load testing engine. The solution uses Taurus which is an open source software and has a Docker image that allows generating hundreds and hundreds of concurrent connections to the end point. The [Amazon S3](https://aws.amazon.com/s3/) service is a simple storage service which is used to store that image in your account. After that [AWS CodePipeline](https://aws.amazon.com/codepipeline/) and [AWS CodeBuild](https://aws.amazon.com/codebuild/) services are used to build that image and register it with [Amazon ECR](https://aws.amazon.com/ecr/) service that makes it easy for developers to store, manage, and deploy Docker container images.
 
 The testing itself runs in [AWS Fargate]( https://aws.amazon.com/fargate/) service which runs your containers on the Elastic Container Service handling the networking and the underlying infrastructure. The [AWS Lambda]( https://aws.amazon.com/lambda/) service that takes the requests from the API to  run it in AWS Fargate. It also stores the test template in Amazon S3 and the information we are collecting in [Amazon DynamoDB](https://aws.amazon.com/dynamodb/). Then the [Amazon SQS]( https://aws.amazon.com/sqs/) service queues the tasks in AWS Fargate so that we can start spinning up the containers.  
 
+
 # How to use Distributed Load Testing solution?
-- Step 1: 
-Launch the solution in the AWS console from this [link]( https://aws.amazon.com/solutions/distributed-load-testing-on-aws/”)
+
+Launch the solution in the AWS console from this [link]( https://aws.amazon.com/solutions/distributed-load-testing-on-aws/”).
+
+
 ![alt text](website.png "AWS Distributed Load Testing website")
 
--	Step 2:
+
 Keep the default settings and click on “Next” to create a stack.
+
+
 ![alt text](step1.png "Create stack")
 
--	 Step 3:
+
 Set the stack name, console administrator name, and console administrator email and click on “Next”.
+
+
 ![alt text](step2.png "Stack details")
--	Step 4:
+
+
 Add tags as needed, then click on “Next”.
+
+
 ![alt text](step3.png "Stack options")
--	Step 5:
+
+
 Review your configuration and click on “Create stack” if everything is correct.
+
+
 ![alt text](step4.png "Stack review")
+
+
 You will be redirected to a page showing that creating the stack is in progress.
+
+
 ![alt text](step5.png "Stack create in progress")
+
+
 This page will show that the stack creation is completed after few minutes.
+
+
 ![alt text](step6.png "Stack create complete")
 
 
--	Step 6 
 Click on “Outputs” tab, then you will find the console’s link. This console will be used to create and view tests. Use the username and password that was sent to the console administrator email when you are asked to login.
+
+
 ![alt text](step7.png "Outputs tab")
 
+
 # Creating a test:
+
 After logging in to the console you will be able to create a task.
+
+
 ![alt text](step9.png "Console interface")
+
+
 Enter the setting as required for your test and click on “Submit”
+
+
 ![alt text](step10.png "Create a load test")
+
+
 After that you will see the progress of the running task.
+
+
 ![alt text](step11.png "Running task")
+
+
 Finally, the results of the task will be shown:
+
+
 ![alt text](step13.png "Running task")
+
 
 # Same load for web application running on different instances benchmark
 We use the previously created four instances for load testing with the same load. The results are shown below:
