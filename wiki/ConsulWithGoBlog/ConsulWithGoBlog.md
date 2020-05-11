@@ -82,11 +82,10 @@ You can access the form we have just built with the web server at [localhost:909
 **Libraries Used in Web Interface:**
 - [Consul API for Go](https://github.com/hashicorp/consul/tree/master/api)
 - `net/http` 
-
+<br>
 
 #### Thanks for reading! We hope this provides you with more knowledge about distributed consensus and that learning how to make this Web Interface with Consul KV using Go will give you the tools to explore Consul even more!
-
-
+<br>
 ### Sources Used:
 "A Quick Introduction to Consul." *Scott's Weblog*, 06 Feb. 2015, [www.blog.scottlowe.org/2015/02/06/quick-intro-to-consul/](https://blog.scottlowe.org/2015/02/06/quick-intro-to-consul/). Accessed 10 May 2020.
 "Consensus Protocol." *HashiCorp Consul*, [www.consul.io/docs/internals/consensus.html](https://www.consul.io/docs/internals/consensus.html). Accessed 10 May 2020.
