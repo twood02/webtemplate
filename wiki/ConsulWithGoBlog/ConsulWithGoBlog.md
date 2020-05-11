@@ -33,14 +33,22 @@ For a system with just one node, making updates is simple. The client can just s
 
 ### Step-by-Step Tutorial
 In this tutorial, we will walk you through installing Consul and setting up a simple web interface using the Consul API for Go. It requires that you already have Go installed on your machine. If you do not have Go installed, please follow the steps outlined [here.](https://golang.org/doc/install) The web interface allows you to store and retrieve key-value pairs. Here is a preview of the web interface that we designed:
-/// TO DO - INSERT SCREENSHOT HERE ///
+![Web Interface Screenshot]( "Web Interface Screenshot")
 #### Setting Up Consul:
 1. Install Consul
-Mac OS X users may run `brew install consul`.<br>
+Mac OS X users may run `brew install consul`.
 All others may manually download it [here](https://www.consul.io/downloads.html).
-<br>
 *Verify Installation:*<br>
 After installing Consul, verify that the installation worked by opening a new terminal session and running the command `consul`.<br>
+```
+$ consul
+usage consul [--version] [--help] <command> [<args>]
+
+Available commands are:
+    agent          Runs a Consul agent
+    event          Fire a new event
+...
+```
 2. Now, open up two command line terminals. In the first terminal, you can start your Consul Agent (aka node) by running `consul agent -dev`.
 3. In the second terminal, run the command `consul members` to verify that you are an active node.
 4. In the second terminal, you can end your Consul connection by running `consul leave`.<br>This will remove all key-value pairs that you've stored.
@@ -65,8 +73,7 @@ First, start by making the front-end html code. We have created a simple form wi
       </form>
 	</div>
 ```
-Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the slides below, we will walk you through the code. To view the full source code, click [here](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go).
-/// ADD SCREENSHOTS ONCE CODE IS RETOUCHED ///
+Once we have the form set up, we will build the web server for this form using Go. Go provides full HTTP support with the `net/http` package. Using this package, setting up a web server is simple becuase it allows us to parse the inputs entered into the HTML form using `parseForm()`. We will set up the web server to run on our local host machine on Port 9090. Upon submitting a request on this form, the request will be sent to the web server. Once we know which button has been pressed, then we can make the associated call from the Consul KV API. In the screenshots below, we will walk you through some of the main functions of our code. To view the full source code, click [here](https://github.com/katiebramlett/gwAdvNet20.github.io/blob/master/wiki/ConsulWithGoBlog/code/main.go).
 <ul id="slider">
     <li><img src="screenshots/MAIN.png" /></li>
     <li><img src="screenshots/SETUP.png" /></li>
