@@ -10,11 +10,11 @@ permalink: /wiki/benchmark/
 A short description of your post goes here.
 
 ---
-# Creating an Environment and Deploying a Web Application with Elastic Beanstalk
+# Creating an Environment and Deploying a Web Application with AWS Elastic Beanstalk
 
-In this experiment we will deploy a sample web application in amazon cloud servers by Elastic Beanstalk service. As Amazon explains: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
+In this experiment we will deploy a sample web application on Amazon cloud servers using [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) service. As Amazon explains: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
 
-The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: t2.micro, t2.large, r5.large and m5.large. Details for each of these instance types are available below (Table 1).
+The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: <i>t2.micro</i>, <i>t2.large</i>, <i>r5.large</i>, and <i>m5.large</i>. Details for each of these instance types are available below (Table 1).
 ![alt text](table.PNG "Table 1: Amazon EC2 Pricing.")
 <div align="center">Table 1: Amazon EC2 Pricing.</div>
 
