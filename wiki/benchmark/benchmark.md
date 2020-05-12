@@ -12,7 +12,7 @@ This blog is a step by step tutorial on how to use various AWS services to deplo
 ---
 # Creating an Environment and Deploying a Web Application with AWS Elastic Beanstalk
 
-In this experiment we will deploy a sample web application on Amazon cloud servers using [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) service. As Amazon explains: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
+In this experiment we will deploy a sample web application on Amazon cloud servers using [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) service. As Amazon explains<sup>[1](#myfootnote1)</sup>: “AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS”.
 
 The sample application contains a welcome webpage with couple of links to other resources. The mentioned web application is deployed on four different machine types: <i>t2.micro</i>, <i>t2.large</i>, <i>r5.large</i>, and <i>m5.large</i>. Their specs are shown below:
  
@@ -88,7 +88,7 @@ This AWS solution integrates various AWS services to simulate different workload
 
 This solution uses Amazon Elastic Container Service ([Amazon ECS](https://aws.amazon.com/ecs/)) to spin up containers that will create hundreds of connections to your end point.
 
-The following diagram shows the architecture of this solution:
+The following diagram<sup>[2](#myfootnote2)</sup> shows the architecture of this solution:
 
 
 ![alt text](https://d1.awsstatic.com/Solutions/Solutions%20Category%20Template%20Draft/Solution%20Architecture%20Diagrams/distributed-load-testing-on-aws-architecture.f4325edc7552df2a3977d67c491b330819e52e9f.png "AWS Distributed Load Testing architecture")
@@ -181,41 +181,51 @@ Finally, the results of the task will be shown:
 We use the previously created four instances each running the same web application for load testing with the same load. We set task count to 2, concurrency to 5, ramp up to 10s, and hold for 30s. The results are shown below:
 
 ![alt text](t2_micro.png "t2.micro")
-<div align="center"><i>t2.micro</i> instance results</div>
+<center><i>t2.micro</i> instance results</center>
 <br/><br/>
 
 ![alt text](t2_large.png "t2.large")
-<div align="center"><i>t2.large</i> instance results</div>
+<center><i>t2.large</i> instance results</center>
 <br/><br/>
 
 ![alt text](m5_large.png "m5.large")
-<div align="center"><i>m5.large</i> instance results</div>
+<center><i>m5.large</i> instance results</center>
 <br/><br/>
 
 ![alt text](r5_large.png "r5.large")
-<div align="center"><i>r5.large</i> instance results</div>
+<center><i>r5.large</i> instance results</center>
 <br/><br/>
 
 # Different Loads for Web Application Running on the Same Instance Benchmark
 In this test we will use <i>r5.large</i> instance and test its behavior across different loads. We will set the ramp up to 10s and hold for 30s. Each test we will change the task count and concurrency. The results are shown below:
 
 ![alt text](load1.png "load1")
-<div align="center">Task count = 1 and Concurrency = 1</div>
+
+<center>Task count = 1 and Concurrency = 1</center>
+
 <br/><br/>
 
 ![alt text](load2.png "load2")
-<div align="center">Task count = 10 and Concurrency = 20</div>
+
+<center>Task count = 10 and Concurrency = 20</center>
+
 <br/><br/>
 
 ![alt text](load3.png "load3")
-<div align="center">Task count = 50 and Concurrency = 100</div>
+
+<center>Task count = 50 and Concurrency = 100</center>
+
 <br/><br/>
 
 ![alt text](load4.png "load4")
-<div align="center">Task count = 50 and Concurrency = 150</div>
-<br/><br/>
 
+<center>Task count = 50 and Concurrency = 150</center>
+
+<br/><br/>
 
 # Summary
 In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to do a benchmark performance test of the web application on various instances with different loads. This will help you to understand how your application will perform at scale and load running on different instance types and will help you to identify bottlenecks before you release the application.
+
+<a name="myfootnote1">1</a>: [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) webpage.
+<a name="myfootnote2">2</a>: Image source: AWS Distributed Load Testing open source [repo](https://github.com/awslabs/distributed-load-testing-on-aws) on GitHub.
 
