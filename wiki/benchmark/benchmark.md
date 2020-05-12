@@ -227,5 +227,6 @@ In this test we will use <i>r5.large</i> instance and test its behavior across d
 In this blog we have discussed how to use AWS services to deploy a web application on various instances. We have also used AWS services to do a benchmark performance test of the web application on various instances with different loads. This will help you to understand how your application will perform at scale and load running on different instance types and will help you to identify bottlenecks before you release the application.
 
 <a name="myfootnote1">1</a>: [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) webpage.
+
 <a name="myfootnote2">2</a>: Image source: AWS Distributed Load Testing open source [repo](https://github.com/awslabs/distributed-load-testing-on-aws) on GitHub.
 
