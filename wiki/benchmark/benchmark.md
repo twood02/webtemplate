@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Distributed Load Testing using AWS cloud services
+title:  Distributed Load Testing using AWS Cloud Services
 permalink: /wiki/benchmark/
 ---
 
