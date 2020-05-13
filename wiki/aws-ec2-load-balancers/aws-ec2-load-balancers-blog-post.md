@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  A Comparison of Different AWS Elastic Load Balancer Offerings with EC2
-permalink: /wiki/aws-ec2-load-balancers/
+permalink: /wiki/awsec2loadBalancers
 ---
 
 *by:* Tuhina Dasgupta

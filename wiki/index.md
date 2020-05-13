@@ -31,5 +31,5 @@ permalink: /wiki/
 - [How an Amazon API gateway invokes a lambda function](/wiki/a4_AWS_Lambda_API_gateway/)
 - [Typical Zookeeper Scenarios](/wiki/typicalZookeeperScenarios/)
 - [An Intro to Consul Agents, Data-centers, and Services](/wiki/Consul101Blog/)
-- [A Comparison of Different AWS Elastic Load Balancer Offerings with EC2	](/wiki/aws-ec2-load-balancers/)
+- [A Comparison of Different AWS Elastic Load Balancer Offerings with EC2](/wiki/awsec2loadBalancers)
 - [NGINX Consul Load Balancing](/wiki/nginxconsullb/)
