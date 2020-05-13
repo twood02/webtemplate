@@ -1,7 +1,7 @@
 ---
 layout: page
 title: How an Amazon API gateway invokes a lambda function
-permalink: /wiki/a4_AWS_Lambda_API_gateway
+permalink: /wiki/a4AWSLambdaAPIgateway
 ---
 
 *by:* Henian Wang

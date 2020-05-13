@@ -28,7 +28,7 @@ permalink: /wiki/
 
 ## Distributed Sysetms Tech Blogs
 - [A step by step guide to deploy a NodeJS application on AWS](/wiki/nodejsaws) 
-- [How an Amazon API gateway invokes a lambda function](/wiki/a4_AWS_Lambda_API_gateway/)
+- [How an Amazon API gateway invokes a lambda function](/wiki/a4AWSLambdaAPIgateway)
 - [Typical Zookeeper Scenarios](/wiki/typicalZookeeperScenarios/)
 - [An Intro to Consul Agents, Data-centers, and Services](/wiki/Consul101Blog/)
 - [A Comparison of Different AWS Elastic Load Balancer Offerings with EC2](/wiki/awsec2loadBalancers)
