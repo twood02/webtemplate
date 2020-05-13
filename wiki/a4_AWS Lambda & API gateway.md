@@ -6,16 +6,16 @@ permalink: /wiki/a4_AWS Lambda & API gateway/
 
 *by:* Henian Wang
 
-Tutorial: How an Amazon API gateway invokes a lambda function?
+In this article, I used Amazon API gateway with a AWS lambda function.
 
 ---
 
 
 "Serverless" architecture is an important area of cloud computing, and is getting more attention from the industry. The idea behind 'serverless' is that users don't manage provisioning, scaling, or maintenance of the physical machines that host their application code. AWS services, as a pioneer in "Serverless" area, provide relative services for users: AWS lambda, AWS API Gateway, AWS Batch, and AWS DynamoDB. In this article, a simple instance that combined AWS lambda with AWS API gateway will be introduced as a startup of "serverless" architecture. In this case, an API that generate random number will route HTTP requests to a lambda function.
 
-## 1. Create a AWS lambda function
+## 1. Create a AWS Lambda Function
 
-AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations. The [AWS lambda] (https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
+AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations. The [AWS lambda](https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
 
 <img src="img/a1.png" width="40%">
 
@@ -27,7 +27,7 @@ Before creating a lambda function, some basic information like function name and
 
 <img src="img/a3.png" width="40%">
 
-## 2. Manage & Test the function
+## 2. Manage & Test the Function
 
 In function list, we can find all the lambda functions that we created. For every function, AWS lambda provides management tools. In designer module, we can add trigger or destination for the lambda function, which we will mention in later part.
 
@@ -56,9 +56,9 @@ After finishing all the settings and configurations (you can change at any time)
 My program (named index.js) successfully generate a random number, but the more valuable things in the log is the summary. You can see the duration and billed duration, which matters how much you pay for a function. 128 MB is the assigned memory for the function, and it used 62 MB of 128 MB. It shows the runtime and space complexity of the algorithm that your function uses. If the test failed, the Log output would give the logging calls that point out errors.
 
 
-## 3. Create an API by Amazon API gateway
+## 3. Create an API by Amazon API Gateway
 
-API Gateway provides a scalable, secured front-end for service APIs, and can work with Lambda, Elastic Beanstalk, or regular EC2 services. It allows “serverless” deployment of applications built with Lambda. To create an API by Amazon API gateway, you could search it from amazon services, or enter the [homepage] (https://aws.amazon.com/api-gateway/). After signing in, the page shows there will be 4 steps for creating an API: Create an API, Configuration routes, Define stages, and Review and Create. 
+API Gateway provides a scalable, secured front-end for service APIs, and can work with Lambda, Elastic Beanstalk, or regular EC2 services. It allows “serverless” deployment of applications built with Lambda. To create an API by Amazon API gateway, you could search it from amazon services, or enter the [homepage](https://aws.amazon.com/api-gateway/). After signing in, the page shows there will be 4 steps for creating an API: Create an API, Configuration routes, Define stages, and Review and Create. 
 
 Amazon API gateway provides two types of API: RESTful API and Websocket API. RESTful API is a common choice for serverless workloads and HTTP backends using HTTP APIs. Websocket API is useful when you want to build a real-time two-way communication applications such as chat apps. In our case, we choose the most common one: HTTP API.
 
