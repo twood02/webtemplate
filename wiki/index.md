@@ -35,3 +35,4 @@ permalink: /wiki/
 - [NGINX Consul Load Balancing](/wiki/nginxconsullb/)
 <!-- - [etcd with Docker vs Consul with Vagrant](/wiki/etcd+Docker_vs_Consul+vagrant/)-->
 - [Spring boot server using Zookeeper.](/wiki/zookeeper/)
+- [Consul with Golang](/wiki/ConsulWithGoBlog/)
