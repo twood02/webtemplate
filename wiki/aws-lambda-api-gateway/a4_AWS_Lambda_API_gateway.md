@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  Tutorial: How an Amazon API gateway invokes a lambda function?
+title: How an Amazon API gateway invokes a lambda function
 permalink: /wiki/a4_AWS_Lambda_API_gateway
 ---
 
