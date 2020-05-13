@@ -36,3 +36,4 @@ permalink: /wiki/
 <!-- - [etcd with Docker vs Consul with Vagrant](/wiki/etcd+Docker_vs_Consul+vagrant/)-->
 - [Spring boot server using Zookeeper.](/wiki/zookeeper/)
 - [Consul with Golang](/wiki/ConsulWithGoBlog/)
+- [Distributed Load Testing using AWS Cloud Services](/wiki/benchmark/)
