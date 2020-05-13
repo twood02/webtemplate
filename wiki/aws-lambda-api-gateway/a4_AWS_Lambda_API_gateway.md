@@ -15,7 +15,7 @@ In this article, I used Amazon API gateway with a AWS lambda function.
 
 AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations.<sup>1</sup>The [AWS lambda](https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
 
-<img src="img/a1.png" width="40%">
+<img src="/wiki/a4AWSLambdaAPIgateway/img/a1.png" width="40%">
 
 AWS lambda provides three types of functions to create: Author from scratch, blue print, and Browse serverless app repository. Using a blue print to create a Lambda application is useful and convinient for common uses, or you can build a Lambda application from scratch, which needs writing codes and configuration written by yourself. In this case, I create a simple hello-world node.js function.
 
