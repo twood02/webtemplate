@@ -5,7 +5,9 @@ permalink: /wiki/a4_AWS Lambda & API gateway/
 ---
 
 *by:* Henian Wang
+
 Tutorial: How an Amazon API gateway invokes a lambda function?
+
 ---
 
 
