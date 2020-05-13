@@ -34,3 +34,4 @@ permalink: /wiki/
 - [A Comparison of Different AWS Elastic Load Balancer Offerings with EC2](/wiki/awsec2loadBalancers)
 - [NGINX Consul Load Balancing](/wiki/nginxconsullb/)
 <!-- - [etcd with Docker vs Consul with Vagrant](/wiki/etcd+Docker_vs_Consul+vagrant/)-->
+- [Spring boot server using Zookeeper.](/wiki/zookeeper/)
