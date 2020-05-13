@@ -8,8 +8,6 @@ permalink: /wiki/a4_AWS_Lambda_API_gateway
 
 In this article, I used Amazon API gateway with a AWS lambda function.
 
----
-
 
 "Serverless" architecture is an important area of cloud computing, and is getting more attention from the industry. The idea behind 'serverless' is that users don't manage provisioning, scaling, or maintenance of the physical machines that host their application code.<sup>2</sup> AWS services, as a pioneer in "Serverless" area, provide relative services for users: AWS lambda, AWS API Gateway, AWS Batch, and AWS DynamoDB. In this article, a simple instance that combined AWS lambda with AWS API gateway will be introduced as a startup of "serverless" architecture. In this case, an API that generate random number will route HTTP requests to a lambda function.
 
