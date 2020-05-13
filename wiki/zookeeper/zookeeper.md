@@ -118,7 +118,7 @@ Let's run a three-replicated Zookeeper in local environment using `docker-compos
 
 ![status](./images/status.png)
 
-If you are interested, you can play with the znodes among the servers. The `docker-compose.yml` file can be found at: . 
+If you are interested, you can play with the znodes among the servers. Check out the `docker-compose.yml` [file](https://github.com/WilliamMaa/gwAdvNet20.github.io/tree/master/wiki/zookeeper).
 
 ![relicated](./images/replicated-ops.png)
 
