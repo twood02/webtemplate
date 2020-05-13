@@ -30,3 +30,4 @@ permalink: /wiki/
 - [A step by step guide to deploy a NodeJS application on AWS](/wiki/nodejsaws) 
 - [How an Amazon API gateway invokes a lambda function](/wiki/a4_AWS_Lambda_API_gateway/)
 - [Typical Zookeeper Scenarios](/wiki/typicalZookeeperScenarios/)
+- [An Intro to Consul Agents, Data-centers, and Services](/wiki/Consul101Blog/)
