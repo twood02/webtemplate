@@ -11,11 +11,11 @@ In this article, I used Amazon API gateway with a AWS lambda function.
 ---
 
 
-"Serverless" architecture is an important area of cloud computing, and is getting more attention from the industry. The idea behind 'serverless' is that users don't manage provisioning, scaling, or maintenance of the physical machines that host their application code. AWS services, as a pioneer in "Serverless" area, provide relative services for users: AWS lambda, AWS API Gateway, AWS Batch, and AWS DynamoDB. In this article, a simple instance that combined AWS lambda with AWS API gateway will be introduced as a startup of "serverless" architecture. In this case, an API that generate random number will route HTTP requests to a lambda function.
+"Serverless" architecture is an important area of cloud computing, and is getting more attention from the industry. The idea behind 'serverless' is that users don't manage provisioning, scaling, or maintenance of the physical machines that host their application code.<sup>2</sup> AWS services, as a pioneer in "Serverless" area, provide relative services for users: AWS lambda, AWS API Gateway, AWS Batch, and AWS DynamoDB. In this article, a simple instance that combined AWS lambda with AWS API gateway will be introduced as a startup of "serverless" architecture. In this case, an API that generate random number will route HTTP requests to a lambda function.
 
 ## 1. Create a AWS Lambda Function
 
-AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations. The [AWS lambda](https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
+AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations. <sup>1</sup>The [AWS lambda](https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
 
 <img src="img/a1.png" width="40%">
 
@@ -58,7 +58,7 @@ My program (named index.js) successfully generate a random number, but the more 
 
 ## 3. Create an API by Amazon API Gateway
 
-API Gateway provides a scalable, secured front-end for service APIs, and can work with Lambda, Elastic Beanstalk, or regular EC2 services. It allows “serverless” deployment of applications built with Lambda. To create an API by Amazon API gateway, you could search it from amazon services, or enter the [homepage](https://aws.amazon.com/api-gateway/). After signing in, the page shows there will be 4 steps for creating an API: Create an API, Configuration routes, Define stages, and Review and Create. 
+API Gateway provides a scalable, secured front-end for service APIs, and can work with Lambda, Elastic Beanstalk, or regular EC2 services. <sup>2</sup>It allows “serverless” deployment of applications built with Lambda. To create an API by Amazon API gateway, you could search it from amazon services, or enter the [homepage](https://aws.amazon.com/api-gateway/). After signing in, the page shows there will be 4 steps for creating an API: Create an API, Configuration routes, Define stages, and Review and Create. 
 
 Amazon API gateway provides two types of API: RESTful API and Websocket API. RESTful API is a common choice for serverless workloads and HTTP backends using HTTP APIs. Websocket API is useful when you want to build a real-time two-way communication applications such as chat apps. In our case, we choose the most common one: HTTP API.
 
@@ -75,8 +75,6 @@ The first step is determine the backend services that API connects with, or inte
 Basically, you can add more than one integrations for an API. In our case, we directly use the lambda function that we created before, and named the API as 'RandomGenerator'. AWS region should be the nearest location geographically to reduce the latency. 
 
 <img src="img/a10.png" width="40%">
-
-API Gateway uses routes to expose integrations to consumers of your API. Routes for HTTP APIs consist of two parts: an HTTP method and a resource path (e.g., GET /pets). You can define specific HTTP methods for your integration (GET, POST, PUT, PATCH, HEAD, OPTIONS, and DELETE) or use the ANY method to match all methods that you haven't defined on a given resource.
 
 The next step is the configure routes that expose integrations. For HTTP API, it allows you to use an HTTP method (GET, POST, PUT, HEAD, etc) for the lambda function. To retrieve the random number, I will use simple GET function and set the source path as GET /index. 
 
