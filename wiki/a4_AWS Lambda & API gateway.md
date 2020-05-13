@@ -15,7 +15,7 @@ In this article, I used Amazon API gateway with a AWS lambda function.
 
 ## 1. Create a AWS Lambda Function
 
-AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations. <sup>1</sup>The [AWS lambda](https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
+AWS lambda is AWS' serverless compute offering as a part of AWS services. It allows users to define Lambda functions in a selection of runtimes that can be invoked via a variety of triggers, including SNS notifications and API Gateway invocations.<sup>1</sup>The [AWS lambda](https://aws.amazon.com/lambda/) requires AWS service account, or you can sign with AWS educate account:
 
 <img src="img/a1.png" width="40%">
 
