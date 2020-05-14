@@ -24,7 +24,7 @@ This blog post will begin with defining the needed vocabulary and providing an i
 
 ## Introduction  
 ### All About Load Balancers 
-<img src="./balance.png" width="350" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/balance.png" width="350" height="350"/><br>
 
 The load balancers sit between the client and servers and help spread the traffic across servers to improve responsiveness and availability of applications, websites or databases.
 Load balancers play a vital role in any organization where server uptime, client and staff connectivity, and performance are considered essential.
@@ -37,7 +37,7 @@ General Benfits:
   - Efficiency
 
 OSI Model w/LB 
-<img src="./osi.png" width="500" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/osi.png" width="500" height="350"/><br>
 *Classic LB has features of both Layer 4 & 7*
 
 Specific Benefits: 
@@ -49,7 +49,7 @@ For a detailed comparision of different features of each LB view this attachment
 <a href="table.pdf"> Link </a>
 <br>
 AWS specific basic load balancer illustration: <br>
-<img src="./aws_graphic.png" width="500" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/aws_graphic.png" width="500" height="350"/><br>
 
 Breakdown: 
   - Target: Targets are the resources to be invoked when a rule is triggered.
@@ -60,7 +60,7 @@ Breakdown:
 
 ## Setup Tutorials
 ### Application LB & Network LB
-<img src="./browser_graphic.png" width="550" height="300"/><br>
+<img src="/wiki/aws-ec2-load-balancers/browser_graphic.png" width="550" height="300"/><br>
 
 <b>Steps</b> <br>
 *The steps are essentially the same just substitute either Application or Network for y/n*
@@ -72,10 +72,10 @@ Breakdown:
 6. Review the settings that you selected. 
 7. Verify that it's sending traffic to your EC2 instances by checking Load Balancing -> Target Groups tab
 
-<img src="./success.png" width="350" height="500"/><br>
+<img src="/wiki/aws-ec2-load-balancers/success.png" width="350" height="500"/><br>
 
 ### Classic LB
-<img src="./classic_graphic.png" width="300" height="275"/><br>
+<img src="/wiki/aws-ec2-load-balancers/classic_graphic.png" width="300" height="275"/><br>
 
 <b>Steps</b>
 1. Open a new EC2-Classic instance and select the add load balancer option
@@ -86,13 +86,13 @@ Breakdown:
 6. Review the selected settings and click the create button 
 7. Verify that it's sending traffic to your EC2 instances by viewing the Description -> Status tab 
 
-<img src="./success.png" width="350" height="500"/><br>
+<img src="/wiki/aws-ec2-load-balancers/success.png" width="350" height="500"/><br>
 ## Example 
 Instance Setup: EC2 instance (t2.micro) Amazon Linux 2 AMI 
 
 ### Experiment 1 - ALB
 Diagram: <br>
-<img src="./alb-diagram.png" width="350" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/alb-diagram.png" width="350" height="350"/><br>
 
 install on EC2 shell: httpd
 Load Balancer Setup: mostly default settings -> important to register target as the EC2 instances
@@ -102,15 +102,15 @@ EC2 instances each have an index.html
 Navigate to the DNS for the LB and each index.html page will display on refresh. 
 
 Server/Instance 1 displays: <br>
-<img src="./first.png" width="400" height="250"/><br>
+<img src="/wiki/aws-ec2-load-balancers/first.png" width="400" height="250"/><br>
 
 Server/Instance 2 displays: <br>
-<img src="./second.png" width="400" height="250"/><br>
+<img src="/wiki/aws-ec2-load-balancers/second.png" width="400" height="250"/><br>
 
 
 ### Experiment 2 - NLB
 Nginx: <br>
-<img src="./nginx.png" width="400" height="250"/><br>
+<img src="/wiki/aws-ec2-load-balancers/nginx.png" width="400" height="250"/><br>
 (open source web server)
 
 install on EC2 shell: ufw, nginx
@@ -120,10 +120,10 @@ Wait ~5 min for load balancer to configure
 Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
 
 Server 1 displays: <br>
-<img src="./nlb1.png" width="550" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/nlb1.png" width="550" height="350"/><br>
 
 Server 2 displays: <br>
-<img src="./nlb2.png" width="550" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/nlb2.png" width="550" height="350"/><br>
 
 ### Experiment 3 - CLB
 Since CLB can handle both TCP and HTTP traffic, I tried both of the above examples with a CLB. 
@@ -133,20 +133,20 @@ Load Balancer Setup: same settings as ALB (ie. Ping Path)
 Navigate to the DNS for the LB and each index.html page will display on refresh. 
 
 Server 1 displays: <br>
-<img src="./clb1.png" width="400" height="250"/><br>
+<img src="/wiki/aws-ec2-load-balancers/clb1.png" width="400" height="250"/><br>
 
 Server 2 displays: <br>
-<img src="./clb2.png" width="400" height="250"/><br>
+<img src="/wiki/aws-ec2-load-balancers/clb2.png" width="400" height="250"/><br>
 
 NLB Experiment: 
 Load Balancer Setup: same settings as NLB
 Navigate to the DNS for the LB and each nginx welcome page will display on refresh. 
 
 Server 1 displays: <br>
-<img src="./clb3.png" width="550" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/clb3.png" width="550" height="350"/><br>
 
 Server 2 displays: <br>
-<img src="./clb4.png" width="550" height="350"/><br>
+<img src="/wiki/aws-ec2-load-balancers/clb4.png" width="550" height="350"/><br>
 
 side note: migration from CLassic to ALB/NLB was super easy with the mogration wizards (nice job AWS!)
 
