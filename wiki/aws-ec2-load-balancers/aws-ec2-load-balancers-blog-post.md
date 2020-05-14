@@ -46,7 +46,7 @@ Specific Benefits:
   - GSLB — Global Server Load Balancing extends L4 and L7 capabilities to servers in different geographic locations.
 
 For a detailed comparision of different features of each LB view this attachment (based off AWS Documentation):
-<a href="table.pdf"> Link </a>
+<a href="/wiki/aws-ec2-load-balancers/table.pdf"> Link </a>
 <br>
 AWS specific basic load balancer illustration: <br>
 <img src="/wiki/aws-ec2-load-balancers/aws_graphic.png" width="500" height="350"/><br>
