@@ -6,10 +6,11 @@ permalink: /syllabus/
 
 ---
 **Course Name:** CSCI 3907.88/6907.87 Advanced Networking and Distributed Systems
+**Website:** [https://gwadvnet20.github.io/](https://gwadvnet20.github.io/)
 **Instructors:** [Prof. Tim Wood](https://faculty.cs.gwu.edu/timwood) and Lucas Chaufournier
 **Emails:** [timwood@gwu.edu](mailto:timwood@gwu.edu) and [lucaschaufournier@gmail.com](mailto:lucaschaufournier@gmail.com)
 **Time/Place:** Tuesdays 10AM-12:30PM in Tompkins 402
-**Office Hours:** TBD
+**Office Hours:** By appointment (contact profs via slack or email)
 
 ---
  
@@ -26,9 +27,9 @@ By the end of this course, students will:
 
 **Course Outline**
 
-  * Weeks 1-8: Networking
+  * Weeks 1-6: Networking
     * Protocols, Socket Programming, Threading Models, Performance, Communication Frameworks, and Middleboxes
-  * Weeks 9-15: Distributed Systems
+  * Weeks 7-15: Distributed Systems
     * Scalability, Reliability, Consensus, Edge Computing, Serverless Computing
   * Throughout: Cloud Computing
     * We will use a variety of cloud services from AWS
@@ -40,8 +41,6 @@ Final grades will be calculated based on this breakdown:
  - Midterm = 20%
  - Quizzes = 20% 
  - Participation = 10% 
-
-> **Update 3/19/202:** Since we are moving to online instruction for the remainder of the course, the grading policy may be adjusted.
 
 #### Participation
 Participation will be measured each "week," defined as the days from Tuesday until Monday. Up until March 30th, participation was required at least once every two weeks. Starting Tuesday March 31st, participation is required at least once every week.
