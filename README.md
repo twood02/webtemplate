@@ -1,15 +1,15 @@
 # Web Template
-Jekyll based template for GW CS.
+[Jekyll](https://jekyllrb.com) based template for GW CS.
 
 ## How to setup this template
 
 Setup the repository
  - Create an organization for your class
- - Click the Fork button and select your organization
- - Rename your fork from `webtemplate` to something more meaningful
-   - If you plan to use github pages for hosting the site, you must name it `ORGNAME.github.io`
+ - Create a blank repository in your organization (do not have it create a readme for you)
+   - If you plan to use github pages for hosting the site, you must name it `ORGNAME.github.io`. This guide assumes that, but 
+- Tell Github to import the contents of this repository (`https://github.com/twood02/webtemplate`) into your new one 
 
-You now can try to preview your site at `https://orgname.github.io`, however, you will see that the site's formatting is mostly broken. To fix this we need to adjust some settings specific to your site.
+You now can try to preview your site at `https://orgname.github.io`, however, you may see that the site's formatting is mostly broken. To fix this we need to adjust some settings specific to your site.
 
 Edit the `_config.yml` file either by checking out the repo or through the github web editor
   - Fill in the `title`, `email`, `author`, and `description` tags.  The `description` will appear in the footer of each page, so typically I just list the course number
@@ -25,6 +25,8 @@ If you edited the config file directly on github, github pages will automaticall
 The site is built using Jekyll (installation instructions below) which supports markdown and HTML formats. I generally use markdown files and add in HTML where necessary to do more complex formatting.
 
 If you have the repository checked out to your computer, you can test the site locally by running: `./run.sh` in the repo root. This will start a webserver at `localhost:4000` where you can see the site (the link will be different if you adjusted the baseurl field).  As soon as you edit and save a file, the site will automatically rebuild.
+
+If you aren't using GitHub pages to automatically render the site, then you can run `JEKYLL_ENV=production bundle exec jekyll build --incremental` to create a local version of the site in `build/` which you can upload somewhere directly.
 
 ## How to install Jekyll
 
