@@ -33,5 +33,6 @@ If you aren't using GitHub pages to automatically render the site, then you can 
 I think all you need to is the following:
   - Make sure Ruby 3.X is installed. By default, MacOS has an outdated version. If you have Homebrew you can run: `brew install ruby`
   - Run `gem install bundler jekyll`
+  - Then: `bundle install`
   
 Check [https://jekyllrb.com/](https://jekyllrb.com/) for more details.
